@@ -7,8 +7,9 @@ public class OfficerController : MonoBehaviour
     // Start is called before the first frame update
 
     private NavMeshAgent agent;
-    public Transform[] points;
+    private RoutePoint[] points;
     public int pointIndex;
+    public RouteVisualization route;
 
     private bool destinationSet = false;
     public int waitTime = 5;
@@ -16,14 +17,18 @@ public class OfficerController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        points = route.GetPoints();
 
         GotoNextPoint();
     }
 
     IEnumerator GotoNextPoint()
     {
-        yield return new WaitForSeconds(waitTime);
-        agent.SetDestination(points[(pointIndex++) % points.Length].position);
+        if (points[(pointIndex + 1) % points.Length].isStoppable)
+        {
+            yield return new WaitForSeconds(waitTime);
+        }
+        agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
         destinationSet = false;
     }
 
