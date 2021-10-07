@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,28 +6,34 @@ public class OfficerController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Camera cam;
-    public NavMeshAgent agent;
+    private NavMeshAgent agent;
+    public Transform[] points;
+    public int pointIndex;
+
+    private bool destinationSet = false;
+    public int waitTime = 5;
+
     void Start()
     {
-        cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
+
+        GotoNextPoint();
+    }
+
+    IEnumerator GotoNextPoint()
+    {
+        yield return new WaitForSeconds(waitTime);
+        agent.SetDestination(points[(pointIndex++) % points.Length].position);
+        destinationSet = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && !destinationSet)
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if(Physics.Raycast(ray, out hit))
-            {
-                Debug.Log("Move:"+hit.point);
-                agent.SetDestination(hit.point);
-            }
-        }
-        
+            destinationSet = true;
+            StartCoroutine(GotoNextPoint());
+        } 
     }
 }
