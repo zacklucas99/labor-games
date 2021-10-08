@@ -25,6 +25,7 @@ public class OfficerController : MonoBehaviour
     private MeshFilter meshFilter;
 
     public int meshResolution;
+    public int refinementSteps;
 
     void Start()
     {
@@ -109,27 +110,31 @@ public class OfficerController : MonoBehaviour
 
         float angleSteps = viewAngle / meshResolution;
 
-        Vector3[] hitPoints = new Vector3[meshResolution];
-        for(int i = 0; i< meshResolution; i++)
+        ViewHitInfo[] hitPoints = new ViewHitInfo[meshResolution+1];
+        RaycastHit hitInfo;
+        for (int i = 0; i< meshResolution+1; i++)
         {
-            Vector3 currentVec= Quaternion.AngleAxis(-viewAngle / 2 + angleSteps * i, Vector3.up) * transform.forward;
-            RaycastHit hitInfo;
+            float currentAngle = -viewAngle / 2 + angleSteps * i;
+            Vector3 currentVec= Quaternion.AngleAxis(currentAngle, Vector3.up) * transform.forward;
             if(Physics.Raycast(transform.position, currentVec,out hitInfo, viewDist))
             {
-                hitPoints[i] = hitInfo.point;
+                hitPoints[i] = new ViewHitInfo { HitPos = hitInfo.point, Angle = currentAngle, HitWall = true };
             }
             else
             {
-                hitPoints[i] = transform.position + currentVec * viewDist;
+                hitPoints[i] = new ViewHitInfo { HitPos = transform.position + currentVec * viewDist, Angle = currentAngle, HitWall = false };
             }
-            hitPoints[i] = transform.InverseTransformPoint(hitPoints[i]);
+            hitPoints[i].HitPos=transform.InverseTransformPoint(hitPoints[i].HitPos);
         }
+
+        //Todo: Refine Position
+        RefinePosition(hitPoints);
 
         Vector3[] vertices = new Vector3[hitPoints.Length + 1];
         vertices[0] = new Vector3() +Vector3.up;
         for (int i = 0; i< hitPoints.Length; i++)
         {
-            vertices[i + 1] = hitPoints[i]+ Vector3.up;
+            vertices[i + 1] = hitPoints[i].HitPos+ Vector3.up;
         }
         mesh.vertices = vertices;
 
@@ -142,4 +147,60 @@ public class OfficerController : MonoBehaviour
         }
         mesh.triangles = trianglePoints.ToArray();
     }
+
+    public void RefinePosition(ViewHitInfo[] infos)
+    {
+        if (infos.Length < 1)
+        {
+            return;
+        }
+        for (int i = 1; i < infos.Length; i++)
+        {
+            if(infos[i].HitWall != infos[i - 1].HitWall)
+            {
+                if(infos[i].HitWall == true)
+                {
+                    infos[i] = ExecuteRefinement(infos[i], infos[i-1]);
+                }
+
+                if (infos[i-1].HitWall == true)
+                {
+                    infos[i-1] = ExecuteRefinement(infos[i - 1], infos[i]);
+                }
+
+            }
+        }
+    }
+
+    public ViewHitInfo ExecuteRefinement(ViewHitInfo wallHit, ViewHitInfo notWallHit)
+    {
+        ViewHitInfo viewHitInfo = wallHit;
+        for (int i = 0; i< refinementSteps; i++)
+        {
+            float middleAngle = (wallHit.Angle + notWallHit.Angle) / 2;
+
+            Vector3 currentVec = Quaternion.AngleAxis(middleAngle, Vector3.up) * transform.forward;
+            RaycastHit hitInfo;
+            if (Physics.Raycast(transform.position, currentVec, out hitInfo, viewDist))
+            {
+                viewHitInfo = new ViewHitInfo { Angle = middleAngle, HitPos = transform.InverseTransformPoint(hitInfo.point), HitWall = true };
+                wallHit = viewHitInfo;
+            }
+            else
+            {
+                notWallHit = viewHitInfo;
+            }
+        }
+
+        return viewHitInfo;
+    }
+
+}
+
+public struct ViewHitInfo
+{
+    public bool HitWall { get; set; }
+    public float Angle { get; set; }
+
+    public Vector3 HitPos { get; set; }
 }

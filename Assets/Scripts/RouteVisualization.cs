@@ -31,9 +31,9 @@ public class RouteVisualization : MonoBehaviour
 
         if (transform.childCount > 1)
         {
-            var pos = transform.GetChild(0).transform.position;
+            var pos = transform.GetChild(transform.childCount - 1).transform.position;
             Gizmos.DrawSphere(transform.GetChild(transform.childCount-1).transform.position, point_radius);
-            Handles.Label(new Vector3(pos.x, pos.y + point_radius, pos.z), "End");
+            Handles.Label(new Vector3(pos.x, pos.y + point_radius*2, pos.z), "End");
 
         }
     }
