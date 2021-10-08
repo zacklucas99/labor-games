@@ -33,7 +33,7 @@ public class RouteVisualization : MonoBehaviour
         {
             var pos = transform.GetChild(0).transform.position;
             Gizmos.DrawSphere(transform.GetChild(transform.childCount-1).transform.position, point_radius);
-            Handles.Label(new Vector3(pos.x, pos.y + point_radius, pos.z), "Start");
+            Handles.Label(new Vector3(pos.x, pos.y + point_radius, pos.z), "End");
 
         }
     }
