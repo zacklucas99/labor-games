@@ -89,7 +89,7 @@ public class FieldOfView : MonoBehaviour
         {
             if (infos[i].HitWall != infos[i - 1].HitWall)
             {
-                if (infos[i].HitWall == true)
+                if (infos[i].HitWall == true ||(infos[i].HitPos - infos[i-1].HitPos).magnitude > maxThreshold)
                 {
                     infos[i] = ExecuteRefinement(infos[i], infos[i - 1]);
                 }
@@ -112,7 +112,7 @@ public class FieldOfView : MonoBehaviour
 
             Vector3 currentVec = Quaternion.AngleAxis(middleAngle, Vector3.up) * transform.forward;
             RaycastHit hitInfo;
-            if (Physics.Raycast(transform.position, currentVec, out hitInfo, viewDist))
+            if (Physics.Raycast(transform.position, currentVec, out hitInfo, viewDist) && !((wallHit.HitPos - notWallHit.HitPos).magnitude > maxThreshold))
             {
                 viewHitInfo = new ViewHitInfo { Angle = middleAngle, HitPos = transform.InverseTransformPoint(hitInfo.point), HitWall = true };
                 wallHit = viewHitInfo;
