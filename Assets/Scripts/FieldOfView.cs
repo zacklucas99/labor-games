@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
+
+
+[System.Serializable]
+public class FoundPlayerEvent : UnityEvent<GameObject>
+{
+}
 
 public class FieldOfView : MonoBehaviour
 {
@@ -20,6 +27,11 @@ public class FieldOfView : MonoBehaviour
 
     public LayerMask actionMask;
 
+    public FoundPlayerEvent PlayerFoundEvent = new FoundPlayerEvent();
+    public UnityEvent PlayerLostEvent = new UnityEvent();
+
+    private bool foundPlayers = false;
+
 
     void Start()
     {
@@ -31,6 +43,11 @@ public class FieldOfView : MonoBehaviour
     private void LateUpdate()
     {
         GenerateMesh();
+    }
+
+    private void Update()
+    {
+        CheckCollision();
     }
 
     public void GenerateMesh()
@@ -162,6 +179,34 @@ public class FieldOfView : MonoBehaviour
                 Handles.DrawLine(transform.position, collider.transform.position);
             }
 
+        }
+    }
+
+    private void CheckCollision()
+    {
+        Handles.color = Color.red;
+        bool foundPlayerThisRound = false;
+
+        foreach (var collider in Physics.OverlapSphere(transform.position, viewDist, actionMask))
+        {
+            var dist = collider.transform.position - transform.position;
+            dist = new Vector3(dist.x, 0, dist.z);
+            if (Mathf.Abs(Vector3.Angle(dist, transform.forward)) <= viewAngle / 2)
+            {
+                if (!Physics.Raycast(new Ray(transform.position + new Vector3(0, 1, 0), dist)))
+                {
+                    return;
+                }
+                PlayerFoundEvent.Invoke(collider.gameObject);
+                foundPlayers = true;
+                foundPlayerThisRound = true;
+            }
+
+        }
+        if (foundPlayers && !foundPlayerThisRound)
+        {
+            foundPlayers = false;
+            PlayerLostEvent.Invoke();
         }
     }
 }

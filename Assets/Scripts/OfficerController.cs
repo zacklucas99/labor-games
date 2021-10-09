@@ -14,6 +14,9 @@ public class OfficerController : MonoBehaviour
     public RouteVisualization route;
     private bool destinationSet = false;
 
+    public Color lostColor;
+    public Color foundColor;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,14 +27,14 @@ public class OfficerController : MonoBehaviour
         if (route && route.GetPoints().Length > 0)
         {
 
-            GotoNextPoint();
+            GotoNextPoint(false);
         }
 
     }
 
-    IEnumerator GotoNextPoint()
+    IEnumerator GotoNextPoint( bool wait)
     {
-        if (points[(pointIndex) % points.Length].isStoppable)
+        if (points[(pointIndex) % points.Length].isStoppable && wait)
         {
             yield return new WaitForSeconds(points[(pointIndex) % points.Length].waitTime);
         }
@@ -39,15 +42,25 @@ public class OfficerController : MonoBehaviour
         destinationSet = false;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f && !destinationSet && route!= null && route.GetPoints().Length > 1)
         {
             destinationSet = true;
-            StartCoroutine(GotoNextPoint());
+            StartCoroutine(GotoNextPoint(true));
         };
 
+    }
+
+    public void FoundPlayer(GameObject player) {
+        GetComponent<MeshRenderer>().material.color = foundColor;
+    }
+
+    public void LostPlayer()
+    {
+        GetComponent<MeshRenderer>().material.color = lostColor;
     }
 
 
