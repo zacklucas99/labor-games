@@ -7,6 +7,7 @@ public class RoutePoint : MonoBehaviour
     public static float routePointRad = 0.5f;
     
     public bool isStoppable = true;
+    public int waitTime = 5;
     private void OnDrawGizmos()
     {
         if (transform.parent.GetComponent<RouteVisualization>().isVisible)
