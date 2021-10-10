@@ -17,6 +17,8 @@ public class OfficerController : MonoBehaviour
     public Color lostColor;
     public Color foundColor;
 
+    public Transform goBackDestination;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -39,6 +41,10 @@ public class OfficerController : MonoBehaviour
             yield return new WaitForSeconds(points[(pointIndex) % points.Length].waitTime);
         }
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
+        if(pointIndex >= points.Length)
+        {
+            pointIndex = 0;
+        }
         destinationSet = false;
     }
 
@@ -48,6 +54,7 @@ public class OfficerController : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f && !destinationSet && route!= null && route.GetPoints().Length > 1)
         {
+            Debug.Log("Go To Next Point");
             destinationSet = true;
             StartCoroutine(GotoNextPoint(true));
         };
@@ -56,11 +63,21 @@ public class OfficerController : MonoBehaviour
 
     public void FoundPlayer(GameObject player) {
         GetComponent<MeshRenderer>().material.color = foundColor;
+        destinationSet = true;
+        agent.SetDestination(player.transform.position);
+        goBackDestination = points[(pointIndex >=2?pointIndex-2:0)%points.Length].transform;
+
     }
 
     public void LostPlayer()
     {
         GetComponent<MeshRenderer>().material.color = lostColor;
+        destinationSet = false;
+
+        agent.SetDestination(goBackDestination.position);
+        Debug.Log("Lost_player");
+
+
     }
 
 

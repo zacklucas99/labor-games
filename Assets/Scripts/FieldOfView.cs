@@ -33,6 +33,8 @@ public class FieldOfView : MonoBehaviour
     private bool foundPlayers = false;
 
 
+
+
     void Start()
     {
         meshFilter = GetComponent<MeshFilter>();
