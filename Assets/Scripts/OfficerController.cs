@@ -10,6 +10,8 @@ public class OfficerController : MonoBehaviour
 
     private NavMeshAgent agent;
     private RoutePoint[] points;
+    private RoutePoint lastPoint;
+
     public int pointIndex;
     public RouteVisualization route;
     private bool destinationSet = false;
@@ -36,10 +38,13 @@ public class OfficerController : MonoBehaviour
 
     IEnumerator GotoNextPoint( bool wait)
     {
+        Debug.Log("GoToNextPoint");
         if (points[(pointIndex) % points.Length].isStoppable && wait)
         {
             yield return new WaitForSeconds(points[(pointIndex) % points.Length].waitTime);
         }
+        lastPoint = points[pointIndex % points.Length];
+
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
         if(pointIndex >= points.Length)
         {
@@ -63,9 +68,8 @@ public class OfficerController : MonoBehaviour
 
     public void FoundPlayer(GameObject player) {
         GetComponent<MeshRenderer>().material.color = foundColor;
-        destinationSet = true;
         agent.SetDestination(player.transform.position);
-        goBackDestination = points[(pointIndex >=2?pointIndex-2:0)%points.Length].transform;
+        goBackDestination = lastPoint.transform;
 
     }
 
