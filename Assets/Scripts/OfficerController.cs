@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class OfficerController : MonoBehaviour
 {
@@ -19,7 +20,15 @@ public class OfficerController : MonoBehaviour
     public Color lostColor;
     public Color foundColor;
 
-    public Transform goBackDestination;
+    private Transform goBackDestination;
+
+
+    private ThirdPersonCharacter character;
+
+    private bool isFollowingPlayer;
+
+    public float playerFollowingSpeed = 1f;
+    public float walkingSpeed = 0.5f;
 
     void Start()
     {
@@ -33,6 +42,8 @@ public class OfficerController : MonoBehaviour
 
             GotoNextPoint(false);
         }
+
+        character = GetComponent<ThirdPersonCharacter>();
 
     }
 
@@ -57,12 +68,20 @@ public class OfficerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 0.5f && !destinationSet && route!= null && route.GetPoints().Length > 1)
+        if (!agent.pathPending && agent.remainingDistance < agent.stoppingDistance && !destinationSet && route!= null && route.GetPoints().Length > 1)
         {
             Debug.Log("Go To Next Point");
             destinationSet = true;
             StartCoroutine(GotoNextPoint(true));
         };
+
+        if (agent.remainingDistance > agent.stoppingDistance) {
+            character.Move(agent.desiredVelocity.normalized * (isFollowingPlayer?playerFollowingSpeed:walkingSpeed), false, false);
+        }
+        else
+        {
+            character.Move(Vector3.zero, false, false);
+        }
 
     }
 
@@ -70,6 +89,7 @@ public class OfficerController : MonoBehaviour
         GetComponent<MeshRenderer>().material.color = foundColor;
         agent.SetDestination(player.transform.position);
         goBackDestination = lastPoint.transform;
+        isFollowingPlayer = true;
 
     }
 
@@ -79,6 +99,7 @@ public class OfficerController : MonoBehaviour
         destinationSet = false;
 
         agent.SetDestination(goBackDestination.position);
+        isFollowingPlayer = false;
         Debug.Log("Lost_player");
 
 
