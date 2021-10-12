@@ -26,11 +26,15 @@ public class FieldOfView : MonoBehaviour
     public float viewDist;
 
     public LayerMask actionMask;
+    public LayerMask environment;
+
+
+    private bool foundPlayers = false;
+
+    public float offset = 1;
 
     public FoundPlayerEvent PlayerFoundEvent = new FoundPlayerEvent();
     public UnityEvent PlayerLostEvent = new UnityEvent();
-
-    private bool foundPlayers = false;
 
 
 
@@ -66,25 +70,26 @@ public class FieldOfView : MonoBehaviour
         {
             float currentAngle = -viewAngle / 2 + angleSteps * i;
             Vector3 currentVec = Quaternion.AngleAxis(currentAngle, Vector3.up) * transform.forward;
-            if (Physics.Raycast(transform.position, currentVec, out hitInfo, viewDist))
+            Debug.DrawRay(transform.position, currentVec * viewDist, Color.cyan);
+            if (Physics.Raycast(transform.position+ Vector3.up * offset, currentVec, out hitInfo, viewDist))
             {
                 hitPoints[i] = new ViewHitInfo { HitPos = hitInfo.point, Angle = currentAngle, HitWall = true };
             }
             else
             {
-                hitPoints[i] = new ViewHitInfo { HitPos = transform.position + currentVec * viewDist, Angle = currentAngle, HitWall = false };
+                hitPoints[i] = new ViewHitInfo { HitPos = transform.position + currentVec * viewDist + Vector3.up * offset , Angle = currentAngle, HitWall = false };
             }
             hitPoints[i].HitPos = transform.InverseTransformPoint(hitPoints[i].HitPos);
         }
-
+        
         //Todo: Refine Position
         RefinePosition(hitPoints);
 
         Vector3[] vertices = new Vector3[hitPoints.Length + 1];
-        vertices[0] = new Vector3() + Vector3.up;
+        vertices[0] = new Vector3() + Vector3.up*offset;
         for (int i = 0; i < hitPoints.Length; i++)
         {
-            vertices[i + 1] = hitPoints[i].HitPos + Vector3.up;
+            vertices[i + 1] = hitPoints[i].HitPos;
         }
         mesh.vertices = vertices;
 
@@ -131,7 +136,7 @@ public class FieldOfView : MonoBehaviour
 
             Vector3 currentVec = Quaternion.AngleAxis(middleAngle, Vector3.up) * transform.forward;
             RaycastHit hitInfo;
-            if (Physics.Raycast(transform.position, currentVec, out hitInfo, viewDist) && !((wallHit.HitPos - notWallHit.HitPos).magnitude > maxThreshold))
+            if (Physics.Raycast(transform.position + Vector3.up * offset, currentVec, out hitInfo, viewDist, environment) && !((wallHit.HitPos - notWallHit.HitPos).magnitude > maxThreshold))
             {
                 viewHitInfo = new ViewHitInfo { Angle = middleAngle, HitPos = transform.InverseTransformPoint(hitInfo.point), HitWall = true };
                 wallHit = viewHitInfo;
@@ -174,7 +179,7 @@ public class FieldOfView : MonoBehaviour
             dist = new Vector3(dist.x, 0, dist.z);
             if (Mathf.Abs(Vector3.Angle(dist, transform.forward)) <= viewAngle / 2)
             {
-                if (!Physics.Raycast(new Ray(transform.position + new Vector3(0, 1, 0), dist)))
+                if (!Physics.Raycast(new Ray(transform.position + new Vector3(0, 1, 0),dist),viewDist, environment))
                 {
                     return;
                 }
