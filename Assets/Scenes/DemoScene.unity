@@ -4232,7 +4232,8 @@ MonoBehaviour:
     m_Bits: 64
   environment:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 4294967295
+  offset: 1
   PlayerFoundEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4277,8 +4278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointIndex: 0
   route: {fileID: 2056429405}
-  lostColor: {r: 0.7264151, g: 0.14048593, b: 0.14048593, a: 0.45490196}
-  foundColor: {r: 1, g: 0.93226576, b: 0, a: 0.56078434}
+  lostColor: {r: 1, g: 0.94493365, b: 0, a: 0.45490196}
+  foundColor: {r: 0.8679245, g: 0.060444627, b: 0, a: 0.56078434}
   playerFollowingSpeed: 1
   walkingSpeed: 0.5
 --- !u!195 &723911522
@@ -4737,6 +4738,7 @@ MonoBehaviour:
   environment:
     serializedVersion: 2
     m_Bits: 0
+  offset: 1
   PlayerFoundEvent:
     m_PersistentCalls:
       m_Calls:
@@ -8584,7 +8586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18984
+  m_Name: pb_Mesh18978
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
