@@ -30,12 +30,22 @@ public class OfficerController : MonoBehaviour
     public float playerFollowingSpeed = 1f;
     public float walkingSpeed = 0.5f;
 
+    public bool setToStartPoint;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         if (route)
         {
             points = route.GetPoints();
+        }
+        if(setToStartPoint &&points.Length > 0)
+        {
+            transform.position = points[0].transform.position;
+            if (points.Length > 1)
+            {
+                transform.LookAt(points[1].transform.position);
+            }
         }
         if (route && route.GetPoints().Length > 0)
         {
@@ -49,7 +59,6 @@ public class OfficerController : MonoBehaviour
 
     IEnumerator GotoNextPoint( bool wait)
     {
-        Debug.Log("GoToNextPoint");
         if (points[(pointIndex) % points.Length].isStoppable && wait)
         {
             yield return new WaitForSeconds(points[(pointIndex) % points.Length].waitTime);
@@ -70,7 +79,6 @@ public class OfficerController : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < agent.stoppingDistance && !destinationSet && route!= null && route.GetPoints().Length > 1)
         {
-            Debug.Log("Go To Next Point");
             destinationSet = true;
             StartCoroutine(GotoNextPoint(true));
         };

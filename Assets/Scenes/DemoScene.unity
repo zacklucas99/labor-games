@@ -4282,6 +4282,7 @@ MonoBehaviour:
   foundColor: {r: 0.8679245, g: 0.060444627, b: 0, a: 0.56078434}
   playerFollowingSpeed: 1
   walkingSpeed: 0.5
+  setToStartPoint: 1
 --- !u!195 &723911522
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4666,6 +4667,7 @@ MonoBehaviour:
   foundColor: {r: 1, g: 0, b: 0.08857536, a: 0.53333336}
   playerFollowingSpeed: 1
   walkingSpeed: 0.5
+  setToStartPoint: 0
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
