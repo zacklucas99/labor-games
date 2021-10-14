@@ -23,7 +23,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButton("Jump"))
         {
             if (controller.isGrounded)
             {
