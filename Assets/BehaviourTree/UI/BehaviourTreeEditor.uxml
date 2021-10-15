@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <uie:Toolbar />
+    <SplitView>
+        <ui:VisualElement name="LeftPanel" style="flex-grow: 0; min-width: auto; width: 300px;">
+            <ui:Label text="Inspector" display-tooltip-when-elided="true" />
+            <InspectorView style="flex-grow: 2; min-width: auto;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightPanel" style="width: auto; flex-grow: 1;">
+            <ui:Label text="Treeview" display-tooltip-when-elided="true" />
+            <BehaviourTreeView style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </SplitView>
+</ui:UXML>

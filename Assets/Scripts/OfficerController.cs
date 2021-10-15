@@ -27,10 +27,14 @@ public class OfficerController : MonoBehaviour
 
     private bool isFollowingPlayer;
 
+    public bool FollowingPlayer =>isFollowingPlayer;
+
     public float playerFollowingSpeed = 1f;
     public float walkingSpeed = 0.5f;
 
     public bool setToStartPoint;
+
+    public Vector3 playerDestination;
 
     void Start()
     {
@@ -75,7 +79,7 @@ public class OfficerController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    public void Move()
     {
         if (!agent.pathPending && agent.remainingDistance < agent.stoppingDistance && !destinationSet && route!= null && route.GetPoints().Length > 1)
         {
@@ -84,18 +88,30 @@ public class OfficerController : MonoBehaviour
         };
 
         if (agent.remainingDistance > agent.stoppingDistance) {
-            character.Move(agent.desiredVelocity.normalized * (isFollowingPlayer?playerFollowingSpeed:walkingSpeed), false, false);
+            character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
         }
         else
         {
             character.Move(Vector3.zero, false, false);
         }
-
     }
+
+    public void Reset()
+    {
+        character.Move(Vector3.zero, false, false);
+        agent.SetDestination(transform.position);
+    }
+
+    public void FollowPlayer()
+    {
+        agent.SetDestination(playerDestination);
+        character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
+    }
+
 
     public void FoundPlayer(GameObject player) {
         GetComponent<MeshRenderer>().material.color = foundColor;
-        agent.SetDestination(player.transform.position);
+        playerDestination = player.transform.position;
         goBackDestination = lastPoint.transform;
         isFollowingPlayer = true;
 

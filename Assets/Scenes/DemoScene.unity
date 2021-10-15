@@ -2746,6 +2746,24 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &467399450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6131249789233174286, guid: 8dd68fb67c10dae449a0b47900cae706, type: 3}
+  m_PrefabInstance: {fileID: 6131249789952103505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &467399461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467399450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da15408d5b566c46b045ee00e9a04ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: e7c782a9e281fd84eb66d57b157d5107, type: 2}
 --- !u!43 &468506153
 Mesh:
   m_ObjectHideFlags: 0
@@ -3802,11 +3820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442264364451, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016706446
+      value: -0.000000016709789
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442264364451, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000041031454
+      value: 0.0000000041039665
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4055,6 +4073,7 @@ MonoBehaviour:
   playerFollowingSpeed: 1
   walkingSpeed: 0.5
   setToStartPoint: 0
+  playerDestination: {x: 0, y: 0, z: 0}
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
