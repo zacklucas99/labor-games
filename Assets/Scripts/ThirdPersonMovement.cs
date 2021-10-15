@@ -11,11 +11,16 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpHeight = 1f;
     public float turnSmoothTime = 0.2f;
     float turnSmoothVelocity;
-    float velocityY;
+    float velocityY = 0;
 
-    private void Start()
+    Animator anim;
+    float legOffset = 0.2f;
+    bool grounded = true;
+
+    void Start()
     {
         Cursor.visible = false;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,6 +33,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if (controller.isGrounded)
             {
                 velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
+                grounded = false;
             }
         }
 
@@ -48,7 +54,27 @@ public class ThirdPersonMovement : MonoBehaviour
             if (controller.isGrounded)
             {
                 velocityY = 0;
+                grounded = true;
+                
             }
+
+        }
+        UpdateAnimator(inputDir);
+
+    }
+
+    void UpdateAnimator(Vector3 move)
+    {
+        anim.SetFloat("Forward", move.magnitude, 0.1f, Time.deltaTime);
+        anim.SetBool("OnGround", grounded);
+
+        float runCycle =
+            Mathf.Repeat(
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime + legOffset, 1);
+        float jumpLeg = (runCycle < 0.5f ? 1 : -1) * move.magnitude;
+        if (grounded)
+        {
+            anim.SetFloat("JumpLeg", jumpLeg);
         }
     }
 
