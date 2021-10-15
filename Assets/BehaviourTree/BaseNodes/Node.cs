@@ -11,16 +11,14 @@ public abstract class Node : ScriptableObject
         Running, Failure, Success
     }
 
-    public bool stopDebugging = false;
+    [HideInInspector] public bool stopDebugging = false;
 
-    public State NodeState { get; set; } = State.Running;
+    [HideInInspector]  public State NodeState = State.Running;
     private bool started = false;
-
-    //public Context Context { get; set; }
 
     [HideInInspector]public string guid;
 
-    public Vector2 Position { get; set; }
+    [HideInInspector] public Vector2 Position;
 
     public State Update()
     {

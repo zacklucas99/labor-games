@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class DecoratorNode : Node
 {
-    public Node Child { get; set; }
+    public Node Child;
 
     public override Node Clone()
     {

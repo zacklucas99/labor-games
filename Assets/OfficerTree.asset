@@ -1,75 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5744477253126078887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
-  m_Name: RepeatNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  guid: d74525800bff0f745b6ddf695f8d6f0a
---- !u!114 &-4264891985497699362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9023a9c4c5fbb994fb58a890947bdced, type: 3}
-  m_Name: FollowPlayerNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  guid: 7aea6df96f9f1144f80c626d10851724
---- !u!114 &-2589604974192090352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fa28599eabe4245a384b95e740a5b2, type: 3}
-  m_Name: MoveNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  guid: 30ec0e0b46220894a8c9ac81685c57eb
-  message: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714b1c42e3626fa46981560b078f7868, type: 3}
-  m_Name: OfficerTree
-  m_EditorClassIdentifier: 
---- !u!114 &3022220075554227437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bcec3c2a5625d42aa119feee7417cd, type: 3}
-  m_Name: RootNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  guid: 1fdb1b43778bf464f873de623e8d6ea8
---- !u!114 &8468412030776735769
+--- !u!114 &-8247737994787329601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,4 +13,96 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  guid: 6e005c16f130d3c4eb4a32cc6925a25d
+  NodeState: 0
+  guid: 2efa5ca31d00f3e46add5063e7c8ba42
+  Position: {x: 634, y: 23}
+  Children:
+  - {fileID: 3831728135835813776}
+  - {fileID: 4295523316097196793}
+--- !u!114 &-5706444209112330236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: b43d1f347c7ab5342898e7e5a6e0b8f3
+  Position: {x: 288.63614, y: 23.077484}
+  Child: {fileID: -8247737994787329601}
+--- !u!114 &-4825074913803977359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bcec3c2a5625d42aa119feee7417cd, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: 323779b84c242974db90c756d682738a
+  Position: {x: 0, y: 0}
+  Child: {fileID: -5706444209112330236}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714b1c42e3626fa46981560b078f7868, type: 3}
+  m_Name: OfficerTree
+  m_EditorClassIdentifier: 
+  RootNode: {fileID: -4825074913803977359}
+  TreeState: 0
+  Nodes:
+  - {fileID: -4825074913803977359}
+  - {fileID: -5706444209112330236}
+  - {fileID: -8247737994787329601}
+  - {fileID: 3831728135835813776}
+  - {fileID: 4295523316097196793}
+--- !u!114 &3831728135835813776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fa28599eabe4245a384b95e740a5b2, type: 3}
+  m_Name: MoveNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: 6a688788fee69ba439d5e11056cedac1
+  Position: {x: 936.6, y: 11}
+  message: 
+--- !u!114 &4295523316097196793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9023a9c4c5fbb994fb58a890947bdced, type: 3}
+  m_Name: FollowPlayerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: ee39a80d6295250408130a16b9774ce4
+  Position: {x: 925.90265, y: 164.77248}

@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "BehaviourTreeAssets/NodeData")]
 public class BehaviourTree : ScriptableObject
 {
-    public Node RootNode { get; set; }
-    public Node.State TreeState { get; set; }
+    public Node RootNode;
+    public Node.State TreeState;
 
-    public List<Node> Nodes { get; set; } = new List<Node>();
+    public List<Node> Nodes= new List<Node>();
 
     public Node.State Update()
     {
@@ -57,6 +57,10 @@ public class BehaviourTree : ScriptableObject
         {
             composite.Children.Add(child);
         }
+
+        EditorUtility.SetDirty(parent);
+        AssetDatabase.SaveAssetIfDirty(this);
+        AssetDatabase.SaveAssets();
     }
 
     public void RemoveChild(Node parent, Node child)
@@ -78,6 +82,8 @@ public class BehaviourTree : ScriptableObject
         {
             root.Child = null;
         }
+
+        EditorUtility.SetDirty(parent);
     }
 
     public List<Node> GetChildren(Node parent)
@@ -111,14 +117,4 @@ public class BehaviourTree : ScriptableObject
         tree.RootNode = RootNode.Clone();
         return tree;
     }
-    /*
-    public void SetContext(Context c)
-    {
-        foreach (Node n in Nodes)
-        {
-            Debug.Log(n);
-            n.Context = c;
-        }
-    }
-    */
 }

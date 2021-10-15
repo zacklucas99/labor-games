@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RootNode : Node
 {
-    public Node Child { get; set; }
+    public Node Child;
 
     protected override void OnStart()
     {
@@ -26,7 +26,10 @@ public class RootNode : Node
     public override Node Clone()
     {
         RootNode node = Instantiate(this);
-        node.Child = Child.Clone();
+        if (node.Child)
+        {
+            node.Child = Child.Clone();
+        }
         return node;
     }
 }

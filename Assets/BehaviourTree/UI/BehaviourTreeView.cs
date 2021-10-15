@@ -38,6 +38,7 @@ public class BehaviourTreeView : GraphView
 
     NodeView FindNodeView(Node node)
     {
+        Debug.Log(node.guid);
         return GetNodeByGuid(node.guid) as NodeView;
     }
 
@@ -47,6 +48,7 @@ public class BehaviourTreeView : GraphView
         this.tree = tree;
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements.ToList());
+        graphViewChanged += OnGraphViewChanged;
         if (tree.RootNode == null)
         {
             tree.RootNode = tree.CreateNode(typeof(RootNode));
@@ -54,7 +56,16 @@ public class BehaviourTreeView : GraphView
             AssetDatabase.SaveAssets();
         }
 
-        tree.Nodes.ForEach(n => CreateNodeView(n));
+
+
+        foreach (var node in tree.Nodes)
+        {
+            if(node != null)
+            {
+                CreateNodeView(node);
+            }
+        }
+
         foreach(Node n in tree.Nodes){
             foreach (var child in tree.GetChildren(n))
             {
@@ -65,7 +76,6 @@ public class BehaviourTreeView : GraphView
                 AddElement(edge);
             }
         }
-        graphViewChanged = OnGraphViewChanged;
     }
     private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
     {

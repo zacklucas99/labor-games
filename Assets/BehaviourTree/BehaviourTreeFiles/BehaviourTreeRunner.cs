@@ -10,11 +10,9 @@ public class BehaviourTreeRunner : MonoBehaviour
     {
         if (tree)
         {
-            tree = tree.Clone();
-            Debug.Log(GetComponent<OfficerController>());
-
             Context.Object = gameObject;
             Context.Officer = GetComponent<OfficerController>();
+            tree = tree.Clone();
         }
 
     }

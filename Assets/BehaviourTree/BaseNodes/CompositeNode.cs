@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class CompositeNode : Node
 {
-    public List<Node> Children { get; set; } = new List<Node>();
+    public List<Node> Children= new List<Node>();
 
     public override Node Clone()
     {
