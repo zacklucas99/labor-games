@@ -38,7 +38,6 @@ public class BehaviourTreeView : GraphView
 
     NodeView FindNodeView(Node node)
     {
-        Debug.Log(node.guid);
         return GetNodeByGuid(node.guid) as NodeView;
     }
 

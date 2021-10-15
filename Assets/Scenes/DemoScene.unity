@@ -8379,6 +8379,10 @@ PrefabInstance:
       propertyPath: route
       value: 
       objectReference: {fileID: 2056429405}
+    - target: {fileID: 6131249789233174320, guid: 8dd68fb67c10dae449a0b47900cae706, type: 3}
+      propertyPath: pointIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6131249789233174326, guid: 8dd68fb67c10dae449a0b47900cae706, type: 3}
       propertyPath: m_RootOrder
       value: 4

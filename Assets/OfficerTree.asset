@@ -15,10 +15,30 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 0
   guid: 2efa5ca31d00f3e46add5063e7c8ba42
-  Position: {x: 634, y: 23}
+  Position: {x: 635.15, y: 23.000008}
   Children:
   - {fileID: 3831728135835813776}
-  - {fileID: 4295523316097196793}
+  - {fileID: 1026964114068929085}
+  - {fileID: -2782138586264980267}
+--- !u!114 &-7924156514155000368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: IfChecker
+  m_EditorClassIdentifier: Assembly-CSharp::IfChecker
+  stopDebugging: 0
+  NodeState: 0
+  guid: 1039fa7136ee10a4d806167fdadcd871
+  Position: {x: 413.1034, y: 23}
+  Children:
+  - {fileID: 6697112692323844039}
+  - {fileID: -8247737994787329601}
 --- !u!114 &-5706444209112330236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,8 +54,8 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 0
   guid: b43d1f347c7ab5342898e7e5a6e0b8f3
-  Position: {x: 288.63614, y: 23.077484}
-  Child: {fileID: -8247737994787329601}
+  Position: {x: 240.70003, y: 23.000008}
+  Child: {fileID: -7924156514155000368}
 --- !u!114 &-4825074913803977359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +73,23 @@ MonoBehaviour:
   guid: 323779b84c242974db90c756d682738a
   Position: {x: 0, y: 0}
   Child: {fileID: -5706444209112330236}
+--- !u!114 &-2782138586264980267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afc53d80e5cef741b0b1518c6b7c8c7, type: 3}
+  m_Name: FindNextPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  guid: 7dcc59c387f2cc24ea740e44378db9b6
+  Position: {x: 898, y: 143.66403}
+  message: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +109,28 @@ MonoBehaviour:
   - {fileID: -5706444209112330236}
   - {fileID: -8247737994787329601}
   - {fileID: 3831728135835813776}
-  - {fileID: 4295523316097196793}
+  - {fileID: -2782138586264980267}
+  - {fileID: 1026964114068929085}
+  - {fileID: 6697112692323844039}
+  - {fileID: 0}
+  - {fileID: -7924156514155000368}
+--- !u!114 &1026964114068929085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: 6231912cccd5e954c99234da9b2cbafa
+  Position: {x: 934.00006, y: 39.290016}
+  duration: 4
 --- !u!114 &3831728135835813776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,11 +144,29 @@ MonoBehaviour:
   m_Name: MoveNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  NodeState: 0
+  NodeState: 2
   guid: 6a688788fee69ba439d5e11056cedac1
-  Position: {x: 936.6, y: 11}
+  Position: {x: 928, y: -79}
   message: 
---- !u!114 &4295523316097196793
+--- !u!114 &4530878700968482733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def574aa5c0bdea4ba4c933474680334, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: 3e7e627003058dc4c8f023816f94a82e
+  Position: {x: 460.5845, y: 0.49996948}
+  Children:
+  - {fileID: -8247737994787329601}
+--- !u!114 &6697112692323844039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,6 +179,6 @@ MonoBehaviour:
   m_Name: FollowPlayerNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  NodeState: 0
-  guid: ee39a80d6295250408130a16b9774ce4
-  Position: {x: 925.90265, y: 164.77248}
+  NodeState: 2
+  guid: c9d8677fb70caa34caf2649107910e22
+  Position: {x: 811.62006, y: -205.98073}

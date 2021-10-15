@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveNode : ActionNode
+public class FindNextPointNode : ActionNode
 {
     public string message;
     protected override State OnUpdate()
     {
-        if (Context.Officer.Move())
-        {
-            return State.Running;
-        }
-        Debug.Log("Success");
+        Debug.Log("Find NextPoint");
+        Context.Officer.FindNewPoint();
         return State.Success;
     }
 }

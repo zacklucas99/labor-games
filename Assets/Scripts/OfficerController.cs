@@ -61,12 +61,8 @@ public class OfficerController : MonoBehaviour
 
     }
 
-    IEnumerator GotoNextPoint( bool wait)
+    void GotoNextPoint( bool wait)
     {
-        if (points[(pointIndex) % points.Length].isStoppable && wait)
-        {
-            yield return new WaitForSeconds(points[(pointIndex) % points.Length].waitTime);
-        }
         lastPoint = points[pointIndex % points.Length];
 
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
@@ -74,25 +70,35 @@ public class OfficerController : MonoBehaviour
         {
             pointIndex = 0;
         }
-        destinationSet = false;
+    }
+
+    public void StopMovement()
+    {
+        character.Move(Vector3.zero, false, false);
+    }
+
+    public void FindNewPoint()
+    {
+
+        if (!agent.pathPending && agent.remainingDistance < agent.stoppingDistance && route != null && route.GetPoints().Length > 1)
+        {
+            GotoNextPoint(false);
+        };
     }
 
 
-    // Update is called once per frame
-    public void Move()
+// Update is called once per frame
+    public bool Move()
     {
-        if (!agent.pathPending && agent.remainingDistance < agent.stoppingDistance && !destinationSet && route!= null && route.GetPoints().Length > 1)
-        {
-            destinationSet = true;
-            StartCoroutine(GotoNextPoint(true));
-        };
-
+        Debug.Log("Move");
         if (agent.remainingDistance > agent.stoppingDistance) {
             character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
+            return true;
         }
         else
         {
             character.Move(Vector3.zero, false, false);
+            return false;
         }
     }
 

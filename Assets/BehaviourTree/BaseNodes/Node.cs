@@ -22,7 +22,6 @@ public abstract class Node : ScriptableObject
 
     public State Update()
     {
-        Debugger.Break();
         if (!started)
         {
             OnStart();
