@@ -2,13 +2,28 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "BehaviourTreeAssets/NodeData")]
+[CreateAssetMenu(menuName = "BehaviourTree")]
 public class BehaviourTree : ScriptableObject
 {
     public Node RootNode;
     public Node.State TreeState;
 
     public List<Node> Nodes= new List<Node>();
+
+
+    public void Awake()
+    {
+        // Cleaning up database from unnecessary assets
+        foreach (var asset in AssetDatabase.LoadAllAssetsAtPath("Assets/OfficerTree.asset"))
+        {
+            Debug.Log("Asset:" + asset);
+            if (asset.GetType() == typeof(ToDeleteNode))
+            {
+                DestroyImmediate(asset, true);
+            }
+        }
+        AssetDatabase.SaveAssets();
+    }
 
     public Node.State Update()
     {

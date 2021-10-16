@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -35,6 +36,7 @@ public class OfficerController : MonoBehaviour
     public bool setToStartPoint;
 
     public Vector3 playerDestination;
+    public MeshRenderer meshRenderer;
 
     void Start()
     {
@@ -122,7 +124,7 @@ public class OfficerController : MonoBehaviour
 
 
     public void FoundPlayer(GameObject player) {
-        GetComponent<MeshRenderer>().material.color = foundColor;
+        meshRenderer.material.color = foundColor;
         playerDestination = player.transform.position;
         goBackDestination = lastPoint.transform;
         isFollowingPlayer = true;
@@ -131,7 +133,7 @@ public class OfficerController : MonoBehaviour
 
     public void LostPlayer()
     {
-        GetComponent<MeshRenderer>().material.color = lostColor;
+        meshRenderer.material.color = lostColor;
         destinationSet = false;
 
         isFollowingPlayer = false;
@@ -140,5 +142,9 @@ public class OfficerController : MonoBehaviour
 
     }
 
-
+    public bool RunToLastActionPoint()
+    {
+        agent.SetDestination(playerDestination);
+        return Move();
+    }
 }

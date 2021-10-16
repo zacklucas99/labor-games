@@ -20,25 +20,6 @@ MonoBehaviour:
   - {fileID: 3831728135835813776}
   - {fileID: 1026964114068929085}
   - {fileID: -2782138586264980267}
---- !u!114 &-7924156514155000368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: IfChecker
-  m_EditorClassIdentifier: Assembly-CSharp::IfChecker
-  stopDebugging: 0
-  NodeState: 0
-  guid: 1039fa7136ee10a4d806167fdadcd871
-  Position: {x: 413.1034, y: 23}
-  Children:
-  - {fileID: 0}
-  - {fileID: -8247737994787329601}
 --- !u!114 &-7383794756575045759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,7 +33,7 @@ MonoBehaviour:
   m_Name: SetWayPointDestinationNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  NodeState: 0
+  NodeState: 2
   guid: 59f759420753749459d00bbce21353a4
   Position: {x: 947, y: -201.6211}
 --- !u!114 &-6290360311826993514
@@ -88,6 +69,8 @@ MonoBehaviour:
   guid: b43d1f347c7ab5342898e7e5a6e0b8f3
   Position: {x: 240.70003, y: 23.000008}
   Child: {fileID: 3139256336350122394}
+  loopInfinite: 1
+  maxCounter: 0
 --- !u!114 &-4825074913803977359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,28 +86,8 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 0
   guid: 323779b84c242974db90c756d682738a
-  Position: {x: 0, y: 0}
+  Position: {x: 53.257492, y: 22.99998}
   Child: {fileID: -5706444209112330236}
---- !u!114 &-3377608129549501396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: IfChecker
-  m_EditorClassIdentifier: Assembly-CSharp::IfChecker
-  stopDebugging: 0
-  NodeState: 0
-  started: 0
-  guid: d43bd86147e34d24a87ee56725cf7748
-  Position: {x: 435.20877, y: 22.999992}
-  Children:
-  - {fileID: 0}
-  - {fileID: -8247737994787329601}
 --- !u!114 &-2782138586264980267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +124,7 @@ MonoBehaviour:
   Children:
   - {fileID: -6290360311826993514}
   - {fileID: 8421434552253474602}
+  - {fileID: 4339769847526790276}
   - {fileID: 6881371437349613706}
   - {fileID: -7383794756575045759}
 --- !u!114 &11400000
@@ -190,6 +154,7 @@ MonoBehaviour:
   - {fileID: 3139256336350122394}
   - {fileID: 6881371437349613706}
   - {fileID: -7383794756575045759}
+  - {fileID: 4339769847526790276}
 --- !u!114 &1026964114068929085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +208,22 @@ MonoBehaviour:
   guid: 6a688788fee69ba439d5e11056cedac1
   Position: {x: 928, y: -79}
   message: 
+--- !u!114 &4339769847526790276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2da9a6de9943a44589e8fd3738b9bd8, type: 3}
+  m_Name: RunToNextActionPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  guid: 8c30eee50bee271448aa04a8be8fe177
+  Position: {x: 962.5, y: -400.00006}
 --- !u!114 &4530878700968482733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,4 +274,4 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 2
   guid: 4929b0ccb080b38428e7851c95c4778e
-  Position: {x: 961.99994, y: -426.00003}
+  Position: {x: 962, y: -511.1691}
