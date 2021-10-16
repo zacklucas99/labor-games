@@ -17,11 +17,14 @@ public class StopNode : ActionNode
 
     protected override State OnUpdate()
     {
-        Context.Officer.StopMovement();
-        if (Time.time - startTime > duration)
+        if (Context.Officer.StopMovement())
         {
-            return State.Success;
+            if (Time.time - startTime > duration)
+            {
+                return State.Success;
+            }
+            return State.Running;
         }
-        return State.Running;
+        return State.Failure;
     }
 }

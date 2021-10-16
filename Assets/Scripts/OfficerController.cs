@@ -72,9 +72,11 @@ public class OfficerController : MonoBehaviour
         }
     }
 
-    public void StopMovement()
+    public bool StopMovement()
     {
         character.Move(Vector3.zero, false, false);
+        agent.SetDestination(transform.position);
+        return !isFollowingPlayer;
     }
 
     public void FindNewPoint()
@@ -86,11 +88,15 @@ public class OfficerController : MonoBehaviour
         };
     }
 
+    public void ResetWayPointTarget()
+    {
+        agent.SetDestination(lastPoint.transform.position);
+    }
+
 
 // Update is called once per frame
     public bool Move()
     {
-        Debug.Log("Move");
         if (agent.remainingDistance > agent.stoppingDistance) {
             character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
             return true;
@@ -128,7 +134,6 @@ public class OfficerController : MonoBehaviour
         GetComponent<MeshRenderer>().material.color = lostColor;
         destinationSet = false;
 
-        agent.SetDestination(goBackDestination.position);
         isFollowingPlayer = false;
         Debug.Log("Lost_player");
 
