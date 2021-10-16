@@ -39,13 +39,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (inputDir.magnitude >= 0.1f || velocityY != 0)
         {
-            float rotationAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
-            float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
-
             Vector3 moveDir = velocityY * Vector3.up;
             if (inputDir.magnitude >= 0.1f)
             {
+                float rotationAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+                float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
                 moveDir += Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.forward * moveSpeed;
             }
             velocityY += gravity * Time.deltaTime;
