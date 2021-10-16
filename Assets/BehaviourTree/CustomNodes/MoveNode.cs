@@ -9,9 +9,9 @@ public class MoveNode : ActionNode
     {
         if (Context.Officer.Move())
         {
+            Debug.Log("Move");
             return State.Running;
         }
-        Debug.Log("Success");
         return State.Success;
     }
 }

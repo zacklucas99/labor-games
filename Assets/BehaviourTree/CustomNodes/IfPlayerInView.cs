@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IfChecker : CompositeNode
+public class IfPlayerInView : CompositeNode
 {
     protected override State OnUpdate()
     {
