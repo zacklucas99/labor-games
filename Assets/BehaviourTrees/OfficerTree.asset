@@ -103,7 +103,7 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 2
   guid: 7dcc59c387f2cc24ea740e44378db9b6
-  Position: {x: 898, y: 143.66403}
+  Position: {x: 934.0001, y: 172.65802}
   message: 
 --- !u!114 &-1166015246323023663
 MonoBehaviour:

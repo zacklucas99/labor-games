@@ -139,8 +139,9 @@ public class BehaviourTreeView : GraphView
 
         foreach (var node in nodes)
         {
-            evt.menu.AppendAction($"[{node.BaseType.Name}] {node.Name}", (a) => { CreateNode(a, node); });
+            evt.menu.AppendAction($"{node.BaseType.Name}/{node.Name}", (a) => { CreateNode(a, node); });
         }
+        evt.menu.AppendSeparator();
         evt.menu.AppendAction("Delete Selection", (a) => { DeleteSelection(); });
 
 
@@ -155,7 +156,7 @@ public class BehaviourTreeView : GraphView
     void CreateNode(DropdownMenuAction a, Type type)
     {
         Node node = tree.CreateNode(type);
-        node.Position = a.eventInfo.localMousePosition;
+        node.Position = viewTransform.matrix.inverse.MultiplyPoint(a.eventInfo.localMousePosition);
         CreateNodeView(node);
     }
 }
