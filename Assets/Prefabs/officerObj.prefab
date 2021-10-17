@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 6131249789233174322}
   - component: {fileID: 6131249789233174323}
   - component: {fileID: 6131249789233174320}
+  - component: {fileID: 622562236}
   m_Layer: 7
   m_Name: officerObj
   m_TagString: Untagged
@@ -300,6 +301,22 @@ MonoBehaviour:
   setToStartPoint: 1
   playerDestination: {x: 0, y: 0, z: 0}
   meshRenderer: {fileID: 218444285873787648}
+  rotSpeed: 180
+  rigidbody: {fileID: 0}
+  rotationThreshold: 0.5
+--- !u!114 &622562236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131249789233174286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da15408d5b566c46b045ee00e9a04ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: e7c782a9e281fd84eb66d57b157d5107, type: 2}
 --- !u!1001 &6131249788980060370
 PrefabInstance:
   m_ObjectHideFlags: 0

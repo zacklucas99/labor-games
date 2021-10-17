@@ -18,8 +18,8 @@ MonoBehaviour:
   Position: {x: -232, y: 516}
   Children:
   - {fileID: 8421434552253474602}
-  - {fileID: -7525318717909550829}
   - {fileID: 4339769847526790276}
+  - {fileID: -7525318717909550829}
 --- !u!114 &-8247737994787329601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 0
   guid: 39f0afbadd5db8248acd7c6363c15690
-  Position: {x: -255, y: 654}
+  Position: {x: -51, y: 654}
   duration: 4
 --- !u!114 &-7417750612388681823
 MonoBehaviour:
@@ -339,7 +339,7 @@ MonoBehaviour:
   stopDebugging: 0
   NodeState: 0
   guid: 8c30eee50bee271448aa04a8be8fe177
-  Position: {x: -154.5, y: 647}
+  Position: {x: -269, y: 654}
 --- !u!114 &4530878700968482733
 MonoBehaviour:
   m_ObjectHideFlags: 0
