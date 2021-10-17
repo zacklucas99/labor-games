@@ -40,14 +40,20 @@ public class BehaviourTree : ScriptableObject
         node.name = type.Name;
         node.guid = GUID.Generate().ToString();
         Nodes.Add(node);
+        Undo.RecordObject(this, "Behaviour Tree (Add Child)");
 
-        AssetDatabase.AddObjectToAsset(node, this);
+        if (!Application.isPlaying)
+        {
+            AssetDatabase.AddObjectToAsset(node, this);
+        }
+        Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (Add Child)");
         AssetDatabase.SaveAssets();
         return node;
     }
 
     public void DeleteNode(Node node)
     {
+        Undo.RecordObject(this, "Behaviour Tree (Delece Child)");
         Nodes.Remove(node);
         AssetDatabase.RemoveObjectFromAsset(node);
         AssetDatabase.SaveAssets();
@@ -59,17 +65,20 @@ public class BehaviourTree : ScriptableObject
         DecoratorNode decoratorNode = parent as DecoratorNode;
         if (decoratorNode)
         {
+            Undo.RecordObject(decoratorNode, "Behaviour Tree (Add Child)");
             decoratorNode.Child = child;
         }
 
         RootNode rootNode = parent as RootNode;
         if (rootNode) {
+            Undo.RecordObject(rootNode, "Behaviour Tree (Add Child)");
             rootNode.Child = child;
         }
 
         CompositeNode composite = parent as CompositeNode;
         if (composite)
         {
+            Undo.RecordObject(composite, "Behaviour Tree (Add Child)");
             composite.Children.Add(child);
         }
 
@@ -83,18 +92,21 @@ public class BehaviourTree : ScriptableObject
         DecoratorNode decoratorNode = parent as DecoratorNode;
         if (decoratorNode)
         {
+            Undo.RecordObject(decoratorNode, "Behaviour Tree (Remove Child)");
             decoratorNode.Child = null;
         }
 
         CompositeNode composite = parent as CompositeNode;
         if (composite)
         {
+            Undo.RecordObject(composite, "Behaviour Tree (Remove Child)");
             composite.Children.Remove(child);
         }
 
         RootNode root = parent as RootNode;
         if (root)
         {
+            Undo.RecordObject(root, "Behaviour Tree (Remove Child)");
             root.Child = null;
         }
 
@@ -126,10 +138,36 @@ public class BehaviourTree : ScriptableObject
         return new List<Node>();
     }
 
+    public void Traverse(Node node, ref List<Node>nodes)
+    {
+        if (node)
+        {
+            nodes.Add(node);
+            if(node is RootNode root)
+            {
+                Traverse(root.Child, ref nodes);
+            }
+            else if(node is DecoratorNode decorator)
+            {
+                Traverse(decorator.Child, ref nodes);
+            }
+            else if(node is CompositeNode composite)
+            {
+                foreach (var child in composite.Children)
+                {
+                    Traverse(child, ref nodes);
+                }
+            }
+        }
+    }
+
     public BehaviourTree Clone()
     {
+        Debug.Log("Clone");
         BehaviourTree tree = Instantiate(this);
         tree.RootNode = RootNode.Clone();
+        tree.Nodes = new List<Node>();
+        Traverse(tree.RootNode, ref tree.Nodes);
         return tree;
     }
 }

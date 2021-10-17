@@ -24,6 +24,15 @@ public class BehaviourTreeView : GraphView
 
         styleSheets.Add(styleSheet);
 
+
+        Undo.undoRedoPerformed += OnUndoRedo;
+
+    }
+
+    private void OnUndoRedo()
+    {
+        PopulateView(tree);
+        AssetDatabase.SaveAssets();
     }
 
     protected override void CollectCopyableGraphElements(IEnumerable<GraphElement> elements, HashSet<GraphElement> elementsToCopySet)
@@ -109,6 +118,15 @@ public class BehaviourTreeView : GraphView
                 tree.AddChild(parentView.node, childView.node);
             });
         }
+
+        if(graphViewChange.movedElements != null)
+        {
+            nodes.ForEach((n) =>
+            {
+                NodeView view = (NodeView)n;
+                view.SortChildren();
+            });
+        }
         return graphViewChange;
     }
 
@@ -158,5 +176,14 @@ public class BehaviourTreeView : GraphView
         Node node = tree.CreateNode(type);
         node.Position = viewTransform.matrix.inverse.MultiplyPoint(a.eventInfo.localMousePosition);
         CreateNodeView(node);
+    }
+
+    public void UpdateNodeStates()
+    {
+        nodes.ForEach(n =>
+        {
+            NodeView nodeView = n as NodeView;
+            nodeView.UpdateState();
+        });
     }
 }

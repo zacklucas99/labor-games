@@ -2,7 +2,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
-
+using UnityEditor.Callbacks;
+using System;
 
 public class BehaviourTreeEditor : EditorWindow
 {
@@ -10,10 +11,21 @@ public class BehaviourTreeEditor : EditorWindow
     InspectorView inspectorView;
 
     [MenuItem("Tools/BehaviourTreeEditor")]
-    public static void ShowExample()
+    public static void OpenWindow()
     {
         BehaviourTreeEditor wnd = GetWindow<BehaviourTreeEditor>();
         wnd.titleContent = new GUIContent("BehaviourTreeEditor");
+    }
+
+    [OnOpenAsset]
+    public static bool OnOpenAsset(int instanceId, int line)
+    {
+        if(Selection.activeObject is BehaviourTree)
+        {
+            OpenWindow();
+            return true;
+        }
+        return false;
     }
 
     public void CreateGUI()
@@ -41,9 +53,50 @@ public class BehaviourTreeEditor : EditorWindow
     private void OnSelectionChange()
     {
         BehaviourTree tree = Selection.activeObject as BehaviourTree;
+
+        if (!tree)
+        {
+            if (Selection.activeGameObject)
+            {
+                Debug.Log("SelectionChanged");
+                BehaviourTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviourTreeRunner>();
+                if (runner)
+                {
+                    tree = runner.tree;
+                }
+            }
+        }
+
         if (tree)
         {
-            treeView.PopulateView(tree);
+            treeView?.PopulateView(tree);
         }
+    }
+
+    private void OnEnable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+    }
+
+    private void OnPlayModeStateChanged(PlayModeStateChange obj)
+    {
+        switch (obj)
+        {
+            case PlayModeStateChange.EnteredEditMode:
+            case PlayModeStateChange.EnteredPlayMode:
+                OnSelectionChange();
+                break;
+        }
+    }
+
+    private void OnInspectorUpdate()
+    {
+        treeView?.UpdateNodeStates();
     }
 }

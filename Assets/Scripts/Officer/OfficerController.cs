@@ -38,6 +38,8 @@ public class OfficerController : MonoBehaviour
     public Vector3 playerDestination;
     public MeshRenderer meshRenderer;
 
+    private Animator animator;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -58,6 +60,8 @@ public class OfficerController : MonoBehaviour
 
             GotoNextPoint(false);
         }
+
+        animator = GetComponent<Animator>();
 
         character = GetComponent<ThirdPersonCharacter>();
 
@@ -141,10 +145,21 @@ public class OfficerController : MonoBehaviour
 
 
     }
-
     public bool RunToLastActionPoint()
     {
         agent.SetDestination(playerDestination);
         return Move();
+    }
+
+    public bool TurnToLastPoint()
+    {
+        Debug.Log(animator.applyRootMotion);
+        animator.applyRootMotion = true; 
+        animator.SetFloat("Turn", -1);
+        return true;
+
+
+
+
     }
 }
