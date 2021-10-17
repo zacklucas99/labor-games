@@ -40,6 +40,10 @@ public class OfficerController : MonoBehaviour
 
     private Animator animator;
 
+    public float rotSpeed = 180;
+    public Rigidbody rigidbody;
+    public float rotationThreshold = 5f;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -62,6 +66,7 @@ public class OfficerController : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
 
         character = GetComponent<ThirdPersonCharacter>();
 
@@ -153,13 +158,28 @@ public class OfficerController : MonoBehaviour
 
     public bool TurnToLastPoint()
     {
-        Debug.Log(animator.applyRootMotion);
-        animator.applyRootMotion = true; 
-        animator.SetFloat("Turn", -1);
-        return true;
+        var angle = Vector3.Angle(transform.forward, new Vector3(transform.position.x - lastPoint.transform.position.x, 0, transform.position.z - lastPoint.transform.position.z));
+        if (Math.Abs(angle) > rotationThreshold)
+        {
+            animator.SetFloat("Turn", -1);
+            transform.Rotate(Vector3.up, -rotSpeed * Time.deltaTime);
+            return true;
+        }
+        animator.SetFloat("Turn", 0);
+        return false;
+    }
 
-
-
-
+    public bool TurnToNextPoint()
+    {
+        var nextPoint = points[(pointIndex) % route.GetPoints().Length];
+        var angle = Vector3.Angle(transform.forward, new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z));
+        if (Math.Abs(angle) > rotationThreshold)
+        {
+            animator.SetFloat("Turn", -1);
+            transform.Rotate(Vector3.up, -rotSpeed * Time.deltaTime);
+            return true;
+        }
+        animator.SetFloat("Turn", 0);
+        return false;
     }
 }
