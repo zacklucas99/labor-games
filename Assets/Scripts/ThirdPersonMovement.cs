@@ -17,6 +17,10 @@ public class ThirdPersonMovement : MonoBehaviour
     float legOffset = 0.2f;
     bool grounded = true;
 
+    public float maxDistance = 7f;
+    public LayerMask interactionMask;
+    private Transform interactionObj = null;
+
     void Start()
     {
         Cursor.visible = false;
@@ -56,6 +60,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
         UpdateAnimator(inputDir); //updates player animations
 
+        UpdateObjectInteraction();
+
     }
 
     void UpdateAnimator(Vector3 move)
@@ -71,6 +77,34 @@ public class ThirdPersonMovement : MonoBehaviour
         if (grounded)
         {
             anim.SetFloat("JumpLeg", jumpLeg);
+        }
+    }
+
+    void UpdateObjectInteraction()
+    {
+        Ray ray = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
+        Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
+        RaycastHit hit;
+
+
+        if (Physics.Raycast(ray, out hit, maxDistance, interactionMask))
+        {
+            if (interactionObj != null && interactionObj != hit.transform)
+            {
+                interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f);
+            }
+
+            interactionObj = hit.transform;
+            hit.transform.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f);
+        }
+        else
+        {
+            if (interactionObj != null)
+            {
+                interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f);
+                interactionObj = null;
+            }
+
         }
     }
 
