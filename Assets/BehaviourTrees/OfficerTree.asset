@@ -72,7 +72,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 1d834d4df0194b9449319a73a43ec73b
-  Position: {x: 383.00018, y: 344.00006}
+  Position: {x: 382, y: 357}
   Children:
   - {fileID: 3831728135835813776}
   - {fileID: 1414371356051685421}
@@ -185,7 +185,7 @@ MonoBehaviour:
   NodeState: 1
   description: 
   guid: ec1308faced928141917e2aa471ce72d
-  Position: {x: -232, y: 344}
+  Position: {x: -232, y: 357}
   Children:
   - {fileID: -6290360311826993514}
   - {fileID: -9123569220161085915}
@@ -225,6 +225,7 @@ MonoBehaviour:
   - {fileID: 1414371356051685421}
   - {fileID: 3631771610803999055}
   - {fileID: -6847495250642556434}
+  - {fileID: 0}
 --- !u!114 &1026964114068929085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopDebugging: 0
   NodeState: 0
-  description: "Node zum \xFCberpr\xFCfen aller m\xF6glichen F\xE4lle"
+  description: 
   guid: 659a980deeaadf34bb1e70032505ae5d
   Position: {x: -94, y: 222}
   Children:
