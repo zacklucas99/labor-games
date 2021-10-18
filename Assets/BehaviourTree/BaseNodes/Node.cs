@@ -18,6 +18,8 @@ public abstract class Node : ScriptableObject
 
     public bool Started => started;
 
+    public string description;
+
     [HideInInspector]public string guid;
 
     [HideInInspector] public Vector2 Position;

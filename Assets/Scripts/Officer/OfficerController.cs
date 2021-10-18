@@ -175,8 +175,8 @@ public class OfficerController : MonoBehaviour
         var angle = Vector3.Angle(transform.forward, new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z));
         if (Math.Abs(angle) > rotationThreshold)
         {
-            animator.SetFloat("Turn", -1);
-            transform.Rotate(Vector3.up, -rotSpeed * Time.deltaTime);
+            animator.SetFloat("Turn", 1*angle > 0?-1:1);
+            transform.Rotate(Vector3.up, (1 * angle > 0 ? -1 : 1)*rotSpeed * Time.deltaTime);
             return true;
         }
         animator.SetFloat("Turn", 0);

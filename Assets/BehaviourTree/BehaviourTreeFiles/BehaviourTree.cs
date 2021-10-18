@@ -53,10 +53,45 @@ public class BehaviourTree : ScriptableObject
 
     public void DeleteNode(Node node)
     {
+
         Undo.RecordObject(this, "Behaviour Tree (Delece Child)");
+        RemoveChildParentConnection(node);
         Nodes.Remove(node);
         AssetDatabase.RemoveObjectFromAsset(node);
         AssetDatabase.SaveAssets();
+    }
+
+    public void RemoveChildParentConnection(Node n)
+    {
+
+        foreach (Node parent in Nodes)
+        {
+            if (parent is DecoratorNode decoratorNode)
+            {
+                if (decoratorNode.Child == n)
+                {
+                    decoratorNode.Child = null;
+                }
+            }
+            if (parent is CompositeNode compositeNode)
+            {
+                foreach (var child in compositeNode.Children)
+                {
+                    if (child == parent)
+                    {
+                        compositeNode.Children.Remove(child);
+                    }
+                }
+            }
+
+            if (parent is RootNode rootNode)
+            {
+                if (rootNode.Child == n)
+                {
+                    rootNode.Child = null;
+                }
+            }
+        }
     }
 
 

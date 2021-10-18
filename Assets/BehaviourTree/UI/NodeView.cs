@@ -17,8 +17,11 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
     public NodeView(Node node):base("Assets/BehaviourTree/UI/NodeView.uxml")
     {
         this.node = node;
-        this.title = node.name.Replace("(Clone)","");
-        this.viewDataKey = node.guid;
+        title = node.name.Replace("(Clone)","");
+        viewDataKey = node.guid;
+
+        var description = this.Q<Label>("description");
+        description.text = node.description;
 
         style.left = node.Position.x;
         style.top = node.Position.y;

@@ -13,8 +13,8 @@
                             <ui:VisualElement name="icon" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:Label display-tooltip-when-elided="true" name="description" />
                 </ui:VisualElement>
+                <ui:Label display-tooltip-when-elided="true" name="description" text="halllo" />
                 <ui:VisualElement name="divider" class="horizontal" />
                 <ui:VisualElement name="output" />
             </ui:VisualElement>
