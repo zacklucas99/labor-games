@@ -13,6 +13,10 @@ public class TurnTowardsLastPointNode : ActionNode
 
     protected override State OnUpdate()
     {
+        if (Context.Officer.NeedsMoveFlag)
+        {
+            return State.Failure;
+        }
         if (Context.Officer.TurnToLastPoint())
         {
             return State.Running;

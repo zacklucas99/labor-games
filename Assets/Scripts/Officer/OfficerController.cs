@@ -44,6 +44,9 @@ public class OfficerController : MonoBehaviour
     public Rigidbody rigidbody;
     public float rotationThreshold = 5f;
 
+    private bool needsMoveFlag;
+    public bool NeedsMoveFlag => needsMoveFlag;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -108,6 +111,7 @@ public class OfficerController : MonoBehaviour
 // Update is called once per frame
     public bool Move()
     {
+        needsMoveFlag = false;
         if (agent.remainingDistance > agent.stoppingDistance) {
             character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
             return true;
@@ -181,5 +185,9 @@ public class OfficerController : MonoBehaviour
         }
         animator.SetFloat("Turn", 0);
         return false;
+    }
+
+    public void SetNeedsMoveFlag() {
+        needsMoveFlag = true;
     }
 }

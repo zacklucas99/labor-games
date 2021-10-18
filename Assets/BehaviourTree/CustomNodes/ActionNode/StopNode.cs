@@ -17,6 +17,10 @@ public class StopNode : ActionNode
 
     protected override State OnUpdate()
     {
+        if (Context.Officer.NeedsMoveFlag)
+        {
+            return State.Failure;
+        }
         if (Context.Officer.StopMovement())
         {
             if (Time.time - startTime > duration)

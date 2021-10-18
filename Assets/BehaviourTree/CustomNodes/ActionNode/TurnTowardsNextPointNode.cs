@@ -13,6 +13,11 @@ public class TurnTowardsNextPointNode : ActionNode
 
     protected override State OnUpdate()
     {
+        if (Context.Officer.NeedsMoveFlag)
+        {
+            return State.Failure;
+        }
+
         if (Context.Officer.TurnToNextPoint())
         {
             return State.Running;
