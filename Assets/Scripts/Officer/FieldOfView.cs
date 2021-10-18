@@ -200,9 +200,15 @@ public class FieldOfView : MonoBehaviour
             dist = new Vector3(dist.x, 0, dist.z);
             if (Mathf.Abs(Vector3.Angle(dist, transform.forward)) <= viewAngle / 2)
             {
-                if (!Physics.Raycast(new Ray(transform.position + new Vector3(0, 1, 0), dist)))
+                RaycastHit info;
+                Ray ray = new Ray(transform.position, collider.transform.position - transform.position);
+                Physics.Raycast(ray, out info);
+                if (Physics.Raycast(ray, out info))
                 {
-                    return;
+                    if ((info.point - transform.position).magnitude > viewDist || info.collider.gameObject.GetComponent<ThirdPersonMovement>() == null)
+                    {
+                        return;
+                    }
                 }
                 PlayerFoundEvent.Invoke(collider.gameObject);
                 foundPlayers = true;
