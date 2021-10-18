@@ -106,6 +106,11 @@ public class ThirdPersonMovement : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
+        {
+            interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        }
     }
 
 }
