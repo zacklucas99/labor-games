@@ -116,7 +116,7 @@ public class BehaviourTreeView : GraphView
                 NodeView parentView = edge.output.node as NodeView;
                 NodeView childView = edge.input.node as NodeView;
                 tree.AddChild(parentView.node, childView.node);
-                parentView.SortChildren();
+                parentView?.SortChildren();
             });
         }
 

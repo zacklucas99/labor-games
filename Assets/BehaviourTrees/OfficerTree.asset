@@ -16,11 +16,53 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: c74ddc693c036344e81e5c5609a35036
-  Position: {x: -232, y: 516}
+  Position: {x: -231.99992, y: 516.00006}
   Children:
   - {fileID: 8421434552253474602}
   - {fileID: 4339769847526790276}
   - {fileID: -7525318717909550829}
+--- !u!114 &-7986872501714607197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6d6761f0c9590124faef6a64f83f365b
+  Position: {x: 258.7296, y: 337.2287}
+  Children:
+  - {fileID: 3831728135835813776}
+  - {fileID: 8141541035290097599}
+  - {fileID: -7941320182244364783}
+  - {fileID: -2782138586264980267}
+--- !u!114 &-7941320182244364783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: a414a58fd78eb814ab16eb80e04d5fd2
+  Position: {x: 525.99994, y: 465.99997}
+  Children:
+  - {fileID: 7989072088446084984}
+  - {fileID: 6593287253582240761}
 --- !u!114 &-7525318717909550829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +97,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 59f759420753749459d00bbce21353a4
-  Position: {x: -27.722443, y: 503}
+  Position: {x: -51.00002, y: 490.00003}
 --- !u!114 &-6847495250642556434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +133,7 @@ MonoBehaviour:
   m_Name: PlayerInViewNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  NodeState: 1
+  NodeState: 2
   description: 
   guid: 0c74b335d8512a04d98de5d0f112c2e3
   Position: {x: -380.7225, y: 503}
@@ -149,7 +191,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 7dcc59c387f2cc24ea740e44378db9b6
-  Position: {x: 710.55, y: 481.00003}
+  Position: {x: 711.00006, y: 481.00003}
   message: 
 --- !u!114 &-1604133470649723333
 MonoBehaviour:
@@ -182,10 +224,10 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  NodeState: 1
+  NodeState: 0
   description: 
   guid: ec1308faced928141917e2aa471ce72d
-  Position: {x: -232, y: 357}
+  Position: {x: -305.00006, y: 337}
   Children:
   - {fileID: -6290360311826993514}
   - {fileID: -9123569220161085915}
@@ -222,10 +264,9 @@ MonoBehaviour:
   - {fileID: 6593287253582240761}
   - {fileID: -9123569220161085915}
   - {fileID: -7525318717909550829}
-  - {fileID: 1414371356051685421}
-  - {fileID: 3631771610803999055}
-  - {fileID: -6847495250642556434}
-  - {fileID: 0}
+  - {fileID: 8141541035290097599}
+  - {fileID: -7941320182244364783}
+  - {fileID: -7986872501714607197}
 --- !u!114 &1026964114068929085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,10 +340,10 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 659a980deeaadf34bb1e70032505ae5d
-  Position: {x: -94, y: 222}
+  Position: {x: -112.999954, y: 218.00002}
   Children:
   - {fileID: -1166015246323023663}
-  - {fileID: -6847495250642556434}
+  - {fileID: -7986872501714607197}
 --- !u!114 &3631771610803999055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +380,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6a688788fee69ba439d5e11056cedac1
-  Position: {x: 213.00014, y: 481.00003}
+  Position: {x: 209, y: 481}
   message: 
 --- !u!114 &4339769847526790276
 MonoBehaviour:
@@ -413,6 +454,27 @@ MonoBehaviour:
   guid: 7309af46ef0d4534f96494c21736b61a
   Position: {x: 557, y: 758}
   duration: 1
+--- !u!114 &8141541035290097599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f4ae18d058fda01438c2e17d9463e55f
+  Position: {x: 320.99994, y: 466.00003}
+  Children:
+  - {fileID: 1026964114068929085}
+  - {fileID: -1604133470649723333}
+  - {fileID: 1713429631482032282}
 --- !u!114 &8421434552253474602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +488,7 @@ MonoBehaviour:
   m_Name: FollowPlayerNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
-  NodeState: 2
+  NodeState: 0
   description: 
   guid: 4929b0ccb080b38428e7851c95c4778e
   Position: {x: -423, y: 654}
