@@ -27,8 +27,16 @@ public class RepeatNode : DecoratorNode
         {
             if(counter < maxCounter)
             {
-                counter++;
-                Child.Update();
+                var state = Child.Update();
+                if(state == State.Success)
+                {
+                    counter++;
+                }
+                else if(state == State.Failure)
+                {
+                    counter = 0;
+                    return State.Failure;
+                }
                 return State.Running;
             }
             return State.Success;

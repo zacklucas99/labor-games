@@ -2919,11 +2919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721441171205832, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000084239185
+      value: 0.0000000084239185
       objectReference: {fileID: 0}
     - target: {fileID: 1778721441171205832, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017471374
+      value: -0.0000000017471374
       objectReference: {fileID: 0}
     - target: {fileID: 1778721441913322384, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_RootOrder
@@ -2999,19 +2999,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9753168
+      value: 0.97916216
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22081019
+      value: 0.20308019
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016781675
+      value: 0.0000000084239185
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000003799345
+      value: -0.0000000017471374
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5315896913505931537, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
@@ -3250,6 +3250,7 @@ MonoBehaviour:
   rotSpeed: 180
   rigidbody: {fileID: 0}
   rotationThreshold: 5
+  searchRad: 1
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4041,7 +4042,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.22081022, y: -0.000000016782268, z: 0.000000003799025, w: 0.9753168}
+  m_LocalRotation: {x: 0.2030802, y: 0.000000008423918, z: -0.0000000017471375, w: 0.9791621}
   m_LocalPosition: {x: 0, y: 1.7585533, z: -11.899105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8370,6 +8371,10 @@ PrefabInstance:
       propertyPath: route
       value: 
       objectReference: {fileID: 2056429405}
+    - target: {fileID: 6131249789233174320, guid: 8dd68fb67c10dae449a0b47900cae706, type: 3}
+      propertyPath: searchRad
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6131249789233174320, guid: 8dd68fb67c10dae449a0b47900cae706, type: 3}
       propertyPath: rotationThreshold
       value: 1

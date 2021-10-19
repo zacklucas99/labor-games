@@ -47,6 +47,10 @@ public class OfficerController : MonoBehaviour
     private bool needsMoveFlag;
     public bool NeedsMoveFlag => needsMoveFlag;
 
+    public float searchRad = 1f;
+
+    public Color searchRadColor;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -59,6 +63,7 @@ public class OfficerController : MonoBehaviour
             transform.position = points[0].transform.position;
             if (points.Length > 1)
             {
+                lastPoint = points[1];
                 transform.LookAt(points[1].transform.position);
             }
         }
@@ -107,8 +112,7 @@ public class OfficerController : MonoBehaviour
         agent.SetDestination(lastPoint.transform.position);
     }
 
-
-// Update is called once per frame
+    // Update is called once per frame
     public bool Move()
     {
         needsMoveFlag = false;
@@ -189,5 +193,16 @@ public class OfficerController : MonoBehaviour
 
     public void SetNeedsMoveFlag() {
         needsMoveFlag = true;
+    }
+
+    public void FindRandomPoint()
+    {
+        agent.SetDestination(transform.position + Quaternion.Euler(0, UnityEngine.Random.Range(0, 360),0)*Vector3.forward * searchRad);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Handles.color = searchRadColor;
+        Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
     }
 }
