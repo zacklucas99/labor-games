@@ -153,7 +153,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: b43d1f347c7ab5342898e7e5a6e0b8f3
-  Position: {x: -66, y: 102}
+  Position: {x: -99.5, y: 104}
   Child: {fileID: 3139256336350122394}
   loopInfinite: 1
   maxCounter: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 323779b84c242974db90c756d682738a
-  Position: {x: -53, y: -4}
+  Position: {x: -99, y: -9}
   Child: {fileID: -5706444209112330236}
 --- !u!114 &-2829500499546411804
 MonoBehaviour:
