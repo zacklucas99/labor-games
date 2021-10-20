@@ -15,6 +15,7 @@ public class ExecuteAllNode: CompositeNode
 
     protected override State OnUpdate()
     {
+        var state = Node.State.Success;
         for (int i = 0; i < Children.Count; ++i)
         {
             var child = Children[i];
@@ -24,13 +25,14 @@ public class ExecuteAllNode: CompositeNode
                 case State.Running:
                     return State.Running;
                 case State.Success:
-                    return State.Success;
+                    continue;
                 case State.Failure:
+                    state = State.Failure;
                     continue;
             }
         }
 
-        return State.Failure;
+        return state;
     }
 
 }
