@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExecuteAllNode: CompositeNode
 {
-
+    public bool canFail;
     protected override void OnStart()
     {
     }
@@ -27,7 +27,10 @@ public class ExecuteAllNode: CompositeNode
                 case State.Success:
                     continue;
                 case State.Failure:
-                    state = State.Failure;
+                    if (canFail)
+                    {
+                        return State.Failure;
+                    }
                     continue;
             }
         }

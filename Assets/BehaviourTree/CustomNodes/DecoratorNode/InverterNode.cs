@@ -8,11 +8,11 @@ public class InverterNode :DecoratorNode
     {
         var state = Child.Update();
         if (state == Node.State.Success) {
-            state = State.Failure;
+            return State.Failure;
         }
         if (state == Node.State.Failure)
         {
-            state = State.Success;
+            return State.Success;
         }
 
         return state;
