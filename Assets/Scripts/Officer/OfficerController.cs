@@ -24,7 +24,7 @@ public class OfficerController : MonoBehaviour
     private Transform goBackDestination;
 
 
-    private ThirdPersonCharacter character;
+    private CustomThirdPerson character;
 
     private bool isFollowingPlayer;
 
@@ -51,6 +51,9 @@ public class OfficerController : MonoBehaviour
 
     public Color searchRadColor;
 
+    private bool isTurning = false;
+    private bool turningFinished = false;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -76,7 +79,7 @@ public class OfficerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
 
-        character = GetComponent<ThirdPersonCharacter>();
+        character = GetComponent<CustomThirdPerson>();
 
     }
 
@@ -166,25 +169,35 @@ public class OfficerController : MonoBehaviour
 
     public bool TurnToLastPoint()
     {
-        var angle = Vector3.Angle(transform.forward, new Vector3(transform.position.x - lastPoint.transform.position.x, 0, transform.position.z - lastPoint.transform.position.z));
-        if (Math.Abs(angle) > rotationThreshold)
+        if (!isTurning)
         {
-            animator.SetFloat("Turn", -1);
-            transform.Rotate(Vector3.up, -rotSpeed * Time.deltaTime);
+            var angle = Vector3.Angle(transform.forward, new Vector3(transform.position.x - lastPoint.transform.position.x, 0, transform.position.z - lastPoint.transform.position.z));
+            if(angle < rotationThreshold) { return false; }
+            Debug.Log(animator.GetCurrentAnimatorClipInfo(0).ToString());
+            isTurning = true;
+            turningFinished = false;
+            Debug.Log(angle / 180);
+            character.SetRotation(angle/180f);
             return true;
+         
         }
-        animator.SetFloat("Turn", 0);
-        return false;
+        if (turningFinished)
+        {
+            character.SetRotation(0);
+            isTurning = false;
+            return false;
+        }
+        return true;
     }
 
     public bool TurnToNextPoint()
     {
         var nextPoint = points[(pointIndex) % route.GetPoints().Length];
         var angle = Vector3.Angle(transform.forward, new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z));
+        if (angle < rotationThreshold) { return false; }
         if (Math.Abs(angle) > rotationThreshold)
         {
-            animator.SetFloat("Turn", 1*angle > 0?-1:1);
-            transform.Rotate(Vector3.up, (1 * angle > 0 ? -1 : 1)*rotSpeed * Time.deltaTime);
+            character.SetRotation(-1);
             return true;
         }
         animator.SetFloat("Turn", 0);
@@ -204,5 +217,10 @@ public class OfficerController : MonoBehaviour
     {
         Handles.color = searchRadColor;
         Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
+    }
+
+    private void RotationEnded()
+    {
+        turningFinished = true;
     }
 }

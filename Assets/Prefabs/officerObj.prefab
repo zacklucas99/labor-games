@@ -162,10 +162,10 @@ GameObject:
   - component: {fileID: 6131249789233174327}
   - component: {fileID: 6131249789233174324}
   - component: {fileID: 6131249789233174325}
-  - component: {fileID: 6131249789233174322}
   - component: {fileID: 6131249789233174323}
   - component: {fileID: 6131249789233174320}
   - component: {fileID: 622562236}
+  - component: {fileID: 8362443313050339622}
   m_Layer: 7
   m_Name: officerObj
   m_TagString: Untagged
@@ -238,26 +238,6 @@ CapsuleCollider:
   m_Height: 1.3248563
   m_Direction: 1
   m_Center: {x: -0.0064688623, y: 0.6147306, z: 0}
---- !u!114 &6131249789233174322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6131249789233174286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 180
-  m_StationaryTurnSpeed: 90
-  m_JumpPower: 12
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.2
 --- !u!195 &6131249789233174323
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -304,6 +284,8 @@ MonoBehaviour:
   rotSpeed: 180
   rigidbody: {fileID: 0}
   rotationThreshold: 0.5
+  searchRad: 1
+  searchRadColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &622562236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +299,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: e7c782a9e281fd84eb66d57b157d5107, type: 2}
+--- !u!114 &8362443313050339622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131249789233174286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302ad00e5c51843449ebc374eb601a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MovingTurnSpeed: 360
+  m_StationaryTurnSpeed: 180
+  m_JumpPower: 12
+  m_GravityMultiplier: 2
+  m_RunCycleLegOffset: 0.2
+  m_MoveSpeedMultiplier: 1
+  m_AnimSpeedMultiplier: 1
+  m_GroundCheckDistance: 0.1
 --- !u!1001 &6131249788980060370
 PrefabInstance:
   m_ObjectHideFlags: 0
