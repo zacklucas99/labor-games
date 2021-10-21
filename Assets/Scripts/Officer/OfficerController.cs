@@ -179,7 +179,7 @@ public class OfficerController : MonoBehaviour
             isTurning = true;
             turningFinished = false;
             currentRotationSpeed = angle / 180f;
-            character.SetRotation(currentRotationSpeed);
+            character.SetRotation(-currentRotationSpeed);
          
         }
         if (turningFinished && angle < rotationThreshold)
@@ -189,7 +189,7 @@ public class OfficerController : MonoBehaviour
             isTurning = false;
             return false;
         }
-        character.SetRotation(currentRotationSpeed);
+        character.SetRotation(-currentRotationSpeed);
 
         return true;
     }
