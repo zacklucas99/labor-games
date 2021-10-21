@@ -53,6 +53,7 @@ public class OfficerController : MonoBehaviour
 
     private bool isTurning = false;
     private bool turningFinished = false;
+    private float currentRotationSpeed;
 
     void Start()
     {
@@ -169,39 +170,56 @@ public class OfficerController : MonoBehaviour
 
     public bool TurnToLastPoint()
     {
+        var angle = Vector3.Angle(transform.forward, new Vector3(transform.position.x - lastPoint.transform.position.x, 0, transform.position.z - lastPoint.transform.position.z));
         if (!isTurning)
         {
-            var angle = Vector3.Angle(transform.forward, new Vector3(transform.position.x - lastPoint.transform.position.x, 0, transform.position.z - lastPoint.transform.position.z));
-            if(angle < rotationThreshold) { return false; }
-            Debug.Log(animator.GetCurrentAnimatorClipInfo(0).ToString());
+            if(Math.Abs(angle) < rotationThreshold) { 
+                return false;
+            }
             isTurning = true;
             turningFinished = false;
-            Debug.Log(angle / 180);
-            character.SetRotation(angle/180f);
-            return true;
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(currentRotationSpeed);
          
         }
-        if (turningFinished)
+        if (turningFinished && angle < rotationThreshold)
         {
             character.SetRotation(0);
+            currentRotationSpeed = 0;
             isTurning = false;
             return false;
         }
+        character.SetRotation(currentRotationSpeed);
+
         return true;
     }
 
     public bool TurnToNextPoint()
     {
-        var nextPoint = points[(pointIndex) % route.GetPoints().Length];
+       var nextPoint = points[(pointIndex) % route.GetPoints().Length];
         var angle = Vector3.Angle(transform.forward, new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z));
-        if (angle < rotationThreshold) { return false; }
-        if (Math.Abs(angle) > rotationThreshold)
+
+        if (!isTurning)
         {
-            character.SetRotation(-1);
-            return true;
+            if(Math.Abs(angle) < rotationThreshold) { 
+                return false;
+            }
+            isTurning = true;
+            turningFinished = false;
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(-currentRotationSpeed);
+         
         }
-        animator.SetFloat("Turn", 0);
-        return false;
+        if (turningFinished && angle < rotationThreshold)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
+            return false;
+        }
+        character.SetRotation(-currentRotationSpeed);
+
+        return true;
     }
 
     public void SetNeedsMoveFlag() {
@@ -222,5 +240,6 @@ public class OfficerController : MonoBehaviour
     private void RotationEnded()
     {
         turningFinished = true;
+        Debug.Log("Turning finished");
     }
 }
