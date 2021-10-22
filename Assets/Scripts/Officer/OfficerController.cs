@@ -170,7 +170,8 @@ public class OfficerController : MonoBehaviour
 
     public bool TurnToLastPoint()
     {
-        var angle = Vector3.Angle(transform.forward, new Vector3(transform.position.x - lastPoint.transform.position.x, 0, transform.position.z - lastPoint.transform.position.z));
+        var point = points[(pointIndex - 2 >= 0 ? pointIndex - 2 : 0) % points.Length];
+        var angle = Vector3.Angle(transform.forward, new Vector3(point.transform.position.x- transform.position.x  , 0,  point.transform.position.z - transform.position.z));
         if (!isTurning)
         {
             if(Math.Abs(angle) < rotationThreshold) { 
@@ -180,9 +181,8 @@ public class OfficerController : MonoBehaviour
             turningFinished = false;
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
-         
         }
-        if (turningFinished && angle < rotationThreshold)
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
         {
             character.SetRotation(0);
             currentRotationSpeed = 0;
@@ -240,6 +240,5 @@ public class OfficerController : MonoBehaviour
     private void RotationEnded()
     {
         turningFinished = true;
-        Debug.Log("Turning finished");
     }
 }
