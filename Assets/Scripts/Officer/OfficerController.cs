@@ -55,6 +55,10 @@ public class OfficerController : MonoBehaviour
     private bool turningFinished = false;
     private float currentRotationSpeed;
 
+    public int maxSearchSteps = 5;
+
+    public LayerMask environmentLayer;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -228,7 +232,27 @@ public class OfficerController : MonoBehaviour
 
     public void FindRandomPoint()
     {
-        agent.SetDestination(transform.position + Quaternion.Euler(0, UnityEngine.Random.Range(0, 360),0)*Vector3.forward * searchRad);
+        RaycastHit hit;
+        float maxDist = 0;
+        Vector3 dest = transform.position;
+        for (int i = 0; i < maxSearchSteps; i++) {
+            if (Physics.Raycast(transform.position, Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0) * Vector3.forward, out hit, searchRad)) {
+                if (hit.distance > maxDist)
+                {
+                    dest = hit.point;
+                }
+                if(hit.distance > searchRad)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                dest = transform.position + Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0) * Vector3.forward;
+                break;
+            }
+        }
+        agent.SetDestination(dest);
     }
 
     private void OnDrawGizmos()
