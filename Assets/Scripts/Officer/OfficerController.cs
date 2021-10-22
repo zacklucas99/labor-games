@@ -162,9 +162,6 @@ public class OfficerController : MonoBehaviour
         destinationSet = false;
 
         isFollowingPlayer = false;
-        Debug.Log("Lost_player");
-
-
     }
     public bool RunToLastActionPoint()
     {
@@ -201,7 +198,8 @@ public class OfficerController : MonoBehaviour
     public bool TurnToNextPoint()
     {
        var nextPoint = points[(pointIndex) % route.GetPoints().Length];
-        var angle = Vector3.Angle(transform.forward, new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z));
+        var angle = Vector3.SignedAngle(new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z), 
+            transform.forward, Vector3.up);
 
         if (!isTurning)
         {
@@ -214,7 +212,7 @@ public class OfficerController : MonoBehaviour
             character.SetRotation(-currentRotationSpeed);
          
         }
-        if (turningFinished && angle < rotationThreshold)
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
         {
             character.SetRotation(0);
             currentRotationSpeed = 0;
