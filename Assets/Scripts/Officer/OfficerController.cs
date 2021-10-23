@@ -93,10 +93,6 @@ public class OfficerController : MonoBehaviour
         lastPoint = points[pointIndex % points.Length];
 
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
-        if(pointIndex >= points.Length)
-        {
-            pointIndex = 0;
-        }
     }
 
     public bool StopMovement()
