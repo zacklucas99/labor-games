@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_Canvas
-    second: {fileID: 2100000, guid: ad98a655acc35ea43b413e54d997f832, type: 2}
+    second: {fileID: 2100000, guid: 99c8fab78a81d9144a7d4e91b6fd3b05, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

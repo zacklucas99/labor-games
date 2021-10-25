@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class OfficerController : MonoBehaviour
+public class OfficerController : MonoBehaviour, SoundReceiver
 {
     // Start is called before the first frame update
 
@@ -36,6 +36,7 @@ public class OfficerController : MonoBehaviour
     public bool setToStartPoint;
 
     public Vector3 playerDestination;
+    public Vector3 soundDestination;
     public MeshRenderer meshRenderer;
 
     private Animator animator;
@@ -58,6 +59,7 @@ public class OfficerController : MonoBehaviour
     public int maxSearchSteps = 5;
 
     public LayerMask environmentLayer;
+    public bool isFollowingSound = false;
 
     void Start()
     {
@@ -97,9 +99,10 @@ public class OfficerController : MonoBehaviour
 
     public bool StopMovement()
     {
+        // Stopping the current movement and animation
         character.Move(Vector3.zero, false, false);
         agent.SetDestination(transform.position);
-        return !isFollowingPlayer;
+        return !isFollowingPlayer && !isFollowingSound;
     }
 
     public void FindNewPoint()
@@ -141,6 +144,13 @@ public class OfficerController : MonoBehaviour
     {
         agent.SetDestination(playerDestination);
         character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
+    }
+
+    public void FollowSound()
+    {
+        // Todo: rewrite more beautifully
+        agent.SetDestination(soundDestination);
+        character.Move(agent.desiredVelocity, false, false);
     }
 
 
@@ -258,5 +268,14 @@ public class OfficerController : MonoBehaviour
     private void RotationEnded()
     {
         turningFinished = true;
+    }
+
+
+    public void ReceiveSound(GameObject obj)
+    {
+        Debug.Log("Got sound");
+        isFollowingSound = true;
+        soundDestination = obj.transform.position;
+        goBackDestination = lastPoint.transform;
     }
 }
