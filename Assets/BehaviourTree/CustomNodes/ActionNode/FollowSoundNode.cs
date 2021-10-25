@@ -7,7 +7,7 @@ public class FollowSoundNode : ActionNode
     protected override State OnUpdate()
     {
 
-        if (Context.Officer.isFollowingSound)
+        if (Context.Officer.isFollowingSound &&!Context.Officer.NearSound())
         {
             Context.Officer.FollowSound();
             return State.Running;

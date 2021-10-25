@@ -61,6 +61,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public LayerMask environmentLayer;
     public bool isFollowingSound = false;
 
+    private SoundObject soundObjectToHandle;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -271,11 +273,26 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
 
 
-    public void ReceiveSound(GameObject obj)
+    public void ReceiveSound(SoundObject obj)
     {
         Debug.Log("Got sound");
         isFollowingSound = true;
         soundDestination = obj.transform.position;
         goBackDestination = lastPoint.transform;
+        soundObjectToHandle = obj;
     }
+
+    public bool NearSound()
+    {
+        return soundObjectToHandle != null && 
+            (soundObjectToHandle.transform.position - transform.position).magnitude <= agent.stoppingDistance;
+    }
+
+    public void TurnSoundOff()
+    {
+        soundObjectToHandle.SetTurnedOn(false);
+        isFollowingSound = false;
+        soundDestination = Vector3.zero;
+    }
+
 }

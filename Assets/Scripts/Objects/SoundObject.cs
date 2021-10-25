@@ -23,9 +23,13 @@ public class SoundObject : MonoBehaviour
             foreach(var enemy in enemies)
             {
 
-                enemy.GetComponent<OfficerController>().ReceiveSound(gameObject);
+                enemy.GetComponent<OfficerController>().ReceiveSound(this);
             }
         }
+    }
+
+    public void SetTurnedOn(bool val) {
+        turnedOn = val;
     }
 
     private void OnDrawGizmos()
