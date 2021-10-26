@@ -13,6 +13,7 @@ public class SoundObject : MonoBehaviour
     public LayerMask enemyLayer;
 
     public Color radColor;
+    public Color turnedOffRadColor = Color.gray;
 
     void Update()
     {
@@ -34,7 +35,7 @@ public class SoundObject : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Handles.color = radColor;
+        Handles.color = turnedOn?radColor:turnedOffRadColor;
         Handles.DrawWireDisc(transform.position, Vector2.up, soundRad);
     }
 }
