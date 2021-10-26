@@ -152,7 +152,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Todo: rewrite more beautifully
         agent.SetDestination(soundDestination);
-        character.Move(agent.desiredVelocity, false, false);
+        character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
     }
 
 

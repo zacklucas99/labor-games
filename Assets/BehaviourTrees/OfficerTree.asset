@@ -72,7 +72,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6d6761f0c9590124faef6a64f83f365b
-  Position: {x: 429.2412, y: 337}
+  Position: {x: 322.59915, y: 337.00003}
   Children:
   - {fileID: 3831728135835813776}
   - {fileID: -7320166215265438895}
@@ -151,7 +151,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: bea0d1e3f70caef4495882b3dd036e86
-  Position: {x: 668.2412, y: 481.00006}
+  Position: {x: 561.5992, y: 481}
   Children:
   - {fileID: 1713429631482032282}
   - {fileID: 7989072088446084984}
@@ -189,7 +189,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 017a9e5df8880cb418ae92818dee9d37
-  Position: {x: 486.2412, y: 481.00006}
+  Position: {x: 379.5992, y: 481}
   Children:
   - {fileID: 1026964114068929085}
   - {fileID: -1604133470649723333}
@@ -266,7 +266,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: b43d1f347c7ab5342898e7e5a6e0b8f3
-  Position: {x: -99.5, y: 104}
+  Position: {x: -113.99993, y: 98.89282}
   Child: {fileID: 3139256336350122394}
   loopInfinite: 1
   maxCounter: 0
@@ -360,7 +360,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 7dcc59c387f2cc24ea740e44378db9b6
-  Position: {x: 861.2412, y: 481.00006}
+  Position: {x: 754.5991, y: 481}
   message: 
 --- !u!114 &-2460423276903363429
 MonoBehaviour:
@@ -420,7 +420,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 399fc94887c724b479cb6b06ce5ab645
-  Position: {x: 542.2412, y: 595.00006}
+  Position: {x: 435.59918, y: 595}
   duration: 1
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
@@ -565,7 +565,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6231912cccd5e954c99234da9b2cbafa
-  Position: {x: 463.2412, y: 595.00006}
+  Position: {x: 356.59918, y: 595}
   duration: 0.1
 --- !u!114 &1414371356051685421
 MonoBehaviour:
@@ -604,7 +604,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 5c5ac1e05703fc14f88f8688785fc8fb
-  Position: {x: 766.2413, y: 595.00006}
+  Position: {x: 659.5992, y: 595}
   duration: 4
 --- !u!114 &3139256336350122394
 MonoBehaviour:
@@ -664,7 +664,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6a688788fee69ba439d5e11056cedac1
-  Position: {x: 379.2413, y: 481.00006}
+  Position: {x: 272.59924, y: 481}
   message: 
 --- !u!114 &4339769847526790276
 MonoBehaviour:
@@ -772,7 +772,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 9506dde9ddac48048a1e43d14adcdd61
-  Position: {x: 1051.2412, y: 595.00006}
+  Position: {x: 944.5992, y: 595}
   duration: 4
 --- !u!114 &6710212860973532150
 MonoBehaviour:
@@ -808,7 +808,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 7309af46ef0d4534f96494c21736b61a
-  Position: {x: 844.2412, y: 595.00006}
+  Position: {x: 737.5992, y: 595}
   duration: 1
 --- !u!114 &8421434552253474602
 MonoBehaviour:
