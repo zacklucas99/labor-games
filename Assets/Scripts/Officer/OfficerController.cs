@@ -63,6 +63,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private SoundObject soundObjectToHandle;
 
+    public bool soundTurnedOff = true;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -280,6 +282,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         soundDestination = obj.transform.position;
         goBackDestination = lastPoint.transform;
         soundObjectToHandle = obj;
+        soundTurnedOff = false;
     }
 
     public bool NearSound()
@@ -288,11 +291,23 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             (soundObjectToHandle.transform.position - transform.position).magnitude <= agent.stoppingDistance;
     }
 
-    public void TurnSoundOff()
+    public bool TurnSoundOff()
     {
+        if (!soundTurnedOff)
+        {
+            animator.SetBool("TurnOff", true);
+        }
+        return soundTurnedOff;
+    }
+
+    public void FinishTurnSoundOff()
+    {
+        Debug.Log("Finish TurnSoundOff");
         soundObjectToHandle.SetTurnedOn(false);
         isFollowingSound = false;
         soundDestination = Vector3.zero;
+        animator.SetBool("TurnOff", false);
+        soundTurnedOff = true;
     }
 
 }

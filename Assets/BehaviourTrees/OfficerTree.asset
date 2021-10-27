@@ -55,7 +55,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: bb0c24b4ab741ef4aa9d178800a41fb7
-  Position: {x: 22.000015, y: 570}
+  Position: {x: 21.999952, y: 568}
 --- !u!114 &-7986872501714607197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: ec1308faced928141917e2aa471ce72d
-  Position: {x: -844.6206, y: 337.00003}
+  Position: {x: -845, y: 326}
   Children:
   - {fileID: -6290360311826993514}
   - {fileID: -9123569220161085915}
