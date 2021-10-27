@@ -2982,6 +2982,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 871363166}
     - target: {fileID: 1778721441913322391, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
+      propertyPath: collisionRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778721441913322391, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778721441913322391, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: interactionMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -6263,7 +6271,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17958
+  m_Name: pb_Mesh27574
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6830,7 +6838,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17698
+  m_Name: pb_Mesh27316
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7794,7 +7802,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17788
+  m_Name: pb_Mesh27406
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
