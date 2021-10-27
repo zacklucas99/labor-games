@@ -25,12 +25,17 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private Vector3 hitPosition;
 
+    private Shader shaderNoOutline;
+    private Shader shaderOutline;
+
     void Start()
     {
         Cursor.visible = false;
         anim = GetComponent<Animator>();
         interactionObj = null;
-    }
+        shaderNoOutline = Shader.Find("Unlit/Basic");
+        shaderOutline = Shader.Find("Unlit/Outline");
+}
 
     void Update()
     {
@@ -100,11 +105,13 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 if (interactionObj != null && interactionObj != hitColliders[0].transform) //if facing new interaction obj
                 {
-                    interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
+                    interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
+                    //interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
                 }
 
                 interactionObj = hitColliders[0].transform;
-                hitColliders[0].transform.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f); //add outline to interaction obj the camera is facing
+                interactionObj.GetComponent<Renderer>().material.shader = shaderOutline;
+                //hitColliders[0].transform.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f); //add outline to interaction obj the camera is facing
             }
             else 
             {
@@ -140,7 +147,8 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (interactionObj != null)
         {
-            interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
+            interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
+            //interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
             interactionObj = null;
         }
     }
