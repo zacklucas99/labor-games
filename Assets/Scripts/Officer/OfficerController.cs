@@ -302,10 +302,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void FinishTurnSoundOff()
     {
-        Debug.Log("Finish TurnSoundOff");
         soundObjectToHandle.SetTurnedOn(false);
         isFollowingSound = false;
         soundDestination = Vector3.zero;
+    }
+
+    public void FinishTurnOffAnimation()
+    {
         animator.SetBool("TurnOff", false);
         soundTurnedOff = true;
     }
