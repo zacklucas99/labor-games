@@ -102,12 +102,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
     }
 
-    public bool StopMovement()
+    public void StopMovement()
     {
         // Stopping the current movement and animation
         character.Move(Vector3.zero, false, false);
         agent.SetDestination(transform.position);
-        return !isFollowingPlayer && !isFollowingSound;
     }
 
     public void FindNewPoint()
@@ -264,16 +263,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         agent.SetDestination(dest);
     }
 
-    private void OnDrawGizmos()
-    {
-        if (!drawGizmos)
-        {
-            return;
-        }
-        Handles.color = searchRadColor;
-        Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
-    }
-
     private void RotationEnded()
     {
         turningFinished = true;
@@ -316,6 +305,16 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         animator.SetBool("TurnOff", false);
         soundTurnedOff = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!drawGizmos)
+        {
+            return;
+        }
+        Handles.color = searchRadColor;
+        Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
     }
 
 }

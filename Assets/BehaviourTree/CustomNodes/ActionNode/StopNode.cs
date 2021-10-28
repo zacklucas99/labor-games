@@ -21,14 +21,12 @@ public class StopNode : ActionNode
         {
             return State.Failure;
         }
-        if (Context.Officer.StopMovement())
+        Context.Officer.StopMovement();
+        
+        if (Time.time - startTime > duration)
         {
-            if (Time.time - startTime > duration)
-            {
-                return State.Success;
-            }
-            return State.Running;
+            return State.Success;
         }
-        return State.Failure;
+        return State.Running;
     }
 }
