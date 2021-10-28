@@ -199,7 +199,7 @@ Animator:
   m_GameObject: {fileID: 6131249789233174286}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: af67c84a65f198348b3b0bf8e0917cad, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6289be58f9354384d8ce5ea9e2e8e779, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -248,7 +248,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -280,12 +280,19 @@ MonoBehaviour:
   walkingSpeed: 0.5
   setToStartPoint: 1
   playerDestination: {x: 0, y: 0, z: 0}
+  soundDestination: {x: 0, y: 0, z: 0}
   meshRenderer: {fileID: 218444285873787648}
   rotSpeed: 180
   rigidbody: {fileID: 0}
-  rotationThreshold: 0.5
-  searchRad: 1
-  searchRadColor: {r: 0, g: 0, b: 0, a: 0}
+  rotationThreshold: 5
+  searchRad: 2
+  searchRadColor: {r: 0.7372549, g: 0, b: 0, a: 1}
+  maxSearchSteps: 5
+  environmentLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isFollowingSound: 0
+  soundTurnedOff: 1
 --- !u!114 &622562236
 MonoBehaviour:
   m_ObjectHideFlags: 0
