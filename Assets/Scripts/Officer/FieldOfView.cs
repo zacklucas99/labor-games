@@ -32,6 +32,8 @@ public class FieldOfView : MonoBehaviour
     private bool foundPlayers = false;
 
     public float offset = 1;
+    public Color gizmosColor;
+    public bool drawGizmos = true;
 
     public FoundPlayerEvent PlayerFoundEvent = new FoundPlayerEvent();
     public UnityEvent PlayerLostEvent = new UnityEvent();
@@ -155,6 +157,11 @@ public class FieldOfView : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!drawGizmos)
+        {
+            return;
+        }
+        Gizmos.color = gizmosColor;
         Handles.DrawWireDisc(transform.position // position
                               , transform.up                       // normal
                               , viewDist);

@@ -14,6 +14,7 @@ public class SoundObject : MonoBehaviour
 
     public Color radColor;
     public Color turnedOffRadColor = Color.gray;
+    public bool drawGizmos;
 
     void Update()
     {
@@ -35,6 +36,10 @@ public class SoundObject : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!drawGizmos)
+        {
+            return;
+        }
         Handles.color = turnedOn?radColor:turnedOffRadColor;
         Handles.DrawWireDisc(transform.position, Vector2.up, soundRad);
     }

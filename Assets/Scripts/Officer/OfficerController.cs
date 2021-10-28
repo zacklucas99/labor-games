@@ -51,6 +51,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public float searchRad = 1f;
 
     public Color searchRadColor;
+    public bool drawGizmos = true;
 
     private bool isTurning = false;
     private bool turningFinished = false;
@@ -265,6 +266,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private void OnDrawGizmos()
     {
+        if (!drawGizmos)
+        {
+            return;
+        }
         Handles.color = searchRadColor;
         Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
     }
