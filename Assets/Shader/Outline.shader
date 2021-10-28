@@ -4,8 +4,8 @@ Shader "Unlit/Outline"
     {
         _Color("Main color", Color) = (1,1,1,0)
         _MainTex ("Texture", 2D) = "white" {}
-        _OutlineColor("Outline color", Color) = (0,0,0,1)
-        _OutlineWidth("Outline width", Range(0.1,5.0)) = 0.1
+        _OutlineColor("Outline color", Color) = (255,172,0,255)
+        _OutlineWidth("Outline width", Range(0.1,5.0)) = 1.03
     }
 
     CGINCLUDE

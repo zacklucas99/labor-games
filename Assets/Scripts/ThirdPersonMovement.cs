@@ -20,13 +20,22 @@ public class ThirdPersonMovement : MonoBehaviour
     public float maxDistance = 7f;
     public LayerMask interactionMask;
     private Transform interactionObj;
+    public LayerMask collisionMask;
+    public float collisionRadius = 0.4f;
+
+    private Vector3 hitPosition;
+
+    private Shader shaderNoOutline;
+    private Shader shaderOutline;
 
     void Start()
     {
         Cursor.visible = false;
         anim = GetComponent<Animator>();
         interactionObj = null;
-    }
+        shaderNoOutline = Shader.Find("Unlit/Basic");
+        shaderOutline = Shader.Find("Unlit/Outline");
+}
 
     void Update()
     {
@@ -87,25 +96,40 @@ public class ThirdPersonMovement : MonoBehaviour
         Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, maxDistance, interactionMask)) //if raycast hits interation obj
+        if (Physics.Raycast(ray, out hit, maxDistance, collisionMask)) //if raycast hits interation obj
         {
-            if (interactionObj != null && interactionObj != hit.transform) //if facing new interaction obj
+            hitPosition = hit.point;
+            Collider[] hitColliders = Physics.OverlapSphere(hitPosition, collisionRadius, interactionMask);
+
+            if (hitColliders.Length >0)
             {
-                interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
+                if (interactionObj != null && interactionObj != hitColliders[0].transform) //if facing new interaction obj
+                {
+                    interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
+                    //interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
+                }
+
+                interactionObj = hitColliders[0].transform;
+                interactionObj.GetComponent<Renderer>().material.shader = shaderOutline;
+                //hitColliders[0].transform.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f); //add outline to interaction obj the camera is facing
+            }
+            else 
+            {
+                ResetOutline();
             }
 
-            interactionObj = hit.transform;
-            hit.transform.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f); //add outline to interaction obj the camera is facing
         }
         else
         {
-            if (interactionObj != null)
-            {
-                interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
-                interactionObj = null;
-            }
-
+            ResetOutline();
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
+        {
+            interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
         {
@@ -113,4 +137,19 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(hitPosition, collisionRadius);
+    }
+
+    public void ResetOutline()
+    {
+        if (interactionObj != null)
+        {
+            interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
+            //interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
+            interactionObj = null;
+        }
+    }
 }
