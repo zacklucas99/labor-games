@@ -263,6 +263,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             currentRotationSpeed = 0;
             isTurning = false;
             approximationPoint = Vector3.zero;
+            playerCloseBy = false;
             return false;
         }
         character.SetRotation(-currentRotationSpeed);
@@ -356,7 +357,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void LostPlayerCloseBy()
     {
         playerCloseBy = false;
-        approximationPoint = Vector3.zero;
     }
 
     private void OnDrawGizmos()

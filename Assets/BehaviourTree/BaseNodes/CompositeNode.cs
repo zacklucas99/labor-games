@@ -16,4 +16,16 @@ public abstract class CompositeNode : Node
         }
         return node;
     }
+
+    public override void Reset()
+    {
+        if (Started)
+        {
+            base.Reset();
+            foreach (var child in Children)
+            {
+                child.Reset();
+            }
+        }
+    }
 }

@@ -23,6 +23,14 @@ public class ExecuteAllNode: CompositeNode
             switch (child.Update())
             {
                 case State.Running:
+                    // Resetting all the nodes, if they arent't currently run
+                    for(int j = i+1; j< Children.Count; j++)
+                    {
+                        if (Children[j].Started)
+                        {
+                            Children[j].Reset();
+                        }
+                    }
                     return State.Running;
                 case State.Success:
                     continue;
