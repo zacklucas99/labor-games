@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,9 +31,17 @@ public class ApproximationRecognition : MonoBehaviour
     public void Update()
     {
         var players = Physics.OverlapSphere(transform.position, playerRad, playerMask);
-        foreach(var player in players)
+        List<GameObject> movingPlayers = new List<GameObject>();
+        foreach (var player in players)
         {
-            playerApproximationEvent.Invoke(player.gameObject);
+            if (player.gameObject.GetComponent<ThirdPersonMovement>().IsMoving)
+            {
+                movingPlayers.Add(player.gameObject);
+            }
+        }
+        foreach(var player in movingPlayers)
+        {
+            playerApproximationEvent.Invoke(player);
         }
         if(players.Length == 0)
         {

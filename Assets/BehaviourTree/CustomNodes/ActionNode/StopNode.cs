@@ -8,6 +8,7 @@ public class StopNode : ActionNode
     float startTime;
     public bool failOnFollowingPlayer = true;
     public bool failOnHeardSound = true;
+    public bool failOnPlayerCloseBy = true;
     protected override void OnStart()
     {
         startTime = Time.time;
@@ -26,6 +27,11 @@ public class StopNode : ActionNode
 
 
         if (Context.Officer.FollowingPlayer && failOnFollowingPlayer)
+        {
+            return State.Failure;
+        }
+
+        if(Context.Officer.PlayerCloseBy && failOnPlayerCloseBy)
         {
             return State.Failure;
         }
