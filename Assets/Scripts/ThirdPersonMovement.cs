@@ -28,6 +28,9 @@ public class ThirdPersonMovement : MonoBehaviour
     private Shader shaderNoOutline;
     private Shader shaderOutline;
 
+    private bool isMoving = false;
+    public bool IsMoving => isMoving;
+
     void Start()
     {
         Cursor.visible = false;
@@ -58,6 +61,12 @@ public class ThirdPersonMovement : MonoBehaviour
             float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothens rotation of player
             transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
             moveDir += Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.forward * moveSpeed; //adds x, z direction movement
+
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
         }
         velocityY += gravity * Time.deltaTime;
         controller.Move(moveDir * Time.deltaTime); //applies movement

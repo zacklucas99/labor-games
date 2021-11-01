@@ -63,8 +63,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool isFollowingSound = false;
 
     private SoundObject soundObjectToHandle;
+    private bool soundTurnedOff = true;
 
-    public bool soundTurnedOff = true;
+    public bool SoundTurnedOff => soundTurnedOff;
+
+    private bool playerCloseBy;
+    public bool PlayerCloseBy => playerCloseBy;
+    private Vector3 approximationPoint; 
 
     void Start()
     {
@@ -102,12 +107,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
     }
 
-    public bool StopMovement()
+    public void StopMovement()
     {
         // Stopping the current movement and animation
         character.Move(Vector3.zero, false, false);
         agent.SetDestination(transform.position);
-        return !isFollowingPlayer && !isFollowingSound;
     }
 
     public void FindNewPoint()
@@ -214,20 +218,52 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         if (!isTurning)
         {
-            if(Math.Abs(angle) < rotationThreshold) { 
+            if (Math.Abs(angle) < rotationThreshold)
+            {
                 return false;
             }
             isTurning = true;
             turningFinished = false;
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
-         
+
         }
         if (turningFinished && Math.Abs(angle) < rotationThreshold)
         {
             character.SetRotation(0);
             currentRotationSpeed = 0;
             isTurning = false;
+            return false;
+        }
+        character.SetRotation(-currentRotationSpeed);
+
+        return true;
+    }
+
+    public bool TurnToApproxPoint()
+    {
+        var angle = Vector3.SignedAngle(new Vector3(approximationPoint.x - transform.position.x, 0, approximationPoint.z - transform.position.z),
+            transform.forward, Vector3.up);
+
+        if (!isTurning)
+        {
+            if (Math.Abs(angle) < rotationThreshold)
+            {
+                return false;
+            }
+            isTurning = true;
+            turningFinished = false;
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(-currentRotationSpeed);
+
+        }
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
+            approximationPoint = Vector3.zero;
+            playerCloseBy = false;
             return false;
         }
         character.SetRotation(-currentRotationSpeed);
@@ -262,16 +298,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
         }
         agent.SetDestination(dest);
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (!drawGizmos)
-        {
-            return;
-        }
-        Handles.color = searchRadColor;
-        Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
     }
 
     private void RotationEnded()
@@ -316,6 +342,31 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         animator.SetBool("TurnOff", false);
         soundTurnedOff = true;
+    }
+
+    public void GotPlayerCloseBy(GameObject player)
+    {
+        Debug.Log("playerCloseBy:" + player);
+        playerCloseBy = true;
+        if (approximationPoint == Vector3.zero)
+        {
+            approximationPoint = player.transform.position;
+        }
+    }
+
+    public void LostPlayerCloseBy()
+    {
+        playerCloseBy = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!drawGizmos)
+        {
+            return;
+        }
+        Handles.color = searchRadColor;
+        Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
     }
 
 }

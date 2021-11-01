@@ -45,6 +45,10 @@ public abstract class Node : ScriptableObject
     protected virtual void OnStart() { }
     protected virtual void OnStop() { }
     protected virtual State OnUpdate() { return State.Success; }
+    public virtual void Reset()
+    {
+        started = false;
+    }
 
     public virtual Node Clone()
     {

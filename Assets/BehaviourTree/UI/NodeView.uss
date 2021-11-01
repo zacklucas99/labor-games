@@ -4,6 +4,7 @@
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    width: 100px;
 }
 
 #input {

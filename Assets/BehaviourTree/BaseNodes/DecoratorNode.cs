@@ -12,4 +12,10 @@ public abstract class DecoratorNode : Node
         node.Child = Child.Clone();
         return node;
     }
+
+    public override void Reset()
+    {
+        base.Reset();
+        Child.Reset();
+    }
 }
