@@ -8,11 +8,17 @@ public class BehaviourTreeRunner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Context context = new Context();
         if (tree)
         {
-            Context.Object = gameObject;
-            Context.Officer = GetComponent<OfficerController>();
+            context.Object = gameObject;
+            context.Officer = GetComponent<OfficerController>();
             tree = tree.Clone();
+
+            foreach(var node in tree.Nodes)
+            {
+                node.Context = context;
+            }
         }
 
     }
