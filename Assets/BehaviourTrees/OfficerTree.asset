@@ -558,7 +558,7 @@ MonoBehaviour:
   Children:
   - {fileID: 8871051573192788683}
   - {fileID: -4068639226580530529}
-  canFail: 0
+  canFail: 1
 --- !u!114 &-1604133470649723333
 MonoBehaviour:
   m_ObjectHideFlags: 0
