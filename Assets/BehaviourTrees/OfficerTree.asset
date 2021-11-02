@@ -35,6 +35,7 @@ MonoBehaviour:
   guid: c74ddc693c036344e81e5c5609a35036
   Position: {x: -1382.765, y: 616}
   Children:
+  - {fileID: 3159174763706248394}
   - {fileID: 8421434552253474602}
   - {fileID: 4339769847526790276}
   - {fileID: -7525318717909550829}
@@ -773,6 +774,7 @@ MonoBehaviour:
   - {fileID: 8112960210901873348}
   - {fileID: -2328216686037163676}
   - {fileID: -2356156020101602889}
+  - {fileID: 3159174763706248394}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,6 +957,24 @@ MonoBehaviour:
   - {fileID: -1884599630951209154}
   - {fileID: -7986872501714607197}
   canFail: 0
+--- !u!114 &3159174763706248394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d9c0c69064d584f8c5a9cc2ea807db, type: 3}
+  m_Name: ResetTurnNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Temporary fixed, if turning was aborted, it has to be cleaned
+  guid: 2d6c429c20ecb9240a0a50b90917bbb9
+  Position: {x: -1913, y: 770}
+  duration: 1
 --- !u!114 &3631771610803999055
 MonoBehaviour:
   m_ObjectHideFlags: 0

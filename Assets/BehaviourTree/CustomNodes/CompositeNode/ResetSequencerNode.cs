@@ -20,6 +20,13 @@ public class ResetSequencerNode : CompositeNode
                 return State.Running;
             case State.Failure:
                 current = 0;
+                foreach(var c in Children)
+                {
+                    if (child.Started)
+                    {
+                        child.Reset();
+                    }
+                }
                 return State.Failure;
             case State.Success:
                 current++;
