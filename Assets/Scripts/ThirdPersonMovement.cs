@@ -31,9 +31,13 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isMoving = false;
     public bool IsMoving => isMoving;
 
+    public float throwForce;
+    public GameObject coinPrefab;
+
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         anim = GetComponent<Animator>();
         interactionObj = null;
         shaderNoOutline = Shader.Find("Unlit/Basic");
@@ -42,7 +46,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Update()
     {
-
+        Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
         if (Input.GetButton("Jump"))
@@ -80,6 +84,18 @@ public class ThirdPersonMovement : MonoBehaviour
         UpdateAnimator(inputDir); //updates player animations
 
         UpdateObjectInteraction(); //updates iteraction objects
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log("Tossing coin");
+            GameObject coin = Instantiate(coinPrefab, transform.position + cam.transform.forward, Quaternion.identity);
+            coin.GetComponent<Rigidbody>().AddForce((cam.transform.forward + new Vector3(0,1,0)) * throwForce, ForceMode.Impulse);
+
+
+            //Debug settings to make coin more visible
+            coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
+            coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+        }
 
     }
 
