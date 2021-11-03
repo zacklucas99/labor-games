@@ -635,7 +635,7 @@ MonoBehaviour:
   NodeState: 1
   description: 
   guid: 590f8636627adc84591d9b9a8d20112a
-  Position: {x: -21.000011, y: 450}
+  Position: {x: 55.00005, y: 462.00003}
 --- !u!114 &-883813123005617294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopDebugging: 0
   NodeState: 0
-  description: 
+  description: Handling following the player
   guid: 173b0bf07f136d84dbdb8b69e4da8b20
   Position: {x: -940, y: 486.00003}
   Children:
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 9b44acc8acc919941ac993767b06be8f
-  Position: {x: 384.49576, y: 450.118}
+  Position: {x: 386.25055, y: 462.00003}
 --- !u!114 &7159880942653796007
 MonoBehaviour:
   m_ObjectHideFlags: 0
