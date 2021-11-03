@@ -6,20 +6,32 @@ public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject rotPoint;
+    public List<GameObject> rotPoints;
     public GameObject bone;
     float speed = 1;
+    int currentIndex = 0;
+
+    public float angleThreshold = 0.1f;
+    private bool rotatedToTarget = false;
+    public bool RotatedToTarget => rotatedToTarget;
     void Start()
     {
         
     }
 
+    public void IncrementIndex()
+    {
+        currentIndex = (currentIndex + 1) % rotPoints.Count;
+    }
+
+
     // Update is called once per frame
 
     // Taken from: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
-    void Update()
+    public void Rotate()
     {
         // Determine which direction to rotate towards
+        GameObject rotPoint = rotPoints[currentIndex];
         Vector3 targetDirection = rotPoint.transform.position - bone.transform.position;
 
         // The step size is equal to speed times frame time.
@@ -27,7 +39,7 @@ public class CameraController : MonoBehaviour
 
         // Rotate the forward vector towards the target direction by one step
         Vector3 newDirection = Vector3.RotateTowards(bone.transform.forward, targetDirection, singleStep, 0f);
-
+        rotatedToTarget = Mathf.Abs(Vector3.Angle(targetDirection, newDirection)) < angleThreshold;
         // Draw a ray pointing at our target in
         Debug.DrawRay(bone.transform.position, newDirection, Color.red);
 
