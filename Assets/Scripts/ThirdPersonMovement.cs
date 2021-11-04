@@ -115,12 +115,10 @@ public class ThirdPersonMovement : MonoBehaviour
                 if (interactionObj != null && interactionObj != hitColliders[0].transform) //if facing new interaction obj
                 {
                     interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
-                    //interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
                 }
 
                 interactionObj = hitColliders[0].transform;
                 interactionObj.GetComponent<Renderer>().material.shader = shaderOutline;
-                //hitColliders[0].transform.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f); //add outline to interaction obj the camera is facing
             }
             else 
             {
@@ -135,14 +133,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
         {
-            interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
-        }
-
-
-
-        if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
-        {
-            interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
+            if (interactionObj.GetComponent<PaintingBorder>())
+            {
+                interactionObj.GetComponent<PaintingBorder>().ChangeCanvasTexture(); //texture change on canvas
+            }
+            else
+            {
+                interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
+            }
         }
     }
 
@@ -157,7 +155,6 @@ public class ThirdPersonMovement : MonoBehaviour
         if (interactionObj != null)
         {
             interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
-            //interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 0.1f); //reset outline of interaction obj which the camera was facing before
             interactionObj = null;
         }
     }

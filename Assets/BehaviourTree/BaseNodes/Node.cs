@@ -16,6 +16,8 @@ public abstract class Node : ScriptableObject
     [HideInInspector]  public State NodeState = State.Running;
     private bool started = false;
 
+    public Context Context { get; set; }
+
     public bool Started => started;
 
     public string description;

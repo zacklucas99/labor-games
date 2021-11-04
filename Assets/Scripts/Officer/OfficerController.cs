@@ -184,6 +184,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         return Move();
     }
 
+    #region Turning
     public bool TurnToLastPoint()
     {
         var point = points[(pointIndex - 2 >= 0 ? pointIndex - 2 : 0) % points.Length];
@@ -240,6 +241,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         return true;
     }
 
+
     public bool TurnToApproxPoint()
     {
         var angle = Vector3.SignedAngle(new Vector3(approximationPoint.x - transform.position.x, 0, approximationPoint.z - transform.position.z),
@@ -270,6 +272,21 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         return true;
     }
+
+    public void ResetTurn()
+    {
+        // Temporary fix, if turn was aborted, reset turning 
+        if (!turningFinished)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
+            approximationPoint = Vector3.zero;
+            playerCloseBy = false;
+            turningFinished = true;
+        }
+    }
+    #endregion
 
     public void SetNeedsMoveFlag() {
         needsMoveFlag = true;
@@ -346,7 +363,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void GotPlayerCloseBy(GameObject player)
     {
-        Debug.Log("playerCloseBy:" + player);
         playerCloseBy = true;
         if (approximationPoint == Vector3.zero)
         {
