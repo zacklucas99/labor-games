@@ -66,6 +66,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     private bool soundTurnedOff = true;
 
     public bool SoundTurnedOff => soundTurnedOff;
+    public SoundObject SoundObj => soundObjectToHandle;
 
     private bool playerCloseBy;
     public bool PlayerCloseBy => playerCloseBy;
