@@ -13,4 +13,10 @@ public class TurnTowardsApproxNode : ActionNode
         }
         return State.Success;
     }
+
+    protected override void OnStop()
+    {
+        base.OnStop();
+        Context.Officer.ResetTurn();
+    }
 }

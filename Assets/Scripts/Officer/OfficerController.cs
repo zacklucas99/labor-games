@@ -69,7 +69,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private bool playerCloseBy;
     public bool PlayerCloseBy => playerCloseBy;
-    private Vector3 approximationPoint; 
+    private Vector3 approximationPoint;
+
+    private bool isTurningApprox = false;
 
     void Start()
     {
@@ -249,6 +251,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         if (!isTurning)
         {
+            isTurningApprox = true;
             if (Math.Abs(angle) < rotationThreshold)
             {
                 return false;
@@ -266,6 +269,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             isTurning = false;
             approximationPoint = Vector3.zero;
             playerCloseBy = false;
+            isTurningApprox = false;
             return false;
         }
         character.SetRotation(-currentRotationSpeed);
@@ -364,7 +368,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void GotPlayerCloseBy(GameObject player)
     {
         playerCloseBy = true;
-        if (approximationPoint == Vector3.zero)
+        if (!isTurning)
         {
             approximationPoint = player.transform.position;
         }
