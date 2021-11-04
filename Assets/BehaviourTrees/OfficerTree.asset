@@ -1104,10 +1104,10 @@ MonoBehaviour:
   NodeState: 0
   description: Searching for player
   guid: 8ac08d4dadf8797419a7054c70548e20
-  Position: {x: -1023.53, y: 1015.99994}
+  Position: {x: -1028, y: 1016.00006}
   Child: {fileID: -2460423276903363429}
   loopInfinite: 0
-  maxCounter: 5
+  maxCounter: 2
 --- !u!114 &5774972344573713094
 MonoBehaviour:
   m_ObjectHideFlags: 0
