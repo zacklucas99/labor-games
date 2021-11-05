@@ -268,7 +268,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
                 {
                     angle += minRotationCloseBy;
                 }
-                else { angle -= minRotationCloseBy;
+                else { 
+                    angle -= minRotationCloseBy;
                 }
             }
             currentRotationSpeed = angle / 180f;
