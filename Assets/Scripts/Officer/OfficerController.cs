@@ -73,6 +73,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     private Vector3 approximationPoint;
 
     private bool isTurningApprox = false;
+    public LayerMask closeByMask;
 
     void Start()
     {
@@ -259,6 +260,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             isTurning = true;
             turningFinished = false;
+            if(Math.Abs(angle) < 180)
+            {
+                // Make officer turning faster for smaller angles to make it easier to discover player
+                angle *= 2;
+            }
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
 
@@ -368,10 +374,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void GotPlayerCloseBy(GameObject player)
     {
-        playerCloseBy = true;
-        if (!isTurning)
+        RaycastHit hit;
+        Physics.Raycast(transform.position, (player.transform.position- transform.position).normalized,out hit, float.MaxValue, closeByMask);
+        if (hit.collider.gameObject.tag == "Player")
         {
-            approximationPoint = player.transform.position;
+            playerCloseBy = true;
+            if (!isTurning)
+            {
+                approximationPoint = player.transform.position;
+            }
         }
     }
 
