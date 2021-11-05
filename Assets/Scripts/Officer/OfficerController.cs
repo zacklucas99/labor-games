@@ -74,6 +74,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private bool isTurningApprox = false;
     public LayerMask closeByMask;
+    public float minRotationCloseBy = 90f;
 
     void Start()
     {
@@ -260,10 +261,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             isTurning = true;
             turningFinished = false;
-            if(Math.Abs(angle) < 180)
+            if(Math.Abs(angle) < 90)
             {
                 // Make officer turning faster for smaller angles to make it easier to discover player
-                angle *= 2;
+                if(angle > 0)
+                {
+                    angle += minRotationCloseBy;
+                }
+                else { angle -= minRotationCloseBy;
+                }
             }
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
