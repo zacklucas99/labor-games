@@ -3039,11 +3039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000084239185
+      value: 0.0000000084239185
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017471374
+      value: -0.0000000017471374
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5315896913505931537, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
@@ -3474,6 +3474,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   isFollowingSound: 1
+  closeByMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8523,6 +8526,10 @@ PrefabInstance:
     - target: {fileID: 8534235609660829494, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
       propertyPath: drawGizmos
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534235609660829494, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
+      propertyPath: closeByMask.m_Bits
+      value: 320
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
