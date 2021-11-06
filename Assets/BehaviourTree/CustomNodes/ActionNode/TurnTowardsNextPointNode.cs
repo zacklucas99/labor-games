@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class TurnTowardsNextPointNode : ActionNode
 {
-    public float duration = 1;
-    float startTime;
-    protected override void OnStart()
-    {
-        startTime = Time.time;
-    }
-
     protected override State OnUpdate()
     {
         if (Context.Officer.NeedsMoveFlag)
@@ -23,5 +16,11 @@ public class TurnTowardsNextPointNode : ActionNode
             return State.Running;
         }
         return State.Success;
+    }
+
+    protected override void OnStop()
+    {
+        base.OnStop();
+        Context.Officer.ResetTurn();
     }
 }

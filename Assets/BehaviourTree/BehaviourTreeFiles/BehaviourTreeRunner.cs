@@ -13,6 +13,7 @@ public class BehaviourTreeRunner : MonoBehaviour
         {
             context.Object = gameObject;
             context.Officer = GetComponent<OfficerController>();
+            context.Camera = GetComponent<CameraController>();
             tree = tree.Clone();
 
             foreach(var node in tree.Nodes)

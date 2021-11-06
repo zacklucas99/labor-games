@@ -66,10 +66,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     private bool soundTurnedOff = true;
 
     public bool SoundTurnedOff => soundTurnedOff;
+    public SoundObject SoundObj => soundObjectToHandle;
 
     private bool playerCloseBy;
     public bool PlayerCloseBy => playerCloseBy;
-    private Vector3 approximationPoint; 
+    private Vector3 approximationPoint;
+
+    private bool isTurningApprox = false;
+    public LayerMask closeByMask;
+    public float minRotationCloseBy = 90f;
 
     void Start()
     {
@@ -249,12 +254,24 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         if (!isTurning)
         {
+            isTurningApprox = true;
             if (Math.Abs(angle) < rotationThreshold)
             {
                 return false;
             }
             isTurning = true;
             turningFinished = false;
+            if(Math.Abs(angle) < 90)
+            {
+                // Make officer turning faster for smaller angles to make it easier to discover player
+                if(angle > 0)
+                {
+                    angle += minRotationCloseBy;
+                }
+                else { 
+                    angle -= minRotationCloseBy;
+                }
+            }
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
 
@@ -266,6 +283,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             isTurning = false;
             approximationPoint = Vector3.zero;
             playerCloseBy = false;
+            isTurningApprox = false;
             return false;
         }
         character.SetRotation(-currentRotationSpeed);
@@ -363,10 +381,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void GotPlayerCloseBy(GameObject player)
     {
-        playerCloseBy = true;
-        if (approximationPoint == Vector3.zero)
+        RaycastHit hit;
+        Physics.Raycast(transform.position, (player.transform.position- transform.position).normalized,out hit, float.MaxValue, closeByMask);
+        if (hit.collider.gameObject.tag == "Player")
         {
-            approximationPoint = player.transform.position;
+            playerCloseBy = true;
+            if (!isTurning)
+            {
+                approximationPoint = player.transform.position;
+            }
         }
     }
 
