@@ -18,6 +18,24 @@ MonoBehaviour:
   guid: 959e08468f242ca408ea4ee5ab0dea3b
   Position: {x: -104.99999, y: 361.6043}
   duration: 4
+--- !u!114 &-6845773446617906131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5687411e07caa0e4d8d5b1c3e4cf925c, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 75b38d6417f3cf74c894bc5b11300603
+  Position: {x: -240, y: 362}
+  duration: 1
 --- !u!114 &-5635121584143687042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,10 +69,52 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 329cae7306af0eb4794499045baaf3f2
-  Position: {x: 0, y: 118}
-  Child: {fileID: 504738722413520447}
+  Position: {x: -46.500046, y: 27.15001}
+  Child: {fileID: -1388014697904715930}
   loopInfinite: 1
   maxCounter: 0
+--- !u!114 &-2576891488810034699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 34d22ee7ff5a63a478b8a5cca9ef6f9a
+  Position: {x: -387, y: 246}
+  Children:
+  - {fileID: 5811401604269649066}
+  - {fileID: 6876214792676818726}
+  - {fileID: -6845773446617906131}
+--- !u!114 &-1388014697904715930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 51f9f3e1ea262284cae7d5ad3229e8a7
+  Position: {x: -59.50008, y: 127.4791}
+  Children:
+  - {fileID: -2576891488810034699}
+  - {fileID: 504738722413520447}
+  canFail: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +136,11 @@ MonoBehaviour:
   - {fileID: -9184641202259576421}
   - {fileID: -5635121584143687042}
   - {fileID: 5375223738204371783}
+  - {fileID: -1388014697904715930}
+  - {fileID: -2576891488810034699}
+  - {fileID: 5811401604269649066}
+  - {fileID: 6876214792676818726}
+  - {fileID: -6845773446617906131}
 --- !u!114 &504738722413520447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +157,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 0b2b46d4fea287d45811df0009f6eaa1
-  Position: {x: -27.848938, y: 242.84438}
+  Position: {x: -47.000015, y: 246.04178}
   Children:
   - {fileID: -9184641202259576421}
   - {fileID: 5375223738204371783}
@@ -113,7 +178,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 70fcffd1af2589c44a634fe2ec6f11ca
-  Position: {x: 0, y: 0}
+  Position: {x: -39.00002, y: -84.99801}
   Child: {fileID: -5355183167732445983}
 --- !u!114 &5375223738204371783
 MonoBehaviour:
@@ -132,3 +197,37 @@ MonoBehaviour:
   description: 
   guid: e41e9029eb9ed7241a3e4aeee64c08da
   Position: {x: 0, y: 362}
+--- !u!114 &5811401604269649066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fef6642c9f8c5c4a90a8d0ef3b84fce, type: 3}
+  m_Name: PlayerInViewNodeCamera
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: e2012d1d41a12d74585678c0b8df57f7
+  Position: {x: -617, y: 362}
+--- !u!114 &6876214792676818726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae3d5efea9a77b4c92de1284aa31f58, type: 3}
+  m_Name: FollowPlayerNodeCamera
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9e25259f834c72f4da9485e5b3c363fe
+  Position: {x: -428, y: 362}

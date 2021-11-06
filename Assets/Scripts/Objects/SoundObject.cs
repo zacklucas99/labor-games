@@ -21,7 +21,6 @@ public class SoundObject : MonoBehaviour
         if (turnedOn)
         {
             var enemies = Physics.OverlapSphere(transform.position, soundRad, enemyLayer);
-            Debug.Log(enemies.Length);
             foreach(var enemy in enemies)
             {
 

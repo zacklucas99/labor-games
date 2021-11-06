@@ -343,7 +343,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveSound(SoundObject obj)
     {
-        Debug.Log("Got sound");
         isFollowingSound = true;
         soundDestination = obj.transform.position;
         goBackDestination = lastPoint.transform;
