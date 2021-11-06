@@ -16,7 +16,20 @@ public class CameraController : MonoBehaviour
     public bool RotatedToTarget => rotatedToTarget;
     void Start()
     {
-        
+        currentIndex = rotPoints.Count - 1;
+
+
+        GameObject rotPoint = rotPoints[currentIndex];
+        Vector3 targetDirection = rotPoint.transform.position - bone.transform.position;
+
+        // Rotate the forward vector towards the target direction by one step
+        Vector3 newDirection = Vector3.RotateTowards(bone.transform.forward, targetDirection, 360f, 0f);
+        rotatedToTarget = Mathf.Abs(Vector3.Angle(targetDirection, newDirection)) < angleThreshold;
+        // Draw a ray pointing at our target in
+        Debug.DrawRay(bone.transform.position, newDirection, Color.red);
+
+        // Calculate a rotation a step closer to the target and applies rotation to this object
+        bone.transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
     public void IncrementIndex()
