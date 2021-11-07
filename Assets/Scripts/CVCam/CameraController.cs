@@ -28,7 +28,10 @@ public class CameraController : MonoBehaviour
 
     public bool FoundPlayer { private set; get; }
 
+    public LayerMask officerLayer;
+
     public MeshRenderer meshRenderer;
+
     void Start()
     {
         currentIndex = rotPoints.Count - 1;
@@ -52,9 +55,6 @@ public class CameraController : MonoBehaviour
         currentIndex = (currentIndex + 1) % rotPoints.Count;
     }
 
-
-    // Update is called once per frame
-
     // Taken from: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
     public void Rotate()
     {
@@ -75,6 +75,7 @@ public class CameraController : MonoBehaviour
         bone.transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
+    // Taken from: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
     public void FollowPlayer()
     {
         // Determine which direction to rotate towards
@@ -95,10 +96,19 @@ public class CameraController : MonoBehaviour
 
     public void PlayerFound(GameObject playerObj)
     {
-        Debug.Log("Player found");
         meshRenderer.material.color = playerFoundColor;
         playerPosition = playerObj.transform.position;
         FoundPlayer = true;
+        NotifyOfficers();
+    }
+
+    public void NotifyOfficers()
+    {
+        var officersInRange = Physics.OverlapSphere(transform.position, cameraNotifyRad, officerLayer);
+
+        foreach(var officer in officersInRange){
+            officer.gameObject.GetComponent<AlarmReceiver>().AlarmReceived(playerPosition);
+        }
     }
 
     public void LostPlayer()

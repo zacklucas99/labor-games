@@ -34,7 +34,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 75b38d6417f3cf74c894bc5b11300603
-  Position: {x: -240, y: 362}
+  Position: {x: -192.80003, y: 478.00003}
   duration: 1
 --- !u!114 &-5635121584143687042
 MonoBehaviour:
@@ -73,6 +73,27 @@ MonoBehaviour:
   Child: {fileID: -1388014697904715930}
   loopInfinite: 1
   maxCounter: 0
+--- !u!114 &-2787729402014476311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: c0ba8a97ba2d4634c925732ff4e5117e
+  Position: {x: -253.8, y: 362}
+  Children:
+  - {fileID: 2377136185282625772}
+  - {fileID: -6845773446617906131}
+  canFail: 1
 --- !u!114 &-2576891488810034699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,11 +110,11 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 34d22ee7ff5a63a478b8a5cca9ef6f9a
-  Position: {x: -387, y: 246}
+  Position: {x: -400.80005, y: 246.00002}
   Children:
   - {fileID: 5811401604269649066}
   - {fileID: 6876214792676818726}
-  - {fileID: -6845773446617906131}
+  - {fileID: -2787729402014476311}
 --- !u!114 &-1388014697904715930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +162,9 @@ MonoBehaviour:
   - {fileID: 5811401604269649066}
   - {fileID: 6876214792676818726}
   - {fileID: -6845773446617906131}
+  - {fileID: -2787729402014476311}
+  - {fileID: 2377136185282625772}
+  - {fileID: 4442915343029534083}
 --- !u!114 &504738722413520447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +186,24 @@ MonoBehaviour:
   - {fileID: -9184641202259576421}
   - {fileID: 5375223738204371783}
   - {fileID: -5635121584143687042}
+--- !u!114 &2377136185282625772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 5b35a87cbf4082c48971f1cd6daf33bc
+  Position: {x: -292.80005, y: 478.00003}
+  Child: {fileID: 4442915343029534083}
 --- !u!114 &3906746189534276082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +222,23 @@ MonoBehaviour:
   guid: 70fcffd1af2589c44a634fe2ec6f11ca
   Position: {x: -39.00002, y: -84.99801}
   Child: {fileID: -5355183167732445983}
+--- !u!114 &4442915343029534083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fef6642c9f8c5c4a90a8d0ef3b84fce, type: 3}
+  m_Name: PlayerInViewNodeCamera
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 5c6540c553e67464a877e576b2e71523
+  Position: {x: -336.80005, y: 572.00006}
 --- !u!114 &5375223738204371783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +272,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: e2012d1d41a12d74585678c0b8df57f7
-  Position: {x: -617, y: 362}
+  Position: {x: -630.80005, y: 362}
 --- !u!114 &6876214792676818726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,4 +289,4 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 9e25259f834c72f4da9485e5b3c363fe
-  Position: {x: -428, y: 362}
+  Position: {x: -441.80005, y: 362}

@@ -76,6 +76,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public LayerMask closeByMask;
     public float minRotationCloseBy = 90f;
 
+    private Vector3 notifyPosition;
+    private bool isMovingToAlarm;
+
+    public bool Notified { get; private set; }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -158,6 +163,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         agent.SetDestination(playerDestination);
         character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
+    }
+
+    public bool RunToAlarm()
+    {
+        agent.SetDestination(notifyPosition);
+        character.Move(agent.desiredVelocity.normalized , false, false);
+        bool arrived = ArrivedAtAlarm();
+        isMovingToAlarm = true;
+        return arrived;
     }
 
     public void FollowSound()
@@ -396,6 +410,26 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         playerCloseBy = false;
     }
+
+    public void ReceivedAlarm(Vector3 playerPosition)
+    {
+        Debug.Log("Received Alarm");
+        notifyPosition = playerPosition;
+        Notified = true;
+    }
+
+    public bool ArrivedAtAlarm()
+    {
+        return isMovingToAlarm && agent.remainingDistance < agent.stoppingDistance;
+    }
+
+    public void ResetNotification()
+    {
+        Notified = false;
+        isMovingToAlarm = false;
+        notifyPosition = Vector3.zero;
+    }
+
 
     private void OnDrawGizmos()
     {
