@@ -446,7 +446,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 71c063c2110164948b676f0eab658778
-  Position: {x: -895.9998, y: 1467.9998}
+  Position: {x: -904.5, y: 1481}
 --- !u!114 &-4583700061727859659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 606e956c3d2ebb8449f40db64f196128
-  Position: {x: -750.9999, y: 1362}
+  Position: {x: -759.5001, y: 1375}
   message: 
 --- !u!114 &-3455990355116651746
 MonoBehaviour:
@@ -613,7 +613,7 @@ MonoBehaviour:
   NodeState: 0
   description: Searching player in current environment
   guid: d30e12c8c2770834596ede0779c71c93
-  Position: {x: -876, y: 1111.5}
+  Position: {x: -884.5, y: 1125}
   Children:
   - {fileID: 547243548384782650}
   - {fileID: -1617818228834367289}
@@ -712,7 +712,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 28e933d50427c984ebbfda71c3d2f547
-  Position: {x: -1451, y: 1166}
+  Position: {x: -1452, y: 1149}
   Child: {fileID: 8961048903130515296}
 --- !u!114 &-1617818228834367289
 MonoBehaviour:
@@ -730,7 +730,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 06d719d6089c5f24d998f8ea73a30a1d
-  Position: {x: -827.9999, y: 1249}
+  Position: {x: -836.5, y: 1261.9999}
   Children:
   - {fileID: 8871051573192788683}
   - {fileID: -4068639226580530529}
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 20f54efb0ccb8a14b9aa14a45e13b62e
-  Position: {x: -1001.00006, y: 1242}
+  Position: {x: -1009.50006, y: 1255}
   message: 
 --- !u!114 &686967598861465184
 MonoBehaviour:
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: df7a3a039afe69a43ab5bba2550a91cc
-  Position: {x: -673, y: 1249}
+  Position: {x: -681.5, y: 1261.9999}
   duration: 1
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: fc1cd6d8463786a4bb879d10c2681179
-  Position: {x: -877.99976, y: 1362}
+  Position: {x: -886.5001, y: 1375}
   Child: {fileID: -4616730138182978550}
 --- !u!114 &8961048903130515296
 MonoBehaviour:
