@@ -9,18 +9,16 @@ public class StopNode : ActionNode
     public bool failOnFollowingPlayer = true;
     public bool failOnHeardSound = true;
     public bool failOnPlayerCloseBy = true;
+    public SoundObject soundObject;
     protected override void OnStart()
     {
         startTime = Time.time;
-    }
 
-    protected override void OnStop()
-    {
+        soundObject = Context.Officer.SoundObj;
     }
-
     protected override State OnUpdate()
     {
-        if(Context.Officer.isFollowingSound && failOnHeardSound)
+        if(Context.Officer.isFollowingSound && failOnHeardSound && Context.Officer.SoundObj != soundObject)
         {
             return State.Failure;
         }
