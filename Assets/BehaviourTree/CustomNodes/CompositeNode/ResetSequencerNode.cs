@@ -22,9 +22,9 @@ public class ResetSequencerNode : CompositeNode
                 current = 0;
                 foreach(var c in Children)
                 {
-                    if (child.Started)
+                    if (c.Started)
                     {
-                        child.Reset();
+                        c.Reset();
                     }
                 }
                 return State.Failure;
@@ -34,5 +34,16 @@ public class ResetSequencerNode : CompositeNode
         }
 
         return current == Children.Count ? State.Success : State.Running;
+    }
+
+    public override void Reset()
+    {
+        foreach (var c in Children)
+        {
+            if (c.Started)
+            {
+                c.Reset();
+            }
+        }
     }
 }

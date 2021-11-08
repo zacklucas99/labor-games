@@ -18,4 +18,10 @@ public class MoveToAlarmNode : ActionNode
     {
         Context.Officer.ResetNotification();
     }
+
+    public override void Reset()
+    {
+        base.Reset();
+        Context.Officer.ResetNotification();
+    }
 }
