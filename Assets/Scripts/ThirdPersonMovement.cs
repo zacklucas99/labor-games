@@ -34,6 +34,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public float throwForce;
     public GameObject coinPrefab;
 
+    public bool highlightCoin = false;
+
     void Start()
     {
         Cursor.visible = false;
@@ -88,13 +90,16 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("Tossing coin");
-            GameObject coin = Instantiate(coinPrefab, transform.position + cam.transform.forward, Quaternion.identity);
+            GameObject coin = Instantiate(coinPrefab, transform.position + (cam.transform.forward*0), Quaternion.identity);
             coin.GetComponent<Rigidbody>().AddForce((cam.transform.forward + new Vector3(0,1,0)) * throwForce, ForceMode.Impulse);
 
 
             //Debug settings to make coin more visible
-            coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
-            coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+            if (highlightCoin)
+            {
+                coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
+                coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+            }
         }
 
     }
