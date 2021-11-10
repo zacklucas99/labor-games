@@ -10,26 +10,38 @@ public class PlayerHand : MonoBehaviour
     public GameObject coinPrefab;
     public float throwForce = 1f;
     public int lineSegment = 10; //smoothness of line
-    private LineRenderer lineRenderer;
+    private LineRenderer throwingLine;
     public bool highlightCoin = false;
+
+    public LineRenderer hitCircle;
+    [Range(3, 256)]
+    private int circleSegment = 128;
+    [Range(0.1f, 10f)]
+    private float radius = 0.2f;
 
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = lineSegment;
+        shaderOutline = Shader.Find("Unlit/Outline");
+
+        throwingLine = GetComponent<LineRenderer>();
+        throwingLine.positionCount = lineSegment;
+
+        hitCircle.positionCount = circleSegment+1;
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            lineRenderer.enabled = true;
+            hitCircle.enabled = true;
+            throwingLine.enabled = true;
             Ray camRay = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
             RaycastHit hit;
             if (Physics.Raycast(camRay, out hit, 100f, collisionMask))
             {
                 Vector3 vo = CalculateVelocity(hit.point, transform.position, 1f);
                 Visualize(vo * throwForce);
+                CreateCirclePoints(hit.point, GetHitFace(hit));
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -50,7 +62,8 @@ public class PlayerHand : MonoBehaviour
         }
         else
         {
-            lineRenderer.enabled = false;
+            throwingLine.enabled = false;
+            hitCircle.enabled = false;
         }
     }
     Vector3 CalculatePosInTime(Vector3 vo, float time)
@@ -68,7 +81,7 @@ public class PlayerHand : MonoBehaviour
         for (int i = 0; i < lineSegment; i++)
         {
             Vector3 pos = CalculatePosInTime(vo, i / (float)lineSegment);
-            lineRenderer.SetPosition(i, pos);
+            throwingLine.SetPosition(i, pos);
         }
     }
 
@@ -91,4 +104,83 @@ public class PlayerHand : MonoBehaviour
         return result;
     }
 
+    void CreateCirclePoints(Vector3 pos, HitFace face)
+    {
+        float deltaTheta = (float)(2.0 * Mathf.PI) / circleSegment;
+        float theta = 0f;
+
+        if(face == HitFace.North || face == HitFace.South)
+        {
+            for (int i = 0; i < circleSegment + 1; i++)
+            {
+                float x = radius * Mathf.Cos(theta) + pos.x;
+                float y = radius * Mathf.Sin(theta) + pos.y;
+                float z = pos.z;
+                hitCircle.SetPosition(i, new Vector3(x, y, z));
+                theta += deltaTheta;
+            }
+        }
+        else if (face == HitFace.East || face == HitFace.West)
+        {
+            for (int i = 0; i < circleSegment + 1; i++)
+            {
+                float x = pos.x;
+                float y = radius * Mathf.Cos(theta) + pos.y;
+                float z = radius * Mathf.Sin(theta) + pos.z;
+                hitCircle.SetPosition(i, new Vector3(x, y, z));
+                theta += deltaTheta;
+            }
+        }
+        else if (face == HitFace.Up || face == HitFace.Down)
+        {
+            for (int i = 0; i < circleSegment + 1; i++)
+            {
+                float x = radius * Mathf.Cos(theta) + pos.x;
+                float y = pos.y;
+                float z = radius * Mathf.Sin(theta) + pos.z;
+                hitCircle.SetPosition(i, new Vector3(x, y, z));
+                theta += deltaTheta;
+            }
+        }
+        else
+        {
+            hitCircle.enabled = false;
+        }
+    }
+
+    public enum HitFace
+    {
+        None,
+        Up,
+        Down,
+        East,
+        West,
+        North,
+        South
+    }
+
+    public HitFace GetHitFace(RaycastHit hit)
+    {
+        Vector3 incomingVec = hit.normal - Vector3.up;
+
+        if (incomingVec == new Vector3(0, -1, -1))
+            return HitFace.South;
+
+        if (incomingVec == new Vector3(0, -1, 1))
+            return HitFace.North;
+
+        if (incomingVec == new Vector3(0, 0, 0))
+            return HitFace.Up;
+
+        if (incomingVec == new Vector3(1, 1, 1))
+            return HitFace.Down;
+
+        if (incomingVec == new Vector3(-1, -1, 0))
+            return HitFace.West;
+
+        if (incomingVec == new Vector3(1, -1, 0))
+            return HitFace.East;
+
+        return HitFace.None;
+    }
 }
