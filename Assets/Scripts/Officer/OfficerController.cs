@@ -362,6 +362,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
     #endregion
 
+    public bool FacingSoundObj()
+    {
+        var angle = Vector3.SignedAngle(new Vector3(soundDestination.x - transform.position.x, 0, soundDestination.z - transform.position.z),
+                    transform.forward, Vector3.up);
+
+        return Math.Abs(angle) < rotationThreshold;
+    }
+
     public void SetNeedsMoveFlag() {
         needsMoveFlag = true;
     }
