@@ -31,18 +31,22 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isMoving = false;
     public bool IsMoving => isMoving;
 
+    
+
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        
         anim = GetComponent<Animator>();
         interactionObj = null;
         shaderNoOutline = Shader.Find("Unlit/Basic");
         shaderOutline = Shader.Find("Unlit/Outline");
-}
+    }
 
     void Update()
     {
-
+        Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
         if (Input.GetButton("Jump"))
@@ -80,6 +84,8 @@ public class ThirdPersonMovement : MonoBehaviour
         UpdateAnimator(inputDir); //updates player animations
 
         UpdateObjectInteraction(); //updates iteraction objects
+
+        
 
     }
 
