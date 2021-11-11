@@ -48,7 +48,6 @@ public class PlayerHand : MonoBehaviour
                     Debug.Log("Tossing coin");
                     GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
                     coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
-                    //coin.GetComponent<Rigidbody>().velocity = vo;
 
                     //Debug settings to make coin more visible
                     if (highlightCoin)
@@ -58,7 +57,6 @@ public class PlayerHand : MonoBehaviour
                     }
                 }
             }
-
         }
         else
         {
@@ -116,6 +114,13 @@ public class PlayerHand : MonoBehaviour
                 float x = radius * Mathf.Cos(theta) + pos.x;
                 float y = radius * Mathf.Sin(theta) + pos.y;
                 float z = pos.z;
+                if (face == HitFace.North)
+                {
+                    z += 0.01f;
+                } else
+                {
+                    z -= 0.01f;
+                }
                 hitCircle.SetPosition(i, new Vector3(x, y, z));
                 theta += deltaTheta;
             }
@@ -127,6 +132,14 @@ public class PlayerHand : MonoBehaviour
                 float x = pos.x;
                 float y = radius * Mathf.Cos(theta) + pos.y;
                 float z = radius * Mathf.Sin(theta) + pos.z;
+                if (face == HitFace.East)
+                {
+                    x += 0.01f;
+                }
+                else
+                {
+                    x -= 0.01f;
+                }
                 hitCircle.SetPosition(i, new Vector3(x, y, z));
                 theta += deltaTheta;
             }
@@ -138,6 +151,14 @@ public class PlayerHand : MonoBehaviour
                 float x = radius * Mathf.Cos(theta) + pos.x;
                 float y = pos.y;
                 float z = radius * Mathf.Sin(theta) + pos.z;
+                if (face == HitFace.Up)
+                {
+                    y += 0.01f;
+                }
+                else
+                {
+                    y -= 0.01f;
+                }
                 hitCircle.SetPosition(i, new Vector3(x, y, z));
                 theta += deltaTheta;
             }
