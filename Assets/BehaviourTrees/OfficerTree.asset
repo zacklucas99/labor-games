@@ -653,7 +653,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: e1ba963ebbb0e4849903a933bd02466a
-  Position: {x: -30.000118, y: 461.00006}
+  Position: {x: -6, y: 461}
 --- !u!114 &-2460423276903363429
 MonoBehaviour:
   m_ObjectHideFlags: 0
