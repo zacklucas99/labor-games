@@ -305,6 +305,48 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         return true;
     }
 
+    public bool TurnToSound()
+    {
+        var angle = Vector3.SignedAngle(new Vector3(soundDestination.x - transform.position.x, 0, soundDestination.z - transform.position.z),
+            transform.forward, Vector3.up);
+
+        if (!isTurning)
+        {
+            isTurningApprox = true;
+            if (Math.Abs(angle) < rotationThreshold)
+            {
+                return false;
+            }
+            isTurning = true;
+            turningFinished = false;
+            if (Math.Abs(angle) < 90)
+            {
+                // Make officer turning faster for smaller angles to make it easier to discover player
+                if (angle > 0)
+                {
+                    angle += minRotationCloseBy;
+                }
+                else
+                {
+                    angle -= minRotationCloseBy;
+                }
+            }
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(-currentRotationSpeed);
+
+        }
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
+            return false;
+        }
+        character.SetRotation(-currentRotationSpeed);
+
+        return true;
+    }
+
     public void ResetTurn()
     {
         // Temporary fix, if turn was aborted, reset turning 
@@ -366,8 +408,16 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool NearSound()
     {
+        Debug.Log("Near Sound:" + (soundDestination - transform.position).magnitude);
+        Vector3 soundDest = new Vector3(soundDestination.x, 0, soundDestination.z);
+        Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
         return soundObjectToHandle != null && 
-            (soundObjectToHandle.transform.position - transform.position).magnitude <= agent.stoppingDistance;
+            (soundDest - pos).magnitude <= agent.stoppingDistance;
+    }
+
+    public bool CanTurnSoundOff()
+    {
+        return SoundObj.canTurnSoundOff;
     }
 
     public bool TurnSoundOff()
@@ -382,8 +432,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void FinishTurnSoundOff()
     {
         soundObjectToHandle.SetTurnedOn(false);
+        ResetSoundToHandle();
+    }
+
+    public void ResetSoundToHandle()
+    {
         isFollowingSound = false;
         soundDestination = Vector3.zero;
+        soundObjectToHandle = null;
     }
 
     public void FinishTurnOffAnimation()
@@ -404,6 +460,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
                 approximationPoint = player.transform.position;
             }
         }
+    }
+
+    public bool WallBetweenSound()
+    {
+        // Determining, whether wall between sound and officer
+        return (Physics.Raycast(new Ray(transform.position, soundDestination - transform.position), 
+            (transform.position - soundDestination).magnitude, environmentLayer));
     }
 
     public void LostPlayerCloseBy()

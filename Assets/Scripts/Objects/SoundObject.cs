@@ -9,6 +9,7 @@ public class SoundObject : MonoBehaviour
     // Start is called before the first frame update
 
     public bool turnedOn = true;
+    public bool canTurnSoundOff = true;
     public float soundRad;
     public LayerMask enemyLayer;
 
