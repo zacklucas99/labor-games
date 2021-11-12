@@ -20,13 +20,16 @@ public class SoundObject : MonoBehaviour
     public float volume = 0;
 
     public const float VolumeLossFactor = 1;
-    public const float wallVolumeLoss = 30;
+    public const float wallVolumeLoss = 10;
 
     public LayerMask environLayer;
 
     public Vector3 topOffset = Vector3.up;
 
-    public void Start()
+    public int numLines = 10;
+    public float stepSize = 1f;
+
+    public void Awake()
     {
         if(environLayer == 0)
         {
@@ -69,5 +72,30 @@ public class SoundObject : MonoBehaviour
         }
         Handles.color = turnedOn?radColor:turnedOffRadColor;
         Handles.DrawWireDisc(transform.position, Vector2.up, soundRad);
+
+        // Trying to draw lines to simulate the sound behaviour
+        for(int i = 0; i< numLines; i++)
+        {
+            float dist = 0;
+            float angle = 360f / ((float)numLines) * i;
+            var rot = Quaternion.AngleAxis(angle, transform.up);
+            for (float j = 0; j <= volume; j+=stepSize)
+            {
+                dist = j;
+                var vol = volume;
+                var numWalls = Physics.RaycastAll(new Ray(transform.position, rot * transform.forward), j, environLayer);
+                vol -= j+numWalls.Length * wallVolumeLoss;
+                //Debug.Log(numWalls.Length);
+                //Debug.Log(vol);
+                if(vol < 0)
+                {
+                    break;
+                }
+            }
+            Debug.Log("dist:"+dist);
+
+            Handles.DrawLine(transform.position, transform.position + (rot * transform.forward) * Mathf.Max(0, dist));
+        }
+
     }
 }
