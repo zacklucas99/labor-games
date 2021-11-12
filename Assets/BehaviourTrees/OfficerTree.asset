@@ -77,7 +77,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 233052713e629274584ab827c9ecf3df
-  Position: {x: 1157, y: 935}
+  Position: {x: 1339.0001, y: 947.0001}
   Child: {fileID: 3743282492422560883}
 --- !u!114 &-8333076280728826331
 MonoBehaviour:
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 61457cc1263c9ff488ce5bfaae5cec2d
-  Position: {x: 966.00006, y: 1047}
+  Position: {x: 1129, y: 1059}
 --- !u!114 &217667217089078761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: e7e6c683e9c5fdf44b2921c4efabf972
-  Position: {x: 1005.0001, y: 935}
+  Position: {x: 1168, y: 947.0001}
   Child: {fileID: 175106520628907754}
 --- !u!114 &1796421273739867142
 MonoBehaviour:
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 44f5d13999ce0d04fb22eb33f823d57b
-  Position: {x: 1103, y: 1047}
+  Position: {x: 1285.0001, y: 1059}
 --- !u!114 &3831728135835813776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 3fe06faa5f8389b489d3e66cda59a4c0
-  Position: {x: 1256.5, y: 935}
+  Position: {x: 1449, y: 947.0001}
 --- !u!114 &4339769847526790276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2228,7 +2228,7 @@ MonoBehaviour:
   NodeState: 0
   description: Checking whether player behind wall
   guid: 9f0daa941ccc98d458efe0fa44aa31b6
-  Position: {x: 1252.8926, y: 810.67}
+  Position: {x: 1263, y: 823}
   Children:
   - {fileID: 1446485526818288082}
   - {fileID: -8457307331476862250}

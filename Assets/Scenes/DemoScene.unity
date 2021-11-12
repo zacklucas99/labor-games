@@ -2906,11 +2906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442264364451, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018722702
+      value: -0.000000018722702
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442264364451, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000000441983
+      value: 0.00000000441983
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442788146282, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_ScreenY
@@ -8201,6 +8201,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   minRotationCloseBy: 0
+  hearableVolume: 0
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10935,6 +10936,10 @@ MonoBehaviour:
   radColor: {r: 0.92460704, g: 1, b: 0, a: 1}
   turnedOffRadColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   drawGizmos: 1
+  volume: 20
+  environLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!43 &1473845912
 Mesh:
   m_ObjectHideFlags: 0
@@ -12676,6 +12681,10 @@ MonoBehaviour:
   radColor: {r: 0, g: 1, b: 0.010046244, a: 1}
   turnedOffRadColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   drawGizmos: 1
+  volume: 0
+  environLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1922681338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d30dc9b959043ec4ea835a8b8d35d0e9, type: 3}

@@ -81,6 +81,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool Notified { get; private set; }
 
+    public float hearableVolume = 0; // threshold for what the character can hear
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -405,18 +407,21 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
 
 
-    public void ReceiveSound(SoundObject obj)
+    public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
-        isFollowingSound = true;
-        soundDestination = obj.transform.position;
-        goBackDestination = lastPoint.transform;
-        soundObjectToHandle = obj;
-        soundTurnedOff = false;
+        //Debug.Log("Receive Volume:" + receiveVolume);
+        if (receiveVolume > hearableVolume)
+        {
+            isFollowingSound = true;
+            soundDestination = obj.transform.position;
+            goBackDestination = lastPoint.transform;
+            soundObjectToHandle = obj;
+            soundTurnedOff = false;
+        }
     }
 
     public bool NearSound()
     {
-        Debug.Log("Near Sound:" + (soundDestination - transform.position).magnitude);
         Vector3 soundDest = new Vector3(soundDestination.x, 0, soundDestination.z);
         Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
         return soundObjectToHandle != null && 
@@ -425,7 +430,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool CanTurnSoundOff()
     {
-        return SoundObj.canTurnSoundOff;
+        return SoundObj && SoundObj.canTurnSoundOff;
     }
 
     public bool TurnSoundOff()
