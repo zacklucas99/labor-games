@@ -11321,7 +11321,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18006
+  m_Name: pb_Mesh18026
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11500,7 +11500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7e7b68b262f3fc142a4cf5d7d5518b27, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.12
+      value: -3.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7e7b68b262f3fc142a4cf5d7d5518b27, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12719,7 +12719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c56de5152e517c4d827f57cb08f0ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnedOn: 0
+  turnedOn: 1
   canTurnSoundOff: 1
   canPickUp: 0
   enemyLayer:
@@ -13803,6 +13803,10 @@ PrefabInstance:
     - target: {fileID: 8534235609660829488, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534235609660829493, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8534235609660829494, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
       propertyPath: route

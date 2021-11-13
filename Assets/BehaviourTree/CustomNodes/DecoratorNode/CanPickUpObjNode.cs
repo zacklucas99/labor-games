@@ -6,7 +6,7 @@ public class CanPickUpObjNode :DecoratorNode
 {
     protected override State OnUpdate()
     {
-        if (Context.Officer.CanTurnSoundOff())
+        if (Context.Officer.CanPickUpObj())
         {
             return Child.Update();
         }

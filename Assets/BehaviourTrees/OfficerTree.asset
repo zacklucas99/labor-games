@@ -2227,7 +2227,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: fe6152ed6cad207479dde85c537bff80
-  Position: {x: 1696, y: 773}
+  Position: {x: 1696, y: 773.0001}
   Child: {fileID: -757798168462498747}
 --- !u!114 &8344061525102519452
 MonoBehaviour:
