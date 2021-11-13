@@ -296,7 +296,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   isFollowingSound: 0
-  soundTurnedOff: 1
+  closeByMask:
+    serializedVersion: 2
+    m_Bits: 0
+  minRotationCloseBy: 90
+  hearableVolume: 0
+  rightHand: {fileID: 7437580651402377763}
 --- !u!114 &2556110688693498810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +347,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13621bae2cfbd3447b606e777081fdc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  approximationColor: {r: 0, g: 0, b: 1, a: 1}
+  playerRad: 2
+  gizmosVisible: 1
+  playerApproximationEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  approxmiationEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8534235609376774356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,6 +752,11 @@ PrefabInstance:
 --- !u!4 &8206978469349375807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: af67c84a65f198348b3b0bf8e0917cad, type: 3}
+  m_PrefabInstance: {fileID: 8534235609376774356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7437580651402377763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7973576822035291401, guid: af67c84a65f198348b3b0bf8e0917cad, type: 3}
   m_PrefabInstance: {fileID: 8534235609376774356}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6471676619579435847 stripped

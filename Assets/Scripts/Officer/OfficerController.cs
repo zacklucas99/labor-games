@@ -86,6 +86,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool IsPickingUp { get; set; } = false;
 
+    public GameObject rightHand;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -461,6 +463,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         IsPickingUp = true;
         animator.SetBool("PickUp", true);
+    }
+
+    public void SetCoinToHand()
+    {
+        Debug.Log("SetCoin To Hand");
+        SoundObj.GetComponent<PickableObject>().ResetCollider();//Disable collider to get rid of bugs
+        SoundObj.GetComponent<PickableObject>().parentObject = rightHand;
     }
 
     public bool TurnSoundOff()
