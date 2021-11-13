@@ -80,8 +80,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     private bool isMovingToAlarm;
 
     public bool Notified { get; private set; }
+    public bool GotNewSound { get; set; } // Notifying that suddenly a new sound was applied, while already following
 
     public float hearableVolume = 0; // threshold for what the character can hear
+
+    public bool IsPickingUp { get; set; } = false;
 
     void Start()
     {
@@ -409,9 +412,12 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
-        //Debug.Log("Receive Volume:" + receiveVolume);
-        if (receiveVolume > hearableVolume)
+        if (receiveVolume > hearableVolume && obj != SoundObj)
         {
+            if(SoundObj != null)
+            {
+                GotNewSound = true;
+            }
             isFollowingSound = true;
             soundDestination = obj.transform.position;
             goBackDestination = lastPoint.transform;
@@ -431,6 +437,30 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool CanTurnSoundOff()
     {
         return SoundObj && SoundObj.canTurnSoundOff;
+    }
+
+    public bool CanPickUpObj()
+    {
+        return SoundObj && SoundObj.canPickUp;
+    }
+
+    public void FinishPickingUp()
+    {
+        Debug.Log("FinsihPickingUp");
+        IsPickingUp = false;
+        animator.SetBool("PickUp", false);
+
+        SoundObj.enabled = false;
+        Destroy(SoundObj.gameObject);
+        ResetSoundToHandle();
+    }
+
+
+
+    public void PickUpObj()
+    {
+        IsPickingUp = true;
+        animator.SetBool("PickUp", true);
     }
 
     public bool TurnSoundOff()

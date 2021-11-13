@@ -10,7 +10,7 @@ public class SoundObject : MonoBehaviour
 
     public bool turnedOn = true;
     public bool canTurnSoundOff = true;
-    public float soundRad;
+    public bool canPickUp;
     public LayerMask enemyLayer;
 
     public Color radColor;
@@ -20,13 +20,13 @@ public class SoundObject : MonoBehaviour
     public float volume = 0;
 
     public const float VolumeLossFactor = 1;
-    public const float wallVolumeLoss = 10;
+    public const float wallVolumeLoss = 6;
 
     public LayerMask environLayer;
 
     public Vector3 topOffset = Vector3.up;
 
-    public int numLines = 10;
+    public int numLines = 5;
     public float stepSize = 1f;
 
     public void Awake()
@@ -41,7 +41,7 @@ public class SoundObject : MonoBehaviour
     {
         if (turnedOn)
         {
-            var enemies = Physics.OverlapSphere(transform.position, soundRad, enemyLayer);
+            var enemies = Physics.OverlapSphere(transform.position, volume, enemyLayer);
             foreach(var enemy in enemies)
             {
 
@@ -56,7 +56,6 @@ public class SoundObject : MonoBehaviour
         // Trying to come up with some kind of formular to calculate sound volume
         var numWalls = Physics.RaycastAll(new Ray(transform.position, (enemy.transform.position+ topOffset) - transform.position),
             (transform.position- enemy.transform.position).magnitude, environLayer);
-        Debug.Log("numWalls:" + numWalls.Length);
         return volume - (enemy.transform.position - transform.position).magnitude * VolumeLossFactor - numWalls.Length * wallVolumeLoss;
     }
 
@@ -71,7 +70,7 @@ public class SoundObject : MonoBehaviour
             return;
         }
         Handles.color = turnedOn?radColor:turnedOffRadColor;
-        Handles.DrawWireDisc(transform.position, Vector2.up, soundRad);
+        Handles.DrawWireDisc(transform.position, Vector2.up, volume);
 
         // Trying to draw lines to simulate the sound behaviour
         for(int i = 0; i< numLines; i++)
@@ -84,17 +83,14 @@ public class SoundObject : MonoBehaviour
                 dist = j;
                 var vol = volume;
                 var numWalls = Physics.RaycastAll(new Ray(transform.position, rot * transform.forward), j, environLayer);
-                vol -= j+numWalls.Length * wallVolumeLoss;
-                //Debug.Log(numWalls.Length);
-                //Debug.Log(vol);
+                vol -= j+numWalls.Length * wallVolumeLoss; // Calculating the current volume
                 if(vol < 0)
                 {
                     break;
                 }
             }
-            Debug.Log("dist:"+dist);
 
-            Handles.DrawLine(transform.position, transform.position + (rot * transform.forward) * Mathf.Max(0, dist));
+            Handles.DrawLine(transform.position, transform.position + (rot * transform.forward) * Mathf.Max(0, dist - stepSize));
         }
 
     }
