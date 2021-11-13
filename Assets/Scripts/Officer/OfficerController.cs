@@ -416,8 +416,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         if (receiveVolume > hearableVolume)
         {
-            if(SoundObj != null)
+            if(SoundObj != null && obj != SoundObj)
             {
+                Debug.Log(SoundObj);
                 GotNewSound = true;
             }
             isFollowingSound = true;

@@ -12,4 +12,10 @@ public class CanPickUpObjNode :DecoratorNode
         }
         return State.Success;
     }
+
+    protected override void OnStop()
+    {
+        base.OnStop();
+        Child.Reset();
+    }
 }
