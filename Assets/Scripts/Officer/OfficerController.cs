@@ -433,7 +433,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         Vector3 soundDest = new Vector3(soundDestination.x, 0, soundDestination.z);
         Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
-        Debug.Log("NearSound:" + (soundDest - pos).magnitude+"|"+ agent.stoppingDistance);
         return soundObjectToHandle != null && 
             (soundDest - pos).magnitude <= agent.stoppingDistance;
     }
