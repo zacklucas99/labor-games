@@ -88,6 +88,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public GameObject rightHand;
 
+    private List<SoundObject> soundObjects = new List<SoundObject>();
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -326,7 +328,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             isTurning = true;
             turningFinished = false;
-            if (Math.Abs(angle) < 90)
+            if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonCharacter>() != null)
             {
                 // Make officer turning faster for smaller angles to make it easier to discover player
                 if (angle > 0)
@@ -416,6 +418,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         if (receiveVolume > hearableVolume)
         {
+            if(soundObjects.Contains(obj)) {
+                if (obj != SoundObj)
+                {
+                    return;
+                }
+
+            }
             if(SoundObj != null && obj != SoundObj)
             {
                 Debug.Log(SoundObj);
@@ -426,6 +435,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             goBackDestination = lastPoint.transform;
             soundObjectToHandle = obj;
             soundTurnedOff = false;
+            soundObjects.Add(obj);
         }
     }
 
@@ -493,6 +503,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         isFollowingSound = false;
         soundDestination = Vector3.zero;
         soundObjectToHandle = null;
+        soundObjects.Clear();
     }
 
     public void FinishTurnOffAnimation()

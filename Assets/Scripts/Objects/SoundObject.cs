@@ -90,7 +90,7 @@ public class SoundObject : MonoBehaviour
                 }
             }
 
-            Handles.DrawLine(transform.position, transform.position + (rot * transform.forward) * Mathf.Max(0, dist - stepSize));
+            Handles.DrawLine(transform.position, transform.position + (rot * transform.forward) * Mathf.Max(0, dist));
         }
 
     }
