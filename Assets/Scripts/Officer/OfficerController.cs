@@ -468,8 +468,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         IsPickingUp = false;
         animator.SetBool("PickUp", false);
 
-        SoundObj.enabled = false;
-        Destroy(SoundObj.gameObject);
+        if (SoundObj != null && IsPickingUp)
+        {
+            Destroy(SoundObj.gameObject);
+        }
         ResetSoundToHandle();
     }
 
@@ -509,6 +511,17 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         soundDestination = Vector3.zero;
         soundObjectToHandle = null;
         soundObjects.Clear();
+    }
+
+    public void ResetSoundInteractionAnimation()
+    {
+        animator.SetBool("TurnOff", false);
+        animator.SetBool("PickUp", false);
+        if (SoundObj != null && IsPickingUp)
+        {
+            Destroy(SoundObj.gameObject);
+        }
+        IsPickingUp = false;
     }
 
     public void FinishTurnOffAnimation()

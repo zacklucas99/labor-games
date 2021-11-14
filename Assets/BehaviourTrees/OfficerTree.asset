@@ -17,28 +17,6 @@ MonoBehaviour:
   description: 
   guid: 7c912fba19bd5824aa1e5c37e5f3e79f
   Position: {x: 583, y: 458}
---- !u!114 &-9123569220161085915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca24bfb68d0483640850003800b7dd34, type: 3}
-  m_Name: SequencerNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: Go to last point where player was seen and wait
-  guid: c74ddc693c036344e81e5c5609a35036
-  Position: {x: -1382.765, y: 616}
-  Children:
-  - {fileID: 3159174763706248394}
-  - {fileID: 8421434552253474602}
-  - {fileID: 4339769847526790276}
-  - {fileID: -7525318717909550829}
 --- !u!114 &-9041955855465107923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +311,29 @@ MonoBehaviour:
   Children:
   - {fileID: -883813123005617294}
   - {fileID: -1604133470649723333}
+--- !u!114 &-7317469612234103036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: Go to last point where player was seen and wait
+  guid: 44f58fb7a88591d47ae2b1a3ae586168
+  Position: {x: -1550.9996, y: 622.99994}
+  Children:
+  - {fileID: 3159174763706248394}
+  - {fileID: 4599050248963171850}
+  - {fileID: 8421434552253474602}
+  - {fileID: 4339769847526790276}
+  - {fileID: -7525318717909550829}
 --- !u!114 &-7125406454676086588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,7 +1133,6 @@ MonoBehaviour:
   - {fileID: 4339769847526790276}
   - {fileID: -1604133470649723333}
   - {fileID: 7989072088446084984}
-  - {fileID: -9123569220161085915}
   - {fileID: -7525318717909550829}
   - {fileID: -7986872501714607197}
   - {fileID: -2829500499546411804}
@@ -1237,6 +1237,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: -3687887367922042454}
   - {fileID: 7348879521647013396}
+  - {fileID: 4599050248963171850}
+  - {fileID: -7317469612234103036}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,7 +1562,7 @@ MonoBehaviour:
   NodeState: 0
   description: Temporary fixed, if turning was aborted, it has to be cleaned
   guid: 2d6c429c20ecb9240a0a50b90917bbb9
-  Position: {x: -1913, y: 770}
+  Position: {x: -2092.0278, y: 774}
   duration: 1
 --- !u!114 &3306447299731516838
 MonoBehaviour:
@@ -1763,6 +1765,23 @@ MonoBehaviour:
   guid: 6eb8a2e586b7b02488f179bc6939faeb
   Position: {x: 340.99997, y: 930}
   message: 
+--- !u!114 &4599050248963171850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17121808ebc6a634887ba42bc5d1cf75, type: 3}
+  m_Name: ResetInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 2bd17fc04c8ae3941b1df3910e9c023f
+  Position: {x: -1775.9998, y: 774}
 --- !u!114 &4741646435653284474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,7 +2020,7 @@ MonoBehaviour:
   guid: 173b0bf07f136d84dbdb8b69e4da8b20
   Position: {x: -940, y: 486.00003}
   Children:
-  - {fileID: -9123569220161085915}
+  - {fileID: -7317469612234103036}
   - {fileID: -1383137374752103274}
 --- !u!114 &6115978219611413585
 MonoBehaviour:

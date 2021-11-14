@@ -41,4 +41,11 @@ public class SelectorInteractSoundNode: CompositeNode
         turningOff = false;
     }
 
+    public override void Reset()
+    {
+        base.Reset();
+        pickingUp = false;
+        turningOff = false;
+    }
+
 }
