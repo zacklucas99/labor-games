@@ -19,6 +19,9 @@ public class PlayerHand : MonoBehaviour
     [Range(0.1f, 10f)]
     private float radius = 0.2f;
 
+    public float throwCoolDown = 0.6f;
+    private bool activeCoolDown = false;
+
     void Start()
     {
         shaderOutline = Shader.Find("Unlit/Outline");
@@ -45,16 +48,23 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    Debug.Log("Tossing coin");
-                    GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-                    coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
-
-                    //Debug settings to make coin more visible
-                    if (highlightCoin)
+                    if (!activeCoolDown)
                     {
-                        coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
-                        coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+                        Debug.Log("Tossing coin");
+                        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+                        coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
+
+                        //Debug settings to make coin more visible
+                        if (highlightCoin)
+                        {
+                            coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
+                            coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+                        }
+
+                        activeCoolDown = true;
+                        Invoke(nameof(DeactivateCoolDown), throwCoolDown);
                     }
+                    
                 }
             }
         }
@@ -203,5 +213,10 @@ public class PlayerHand : MonoBehaviour
             return HitFace.East;
 
         return HitFace.None;
+    }
+
+    private void DeactivateCoolDown()
+    {
+        activeCoolDown = false;
     }
 }
