@@ -152,6 +152,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         needsMoveFlag = false;
         if (agent.remainingDistance > agent.stoppingDistance) {
+            Debug.Log("Remaining distance:" + agent.remainingDistance);
             character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
             return true;
         }

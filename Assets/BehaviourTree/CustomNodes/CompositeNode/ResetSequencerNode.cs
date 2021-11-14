@@ -38,8 +38,11 @@ public class ResetSequencerNode : CompositeNode
 
     public override void Reset()
     {
+        current = 0;
+        this.NodeState = State.Success;
         foreach (var c in Children)
         {
+
             if (c.Started)
             {
                 c.Reset();
