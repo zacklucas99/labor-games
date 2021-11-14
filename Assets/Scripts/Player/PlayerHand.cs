@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -22,6 +23,18 @@ public class PlayerHand : MonoBehaviour
     public float throwCoolDown = 0.6f;
     private bool activeCoolDown = false;
 
+    public CinemachineFreeLook vcam;
+    public float fov = 40f;
+    private float fovInit;
+    public float fovTarget = 30f;
+    private float fovTargetInit;
+
+    public Transform camPos;
+    public float camOffset = 0f;
+    private float camOffsetInit;
+    public float camOffsetTarget = 0.5f;
+    private float camOffsetTargetInit;
+
     void Start()
     {
         shaderOutline = Shader.Find("Unlit/Outline");
@@ -30,12 +43,32 @@ public class PlayerHand : MonoBehaviour
         throwingLine.positionCount = lineSegment;
 
         hitCircle.positionCount = circleSegment+1;
-    }
+
+        fovInit = fov;
+        fovTargetInit = fovTarget;
+        fovTarget = fov;
+
+        camOffsetInit = camOffset;
+        camOffsetTargetInit = camOffsetTarget;
+        camOffsetTarget = camOffset;
+}
 
     void Update()
     {
+        float fovDelta = fovTarget - fov;
+        fovDelta *= Time.deltaTime*5;
+        fov += fovDelta;
+        vcam.m_Lens.FieldOfView = fov;
+
+        float camOffsetDelta = camOffsetTarget - camOffset;
+        camOffsetDelta *= Time.deltaTime;
+        camOffset += camOffsetDelta;
+        camPos.localPosition = new Vector3(camOffset, 0, 0);
+
         if (Input.GetKey(KeyCode.Mouse1))
         {
+            fovTarget = fovTargetInit;
+            camOffsetTarget = camOffsetTargetInit;
             hitCircle.enabled = true;
             throwingLine.enabled = true;
             Ray camRay = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
@@ -70,6 +103,9 @@ public class PlayerHand : MonoBehaviour
         }
         else
         {
+            fovTarget = fovInit;
+            camOffsetTarget = camOffsetInit;
+            camPos.localPosition = new Vector3(0, 0, 0);
             throwingLine.enabled = false;
             hitCircle.enabled = false;
         }
