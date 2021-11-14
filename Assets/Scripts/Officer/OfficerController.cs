@@ -152,7 +152,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         needsMoveFlag = false;
         if (agent.remainingDistance > agent.stoppingDistance) {
-            Debug.Log("Remaining distance:" + agent.remainingDistance);
             character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
             return true;
         }
@@ -465,13 +464,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void FinishPickingUp()
     {
         Debug.Log("FinsihPickingUp");
-        IsPickingUp = false;
         animator.SetBool("PickUp", false);
 
         if (SoundObj != null && IsPickingUp)
         {
             Destroy(SoundObj.gameObject);
         }
+        IsPickingUp = false;
         ResetSoundToHandle();
     }
 
