@@ -416,6 +416,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
+        if (IsPickingUp)
+        {
+            return;
+        }
         if (receiveVolume > hearableVolume)
         {
             if(soundObjects.Contains(obj)) {
