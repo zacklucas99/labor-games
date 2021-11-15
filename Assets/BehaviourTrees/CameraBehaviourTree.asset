@@ -115,6 +115,41 @@ MonoBehaviour:
   - {fileID: 5811401604269649066}
   - {fileID: 6876214792676818726}
   - {fileID: -2787729402014476311}
+--- !u!114 &-2422738245283312468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592b17bf1bfad3e4d8f652ed5baa8602, type: 3}
+  m_Name: TurnedOffCamera
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 60ac64d677d28b54f8ff506e00f2401a
+  Position: {x: -1122, y: 362}
+--- !u!114 &-1716931905828849044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5687411e07caa0e4d8d5b1c3e4cf925c, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 4d1aeeecc4984bd4f9b0b53219c53d45
+  Position: {x: -813, y: 362}
+  duration: 100000
 --- !u!114 &-1388014697904715930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +168,7 @@ MonoBehaviour:
   guid: 51f9f3e1ea262284cae7d5ad3229e8a7
   Position: {x: -59.50008, y: 127.4791}
   Children:
+  - {fileID: 2924751688682684440}
   - {fileID: -2576891488810034699}
   - {fileID: 504738722413520447}
   canFail: 0
@@ -165,6 +201,10 @@ MonoBehaviour:
   - {fileID: -2787729402014476311}
   - {fileID: 2377136185282625772}
   - {fileID: 4442915343029534083}
+  - {fileID: -2422738245283312468}
+  - {fileID: 2924751688682684440}
+  - {fileID: 4263577798863876552}
+  - {fileID: -1716931905828849044}
 --- !u!114 &504738722413520447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +244,27 @@ MonoBehaviour:
   guid: 5b35a87cbf4082c48971f1cd6daf33bc
   Position: {x: -292.80005, y: 478.00003}
   Child: {fileID: 4442915343029534083}
+--- !u!114 &2924751688682684440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 0e9d634062ce84d4f8d6fe815b26605f
+  Position: {x: -894.00385, y: 246.00002}
+  Children:
+  - {fileID: -2422738245283312468}
+  - {fileID: 4263577798863876552}
+  - {fileID: -1716931905828849044}
 --- !u!114 &3906746189534276082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +283,24 @@ MonoBehaviour:
   guid: 70fcffd1af2589c44a634fe2ec6f11ca
   Position: {x: -39.00002, y: -84.99801}
   Child: {fileID: -5355183167732445983}
+--- !u!114 &4263577798863876552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d85dcc061e95aa40af91f06b427a9c3, type: 3}
+  m_Name: RotateCameraNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 4570cad9a2bff944f8dbbc017ef40456
+  Position: {x: -965.5, y: 362}
+  turnedOff: 1
 --- !u!114 &4442915343029534083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +335,7 @@ MonoBehaviour:
   description: 
   guid: e41e9029eb9ed7241a3e4aeee64c08da
   Position: {x: 0, y: 362}
+  turnedOff: 0
 --- !u!114 &5811401604269649066
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,6 +32,10 @@ public class CameraController : MonoBehaviour
 
     public MeshRenderer meshRenderer;
 
+    public GameObject disablePoint;
+
+    public bool TurnedOff;
+
     void Start()
     {
         currentIndex = rotPoints.Count - 1;
@@ -56,10 +60,18 @@ public class CameraController : MonoBehaviour
     }
 
     // Taken from: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
-    public void Rotate()
+    public void Rotate(bool turnedOff)
     {
         // Determine which direction to rotate towards
-        GameObject rotPoint = rotPoints[currentIndex];
+        GameObject rotPoint;
+        if (!turnedOff)
+        {
+            rotPoint = rotPoints[currentIndex];
+        }
+        else
+        {
+            rotPoint = disablePoint;
+        }
         Vector3 targetDirection = rotPoint.transform.position - bone.transform.position;
 
         // The step size is equal to speed times frame time.
@@ -74,6 +86,7 @@ public class CameraController : MonoBehaviour
         // Calculate a rotation a step closer to the target and applies rotation to this object
         bone.transform.rotation = Quaternion.LookRotation(newDirection);
     }
+
 
     // Taken from: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
     public void FollowPlayer()
@@ -116,6 +129,11 @@ public class CameraController : MonoBehaviour
         meshRenderer.material.color = playerLostColor;
         playerPosition = Vector3.zero;
         FoundPlayer = false;
+    }
+
+    public void TurnOff()
+    {
+        TurnedOff = false;
     }
 
     private void OnDrawGizmos()
