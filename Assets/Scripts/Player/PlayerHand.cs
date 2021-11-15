@@ -73,7 +73,7 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    if (!activeCoolDown)
+                    if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveCoin())
                     {
                         Debug.Log("Tossing coin");
                         GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);

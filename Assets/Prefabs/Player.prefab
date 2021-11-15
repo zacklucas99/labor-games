@@ -56,6 +56,11 @@ MonoBehaviour:
   hitCircle: {fileID: 0}
   throwCoolDown: 0.6
   vcam: {fileID: 0}
+  fov: 40
+  fovTarget: 30
+  camPos: {fileID: 0}
+  camOffset: 0
+  camOffsetTarget: 0.5
 --- !u!120 &8681244005555210044
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -493,6 +498,7 @@ GameObject:
   - component: {fileID: 1778721441913322391}
   - component: {fileID: 714413405526824936}
   - component: {fileID: 4085021453495706772}
+  - component: {fileID: 2204326104476357145}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -595,6 +601,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2204326104476357145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778721441913322385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a665d25bf7f2d47a3ee97dc2b7b360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1778721442133026542
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,8 +31,6 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isMoving = false;
     public bool IsMoving => isMoving;
 
-    
-
     void Start()
     {
         Cursor.visible = false;
@@ -139,13 +137,23 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
         {
-            if (interactionObj.GetComponent<PaintingBorder>())
+            if(interactionObj.gameObject.layer == 10) //if throwing obj
             {
-                interactionObj.GetComponent<PaintingBorder>().ChangeCanvasTexture(); //texture change on canvas
-            }
+                if (GetComponent<PlayerInventory>().AddCoin())
+                {
+                    Destroy(interactionObj.parent.gameObject);
+                }
+            } 
             else
             {
-                interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
+                if (interactionObj.GetComponent<PaintingBorder>())
+                {
+                    interactionObj.GetComponent<PaintingBorder>().ChangeCanvasTexture(); //texture change on canvas
+                }
+                else
+                {
+                    interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
+                }
             }
         }
     }
