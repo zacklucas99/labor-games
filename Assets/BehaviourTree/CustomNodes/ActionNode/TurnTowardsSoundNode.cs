@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class TurnTowardsSoundNode : ActionNode
 {
-
+    protected override void OnStart()
+    {
+        base.OnStart();
+        Context.Officer.OverTurning = false;
+    }
     protected override State OnUpdate()
     {
         if (Context.Officer.TurnToSound())

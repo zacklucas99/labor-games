@@ -86,6 +86,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool IsPickingUp { get; set; } = false;
 
+    public bool OverTurning { get;  set; }
+
     public GameObject rightHand;
 
     private List<SoundObject> soundObjects = new List<SoundObject>();
@@ -331,24 +333,31 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonCharacter>() != null)
             {
                 // Make officer turning faster for smaller angles to make it easier to discover player
-                if (angle > 0)
-                {
-                    angle += minRotationCloseBy;
-                }
-                else
-                {
-                    angle -= minRotationCloseBy;
-                }
+                OverTurning = true;
             }
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
 
         }
+
+        if (OverTurning)
+        {
+            if (angle > 0)
+            {
+                angle += minRotationCloseBy;
+            }
+            else
+            {
+                angle -= minRotationCloseBy;
+            }
+        }
+
         if (turningFinished && Math.Abs(angle) < rotationThreshold)
         {
             character.SetRotation(0);
             currentRotationSpeed = 0;
             isTurning = false;
+            OverTurning = false;
             return false;
         }
         character.SetRotation(-currentRotationSpeed);
