@@ -566,7 +566,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceivedAlarm(Vector3 playerPosition)
     {
-        Debug.Log("Received Alarm");
         notifyPosition = playerPosition;
         Notified = true;
     }
