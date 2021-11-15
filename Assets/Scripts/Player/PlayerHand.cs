@@ -55,15 +55,7 @@ public class PlayerHand : MonoBehaviour
 
     void Update()
     {
-        float fovDelta = fovTarget - fov;
-        fovDelta *= Time.deltaTime*5;
-        fov += fovDelta;
-        vcam.m_Lens.FieldOfView = fov;
-
-        float camOffsetDelta = camOffsetTarget - camOffset;
-        camOffsetDelta *= Time.deltaTime;
-        camOffset += camOffsetDelta;
-        camPos.localPosition = new Vector3(camOffset, 0, 0);
+        
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
@@ -109,6 +101,16 @@ public class PlayerHand : MonoBehaviour
             throwingLine.enabled = false;
             hitCircle.enabled = false;
         }
+
+        float fovDelta = fovTarget - fov;
+        fovDelta *= Time.deltaTime * 5;
+        fov += fovDelta;
+        vcam.m_Lens.FieldOfView = fov;
+
+        float camOffsetDelta = camOffsetTarget - camOffset;
+        camOffsetDelta *= Time.deltaTime * 2;
+        camOffset += camOffsetDelta;
+        camPos.localPosition = new Vector3(camOffset, 0, 0);
     }
     Vector3 CalculatePosInTime(Vector3 vo, float time)
     {
