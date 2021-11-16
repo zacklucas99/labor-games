@@ -1720,6 +1720,17 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &198218642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3657337311667224679, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+  m_PrefabInstance: {fileID: 1980945834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc400a09b5e40c4d96978ec4d5d44c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &405866938
 Mesh:
   m_ObjectHideFlags: 0
@@ -12773,6 +12784,34 @@ PrefabInstance:
     - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
       propertyPath: cameraNotifyRad
       value: 26.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 198218642}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Disable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FieldOfView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657337310984002646, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}
+      propertyPath: disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21eed9f3ac65f84ba023066407c04d0, type: 3}

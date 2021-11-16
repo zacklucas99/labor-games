@@ -11,4 +11,13 @@ public class RotateCameraNode : ActionNode
         return Context.Camera.RotatedToTarget ? State.Success : State.Running;
         
     }
+
+    protected override void OnStop()
+    {
+        base.OnStop();
+        if (turnedOff)
+        {
+            Context.Camera.InvokeDisableEvent();
+        }
+    }
 }

@@ -131,7 +131,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 60ac64d677d28b54f8ff506e00f2401a
-  Position: {x: -1122, y: 362}
+  Position: {x: -1064.2827, y: 361.99997}
 --- !u!114 &-1716931905828849044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 4d1aeeecc4984bd4f9b0b53219c53d45
-  Position: {x: -813, y: 362}
+  Position: {x: -755.2828, y: 361.99997}
   duration: 100000
 --- !u!114 &-1388014697904715930
 MonoBehaviour:
@@ -260,7 +260,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 0e9d634062ce84d4f8d6fe815b26605f
-  Position: {x: -894.00385, y: 246.00002}
+  Position: {x: -836.28284, y: 246}
   Children:
   - {fileID: -2422738245283312468}
   - {fileID: 4263577798863876552}
@@ -299,7 +299,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 4570cad9a2bff944f8dbbc017ef40456
-  Position: {x: -965.5, y: 362}
+  Position: {x: -907.28284, y: 361.99997}
   turnedOff: 1
 --- !u!114 &4442915343029534083
 MonoBehaviour:

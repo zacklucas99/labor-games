@@ -229,6 +229,12 @@ public class FieldOfView : MonoBehaviour
             PlayerLostEvent.Invoke();
         }
     }
+
+    public void Disable()
+    {
+        // Disabling the view, when camera turned off
+        this.enabled = false;
+    }
 }
 
 public struct ViewHitInfo

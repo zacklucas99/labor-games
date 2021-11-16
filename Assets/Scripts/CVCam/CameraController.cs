@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraController : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class CameraController : MonoBehaviour
     public GameObject disablePoint;
 
     public bool TurnedOff;
+
+    public UnityEvent disableEvent;
 
     void Start()
     {
@@ -134,6 +137,11 @@ public class CameraController : MonoBehaviour
     public void TurnOff()
     {
         TurnedOff = false;
+    }
+
+    public void InvokeDisableEvent()
+    {
+        disableEvent.Invoke();
     }
 
     private void OnDrawGizmos()
