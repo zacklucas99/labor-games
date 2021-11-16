@@ -29,6 +29,10 @@ public class SoundObject : MonoBehaviour
     public int numLines = 5;
     public float stepSize = 1f;
 
+    public float interactDist;
+    public Color interactDistColor;
+
+
     public void Awake()
     {
         if(environLayer == 0)
@@ -69,6 +73,9 @@ public class SoundObject : MonoBehaviour
         {
             return;
         }
+        Handles.color = interactDistColor;
+        Handles.DrawWireDisc(transform.position, Vector3.up, interactDist);
+
         Handles.color = turnedOn?radColor:turnedOffRadColor;
         Handles.DrawWireDisc(transform.position, Vector2.up, volume);
 
