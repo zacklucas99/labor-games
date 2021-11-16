@@ -9,6 +9,7 @@ public class PlayerHand : MonoBehaviour
     public LayerMask collisionMask;
     private Shader shaderOutline;
     public GameObject coinPrefab;
+    public GameObject potPrefab;
     public float throwForce = 1f;
     public int lineSegment = 10; //smoothness of line
     private LineRenderer throwingLine;
@@ -35,6 +36,7 @@ public class PlayerHand : MonoBehaviour
     private float camOffsetInit;
     public float camOffsetTarget = 0.5f;
     private float camOffsetTargetInit;
+    private long activeItem = 1;
 
     void Start()
     {
@@ -56,7 +58,17 @@ public class PlayerHand : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("Changed to coin");
+            activeItem = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Debug.Log("Changed to pot");
+            activeItem = 2;
+        }
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
@@ -78,7 +90,16 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    ThrowCoin(vo);
+                    if (activeItem == 1)
+                    {
+                        Debug.Log("Coin triggered");
+                        ThrowCoin(vo);
+                    }
+                    else if (activeItem == 2)
+                    {
+                        Debug.Log("Pot triggered");
+                        ThrowPot(vo);
+                    }
                 }
             } 
             else
@@ -93,7 +114,16 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    ThrowCoin(vo);
+                    if(activeItem == 1)
+                    {
+                        Debug.Log("Coin triggered");
+                        ThrowCoin(vo);
+                    }
+                    else if(activeItem == 2)
+                    {
+                        Debug.Log("Pot triggered");
+                        ThrowPot(vo);
+                    }
                 }
             }
         }
@@ -276,6 +306,19 @@ public class PlayerHand : MonoBehaviour
                 coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
                 coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
             }
+
+            activeCoolDown = true;
+            Invoke(nameof(DeactivateCoolDown), throwCoolDown);
+        }
+    }
+
+    private void ThrowPot(Vector3 vo)
+    {
+        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemovePot())
+        {
+            Debug.Log("Throwing pot");
+            GameObject coin = Instantiate(potPrefab, transform.position, Quaternion.identity);
+            coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
 
             activeCoolDown = true;
             Invoke(nameof(DeactivateCoolDown), throwCoolDown);

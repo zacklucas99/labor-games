@@ -116,6 +116,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (hitColliders.Length >0)
             {
+                Debug.Log("Interaction possible");
                 if (interactionObj != null && interactionObj != hitColliders[0].transform) //if facing new interaction obj
                 {
                     interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
@@ -139,9 +140,19 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             if(interactionObj.gameObject.layer == 10) //if throwing obj
             {
-                if (GetComponent<PlayerInventory>().AddCoin())
+                if(interactionObj.tag == "Coin")
                 {
-                    Destroy(interactionObj.parent.gameObject);
+                    if (GetComponent<PlayerInventory>().AddCoin())
+                    {
+                        Destroy(interactionObj.parent.gameObject);
+                    }
+                }
+                else if (interactionObj.tag == "Pot")
+                {
+                    if (GetComponent<PlayerInventory>().AddPot())
+                    {
+                        Destroy(interactionObj.parent.gameObject);
+                    }
                 }
             } 
             else
