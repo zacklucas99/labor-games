@@ -17,17 +17,6 @@ public class ThirdPersonMovement : MonoBehaviour
     float legOffset = 0.2f;
     bool grounded = true;
 
-    public float maxDistance = 7f;
-    public LayerMask interactionMask;
-    private Transform interactionObj;
-    public LayerMask collisionMask;
-    public float collisionRadius = 0.4f;
-
-    private Vector3 hitPosition;
-
-    private Shader shaderNoOutline;
-    private Shader shaderOutline;
-
     private bool isMoving = false;
     public bool IsMoving => isMoving;
 
@@ -37,9 +26,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         
         anim = GetComponent<Animator>();
-        interactionObj = null;
-        shaderNoOutline = Shader.Find("Unlit/Basic");
-        shaderOutline = Shader.Find("Unlit/Outline");
+        
     }
 
     void Update()
@@ -81,10 +68,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
         UpdateAnimator(inputDir); //updates player animations
 
-        UpdateObjectInteraction(); //updates iteraction objects
-
-        
-
     }
 
     void UpdateAnimator(Vector3 move)
@@ -100,77 +83,6 @@ public class ThirdPersonMovement : MonoBehaviour
         if (grounded)
         {
             anim.SetFloat("JumpLeg", jumpLeg);
-        }
-    }
-
-    void UpdateObjectInteraction()
-    {
-        Ray ray = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
-        Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, maxDistance, collisionMask)) //if raycast hits interation obj
-        {
-            hitPosition = hit.point;
-            Collider[] hitColliders = Physics.OverlapSphere(hitPosition, collisionRadius, interactionMask);
-
-            if (hitColliders.Length >0)
-            {
-                Debug.Log("Interaction possible");
-                if (interactionObj != null && interactionObj != hitColliders[0].transform) //if facing new interaction obj
-                {
-                    interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
-                }
-
-                interactionObj = hitColliders[0].transform;
-                interactionObj.GetComponent<Renderer>().material.shader = shaderOutline;
-            }
-            else 
-            {
-                ResetOutline();
-            }
-
-        }
-        else
-        {
-            ResetOutline();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E) && interactionObj != null)
-        {
-            if(interactionObj.gameObject.layer == 10) //if throwing obj
-            {
-                if (GetComponent<PlayerInventory>().AddObject(interactionObj.gameObject))
-                {
-                    Destroy(interactionObj.parent.gameObject);
-                }
-            } 
-            else
-            {
-                if (interactionObj.GetComponent<PaintingBorder>())
-                {
-                    interactionObj.GetComponent<PaintingBorder>().ChangeCanvasTexture(); //texture change on canvas
-                }
-                else
-                {
-                    interactionObj.GetComponent<Renderer>().material.SetColor("_Color", Color.red); //color active interaction obj
-                }
-            }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(hitPosition, collisionRadius);
-    }
-
-    public void ResetOutline()
-    {
-        if (interactionObj != null)
-        {
-            interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline;
-            interactionObj = null;
         }
     }
 }

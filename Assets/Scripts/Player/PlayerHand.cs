@@ -7,14 +7,14 @@ public class PlayerHand : MonoBehaviour
 {
     public Transform cam;
     public LayerMask collisionMask;
-    private Shader shaderOutline;
+
     public GameObject coinPrefab;
     public GameObject potPrefab;
     private GameObject throwPrefab;
+
     public float throwForce = 1f;
     public int lineSegment = 10; //smoothness of line
     private LineRenderer throwingLine;
-    public bool highlightCoin = false;
     public float maxThrowingDistance = 8f;
 
     public LineRenderer hitCircle;
@@ -40,13 +40,6 @@ public class PlayerHand : MonoBehaviour
 
     void Start()
     {
-        shaderOutline = Shader.Find("Unlit/Outline");
-
-        throwingLine = GetComponent<LineRenderer>();
-        throwingLine.positionCount = lineSegment;
-
-        hitCircle.positionCount = circleSegment+1;
-
         fovInit = fov;
         fovTargetInit = fovTarget;
         fovTarget = fov;
@@ -55,62 +48,59 @@ public class PlayerHand : MonoBehaviour
         camOffsetTargetInit = camOffsetTarget;
         camOffsetTarget = camOffset;
 
+        throwingLine = GetComponent<LineRenderer>();
+        throwingLine.positionCount = lineSegment;
+
+        hitCircle.positionCount = circleSegment+1;
+
         throwPrefab = coinPrefab;
 }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        SelectItem(); //select item to throw with number keys
+
+        HandleThrowing(); //press rmt to aim and lmt to throw item
+
+        UpdateCamMovement(); //update variables for cam movement when aiming
+    }
+
+    private void SelectItem()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) //1: coin
         {
             Debug.Log("Changed to coin");
             throwPrefab = coinPrefab;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2)) //2: pot
         {
             Debug.Log("Changed to pot");
             throwPrefab = potPrefab;
         }
+    }
 
-        if (Input.GetKey(KeyCode.Mouse1))
+    private void HandleThrowing()
+    {
+        if (Input.GetKey(KeyCode.Mouse1)) //rmt for aiming
         {
             fovTarget = fovTargetInit;
             camOffsetTarget = camOffsetTargetInit;
             hitCircle.enabled = true;
             throwingLine.enabled = true;
+
             Ray camRay = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
             RaycastHit hit;
-            Vector3 hitPoint;
-            HitFace hitFace;
+
             if (Physics.Raycast(camRay, out hit, maxThrowingDistance, collisionMask))
             {
-                hitPoint = hit.point;
-                hitFace = GetHitFace(hit);
-                Vector3 vo = CalculateVelocity(hitPoint, transform.position, 1f);
-                Visualize(vo * throwForce);
-                CreateCirclePoints(hitPoint, hitFace);
-
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    Debug.Log("Triggered throwing");
-                    ThrowObject(vo);
-                }
-            } 
-            else
+                CalculateThrowing(hit.point, GetHitFace(hit));
+            }
+            else //if no hitpoint in max throwing distance
             {
-                hitPoint = cam.position + cam.forward * maxThrowingDistance;
-                hitPoint.y = 0.01f;
-                hitFace = HitFace.Down;
-
-                Vector3 vo = CalculateVelocity(hitPoint, transform.position, 1f);
-                Visualize(vo * throwForce);
-                CreateCirclePoints(hitPoint, hitFace);
-
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    Debug.Log("Triggered throwing");
-                    ThrowObject(vo);
-                }
+                Vector3 hitPoint = cam.position + cam.forward * maxThrowingDistance;
+                hitPoint.y = 0.02f;
+                CalculateThrowing(hitPoint, HitFace.Down);
             }
         }
         else
@@ -121,33 +111,18 @@ public class PlayerHand : MonoBehaviour
             throwingLine.enabled = false;
             hitCircle.enabled = false;
         }
-
-        float fovDelta = fovTarget - fov;
-        fovDelta *= Time.deltaTime * 5;
-        fov += fovDelta;
-        vcam.m_Lens.FieldOfView = fov;
-
-        float camOffsetDelta = camOffsetTarget - camOffset;
-        camOffsetDelta *= Time.deltaTime * 2;
-        camOffset += camOffsetDelta;
-        camPos.localPosition = new Vector3(camOffset, 0, 0);
-    }
-    Vector3 CalculatePosInTime(Vector3 vo, float time)
-    {
-        Vector3 Vxz = vo;
-        Vxz.y = 0f;
-        Vector3 result = transform.position + vo * time;
-        float sY = (-0.5f * Mathf.Abs(Physics.gravity.y) * (time * time)) + (vo.y * time) + transform.position.y;
-        result.y = sY;
-        return result;
     }
 
-    void Visualize(Vector3 vo)
+    private void CalculateThrowing(Vector3 hitPoint, HitFace hitFace)
     {
-        for (int i = 0; i < lineSegment; i++)
+        Vector3 v = CalculateVelocity(hitPoint, transform.position, 1f);
+        VisualizeThrowingLine(v * throwForce);
+        VisualizeHitCircle(hitPoint, hitFace);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0)) //lmt for throwing
         {
-            Vector3 pos = CalculatePosInTime(vo, i / (float)lineSegment);
-            throwingLine.SetPosition(i, pos);
+            Debug.Log("Triggered throwing");
+            ThrowObject(v);
         }
     }
 
@@ -160,22 +135,41 @@ public class PlayerHand : MonoBehaviour
         float sY = distance.y;
         float sXz = distanceXz.magnitude;
 
-        float Vxz = sXz * time;
-        float Vy = (sY / time) + (0.5f * Mathf.Abs(Physics.gravity.y) * time);
+        float vXz = sXz * time;
+        float vY = (sY / time) + (0.5f * Mathf.Abs(Physics.gravity.y) * time);
 
         Vector3 result = distanceXz.normalized;
-        result *= Vxz;
-        result.y = Vy;
+        result *= vXz;
+        result.y = vY;
 
         return result;
     }
 
-    void CreateCirclePoints(Vector3 pos, HitFace face)
+    void VisualizeThrowingLine(Vector3 v)
+    {
+        for (int i = 0; i < lineSegment; i++)
+        {
+            Vector3 pos = CalculatePosInTime(v, i / (float)lineSegment);
+            throwingLine.SetPosition(i, pos);
+        }
+    }
+
+    Vector3 CalculatePosInTime(Vector3 v, float time)
+    {
+        Vector3 vXz = v;
+        vXz.y = 0f;
+        Vector3 result = transform.position + v * time;
+        float sY = (-0.5f * Mathf.Abs(Physics.gravity.y) * (time * time)) + (v.y * time) + transform.position.y;
+        result.y = sY;
+        return result;
+    }
+
+    void VisualizeHitCircle(Vector3 pos, HitFace face)
     {
         float deltaTheta = (float)(2.0 * Mathf.PI) / circleSegment;
         float theta = 0f;
 
-        if(face == HitFace.North || face == HitFace.South)
+        if (face == HitFace.North || face == HitFace.South)
         {
             for (int i = 0; i < circleSegment + 1; i++)
             {
@@ -185,7 +179,8 @@ public class PlayerHand : MonoBehaviour
                 if (face == HitFace.North)
                 {
                     z += 0.01f;
-                } else
+                }
+                else
                 {
                     z -= 0.01f;
                 }
@@ -236,6 +231,35 @@ public class PlayerHand : MonoBehaviour
             hitCircle.enabled = false;
         }
     }
+    private void ThrowObject(Vector3 v)
+    {
+        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveObject(throwPrefab))
+        {
+            Debug.Log("Throwing object");
+            GameObject coin = Instantiate(throwPrefab, transform.position, Quaternion.identity);
+            coin.GetComponent<Rigidbody>().AddForce(v * throwForce, ForceMode.Impulse);
+
+            activeCoolDown = true;
+            Invoke(nameof(DeactivateCoolDown), throwCoolDown);
+        }
+    }
+
+    private void UpdateCamMovement()
+    {
+        float fovDelta = fovTarget - fov;
+        fovDelta *= Time.deltaTime * 5;
+        fov += fovDelta;
+        vcam.m_Lens.FieldOfView = fov;
+
+        float camOffsetDelta = camOffsetTarget - camOffset;
+        camOffsetDelta *= Time.deltaTime * 2;
+        camOffset += camOffsetDelta;
+        camPos.localPosition = new Vector3(camOffset, 0, 0);
+    }
+    private void DeactivateCoolDown()
+    {
+        activeCoolDown = false;
+    }
 
     public enum HitFace
     {
@@ -271,30 +295,5 @@ public class PlayerHand : MonoBehaviour
             return HitFace.East;
 
         return HitFace.None;
-    }
-
-    private void DeactivateCoolDown()
-    {
-        activeCoolDown = false;
-    }
-
-    private void ThrowObject(Vector3 vo)
-    {
-        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveObject(throwPrefab))
-        {
-            Debug.Log("Throwing object");
-            GameObject coin = Instantiate(throwPrefab, transform.position, Quaternion.identity);
-            coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
-
-            //Debug settings to make coin more visible
-            if (highlightCoin && tag == "coin")
-            {
-                coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
-                coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
-            }
-
-            activeCoolDown = true;
-            Invoke(nameof(DeactivateCoolDown), throwCoolDown);
-        }
     }
 }
