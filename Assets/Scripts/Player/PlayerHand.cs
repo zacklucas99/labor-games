@@ -13,6 +13,7 @@ public class PlayerHand : MonoBehaviour
     public int lineSegment = 10; //smoothness of line
     private LineRenderer throwingLine;
     public bool highlightCoin = false;
+    public float maxThrowingDistance = 8f;
 
     public LineRenderer hitCircle;
     [Range(3, 256)]
@@ -65,31 +66,34 @@ public class PlayerHand : MonoBehaviour
             throwingLine.enabled = true;
             Ray camRay = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
             RaycastHit hit;
-            if (Physics.Raycast(camRay, out hit, 100f, collisionMask))
+            Vector3 hitPoint;
+            HitFace hitFace;
+            if (Physics.Raycast(camRay, out hit, maxThrowingDistance, collisionMask))
             {
-                Vector3 vo = CalculateVelocity(hit.point, transform.position, 1f);
+                hitPoint = hit.point;
+                hitFace = GetHitFace(hit);
+                Vector3 vo = CalculateVelocity(hitPoint, transform.position, 1f);
                 Visualize(vo * throwForce);
-                CreateCirclePoints(hit.point, GetHitFace(hit));
+                CreateCirclePoints(hitPoint, hitFace);
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveCoin())
-                    {
-                        Debug.Log("Tossing coin");
-                        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-                        coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
+                    ThrowCoin(vo);
+                }
+            } 
+            else
+            {
+                hitPoint = cam.position + cam.forward * maxThrowingDistance;
+                hitPoint.y = 0.01f;
+                hitFace = HitFace.Down;
 
-                        //Debug settings to make coin more visible
-                        if (highlightCoin)
-                        {
-                            coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
-                            coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
-                        }
+                Vector3 vo = CalculateVelocity(hitPoint, transform.position, 1f);
+                Visualize(vo * throwForce);
+                CreateCirclePoints(hitPoint, hitFace);
 
-                        activeCoolDown = true;
-                        Invoke(nameof(DeactivateCoolDown), throwCoolDown);
-                    }
-                    
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    ThrowCoin(vo);
                 }
             }
         }
@@ -256,5 +260,25 @@ public class PlayerHand : MonoBehaviour
     private void DeactivateCoolDown()
     {
         activeCoolDown = false;
+    }
+
+    private void ThrowCoin(Vector3 vo)
+    {
+        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveCoin())
+        {
+            Debug.Log("Tossing coin");
+            GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
+
+            //Debug settings to make coin more visible
+            if (highlightCoin)
+            {
+                coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
+                coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+            }
+
+            activeCoolDown = true;
+            Invoke(nameof(DeactivateCoolDown), throwCoolDown);
+        }
     }
 }
