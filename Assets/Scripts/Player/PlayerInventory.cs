@@ -8,62 +8,77 @@ public class PlayerInventory : MonoBehaviour
     private long coinStack = 0;
     private long potStack = 0;
 
-    public bool AddCoin()
+    public bool AddObject(GameObject obj)
     {
-        if(coinStack < maxStack)
+        if(obj.tag == "Coin")
         {
-            coinStack++;
-            Debug.Log("Coins: " + coinStack);
-            return true;
+            if (coinStack < maxStack)
+            {
+                coinStack++;
+                Debug.Log("Coins: " + coinStack);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Coins: " + coinStack);
+                return false;
+            }
+        } 
+        else if (obj.tag == "Pot")
+        {
+            if (potStack < maxStack)
+            {
+                potStack++;
+                Debug.Log("Pots: " + potStack);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Pots: " + potStack);
+                return false;
+            }
         }
         else
         {
-            Debug.Log("Coins: " + coinStack);
+            Debug.Log("No matching tag");
             return false;
         }
+        
     }
 
-    public bool RemoveCoin()
+    public bool RemoveObject(GameObject obj)
     {
-        if (coinStack > 0)
+        if (obj.tag == "Coin")
         {
-            coinStack--;
-            Debug.Log("Coins: " + coinStack);
-            return true;
+            if (coinStack > 0)
+            {
+                coinStack--;
+                Debug.Log("Coins: " + coinStack);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Coins: " + coinStack);
+                return false;
+            }
+        }
+        else if (obj.tag == "Pot")
+        {
+            if (potStack > 0)
+            {
+                potStack--;
+                Debug.Log("Pots: " + potStack);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Pots: " + potStack);
+                return false;
+            }
         }
         else
         {
-            Debug.Log("Coins: " + coinStack);
-            return false;
-        }
-    }
-
-    public bool AddPot()
-    {
-        if (potStack < maxStack)
-        {
-            potStack++;
-            Debug.Log("Pots: " + potStack);
-            return true;
-        }
-        else
-        {
-            Debug.Log("Pots: " + potStack);
-            return false;
-        }
-    }
-
-    public bool RemovePot()
-    {
-        if (potStack > 0)
-        {
-            potStack--;
-            Debug.Log("Pots: " + potStack);
-            return true;
-        }
-        else
-        {
-            Debug.Log("Pots: " + potStack);
+            Debug.Log("No matching tag");
             return false;
         }
     }

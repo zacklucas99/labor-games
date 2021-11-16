@@ -10,6 +10,7 @@ public class PlayerHand : MonoBehaviour
     private Shader shaderOutline;
     public GameObject coinPrefab;
     public GameObject potPrefab;
+    private GameObject throwPrefab;
     public float throwForce = 1f;
     public int lineSegment = 10; //smoothness of line
     private LineRenderer throwingLine;
@@ -36,7 +37,6 @@ public class PlayerHand : MonoBehaviour
     private float camOffsetInit;
     public float camOffsetTarget = 0.5f;
     private float camOffsetTargetInit;
-    private long activeItem = 1;
 
     void Start()
     {
@@ -54,6 +54,8 @@ public class PlayerHand : MonoBehaviour
         camOffsetInit = camOffset;
         camOffsetTargetInit = camOffsetTarget;
         camOffsetTarget = camOffset;
+
+        throwPrefab = coinPrefab;
 }
 
     void Update()
@@ -61,13 +63,13 @@ public class PlayerHand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Debug.Log("Changed to coin");
-            activeItem = 1;
+            throwPrefab = coinPrefab;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Debug.Log("Changed to pot");
-            activeItem = 2;
+            throwPrefab = potPrefab;
         }
 
         if (Input.GetKey(KeyCode.Mouse1))
@@ -90,16 +92,8 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    if (activeItem == 1)
-                    {
-                        Debug.Log("Coin triggered");
-                        ThrowCoin(vo);
-                    }
-                    else if (activeItem == 2)
-                    {
-                        Debug.Log("Pot triggered");
-                        ThrowPot(vo);
-                    }
+                    Debug.Log("Triggered throwing");
+                    ThrowObject(vo);
                 }
             } 
             else
@@ -114,16 +108,8 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    if(activeItem == 1)
-                    {
-                        Debug.Log("Coin triggered");
-                        ThrowCoin(vo);
-                    }
-                    else if(activeItem == 2)
-                    {
-                        Debug.Log("Pot triggered");
-                        ThrowPot(vo);
-                    }
+                    Debug.Log("Triggered throwing");
+                    ThrowObject(vo);
                 }
             }
         }
@@ -292,33 +278,20 @@ public class PlayerHand : MonoBehaviour
         activeCoolDown = false;
     }
 
-    private void ThrowCoin(Vector3 vo)
+    private void ThrowObject(Vector3 vo)
     {
-        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveCoin())
+        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemoveObject(throwPrefab))
         {
-            Debug.Log("Tossing coin");
-            GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            Debug.Log("Throwing object");
+            GameObject coin = Instantiate(throwPrefab, transform.position, Quaternion.identity);
             coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
 
             //Debug settings to make coin more visible
-            if (highlightCoin)
+            if (highlightCoin && tag == "coin")
             {
                 coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
                 coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
             }
-
-            activeCoolDown = true;
-            Invoke(nameof(DeactivateCoolDown), throwCoolDown);
-        }
-    }
-
-    private void ThrowPot(Vector3 vo)
-    {
-        if (!activeCoolDown && GetComponentInParent<PlayerInventory>().RemovePot())
-        {
-            Debug.Log("Throwing pot");
-            GameObject coin = Instantiate(potPrefab, transform.position, Quaternion.identity);
-            coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
 
             activeCoolDown = true;
             Invoke(nameof(DeactivateCoolDown), throwCoolDown);

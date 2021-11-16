@@ -140,19 +140,9 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             if(interactionObj.gameObject.layer == 10) //if throwing obj
             {
-                if(interactionObj.tag == "Coin")
+                if (GetComponent<PlayerInventory>().AddObject(interactionObj.gameObject))
                 {
-                    if (GetComponent<PlayerInventory>().AddCoin())
-                    {
-                        Destroy(interactionObj.parent.gameObject);
-                    }
-                }
-                else if (interactionObj.tag == "Pot")
-                {
-                    if (GetComponent<PlayerInventory>().AddPot())
-                    {
-                        Destroy(interactionObj.parent.gameObject);
-                    }
+                    Destroy(interactionObj.parent.gameObject);
                 }
             } 
             else
