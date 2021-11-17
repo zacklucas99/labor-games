@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -19,6 +20,21 @@ public class PlayerHand : MonoBehaviour
     [Range(0.1f, 10f)]
     private float radius = 0.2f;
 
+    public float throwCoolDown = 0.6f;
+    private bool activeCoolDown = false;
+
+    public CinemachineFreeLook vcam;
+    public float fov = 40f;
+    private float fovInit;
+    public float fovTarget = 30f;
+    private float fovTargetInit;
+
+    public Transform camPos;
+    public float camOffset = 0f;
+    private float camOffsetInit;
+    public float camOffsetTarget = 0.5f;
+    private float camOffsetTargetInit;
+
     void Start()
     {
         shaderOutline = Shader.Find("Unlit/Outline");
@@ -27,12 +43,24 @@ public class PlayerHand : MonoBehaviour
         throwingLine.positionCount = lineSegment;
 
         hitCircle.positionCount = circleSegment+1;
-    }
+
+        fovInit = fov;
+        fovTargetInit = fovTarget;
+        fovTarget = fov;
+
+        camOffsetInit = camOffset;
+        camOffsetTargetInit = camOffsetTarget;
+        camOffsetTarget = camOffset;
+}
 
     void Update()
     {
+        
+
         if (Input.GetKey(KeyCode.Mouse1))
         {
+            fovTarget = fovTargetInit;
+            camOffsetTarget = camOffsetTargetInit;
             hitCircle.enabled = true;
             throwingLine.enabled = true;
             Ray camRay = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
@@ -45,24 +73,44 @@ public class PlayerHand : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    Debug.Log("Tossing coin");
-                    GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-                    coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
-
-                    //Debug settings to make coin more visible
-                    if (highlightCoin)
+                    if (!activeCoolDown)
                     {
-                        coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
-                        coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+                        Debug.Log("Tossing coin");
+                        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+                        coin.GetComponent<Rigidbody>().AddForce(vo * throwForce, ForceMode.Impulse);
+
+                        //Debug settings to make coin more visible
+                        if (highlightCoin)
+                        {
+                            coin.GetComponentInChildren<Renderer>().material.shader = shaderOutline;
+                            coin.GetComponentInChildren<Renderer>().material.SetFloat("_OutlineWidth", 2.0f);
+                        }
+
+                        activeCoolDown = true;
+                        Invoke(nameof(DeactivateCoolDown), throwCoolDown);
                     }
+                    
                 }
             }
         }
         else
         {
+            fovTarget = fovInit;
+            camOffsetTarget = camOffsetInit;
+            camPos.localPosition = new Vector3(0, 0, 0);
             throwingLine.enabled = false;
             hitCircle.enabled = false;
         }
+
+        float fovDelta = fovTarget - fov;
+        fovDelta *= Time.deltaTime * 5;
+        fov += fovDelta;
+        vcam.m_Lens.FieldOfView = fov;
+
+        float camOffsetDelta = camOffsetTarget - camOffset;
+        camOffsetDelta *= Time.deltaTime * 2;
+        camOffset += camOffsetDelta;
+        camPos.localPosition = new Vector3(camOffset, 0, 0);
     }
     Vector3 CalculatePosInTime(Vector3 vo, float time)
     {
@@ -203,5 +251,10 @@ public class PlayerHand : MonoBehaviour
             return HitFace.East;
 
         return HitFace.None;
+    }
+
+    private void DeactivateCoolDown()
+    {
+        activeCoolDown = false;
     }
 }
