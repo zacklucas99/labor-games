@@ -85,6 +85,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public float hearableVolume = 0; // threshold for what the character can hear
 
     public bool IsPickingUp { get; set; } = false;
+    public bool IsTurningSoundOff { get; set; } = false;
 
     public bool OverTurning { get;  set; }
 
@@ -425,7 +426,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
-        if (IsPickingUp)
+        if (IsPickingUp || IsTurningSoundOff)
         {
             return;
         }
@@ -502,6 +503,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         if (!soundTurnedOff)
         {
+            IsTurningSoundOff = true;
             animator.SetBool("TurnOff", true);
         }
         return soundTurnedOff;
@@ -515,6 +517,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ResetSoundToHandle()
     {
+        IsTurningSoundOff = false;
         isFollowingSound = false;
         soundDestination = Vector3.zero;
         soundObjectToHandle = null;

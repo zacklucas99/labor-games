@@ -11,14 +11,14 @@ public class PlayerMove : MonoBehaviour
     {
         if (player.IsMoving)
         {
-            if (!obj.enabled)
+            if (!obj.turnedOn)
             {
                 obj.turnedOn = true;
             }
         }
         else
         {
-            if (obj.enabled)
+            if (obj.turnedOn)
             {
                 obj.turnedOn = false;
             }
