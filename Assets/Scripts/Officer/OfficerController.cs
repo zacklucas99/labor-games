@@ -80,6 +80,18 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     private bool isMovingToAlarm;
 
     public bool Notified { get; private set; }
+    public bool GotNewSound { get; set; } // Notifying that suddenly a new sound was applied, while already following
+
+    public float hearableVolume = 0; // threshold for what the character can hear
+
+    public bool IsPickingUp { get; set; } = false;
+    public bool IsTurningSoundOff { get; set; } = false;
+
+    public bool OverTurning { get;  set; }
+
+    public GameObject rightHand;
+
+    private List<SoundObject> soundObjects = new List<SoundObject>();
 
     void Start()
     {
@@ -305,6 +317,55 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         return true;
     }
 
+    public bool TurnToSound()
+    {
+        var angle = Vector3.SignedAngle(new Vector3(soundDestination.x - transform.position.x, 0, soundDestination.z - transform.position.z),
+            transform.forward, Vector3.up);
+
+        if (!isTurning)
+        {
+            isTurningApprox = true;
+            if (Math.Abs(angle) < rotationThreshold)
+            {
+                return false;
+            }
+            isTurning = true;
+            turningFinished = false;
+            if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonCharacter>() != null)
+            {
+                // Make officer turning faster for smaller angles to make it easier to discover player
+                OverTurning = true;
+            }
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(-currentRotationSpeed);
+
+        }
+
+        if (OverTurning)
+        {
+            if (angle > 0)
+            {
+                angle += minRotationCloseBy;
+            }
+            else
+            {
+                angle -= minRotationCloseBy;
+            }
+        }
+
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
+            OverTurning = false;
+            return false;
+        }
+        character.SetRotation(-currentRotationSpeed);
+
+        return true;
+    }
+
     public void ResetTurn()
     {
         // Temporary fix, if turn was aborted, reset turning 
@@ -319,6 +380,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         }
     }
     #endregion
+
+    public bool FacingSoundObj()
+    {
+        var angle = Vector3.SignedAngle(new Vector3(soundDestination.x - transform.position.x, 0, soundDestination.z - transform.position.z),
+                    transform.forward, Vector3.up);
+
+        return Math.Abs(angle) < rotationThreshold;
+    }
 
     public void SetNeedsMoveFlag() {
         needsMoveFlag = true;
@@ -355,25 +424,86 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
 
 
-    public void ReceiveSound(SoundObject obj)
+    public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
-        isFollowingSound = true;
-        soundDestination = obj.transform.position;
-        goBackDestination = lastPoint.transform;
-        soundObjectToHandle = obj;
-        soundTurnedOff = false;
+        if (IsPickingUp || IsTurningSoundOff)
+        {
+            return;
+        }
+        if (receiveVolume > hearableVolume)
+        {
+            if(soundObjects.Contains(obj)) {
+                if (obj != SoundObj)
+                {
+                    return;
+                }
+
+            }
+            if(SoundObj != null && obj != SoundObj)
+            {
+                Debug.Log(SoundObj);
+                GotNewSound = true;
+            }
+            isFollowingSound = true;
+            soundDestination = obj.transform.position;
+            goBackDestination = lastPoint.transform;
+            soundObjectToHandle = obj;
+            soundTurnedOff = false;
+            soundObjects.Add(obj);
+        }
     }
 
     public bool NearSound()
     {
+        Vector3 soundDest = new Vector3(soundDestination.x, 0, soundDestination.z);
+        Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
         return soundObjectToHandle != null && 
-            (soundObjectToHandle.transform.position - transform.position).magnitude <= agent.stoppingDistance;
+            (soundDest - pos).magnitude <= agent.stoppingDistance;
+    }
+
+    public bool CanTurnSoundOff()
+    {
+        return SoundObj && SoundObj.canTurnSoundOff;
+    }
+
+    public bool CanPickUpObj()
+    {
+        return SoundObj && SoundObj.canPickUp;
+    }
+
+    public void FinishPickingUp()
+    {
+        Debug.Log("FinsihPickingUp");
+        animator.SetBool("PickUp", false);
+
+        if (SoundObj != null && IsPickingUp)
+        {
+            Destroy(SoundObj.gameObject);
+        }
+        IsPickingUp = false;
+        ResetSoundToHandle();
+    }
+
+
+
+    public void PickUpObj()
+    {
+        IsPickingUp = true;
+        animator.SetBool("PickUp", true);
+    }
+
+    public void SetCoinToHand()
+    {
+        Debug.Log("SetCoin To Hand");
+        SoundObj.GetComponent<PickableObject>().ResetCollider();//Disable collider to get rid of bugs
+        SoundObj.GetComponent<PickableObject>().parentObject = rightHand;
     }
 
     public bool TurnSoundOff()
     {
         if (!soundTurnedOff)
         {
+            IsTurningSoundOff = true;
             animator.SetBool("TurnOff", true);
         }
         return soundTurnedOff;
@@ -382,8 +512,27 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void FinishTurnSoundOff()
     {
         soundObjectToHandle.SetTurnedOn(false);
+        ResetSoundToHandle();
+    }
+
+    public void ResetSoundToHandle()
+    {
+        IsTurningSoundOff = false;
         isFollowingSound = false;
         soundDestination = Vector3.zero;
+        soundObjectToHandle = null;
+        soundObjects.Clear();
+    }
+
+    public void ResetSoundInteractionAnimation()
+    {
+        animator.SetBool("TurnOff", false);
+        animator.SetBool("PickUp", false);
+        if (SoundObj != null && IsPickingUp)
+        {
+            Destroy(SoundObj.gameObject);
+        }
+        IsPickingUp = false;
     }
 
     public void FinishTurnOffAnimation()
@@ -406,6 +555,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         }
     }
 
+    public bool WallBetweenSound()
+    {
+        // Determining, whether wall between sound and officer
+        return (Physics.Raycast(new Ray(transform.position, soundDestination - transform.position), 
+            (transform.position - soundDestination).magnitude, environmentLayer));
+    }
+
     public void LostPlayerCloseBy()
     {
         playerCloseBy = false;
@@ -413,7 +569,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceivedAlarm(Vector3 playerPosition)
     {
-        Debug.Log("Received Alarm");
         notifyPosition = playerPosition;
         Notified = true;
     }

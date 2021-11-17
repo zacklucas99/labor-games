@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface SoundReceiver 
 {
-    public void ReceiveSound(SoundObject obj);
+    public void ReceiveSound(SoundObject obj, float receiveVolume);
 }
