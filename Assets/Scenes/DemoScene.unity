@@ -1372,6 +1372,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 28.5, y: 2, z: 2}
   m_Center: {x: 14.25, y: 1, z: 3}
+--- !u!1 &90020977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8534235609660829448, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
+  m_PrefabInstance: {fileID: 2019312931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &90020987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90020977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ddd8bfb8f1a249b29ce1aadd84331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1465428432}
+        m_TargetAssemblyTypeName: OfficerController, Assembly-CSharp
+        m_MethodName: ReceiveNotifcation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &107534162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e7b68b262f3fc142a4cf5d7d5518b27, type: 3}
@@ -1423,6 +1455,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &107534165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107534162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f045994038aa1e348a08f5237a33c330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  notificationRad: 3.55
+  notificationRadColor: {r: 0, g: 1, b: 1, a: 1}
+  drawGizmos: 1
 --- !u!114 &107534166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9136,7 +9186,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: -0.000000022278845, z: 0.0000000019502324, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: -0.000000022278808, z: 0.000000001950057, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10797,7 +10847,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8534235609660829494, guid: 27631b8f49fb328429a3cab77d695305, type: 3}
   m_PrefabInstance: {fileID: 2019312931}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 90020977}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f090841d3e0b3bd4c862586731929b57, type: 3}
@@ -14237,19 +14287,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016746089
+      value: -0.000000016746096
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000039532155
+      value: 0.0000000039532173
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018870892
+      value: 0.000000018870892
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037368117
+      value: -0.0000000037368117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}

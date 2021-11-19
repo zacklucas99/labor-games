@@ -586,6 +586,12 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
 
 
+    public void ReceiveNotifcation(NotifierObject notifierObject)
+    {
+        Debug.Log("Received Notification");
+    }
+
+
     private void OnDrawGizmos()
     {
         if (!drawGizmos)
