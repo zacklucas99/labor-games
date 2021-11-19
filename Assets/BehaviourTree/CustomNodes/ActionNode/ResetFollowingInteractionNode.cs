@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetInteractSoundNode: ActionNode
+public class ResetFollowingInteractionNode: ActionNode
 {
 
     protected override State OnUpdate()

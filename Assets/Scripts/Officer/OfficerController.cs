@@ -28,7 +28,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private bool isFollowingPlayer;
 
-    public bool FollowingPlayer =>isFollowingPlayer;
+    public bool FollowingPlayer => isFollowingPlayer;
 
     public float playerFollowingSpeed = 1f;
     public float walkingSpeed = 0.5f;
@@ -87,11 +87,22 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool IsPickingUp { get; set; } = false;
     public bool IsTurningSoundOff { get; set; } = false;
 
-    public bool OverTurning { get;  set; }
+    public bool OverTurning { get; set; }
 
     public GameObject rightHand;
 
     private List<SoundObject> soundObjects = new List<SoundObject>();
+
+    public bool GotEnvironmentNotification { get; private set; }
+    private NotifierObject notifierObject;
+    HashSet<NotifierObject> notificatedObjects = new HashSet<NotifierObject>();
+
+    public bool ArrivedAtWayPoint{
+        get {
+            Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
+            return distVector.magnitude < agent.stoppingDistance;
+        }
+    }
 
     void Start()
     {
@@ -191,6 +202,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         // Todo: rewrite more beautifully
         agent.SetDestination(soundDestination);
         character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
+    }
+
+    public bool FollowNotification()
+    {
+        agent.SetDestination(notifierObject.transform.position);
+        character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
+        Debug.Log(agent.destination + "|" + notifierObject.transform.position+ "|"+ transform.position);
+        return !ArrivedAtWayPoint;
     }
 
 
@@ -588,7 +607,17 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveNotifcation(NotifierObject notifierObject)
     {
-        Debug.Log("Received Notification");
+        if (notifierObject && !notificatedObjects.Contains(notifierObject)) {
+            Debug.Log("Received Notification");
+            GotEnvironmentNotification = true;
+            this.notifierObject = notifierObject;
+            notificatedObjects.Add(notifierObject);
+        }
+    }
+
+    public void ResetEnvironmentNotification()
+    {
+        GotEnvironmentNotification = false;
     }
 
 
