@@ -7,7 +7,8 @@ public class ResetInteractSoundNode: ActionNode
 
     protected override State OnUpdate()
     {
-        Context.Officer.ResetEnvironmentNotification();
+        Context.Officer.ResetSoundInteractionAnimation();
+        Context.Officer.ResetSoundToHandle();
         return State.Success;
     }
 
