@@ -208,7 +208,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         agent.SetDestination(notifierObject.transform.position);
         character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
-        Debug.Log(agent.destination + "|" + notifierObject.transform.position+ "|"+ transform.position);
         return !ArrivedAtWayPoint;
     }
 
@@ -487,7 +486,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool CanPickUpObj()
     {
-        return SoundObj && SoundObj.canPickUp;
+        return (SoundObj && SoundObj.canPickUp) || (notifierObject && notifierObject.canPickUp);
     }
 
     public void FinishPickingUp()
@@ -498,6 +497,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         if (SoundObj != null && IsPickingUp)
         {
             Destroy(SoundObj.gameObject);
+        }
+        else if(notifierObject != null && IsPickingUp)
+        {
+            Destroy(notifierObject.gameObject);
         }
         IsPickingUp = false;
         ResetSoundToHandle();
@@ -514,8 +517,16 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void SetCoinToHand()
     {
         Debug.Log("SetCoin To Hand");
-        SoundObj.GetComponent<PickableObject>().ResetCollider();//Disable collider to get rid of bugs
-        SoundObj.GetComponent<PickableObject>().parentObject = rightHand;
+        if (SoundObj != null)
+        {
+            SoundObj.GetComponent<PickableObject>().ResetCollider();//Disable collider to get rid of bugs
+            SoundObj.GetComponent<PickableObject>().parentObject = rightHand;
+        }
+        else if (notifierObject != null)
+        {
+            notifierObject.GetComponent<PickableObject>().ResetCollider();
+            notifierObject.GetComponent<PickableObject>().parentObject = rightHand;
+        }
     }
 
     public bool TurnSoundOff()
@@ -607,7 +618,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveNotifcation(NotifierObject notifierObject)
     {
-        if (notifierObject && !notificatedObjects.Contains(notifierObject)) {
+        if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject)) {
             Debug.Log("Received Notification");
             GotEnvironmentNotification = true;
             this.notifierObject = notifierObject;

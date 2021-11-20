@@ -13,10 +13,7 @@ public class NotifierObject : MonoBehaviour
     public Color notificationRadColor;
     public bool drawGizmos;
 
-    void Start()
-    {
-        
-    }
+    public bool canPickUp;
 
     private void OnDrawGizmos()
     {
