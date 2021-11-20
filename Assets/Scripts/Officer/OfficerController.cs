@@ -206,7 +206,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool FollowNotification()
     {
-        agent.SetDestination(notifierObject.transform.position);
+        
+        agent.SetDestination(notifierObject.moveToPoint == null ? notifierObject.transform.position : notifierObject.moveToPoint.transform.position);
         character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
         return !ArrivedAtWayPoint;
     }
@@ -502,7 +503,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         else if(notifierObject != null && IsPickingUp)
         {
             Destroy(notifierObject.gameObject);
-            ResetNotification();
+            ResetEnvironmentNotification();
         }
         IsPickingUp = false;
     }
@@ -622,14 +623,16 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject)) {
             Debug.Log("Received Notification");
             GotEnvironmentNotification = true;
-            this.notifierObject = notifierObject;
             notificatedObjects.Add(notifierObject);
+            this.notifierObject = notifierObject;
         }
     }
 
     public void ResetEnvironmentNotification()
     {
         GotEnvironmentNotification = false;
+        notifierObject = null;
+        Debug.Log("Reset Environment notification");
     }
 
 

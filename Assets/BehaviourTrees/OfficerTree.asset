@@ -291,6 +291,7 @@ MonoBehaviour:
   - {fileID: -3687887367922042454}
   - {fileID: 7348879521647013396}
   - {fileID: 4416482076020348316}
+  - {fileID: 434330989296079960}
 --- !u!114 &-7611583244748092699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,6 +1763,7 @@ MonoBehaviour:
   - {fileID: -779230215112892164}
   - {fileID: -5817927754227601601}
   - {fileID: -6341350216980284896}
+  - {fileID: 434330989296079960}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1891,6 +1893,23 @@ MonoBehaviour:
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
   soundObject: {fileID: 0}
+--- !u!114 &434330989296079960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d58db36981d694478014a1602398ae0, type: 3}
+  m_Name: ResetFollowingInteractionNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: aafc64519e5c3b043ae13ca0ddee9763
+  Position: {x: 2354, y: 686}
 --- !u!114 &547243548384782650
 MonoBehaviour:
   m_ObjectHideFlags: 0

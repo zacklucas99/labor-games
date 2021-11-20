@@ -15,6 +15,8 @@ public class NotifierObject : MonoBehaviour
 
     public bool canPickUp;
 
+    public GameObject moveToPoint;
+
     private void OnDrawGizmos()
     {
         if (!drawGizmos)
