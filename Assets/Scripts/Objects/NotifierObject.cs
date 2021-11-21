@@ -17,14 +17,25 @@ public class NotifierObject : MonoBehaviour
 
     public GameObject moveToPoint;
 
+    public bool turnedOn = true;
+    public Color turnedOffColor = Color.grey;
+
+    public bool notifyInView = true;
+
     private void OnDrawGizmos()
     {
         if (!drawGizmos)
         {
             return;
         }
-
-        Handles.color = notificationRadColor;
+        if (turnedOn)
+        {
+            Handles.color = notificationRadColor;
+        }
+        else
+        {
+            Handles.color = turnedOffColor;
+        }
         Handles.DrawWireDisc(transform.position, Vector3.up, notificationRad);
     }
     void Update()
@@ -33,7 +44,15 @@ public class NotifierObject : MonoBehaviour
         var enemys = Physics.OverlapSphere(transform.position, notificationRad);
         foreach(var enemy in enemys)
         {
-            enemy.GetComponent<NotificationReceiver>()?.ReceiveNotification(this);
+            if (turnedOn && !notifyInView)
+            {
+                enemy.GetComponent<NotificationReceiver>()?.ReceiveNotification(this);
+            }
         }
+    }
+
+    public void Notify(OfficerController officer)
+    {
+        officer.GetComponent<NotificationReceiver>()?.ReceiveNotification(this);
     }
 }

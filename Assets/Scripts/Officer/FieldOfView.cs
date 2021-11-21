@@ -35,6 +35,8 @@ public class FieldOfView : MonoBehaviour
     public Color gizmosColor;
     public bool drawGizmos = true;
 
+    public OfficerController officer;
+
     public FoundPlayerEvent PlayerFoundEvent = new FoundPlayerEvent();
     public UnityEvent PlayerLostEvent = new UnityEvent();
 
@@ -212,12 +214,25 @@ public class FieldOfView : MonoBehaviour
                 Physics.Raycast(ray, out info);
                 if (Physics.Raycast(ray, out info))
                 {
-                    if ((info.point - transform.position).magnitude > viewDist || info.collider.gameObject.GetComponent<ThirdPersonMovement>() == null)
+                    if ((info.point - transform.position).magnitude > viewDist)
+                    {
+                        return;
+                    }
+                    if(info.collider.gameObject.GetComponent<ThirdPersonMovement>() == null && info.collider.gameObject.GetComponent<NotifierObject>() == null)
                     {
                         return;
                     }
                 }
-                PlayerFoundEvent.Invoke(collider.gameObject);
+                GameObject gameObject = info.collider.gameObject;
+
+                if (gameObject.GetComponent<ThirdPersonMovement>())
+                {
+                    PlayerFoundEvent.Invoke(gameObject);
+                }
+                else if (gameObject.GetComponent<NotifierObject>() && gameObject.GetComponent<NotifierObject>().notifyInView)
+                {
+                    gameObject.GetComponent<NotifierObject>().Notify(officer);
+                }
                 foundPlayers = true;
                 foundPlayerThisRound = true;
             }

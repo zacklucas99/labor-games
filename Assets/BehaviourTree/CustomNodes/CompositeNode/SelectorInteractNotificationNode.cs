@@ -18,6 +18,11 @@ public class SelectorInteractNotificationNode: CompositeNode
             return Children[0].Update();
         }
 
+        else
+        {
+            return Children[1].Update();
+        }
+
 
         //Finished
         return State.Success;

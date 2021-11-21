@@ -621,7 +621,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void ReceiveNotifcation(NotifierObject notifierObject)
     {
         if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject)) {
-            Debug.Log("Received Notification");
+            Debug.Log("Received Notification:" + notifierObject);
             GotEnvironmentNotification = true;
             notificatedObjects.Add(notifierObject);
             this.notifierObject = notifierObject;
