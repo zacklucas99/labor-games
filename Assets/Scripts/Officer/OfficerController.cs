@@ -343,7 +343,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         if (!isTurning)
         {
-            isTurningApprox = true;
             if (Math.Abs(angle) < rotationThreshold)
             {
                 return false;
@@ -370,6 +369,38 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             {
                 angle -= minRotationCloseBy;
             }
+        }
+
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
+            OverTurning = false;
+            return false;
+        }
+        character.SetRotation(-currentRotationSpeed);
+
+        return true;
+    }
+
+
+    public bool TurnToNotifier()
+    {
+        var angle = Vector3.SignedAngle(new Vector3(notifierObject.transform.position.x - transform.position.x, 0, notifierObject.transform.position.z - transform.position.z),
+            transform.forward, Vector3.up);
+
+        if (!isTurning)
+        {
+            if (Math.Abs(angle) < rotationThreshold)
+            {
+                return false;
+            }
+            isTurning = true;
+            turningFinished = false;
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(-currentRotationSpeed);
+
         }
 
         if (turningFinished && Math.Abs(angle) < rotationThreshold)
