@@ -229,7 +229,8 @@ public class FieldOfView : MonoBehaviour
                 {
                     PlayerFoundEvent.Invoke(gameObject);
                 }
-                else if (gameObject.GetComponent<NotifierObject>() && gameObject.GetComponent<NotifierObject>().notifyInView)
+                else if (gameObject.GetComponent<NotifierObject>() && gameObject.GetComponent<NotifierObject>().notifyInView &&
+                    gameObject.GetComponent<NotifierObject>().turnedOn)
                 {
                     gameObject.GetComponent<NotifierObject>().Notify(officer);
                 }
