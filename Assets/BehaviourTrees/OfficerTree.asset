@@ -1389,7 +1389,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 43bbd61a9edb5844f8b45b80c6de80ad
-  Position: {x: 2612, y: 686}
+  Position: {x: 2633, y: 686}
 --- !u!114 &-964114554837454348
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -349,26 +349,28 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             isTurning = true;
             turningFinished = false;
-            if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonCharacter>() != null)
+            Debug.Log("angle:" + angle);
+            if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonMovement>() != null)
             {
                 // Make officer turning faster for smaller angles to make it easier to discover player
                 OverTurning = true;
+                Debug.Log("OverTurning");
+
+                /*if (angle > 0)
+                {
+                    angle += minRotationCloseBy;
+                }
+                else
+                {
+                    angle -= minRotationCloseBy;
+                }
+                currentRotationSpeed = angle / 180f;
+                character.SetRotation(-currentRotationSpeed);
+                */
             }
             currentRotationSpeed = angle / 180f;
             character.SetRotation(-currentRotationSpeed);
 
-        }
-
-        if (OverTurning)
-        {
-            if (angle > 0)
-            {
-                angle += minRotationCloseBy;
-            }
-            else
-            {
-                angle -= minRotationCloseBy;
-            }
         }
 
         if (turningFinished && Math.Abs(angle) < rotationThreshold)
@@ -491,7 +493,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             if(SoundObj != null && obj != SoundObj)
             {
-                Debug.Log(SoundObj);
                 GotNewSound = true;
             }
             isFollowingSound = true;
