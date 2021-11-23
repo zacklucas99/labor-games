@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerInventory : MonoBehaviour
 
     private List<GameObject> invList = new List<GameObject>();
 
-    private Vector3 coinPos = new Vector3(5.701775f, -10.92942f, 7.524786f);
+    private Vector3 coinPos = new Vector3(5.701775f, -11.02942f, 7.524786f);
     private Vector3 potPos = new Vector3(5.57f, -11.78242f, 7.556757f);
     private float posOffset = 1.5f;
 
@@ -25,14 +26,19 @@ public class PlayerInventory : MonoBehaviour
     private GameObject activeObjLeft;
     private GameObject activeObjRight;
 
+    public Text textLeft;
+    public Text textMiddle;
+    public Text textRight;
+
     void Update()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if(activeSlot < invList.Count - 1)
             {
                 activeSlot++;
                 UpdateInv();
+                UpdateAmounts();
             }
         }
         if(Input.GetAxis("Mouse ScrollWheel") > 0f)
@@ -41,6 +47,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 activeSlot--;
                 UpdateInv();
+                UpdateAmounts();
             }
         }
     }
@@ -57,6 +64,7 @@ public class PlayerInventory : MonoBehaviour
             if (coinStack < maxStack)
             {
                 coinStack++;
+                UpdateAmounts();
                 Debug.Log("Coins: " + coinStack);
                 return true;
             }
@@ -76,6 +84,7 @@ public class PlayerInventory : MonoBehaviour
             if (potStack < maxStack)
             {
                 potStack++;
+                UpdateAmounts();
                 Debug.Log("Pots: " + potStack);
                 return true;
             }
@@ -109,6 +118,7 @@ public class PlayerInventory : MonoBehaviour
             if (coinStack > 0)
             {
                 coinStack--;
+                UpdateAmounts();
                 Debug.Log("Coins: " + coinStack);
                 return true;
             }
@@ -132,6 +142,7 @@ public class PlayerInventory : MonoBehaviour
             if (potStack > 0)
             {
                 potStack--;
+                UpdateAmounts();
                 Debug.Log("Pots: " + potStack);
                 return true;
             }
@@ -176,15 +187,19 @@ public class PlayerInventory : MonoBehaviour
         if (invList.Count > 0)
         {
             activeObj = Instantiate(invList[activeSlot], GetInitPos(invList[activeSlot]), Quaternion.identity, uiPanel);
+            
             if (activeSlot > 0)
             {
                 activeObjLeft = Instantiate(invList[activeSlot - 1], GetInitPos(invList[activeSlot - 1]) - new Vector3(posOffset, 0f, 0f), Quaternion.identity, uiPanel);
+                
             }
             if (activeSlot < invList.Count - 1)
             {
                 activeObjRight = Instantiate(invList[activeSlot + 1], GetInitPos(invList[activeSlot + 1]) + new Vector3(posOffset, 0f, 0f), Quaternion.identity, uiPanel);
+                
             }
         }
+        
     }
 
     public string GetActiveObjTag()
@@ -196,4 +211,32 @@ public class PlayerInventory : MonoBehaviour
         return "";
     }
 
+    private void SetAmountText(GameObject obj, long amount)
+    {
+        if(amount > 0)
+        {
+            if (activeSlot == invList.IndexOf(obj))
+            {
+                textMiddle.text = amount + "";
+            }
+            else if (activeSlot + 1 == invList.IndexOf(obj))
+            {
+                textRight.text = amount + "";
+            }
+            else if (activeSlot - 1 == invList.IndexOf(obj))
+            {
+                textLeft.text = amount + "";
+            }
+        }
+        
+    }
+
+    private void UpdateAmounts()
+    {
+        textMiddle.text = "";
+        textLeft.text = "";
+        textRight.text = "";
+        SetAmountText(uiCoinPrefab, coinStack);
+        SetAmountText(uiPotPrefab, potStack);
+    }
 }
