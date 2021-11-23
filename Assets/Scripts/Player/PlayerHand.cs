@@ -58,22 +58,23 @@ public class PlayerHand : MonoBehaviour
 
     void Update()
     {
-        SelectItem(); //select item to throw with number keys
+        GetThrowItem(); //select item to throw with number keys
 
         HandleThrowing(); //press rmt to aim and lmt to throw item
 
         UpdateCamMovement(); //update variables for cam movement when aiming
     }
 
-    private void SelectItem()
+    private void GetThrowItem()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) //1: coin
+        string tag = GetComponentInParent<PlayerInventory>().GetActiveObjTag();
+        if (tag == "Coin")
         {
             Debug.Log("Changed to coin");
             throwPrefab = coinPrefab;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)) //2: pot
+        if (tag == "Pot")
         {
             Debug.Log("Changed to pot");
             throwPrefab = potPrefab;
