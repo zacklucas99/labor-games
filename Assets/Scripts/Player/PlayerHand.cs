@@ -38,6 +38,8 @@ public class PlayerHand : MonoBehaviour
     public float camOffsetTarget = 0.5f;
     private float camOffsetTargetInit;
 
+    bool aimingAllowed = false;
+
     void Start()
     {
         fovInit = fov;
@@ -83,7 +85,16 @@ public class PlayerHand : MonoBehaviour
 
     private void HandleThrowing()
     {
-        if (Input.GetKey(KeyCode.Mouse1)) //rmt for aiming
+        
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GetComponentInParent<PlayerInventory>().ItemsActive()){
+            aimingAllowed = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1) && !GetComponentInParent<PlayerInventory>().ItemsActive())
+        {
+            aimingAllowed = false;
+        } 
+
+        if (Input.GetKey(KeyCode.Mouse1) && aimingAllowed) //rmt for aiming
         {
             fovTarget = fovTargetInit;
             camOffsetTarget = camOffsetTargetInit;

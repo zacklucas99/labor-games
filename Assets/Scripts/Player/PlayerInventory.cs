@@ -239,4 +239,13 @@ public class PlayerInventory : MonoBehaviour
         SetAmountText(uiCoinPrefab, coinStack);
         SetAmountText(uiPotPrefab, potStack);
     }
+
+    public bool ItemsActive()
+    {
+        if(activeObj != null)
+        {
+            return true;
+        }
+        return false;
+    }
 }
