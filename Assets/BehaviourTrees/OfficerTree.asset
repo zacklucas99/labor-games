@@ -728,6 +728,23 @@ MonoBehaviour:
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
   soundObject: {fileID: 0}
+--- !u!114 &-6044131199814798396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 039a06e7382eaf741a49d509ff58e32a
+  Position: {x: -1903, y: 1224}
 --- !u!114 &-6002137186895644425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +906,7 @@ MonoBehaviour:
   - {fileID: -943799775265657985}
   - {fileID: -3920160284015115163}
   - {fileID: 2161628269965714043}
+  - {fileID: -6044131199814798396}
 --- !u!114 &-4616730138182978550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,6 +1204,23 @@ MonoBehaviour:
   description: 
   guid: a073b290ebb5b914fa7b6b39861cb777
   Position: {x: -759.9998, y: 1004}
+--- !u!114 &-2802792794517867116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f34f6354e354dca4d8a9d866ef242b93
+  Position: {x: 2841, y: 686.00006}
 --- !u!114 &-2782138586264980267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1413,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: d4c9f9ea784808f41a737806b652207b
-  Position: {x: 2823.5, y: 686}
+  Position: {x: 3046.4, y: 686.00006}
 --- !u!114 &-1640234730611026217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,7 +1556,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 43bbd61a9edb5844f8b45b80c6de80ad
-  Position: {x: 2633, y: 686}
+  Position: {x: 2650, y: 686.00006}
 --- !u!114 &-964114554837454348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,6 +1983,8 @@ MonoBehaviour:
   - {fileID: 7887322540846170749}
   - {fileID: -5828320881082629652}
   - {fileID: 4619721453359205787}
+  - {fileID: -2802792794517867116}
+  - {fileID: -6044131199814798396}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2225,6 +2262,7 @@ MonoBehaviour:
   Position: {x: 2736, y: 566}
   Children:
   - {fileID: -1033131146000926775}
+  - {fileID: -2802792794517867116}
   - {fileID: -1682708161442686085}
   - {fileID: 3293122374033085647}
 --- !u!114 &1796421273739867142
@@ -2449,7 +2487,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 5de6003e8adbd1b439ee8bef37eebd73
-  Position: {x: 3051, y: 686}
+  Position: {x: 3273, y: 686.00006}
   duration: 1
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
