@@ -30,11 +30,32 @@ public class PlayerInventory : MonoBehaviour
     public Text textMiddle;
     public Text textRight;
 
+    public float invCooldown = 3;
+    public bool hiddenInv = true;
+
+    private void Start()
+    {
+        if (hiddenInv)
+        {
+            HideInv();
+        }
+        
+    }
+    
+
     void Update()
     {
+
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            if(activeSlot < invList.Count - 1)
+            if (hiddenInv)
+            {
+                uiPanel.gameObject.SetActive(true);
+                CancelInvoke();
+                Invoke(nameof(HideInv), invCooldown);
+            }
+
+            if (activeSlot < invList.Count - 1)
             {
                 activeSlot++;
                 UpdateInv();
@@ -43,6 +64,13 @@ public class PlayerInventory : MonoBehaviour
         }
         if(Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
+            if (hiddenInv)
+            {
+                uiPanel.gameObject.SetActive(true);
+                CancelInvoke();
+                Invoke(nameof(HideInv), invCooldown);
+            }
+
             if (activeSlot > 0)
             {
                 activeSlot--;
@@ -248,4 +276,11 @@ public class PlayerInventory : MonoBehaviour
         }
         return false;
     }
+
+    private void HideInv()
+    {
+        uiPanel.gameObject.SetActive(false);
+        
+    }
+
 }

@@ -3578,11 +3578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721441171205832, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018917413
+      value: 0.0000000189189
       objectReference: {fileID: 0}
     - target: {fileID: 1778721441171205832, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037460235
+      value: -0.0000000037463184
       objectReference: {fileID: 0}
     - target: {fileID: 1778721441512100338, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_HorizontalDamping
@@ -3778,11 +3778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442264364451, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015845185
+      value: -0.00000001604164
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442264364451, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037405403
+      value: 0.000000003786917
       objectReference: {fileID: 0}
     - target: {fileID: 1778721442788146282, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_ScreenY
@@ -3822,11 +3822,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016651605
+      value: 0.000000016651605
       objectReference: {fileID: 0}
     - target: {fileID: 1778721443038882248, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000027844802
+      value: -0.0000000027844802
       objectReference: {fileID: 0}
     - target: {fileID: 2204326104476357145, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: uiPanel
@@ -3844,6 +3844,10 @@ PrefabInstance:
       propertyPath: textMiddle
       value: 
       objectReference: {fileID: 774664749}
+    - target: {fileID: 2204326104476357145, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
+      propertyPath: invCooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2204326104476357145, guid: 65efcc87e0f2f1c4c9dca3edfaecfe48, type: 3}
       propertyPath: uiPotPrefab
       value: 
@@ -10199,7 +10203,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: -0.000000022034746, z: 0.0000000018843211, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: 0.000000022034746, z: -0.0000000018843203, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

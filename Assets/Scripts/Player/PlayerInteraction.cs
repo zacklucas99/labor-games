@@ -19,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     void Start()
     {
         interactionObj = null;
-        shaderNoOutline = Shader.Find("Unlit/Basic");
+        shaderNoOutline = Shader.Find("Standard");
         shaderOutline = Shader.Find("Unlit/Outline");
     }
 
