@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
     private List<GameObject> invList = new List<GameObject>();
 
     private Vector3 coinPos = new Vector3(5.701775f, -11.02942f, 7.524786f);
-    private Vector3 potPos = new Vector3(5.57f, -11.78242f, 7.556757f);
+    private Vector3 potPos = new Vector3(5.57f, -11.23242f, 7.556757f);
     private float posOffset = 1.5f;
 
     private int activeSlot = 0;
