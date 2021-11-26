@@ -211,7 +211,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         
         agent.SetDestination(notifierObject.moveToPoint == null ? notifierObject.transform.position : notifierObject.moveToPoint.transform.position);
         character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
-        return !ArrivedAtWayPoint;
+        Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
+        return !ArrivedAtWayPoint && (distVector.magnitude > notifierObject.interactRadius);
     }
 
 
@@ -526,7 +527,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void FinishPickingUp()
     {
-        Debug.Log("FinsihPickingUp");
         animator.SetBool("PickUp", false);
 
         if (SoundObj != null && IsPickingUp)
@@ -536,7 +536,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         }
         else if(notifierObject != null && IsPickingUp)
         {
-            Destroy(notifierObject.gameObject);
+            if (notifierObject.interactObject == null)
+            {
+                Destroy(notifierObject.gameObject);
+            }
+            else
+            {
+                Destroy(notifierObject.interactObject);
+            }
             ResetEnvironmentNotification();
         }
         IsPickingUp = false;
@@ -560,8 +567,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         }
         else if (notifierObject != null)
         {
-            notifierObject.GetComponent<PickableObject>().ResetCollider();
-            notifierObject.GetComponent<PickableObject>().parentObject = rightHand;
+            var interact_obj = notifierObject.interactObject == null ? notifierObject.gameObject : notifierObject.interactObject;
+            interact_obj.GetComponent<PickableObject>().ResetCollider();
+            interact_obj.GetComponent<PickableObject>().parentObject = rightHand;
         }
     }
 

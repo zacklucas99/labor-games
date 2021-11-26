@@ -10,7 +10,9 @@ public class NotifierObject : MonoBehaviour
     public LayerMask EnemyLayer;
 
     public float notificationRad;
+    public float interactRadius;
     public Color notificationRadColor;
+    public Color interactRadColor;
     public bool drawGizmos;
 
     public bool canPickUp;
@@ -19,6 +21,7 @@ public class NotifierObject : MonoBehaviour
 
     public bool turnedOn = true;
     public Color turnedOffColor = Color.grey;
+    public GameObject interactObject;
 
     public bool notifyInView = true;
 
@@ -37,6 +40,16 @@ public class NotifierObject : MonoBehaviour
             Handles.color = turnedOffColor;
         }
         Handles.DrawWireDisc(transform.position, Vector3.up, notificationRad);
+
+        if (turnedOn)
+        {
+            Handles.color = interactRadColor;
+        }
+        else
+        {
+            Handles.color = turnedOffColor;
+        }
+        Handles.DrawWireDisc(transform.position, Vector3.up, interactRadius);
     }
     void Update()
     {
