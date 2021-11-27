@@ -24,4 +24,19 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var door = other.gameObject.GetComponent<DoorTrigger>();
+        if (door.isFrontTrigger)
+        {
+            door.doorObject.IsStandingAtFront = true;
+            door.doorObject.IsStandingAtBack = false;
+        }
+        else if (door.isFrontTrigger)
+        {
+            door.doorObject.IsStandingAtFront = false;
+            door.doorObject.IsStandingAtBack = true;
+        }
+    }
 }
