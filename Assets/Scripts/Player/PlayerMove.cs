@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour
             door.doorObject.IsStandingAtFront = true;
             door.doorObject.IsStandingAtBack = false;
         }
-        else if (door.isFrontTrigger)
+        else if (door.isBackTrigger)
         {
             door.doorObject.IsStandingAtFront = false;
             door.doorObject.IsStandingAtBack = true;
