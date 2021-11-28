@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     //Script to make player only emit sound, if he is moving
     public ThirdPersonMovement player;
     public SoundObject obj;
+    public DoorTrigger global_door;
     void Update()
     {
         if (player.IsMoving)
@@ -23,6 +24,13 @@ public class PlayerMove : MonoBehaviour
                 obj.turnedOn = false;
             }
         }
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Got E");
+            global_door.doorObject.Open();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,5 +46,6 @@ public class PlayerMove : MonoBehaviour
             door.doorObject.IsStandingAtFront = false;
             door.doorObject.IsStandingAtBack = true;
         }
+        global_door = door;
     }
 }
