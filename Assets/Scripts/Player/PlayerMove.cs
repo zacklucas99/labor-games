@@ -48,4 +48,13 @@ public class PlayerMove : MonoBehaviour
         }
         global_door = door;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (global_door)
+        {
+            global_door.doorObject.IsStandingAtFront = false;
+            global_door.doorObject.IsStandingAtBack = false;
+        }
+    }
 }
