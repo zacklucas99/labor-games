@@ -249,6 +249,7 @@ public class FieldOfView : MonoBehaviour
     public void Disable()
     {
         // Disabling the view, when camera turned off
+        GetComponent<MeshRenderer>().enabled = false;
         this.enabled = false;
     }
 }

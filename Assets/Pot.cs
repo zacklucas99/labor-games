@@ -16,10 +16,8 @@ public class Pot : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision Enter" + this.rb.velocity.magnitude);
         var potFractureInstantiate = Instantiate(PotFracture);
         potFractureInstantiate.transform.position = transform.position;
-        Debug.Log("ChildCount:" + PotFracture.transform.childCount);
         
         for(int i = 0; i < PotFracture.transform.childCount; i++)
         {
