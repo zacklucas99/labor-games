@@ -113,6 +113,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
             points = route.GetPoints();
         }
+        // Setting character to first route point
         if(setToStartPoint &&points.Length > 0)
         {
             transform.position = points[0].transform.position;
@@ -122,6 +123,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
                 transform.LookAt(points[1].transform.position);
             }
         }
+
+        //Move to point
         if (route && route.GetPoints().Length > 0)
         {
 
@@ -137,6 +140,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     void GotoNextPoint( bool wait)
     {
+        //Function for moving the player to a specific route point 
         lastPoint = points[pointIndex % points.Length];
 
         agent.SetDestination(points[(pointIndex++) % points.Length].transform.position);
@@ -151,7 +155,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void FindNewPoint()
     {
-
+        // Setting movement to new route point
         if (!agent.pathPending && agent.remainingDistance < agent.stoppingDistance && route != null && route.GetPoints().Length > 1)
         {
             GotoNextPoint(false);
@@ -160,19 +164,23 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ResetWayPointTarget()
     {
+        // Resetting the next point to move to
         agent.SetDestination(lastPoint.transform.position);
     }
 
     // Update is called once per frame
     public bool Move()
     {
+        /// Function for animating the player and checking if the player can still move
         needsMoveFlag = false;
         if (agent.remainingDistance > agent.stoppingDistance) {
+            // player too far away fro mtarget
             character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
             return true;
         }
         else
         {
+            // player reached  target
             character.Move(Vector3.zero, false, false);
             return false;
         }
@@ -180,18 +188,21 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void Reset()
     {
+        // Function for resetting the player movement
         character.Move(Vector3.zero, false, false);
         agent.SetDestination(transform.position);
     }
 
     public void FollowPlayer()
     {
+        // Function for moving the officer towards a destination, where a player was noticed
         agent.SetDestination(playerDestination);
         character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
     }
 
     public bool RunToAlarm()
     {
+        // Function for moving the officer towards a destination, where a player was noticed by a camera
         agent.SetDestination(notifyPosition);
         character.Move(agent.desiredVelocity.normalized , false, false);
         bool arrived = ArrivedAtAlarm();
@@ -201,6 +212,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void FollowSound()
     {
+        // Funciton for moving the player towards sound source
         // Todo: rewrite more beautifully
         agent.SetDestination(soundDestination);
         character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
@@ -208,15 +220,17 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool FollowNotification()
     {
-        
+        // Function for moving the officer to a position, where the player was last seen 
         agent.SetDestination(notifierObject.moveToPoint == null ? notifierObject.transform.position : notifierObject.moveToPoint.transform.position);
         character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
         Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
+        // Returning boolean for determining, whether player has arrived
         return !ArrivedAtWayPoint && (distVector.magnitude > notifierObject.interactRadius);
     }
 
 
     public void FoundPlayer(GameObject player) {
+        // Callback for when player discovered. Change color of field of view
         meshRenderer.material.color = foundColor;
         playerDestination = player.transform.position;
         goBackDestination = lastPoint.transform;
@@ -226,6 +240,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void LostPlayer()
     {
+        // Callvack for when player lost. Change color of field of view
         meshRenderer.material.color = lostColor;
         destinationSet = false;
 
@@ -233,6 +248,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
     public bool RunToLastActionPoint()
     {
+        // Fucntion for running towards the last position, where the player was seen
         agent.SetDestination(playerDestination);
         return Move();
     }
@@ -240,6 +256,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     #region Turning
     public bool TurnToLastPoint()
     {
+        // Function for turning towards the last route point
         var point = points[(pointIndex - 2 >= 0 ? pointIndex - 2 : 0) % points.Length];
         var angle = Vector3.Angle(transform.forward, new Vector3(point.transform.position.x- transform.position.x  , 0,  point.transform.position.z - transform.position.z));
         if (!isTurning)
@@ -266,6 +283,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool TurnToNextPoint()
     {
+        // Functio nfor turning towards the next route point
        var nextPoint = points[(pointIndex) % route.GetPoints().Length];
         var angle = Vector3.SignedAngle(new Vector3(nextPoint.transform.position.x-transform.position.x, 0, nextPoint.transform.position.z-transform.position.z), 
             transform.forward, Vector3.up);
@@ -297,6 +315,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool TurnToApproxPoint()
     {
+        // Function for turning towards player, if player got too close
         var angle = Vector3.SignedAngle(new Vector3(approximationPoint.x - transform.position.x, 0, approximationPoint.z - transform.position.z),
             transform.forward, Vector3.up);
 
@@ -341,6 +360,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool TurnToSound()
     {
+        // Function for turning towards sound
         var angle = Vector3.SignedAngle(new Vector3(soundDestination.x - transform.position.x, 0, soundDestination.z - transform.position.z),
             transform.forward, Vector3.up);
 
@@ -352,12 +372,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             isTurning = true;
             turningFinished = false;
-            Debug.Log("angle:" + angle);
             if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonMovement>() != null)
             {
                 // Make officer turning faster for smaller angles to make it easier to discover player
                 OverTurning = true;
-                Debug.Log("OverTurning");
 
                 /*if (angle > 0)
                 {
@@ -392,6 +410,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool TurnToNotifier()
     {
+        // Function for turning towards the notification
         var angle = Vector3.SignedAngle(new Vector3(notifierObject.transform.position.x - transform.position.x, 0, notifierObject.transform.position.z - transform.position.z),
             transform.forward, Vector3.up);
 
@@ -423,6 +442,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ResetTurn()
     {
+        // Functio nfor resetting the turning. For example, when turning failed and node has to be reset
         // Temporary fix, if turn was aborted, reset turning 
         if (!turningFinished)
         {
@@ -438,6 +458,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool FacingSoundObj()
     {
+        // Checking, if officer is looking into the direction of the sound object
         var angle = Vector3.SignedAngle(new Vector3(soundDestination.x - transform.position.x, 0, soundDestination.z - transform.position.z),
                     transform.forward, Vector3.up);
 
@@ -445,11 +466,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     }
 
     public void SetNeedsMoveFlag() {
+        // Setting that the officer should move
         needsMoveFlag = true;
     }
 
     public void FindRandomPoint()
     {
+        // Function for getting a new point close to the officer
         RaycastHit hit;
         float maxDist = 0;
         Vector3 dest = transform.position;
@@ -475,12 +498,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private void RotationEnded()
     {
+        // Function indicating that turning finished
         turningFinished = true;
     }
 
 
     public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
+        // Functionfor  receiving a sound
         if (IsPickingUp || IsTurningSoundOff)
         {
             return;
@@ -509,6 +534,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool NearSound()
     {
+        // Checking if officer close to sound
         Vector3 soundDest = new Vector3(soundDestination.x, 0, soundDestination.z);
         Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
         return soundObjectToHandle != null && 
@@ -517,16 +543,19 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool CanTurnSoundOff()
     {
+        // Checking whether officer can turn the sound off
         return SoundObj && SoundObj.canTurnSoundOff;
     }
 
     public bool CanPickUpObj()
     {
+        // Function for picking objects up
         return (SoundObj && SoundObj.canPickUp) || (notifierObject && notifierObject.canPickUp);
     }
 
     public void FinishPickingUp()
     {
+        // Function for finishing the picking up behavior
         animator.SetBool("PickUp", false);
 
         if (SoundObj != null && IsPickingUp)
@@ -553,12 +582,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void PickUpObj()
     {
+        // Starting the picking up behavior
         IsPickingUp = true;
         animator.SetBool("PickUp", true);
     }
 
     public void SetCoinToHand()
     {
+        // Setting the coint to a hand, when the officer is picking up an object
+        // Called by an event
         Debug.Log("SetCoin To Hand");
         if (SoundObj != null)
         {
@@ -575,6 +607,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool TurnSoundOff()
     {
+        // Function for animating turning the sound off
         if (!soundTurnedOff)
         {
             IsTurningSoundOff = true;
@@ -585,12 +618,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void FinishTurnSoundOff()
     {
+        // Function for finishing turning the sound off
         soundObjectToHandle.SetTurnedOn(false);
         ResetSoundToHandle();
     }
 
     public void ResetSoundToHandle()
     {
+        // TODO: add comment
         IsTurningSoundOff = false;
         isFollowingSound = false;
         soundDestination = Vector3.zero;
@@ -600,6 +635,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ResetSoundInteractionAnimation()
     {
+        // Resetting interacting with objects and turning off objects
         animator.SetBool("TurnOff", false);
         animator.SetBool("PickUp", false);
         if (SoundObj != null && IsPickingUp)
@@ -611,12 +647,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void FinishTurnOffAnimation()
     {
+        // Finishing the turning off. Called by an event
         animator.SetBool("TurnOff", false);
         soundTurnedOff = true;
     }
 
     public void GotPlayerCloseBy(GameObject player)
     {
+        // Function for determining whether a player is close by
         RaycastHit hit;
         Physics.Raycast(transform.position, (player.transform.position- transform.position).normalized,out hit, float.MaxValue, closeByMask);
         if (hit.collider.gameObject.tag == "Player")
@@ -638,22 +676,26 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void LostPlayerCloseBy()
     {
+        // Function for resetting the officer following the player
         playerCloseBy = false;
     }
 
     public void ReceivedAlarm(Vector3 playerPosition)
     {
+        // Function for officer receiving an alarm
         notifyPosition = playerPosition;
         Notified = true;
     }
 
     public bool ArrivedAtAlarm()
     {
+        // Function for checking whether officer arrived at alarm point
         return isMovingToAlarm && agent.remainingDistance < agent.stoppingDistance;
     }
 
     public void ResetNotification()
     {
+        // Function for resetting officer getting notification
         Notified = false;
         isMovingToAlarm = false;
         notifyPosition = Vector3.zero;
@@ -662,6 +704,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ReceiveNotifcation(NotifierObject notifierObject)
     {
+        // Function for player getting notification by event, by a notification object
         if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject)) {
             Debug.Log("Received Notification:" + notifierObject);
             GotEnvironmentNotification = true;
@@ -672,6 +715,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public void ResetEnvironmentNotification()
     {
+        // Resetting officer getting notification
         GotEnvironmentNotification = false;
         notifierObject = null;
         Debug.Log("Reset Environment notification");

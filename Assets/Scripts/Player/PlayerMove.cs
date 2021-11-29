@@ -36,6 +36,10 @@ public class PlayerMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var door = other.gameObject.GetComponent<DoorTrigger>();
+        if (!door)
+        {
+            return;
+        }
         if (door.isFrontTrigger)
         {
             door.doorObject.IsStandingAtFront = true;
