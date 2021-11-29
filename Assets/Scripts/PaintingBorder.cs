@@ -7,6 +7,7 @@ using UnityEditor;
 public class PaintingBorder : MonoBehaviour
 {
     public Transform canvas;
+    public NotifierObject notifier;
 
     public void ChangeCanvasTexture()
     {
@@ -20,6 +21,8 @@ public class PaintingBorder : MonoBehaviour
             tex.LoadImage(File.ReadAllBytes(split[0] + "_mustached.jpg"));
             AssetDatabase.CreateAsset(tex, split[0] + "_mustached.jpg_");
             mat.SetTexture("_MainTex", tex);
+
+            notifier.turnedOn = true;
         }
         
     }
