@@ -70,6 +70,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &1842444439
 Rigidbody:
@@ -141,6 +142,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &1013206443
 Rigidbody:
@@ -212,6 +214,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &576765534
 Rigidbody:
@@ -283,6 +286,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &786973051
 Rigidbody:
@@ -339,6 +343,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!114 &8253978742774715950
 MonoBehaviour:
@@ -425,6 +430,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &875927992
 Rigidbody:
@@ -496,6 +502,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &253560556
 Rigidbody:
@@ -567,6 +574,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!54 &1960575456
 Rigidbody:
@@ -623,6 +631,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!114 &6387353717277694400
 MonoBehaviour:
@@ -694,6 +703,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!114 &5028078176784655640
 MonoBehaviour:
@@ -765,6 +775,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!114 &5006063357255309551
 MonoBehaviour:
@@ -836,6 +847,7 @@ MonoBehaviour:
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   interactObject: {fileID: 0}
+  destroyObject: {fileID: 1019570292920277286}
   notifyInView: 1
 --- !u!114 &6586227425593624803
 MonoBehaviour:
@@ -957,6 +969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+--- !u!1 &678697305234396691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_PrefabInstance: {fileID: 209228362923697271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6092237865090914083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2995828229661691052, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
@@ -977,9 +994,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8704484798943859418, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &678697305234396691 stripped
+--- !u!1 &1019570292920277286 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6436416754832772399 stripped

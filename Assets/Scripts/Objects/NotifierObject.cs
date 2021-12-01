@@ -22,6 +22,7 @@ public class NotifierObject : MonoBehaviour
     public bool turnedOn = true;
     public Color turnedOffColor = Color.grey;
     public GameObject interactObject;
+    public GameObject destroyObject;
 
     public bool notifyInView = true;
 
