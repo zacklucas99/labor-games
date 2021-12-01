@@ -16,6 +16,7 @@ public class NotifierObject : MonoBehaviour
     public bool drawGizmos;
 
     public bool canPickUp;
+    public bool canCleanUp;
 
     public GameObject moveToPoint;
 

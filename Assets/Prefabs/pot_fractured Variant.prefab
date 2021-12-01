@@ -65,7 +65,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -137,7 +138,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -209,7 +211,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -281,7 +284,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -338,7 +342,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -425,7 +430,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -497,7 +503,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -569,7 +576,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -626,7 +634,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -698,7 +707,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -770,7 +780,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -842,7 +853,8 @@ MonoBehaviour:
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
   drawGizmos: 1
-  canPickUp: 1
+  canPickUp: 0
+  canCleanUp: 1
   moveToPoint: {fileID: 0}
   turnedOn: 1
   turnedOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

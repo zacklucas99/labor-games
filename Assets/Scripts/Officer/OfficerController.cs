@@ -549,14 +549,21 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool CanPickUpObj()
     {
-        // Function for picking objects up
+        // Function for checking whether officer can pick up object
         return (SoundObj && SoundObj.canPickUp) || (notifierObject && notifierObject.canPickUp);
+    }
+
+    public bool CanCleanUpObj()
+    {
+        // Function for checking whether officer can clean up object
+        return (SoundObj && SoundObj.canCleanUp) || (notifierObject && notifierObject.canCleanUp);
     }
 
     public void FinishPickingUp()
     {
         // Function for finishing the picking up behavior
         animator.SetBool("PickUp", false);
+        animator.SetBool("CleanUp", false);
 
         if (SoundObj != null && IsPickingUp)
         {
@@ -589,6 +596,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         // Starting the picking up behavior
         IsPickingUp = true;
         animator.SetBool("PickUp", true);
+    }
+
+    public void CleanUpObj()
+    {
+        // Starting the picking up behavior
+        Debug.Log("Clean Up");
+        IsPickingUp = true;
+        animator.SetBool("CleanUp", true);
     }
 
     public void SetCoinToHand()
@@ -710,7 +725,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Function for player getting notification by event, by a notification object
         if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject)) {
-            Debug.Log("Received Notification:" + notifierObject);
             GotEnvironmentNotification = true;
             notificatedObjects.Add(notifierObject);
             this.notifierObject = notifierObject;
