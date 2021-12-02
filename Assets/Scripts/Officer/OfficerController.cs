@@ -32,6 +32,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public float playerFollowingSpeed = 1f;
     public float walkingSpeed = 0.5f;
+    public float alarmedWalkingSpeed = 0.75f;
 
     public bool setToStartPoint;
 
@@ -98,6 +99,12 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     HashSet<NotifierObject> notificatedObjects = new HashSet<NotifierObject>();
 
     public GameObject exclamationMark;
+
+    public PlayerAlarmState PlayerAlarmState { get; set; } = PlayerAlarmState.IDLE;
+
+
+    public float MoveSpeed=>PlayerAlarmState == PlayerAlarmState.IDLE ? walkingSpeed : alarmedWalkingSpeed;
+    
 
     public bool ArrivedAtWayPoint{
         get {
@@ -175,7 +182,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         needsMoveFlag = false;
         if (agent.remainingDistance > agent.stoppingDistance) {
             // player too far away fro mtarget
-            character.Move(agent.desiredVelocity.normalized * (walkingSpeed), false, false);
+            character.Move(agent.desiredVelocity.normalized * (MoveSpeed), false, false);
             return true;
         }
         else
@@ -215,14 +222,14 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         // Funciton for moving the player towards sound source
         // Todo: rewrite more beautifully
         agent.SetDestination(soundDestination);
-        character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
+        character.Move(agent.desiredVelocity.normalized * MoveSpeed, false, false);
     }
 
     public bool FollowNotification()
     {
         // Function for moving the officer to a position, where the player was last seen 
         agent.SetDestination(notifierObject.moveToPoint == null ? notifierObject.transform.position : notifierObject.moveToPoint.transform.position);
-        character.Move(agent.desiredVelocity.normalized * walkingSpeed, false, false);
+        character.Move(agent.desiredVelocity.normalized * MoveSpeed, false, false);
         Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
         // Returning boolean for determining, whether player has arrived
         return !ArrivedAtWayPoint && (distVector.magnitude > notifierObject.interactRadius);
@@ -736,9 +743,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         // Resetting officer getting notification
         GotEnvironmentNotification = false;
         notifierObject = null;
-        Debug.Log("Reset Environment notification");
     }
 
+    public void Alarm()
+    {
+        // Function for handling when player switches into alarm mode (e.g. got notified image was drawn onto)
+        PlayerAlarmState = PlayerAlarmState.NOTIFIED;
+    }
 
     private void OnDrawGizmos()
     {
@@ -750,4 +761,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
     }
 
+}
+
+public enum PlayerAlarmState
+{
+    IDLE, NOTIFIED
 }
