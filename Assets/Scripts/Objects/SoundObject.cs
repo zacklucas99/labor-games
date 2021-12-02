@@ -11,6 +11,7 @@ public class SoundObject : MonoBehaviour
     public bool turnedOn = true;
     public bool canTurnSoundOff = true;
     public bool canPickUp;
+    public bool canCleanUp;
     public LayerMask enemyLayer;
 
     public Color radColor;
@@ -31,6 +32,7 @@ public class SoundObject : MonoBehaviour
 
     public float interactDist;
     public Color interactDistColor;
+
 
 
     public void Awake()

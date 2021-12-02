@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class PickUpObjNode : ActionNode
 {
+    public bool cleanUp;
     protected override void OnStart()
     {
         base.OnStart();
-        Context.Officer.PickUpObj();
+        if (!cleanUp)
+        {
+            Context.Officer.PickUpObj();
+        }
+        else
+        {
+            Context.Officer.CleanUpObj();
+        }
     }
     protected override State OnUpdate()
     {

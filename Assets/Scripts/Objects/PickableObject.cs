@@ -8,7 +8,7 @@ public class PickableObject : MonoBehaviour
 
     public GameObject parentObject;
 
-    public BoxCollider boxCollider;
+    public Collider boxCollider;
     public Rigidbody this_rigidbody;
 
     // Update is called once per frame

@@ -6,6 +6,7 @@ public class SelectorInteractSoundNode: CompositeNode
 {
     private bool pickingUp;
     private bool turningOff;
+    private bool cleaninUp;
     protected override State OnUpdate()
     {
         if (Context.Officer.CanPickUpObj())
@@ -19,6 +20,11 @@ public class SelectorInteractSoundNode: CompositeNode
             turningOff = true;
             return Children[1].Update();
         }
+        else if (Context.Officer.CanCleanUpObj())
+        {
+            cleaninUp = true;
+            return Children[2].Update();
+        }
 
         else if (pickingUp)
         {
@@ -30,6 +36,11 @@ public class SelectorInteractSoundNode: CompositeNode
             return Children[1].Update();
         }
 
+        else if (cleaninUp)
+        {
+            return Children[2].Update();
+        }
+
         //Finished
         return State.Success;
     }
@@ -39,6 +50,7 @@ public class SelectorInteractSoundNode: CompositeNode
         base.OnStop();
         pickingUp = false;
         turningOff = false;
+        cleaninUp = false;
     }
 
     public override void Reset()
@@ -46,6 +58,7 @@ public class SelectorInteractSoundNode: CompositeNode
         base.Reset();
         pickingUp = false;
         turningOff = false;
+        cleaninUp = false;
     }
 
 }
