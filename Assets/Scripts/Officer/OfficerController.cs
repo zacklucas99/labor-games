@@ -16,6 +16,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public int pointIndex;
     public RouteVisualization route;
+    public RouteVisualization alarmRoute;
     private bool destinationSet = false;
 
     public Color lostColor;
@@ -101,7 +102,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public GameObject exclamationMark;
 
     public PlayerAlarmState PlayerAlarmState { get; set; } = PlayerAlarmState.IDLE;
-
 
     public float MoveSpeed=>PlayerAlarmState == PlayerAlarmState.IDLE ? walkingSpeed : alarmedWalkingSpeed;
     
@@ -749,6 +749,17 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Function for handling when player switches into alarm mode (e.g. got notified image was drawn onto)
         PlayerAlarmState = PlayerAlarmState.NOTIFIED;
+        route = alarmRoute;
+        
+        points = route.GetPoints();
+
+        pointIndex = 0;
+        //Move to point
+        if (route && route.GetPoints().Length > 0)
+        {
+
+            GotoNextPoint(false);
+        }
     }
 
     private void OnDrawGizmos()
