@@ -100,6 +100,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     HashSet<NotifierObject> notificatedObjects = new HashSet<NotifierObject>();
 
     public GameObject exclamationMark;
+    public GameObject questionMark;
 
     public PlayerAlarmState PlayerAlarmState { get; set; } = PlayerAlarmState.IDLE;
 
