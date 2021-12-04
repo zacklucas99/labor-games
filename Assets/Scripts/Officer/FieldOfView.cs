@@ -75,7 +75,7 @@ public class FieldOfView : MonoBehaviour
             float currentAngle = -viewAngle / 2 + angleSteps * i;
             Vector3 currentVec = Quaternion.AngleAxis(currentAngle, Vector3.up) * transform.forward;
             Debug.DrawRay(transform.position, currentVec * viewDist, Color.cyan);
-            if (Physics.Raycast(transform.position+ Vector3.up * offset, currentVec, out hitInfo, viewDist))
+            if (Physics.Raycast(transform.position+ Vector3.up * offset, currentVec, out hitInfo, viewDist, environment))
             {
                 hitPoints[i] = new ViewHitInfo { HitPos = hitInfo.point, Angle = currentAngle, HitWall = true };
             }
@@ -212,7 +212,7 @@ public class FieldOfView : MonoBehaviour
                 RaycastHit info;
                 Ray ray = new Ray(transform.position, collider.transform.position - transform.position);
                 Physics.Raycast(ray, out info);
-                if (Physics.Raycast(ray, out info))
+                if (Physics.Raycast(ray, out info, environment))
                 {
                     if ((info.point - transform.position).magnitude > viewDist)
                     {
