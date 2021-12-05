@@ -214,7 +214,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: bb0c24b4ab741ef4aa9d178800a41fb7
-  Position: {x: 1753.0002, y: 457.00006}
+  Position: {x: 1741, y: 457}
 --- !u!114 &-7994814856350865879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   NodeState: 0
   description: Searching for player at current location
   guid: 51fc2bb3874cf9a4795ec9cf2565a326
-  Position: {x: 65.49996, y: 584}
+  Position: {x: 47.000008, y: 573}
   Child: {fileID: 8388693397881303561}
   loopInfinite: 0
   maxCounter: 5
@@ -659,6 +659,25 @@ MonoBehaviour:
   - {fileID: 1414371356051685421}
   - {fileID: 3631771610803999055}
   - {fileID: -2782138586264980267}
+--- !u!114 &-6783623329516161085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: d43aea76426a1804abb8885d44d7036d
+  Position: {x: 1979, y: 389}
+  searchState: 0
+  hide: 1
 --- !u!114 &-6773175124774532624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1210,7 @@ MonoBehaviour:
   NodeState: 0
   description: EnvironmentNotification
   guid: c711bc59072518947921b75a4329451b
-  Position: {x: 2112, y: 451}
+  Position: {x: 2218, y: 451}
 --- !u!114 &-3490768503387011796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1501,6 +1520,7 @@ MonoBehaviour:
   - {fileID: 5675356082475758168}
   - {fileID: -8014984154414017314}
   - {fileID: 6115978219611413585}
+  - {fileID: -6783623329516161085}
 --- !u!114 &-1687048288470209391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,6 +2166,7 @@ MonoBehaviour:
   - {fileID: 7402706770864270482}
   - {fileID: 3289436237639634736}
   - {fileID: -8754512183307031545}
+  - {fileID: -6783623329516161085}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3285,7 +3306,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: b4cf9344968c8e245816673adf0f3ba7
-  Position: {x: 1634.0002, y: 457.00006}
+  Position: {x: 1622, y: 457}
   Children:
   - {fileID: -6314234079149018594}
   - {fileID: -7620947534341190363}
@@ -3407,7 +3428,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 9b44acc8acc919941ac993767b06be8f
-  Position: {x: 1969.5818, y: 457}
+  Position: {x: 1955, y: 457}
 --- !u!114 &6194390126380709668
 MonoBehaviour:
   m_ObjectHideFlags: 0
