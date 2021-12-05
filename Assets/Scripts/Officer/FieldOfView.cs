@@ -215,12 +215,9 @@ public class FieldOfView : MonoBehaviour
                 RaycastHit info;
                 Ray ray = new Ray(transform.position, collider.transform.position - transform.position);
 
-                if (Physics.Raycast(ray, out info, environment))
+                if (Physics.Raycast(ray, out info, (collider.transform.position - transform.position).magnitude,environment))
                 {
-                    if(collider.GetComponent<ThirdPersonMovement>() == null && collider.GetComponent<NotifierObject>() == null)
-                    {
-                        continue;
-                    }
+                    break;
                 }
                 GameObject gameObject = collider.gameObject;
 
