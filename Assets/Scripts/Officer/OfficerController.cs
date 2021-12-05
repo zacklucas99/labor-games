@@ -231,6 +231,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool FollowNotification()
     {
         // Function for moving the officer to a position, where the player was last seen 
+        if(notifierObject == null)
+        {
+            return false;
+        }
         agent.SetDestination(notifierObject.moveToPoint == null ? notifierObject.transform.position : notifierObject.moveToPoint.transform.position);
         character.Move(agent.desiredVelocity.normalized * MoveSpeed, false, false);
         Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);

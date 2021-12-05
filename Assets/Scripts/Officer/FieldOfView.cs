@@ -217,11 +217,6 @@ public class FieldOfView : MonoBehaviour
 
                 if (Physics.Raycast(ray, out info, environment))
                 {
-                    if (logging)
-                    {
-                        Debug.Log(info.collider.gameObject);
-                    }
-
                     if(collider.GetComponent<ThirdPersonMovement>() == null && collider.GetComponent<NotifierObject>() == null)
                     {
                         continue;

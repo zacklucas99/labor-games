@@ -11,11 +11,13 @@ public class ShowExclamationMarkNode : ActionNode
     {
         if (searchState == SearchStateNode.ExclamationMarkNode)
         {
+            Context.Officer.questionMark.GetComponent<MeshRenderer>().enabled = false;
             Context.Officer.exclamationMark.GetComponent<MeshRenderer>().enabled = !hide;
         }
 
         if (searchState == SearchStateNode.QuestionMarkNode && Context.Officer.questionMark)
         {
+            Context.Officer.exclamationMark.GetComponent<MeshRenderer>().enabled = false;
             Context.Officer.questionMark.GetComponent<MeshRenderer>().enabled = !hide;
         }
         return State.Success;
