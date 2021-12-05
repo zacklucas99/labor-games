@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -39,6 +40,8 @@ public class FieldOfView : MonoBehaviour
 
     public FoundPlayerEvent PlayerFoundEvent = new FoundPlayerEvent();
     public UnityEvent PlayerLostEvent = new UnityEvent();
+
+    public bool logging;
 
 
 
@@ -211,31 +214,28 @@ public class FieldOfView : MonoBehaviour
             {
                 RaycastHit info;
                 Ray ray = new Ray(transform.position, collider.transform.position - transform.position);
-                Physics.Raycast(ray, out info);
+
                 if (Physics.Raycast(ray, out info, environment))
                 {
-                    if ((info.point - transform.position).magnitude > viewDist)
+                    if (logging)
                     {
-                        return;
+                        Debug.Log(info.collider.gameObject);
                     }
-                    if(info.collider.gameObject.GetComponent<ThirdPersonMovement>() == null && info.collider.gameObject.GetComponent<NotifierObject>() == null)
+
+                    if(collider.GetComponent<ThirdPersonMovement>() == null && collider.GetComponent<NotifierObject>() == null)
                     {
-                        return;
+                        continue;
                     }
                 }
-                GameObject gameObject = info.collider.gameObject;
+                GameObject gameObject = collider.gameObject;
 
                 if (gameObject.GetComponent<ThirdPersonMovement>())
                 {
                     PlayerFoundEvent.Invoke(gameObject);
                 }
-                else if (gameObject.GetComponent<NotifierObject>() && gameObject.GetComponent<NotifierObject>().notifyInView &&
-                    gameObject.GetComponent<NotifierObject>().turnedOn)
-                {
-                    gameObject.GetComponent<NotifierObject>().Notify(officer);
-                }
                 foundPlayers = true;
                 foundPlayerThisRound = true;
+
             }
 
         }

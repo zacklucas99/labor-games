@@ -105,6 +105,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public PlayerAlarmState PlayerAlarmState { get; set; } = PlayerAlarmState.IDLE;
 
     public float MoveSpeed=>PlayerAlarmState == PlayerAlarmState.IDLE ? walkingSpeed : alarmedWalkingSpeed;
+
+    public Vector3 moveToPosition;
     
 
     public bool ArrivedAtWayPoint{
@@ -242,6 +244,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         meshRenderer.material.color = foundColor;
         playerDestination = player.transform.position;
         goBackDestination = lastPoint.transform;
+        moveToPosition = playerDestination;
         isFollowingPlayer = true;
 
     }
@@ -771,6 +774,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         }
         Handles.color = searchRadColor;
         Handles.DrawWireDisc(transform.position, Vector3.up, searchRad);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(moveToPosition, 0.5f);
     }
 
 }
