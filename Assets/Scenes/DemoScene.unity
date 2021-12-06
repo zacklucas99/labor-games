@@ -11359,7 +11359,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: -0.000000022278808, z: 0.000000001950057, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: -0.000000022278845, z: 0.0000000019502324, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11600,6 +11600,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638fe36b86076e54cb2e3b1c0705ab02, type: 3}
+--- !u!1 &992425359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 297942638393933288, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+  m_PrefabInstance: {fileID: 4465917808735288804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1027104505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20232,7 +20237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145344727}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.44614, y: 75.41598, z: 13.8563385}
+  m_LocalPosition: {x: -24.44614, y: 75.41598, z: 13.8563385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1782457674}
@@ -20602,11 +20607,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018870892
+      value: -0.000000018870892
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037368117
+      value: 0.0000000037368117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
@@ -20681,6 +20686,10 @@ PrefabInstance:
       propertyPath: route
       value: 
       objectReference: {fileID: 1165362884}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 992425359}
     - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
       propertyPath: alarmRoute
       value: 
