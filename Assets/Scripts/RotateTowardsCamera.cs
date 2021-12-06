@@ -5,8 +5,6 @@ using UnityEngine;
 public class RotateTowardsCamera : MonoBehaviour
 {
     public Camera mainCamera;
-    public float speed = 100;
-    public float angleThreshold = 0.1f;
     // Update is called once per frame
     void Update()
     {
@@ -14,7 +12,7 @@ public class RotateTowardsCamera : MonoBehaviour
         Vector3 targetDirection = transform.position - mainCamera.transform.position;
 
         // The step size is equal to speed times frame time.
-        float singleStep = speed * Time.deltaTime;
+        float singleStep = 360 * Time.deltaTime;
 
         // Rotate the forward vector towards the target direction by one step
         Vector3 newDirection = Vector3.RotateTowards(mainCamera.transform.forward, targetDirection, singleStep, 0f);
