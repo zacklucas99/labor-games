@@ -6,8 +6,8 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
-    public float moveSpeed = 3.5f;
-    public float sneakSpeed = 2f;
+    public float moveSpeed = 3.5f; 
+    public float sneakSpeed = 1.6f; 
     private float currentSpeed;
     public float gravity = -12f;
     public float jumpHeight = 1f;
@@ -84,7 +84,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        anim.SetFloat("Forward", move.magnitude, 0.1f, Time.deltaTime);
+        anim.SetFloat("Forward", move.magnitude * currentSpeed/moveSpeed, 0.1f, Time.deltaTime);
         anim.SetBool("OnGround", grounded);
 
         //determining which leg is in front of the other while jumping
