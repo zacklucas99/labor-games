@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && global_door)
         {
             Debug.Log("Got E");
             global_door.doorObject.Open();

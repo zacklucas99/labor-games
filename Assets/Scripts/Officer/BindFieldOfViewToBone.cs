@@ -9,10 +9,12 @@ public class BindFieldOfViewToBone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = bone.transform.position;
-        var euler_angles = bone.transform.eulerAngles;
-        euler_angles.x = 0;
-        transform.rotation = Quaternion.Euler(euler_angles);
-        
+        if (bone)
+        {
+            transform.position = bone.transform.position;
+            var euler_angles = bone.transform.eulerAngles;
+            euler_angles.x = 0;
+            transform.rotation = Quaternion.Euler(euler_angles);
+        }
     }
 }
