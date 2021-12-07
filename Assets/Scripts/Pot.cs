@@ -12,10 +12,15 @@ public class Pot : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.forward * 10, ForceMode.Impulse); // just to debug
     }
     private void OnCollisionEnter(Collision collision)
     {
+        
+        Debug.Log("Collide:"+rb.velocity.magnitude);
+        if(rb.velocity.magnitude < breakVelocity)
+        {
+            return;
+        }
         var potFractureInstantiate = Instantiate(PotFracture);
         potFractureInstantiate.transform.position = transform.position;
         
