@@ -16,9 +16,9 @@ public class PlayerInventory : MonoBehaviour
 
     private List<GameObject> invList = new List<GameObject>();
 
-    private Vector3 coinPos = new Vector3(5.701775f, -11.02942f, 7.524786f);
-    private Vector3 potPos = new Vector3(5.57f, -11.23242f, 7.556757f);
-    private float posOffset = 1.5f;
+    private Vector3 coinPos = new Vector3(0f, 12f, -27f);
+    private Vector3 potPos = new Vector3(0f, -6f, -27f);
+    private float posOffset = 90f;
 
     private int activeSlot = 0;
 
@@ -214,17 +214,23 @@ public class PlayerInventory : MonoBehaviour
         }
         if (invList.Count > 0)
         {
-            activeObj = Instantiate(invList[activeSlot], GetInitPos(invList[activeSlot]), Quaternion.identity, uiPanel);
-            
+            activeObj = Instantiate(invList[activeSlot], uiPanel.transform.position, Quaternion.identity, uiPanel);
+            activeObj.transform.localPosition = GetInitPos(invList[activeSlot]);
+
+
             if (activeSlot > 0)
             {
-                activeObjLeft = Instantiate(invList[activeSlot - 1], GetInitPos(invList[activeSlot - 1]) - new Vector3(posOffset, 0f, 0f), Quaternion.identity, uiPanel);
-                
+                activeObjLeft = Instantiate(invList[activeSlot - 1], uiPanel.transform.position, Quaternion.identity, uiPanel);
+                activeObjLeft.transform.localPosition = GetInitPos(invList[activeSlot - 1]) - new Vector3(posOffset, 0f, 0f);
+
+
             }
             if (activeSlot < invList.Count - 1)
             {
-                activeObjRight = Instantiate(invList[activeSlot + 1], GetInitPos(invList[activeSlot + 1]) + new Vector3(posOffset, 0f, 0f), Quaternion.identity, uiPanel);
-                
+                activeObjRight = Instantiate(invList[activeSlot + 1], uiPanel.transform.position, Quaternion.identity, uiPanel);
+                activeObjRight.transform.localPosition = GetInitPos(invList[activeSlot + 1]) + new Vector3(posOffset, 0f, 0f);
+
+
             }
         }
         
