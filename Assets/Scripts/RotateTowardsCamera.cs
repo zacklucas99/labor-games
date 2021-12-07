@@ -6,6 +6,14 @@ public class RotateTowardsCamera : MonoBehaviour
 {
     public Camera mainCamera;
     // Update is called once per frame
+
+    public void Start()
+    {
+        if(mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+    }
     void Update()
     {
         // Determine which direction to rotate towards
