@@ -238,6 +238,25 @@ MonoBehaviour:
   - {fileID: -7152872273162473565}
   - {fileID: 7277680841179467175}
   - {fileID: -8241670876266842032}
+--- !u!114 &-8044761120351844746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 26012e00b802c3c488cc0af8a06d77b8
+  Position: {x: 3160.0002, y: 686}
+  searchState: 1
+  hide: 1
 --- !u!114 &-8014984154414017314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,6 +2289,7 @@ MonoBehaviour:
   - {fileID: -8241670876266842032}
   - {fileID: -5361614451393642124}
   - {fileID: -8602584803808137657}
+  - {fileID: -8044761120351844746}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,6 +2588,7 @@ MonoBehaviour:
   - {fileID: -7161634272562693837}
   - {fileID: -1682708161442686085}
   - {fileID: 3293122374033085647}
+  - {fileID: -8044761120351844746}
 --- !u!114 &1796421273739867142
 MonoBehaviour:
   m_ObjectHideFlags: 0
