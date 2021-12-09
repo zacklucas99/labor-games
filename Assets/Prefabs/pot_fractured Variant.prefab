@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7387701471780502913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019570292920277286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c56de5152e517c4d827f57cb08f0ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnedOn: 1
+  canTurnSoundOff: 0
+  canPickUp: 0
+  canCleanUp: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  radColor: {r: 0, g: 0, b: 0, a: 1}
+  turnedOffRadColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  drawGizmos: 1
+  volume: 3.76
+  environLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  topOffset: {x: 0, y: 1, z: 0}
+  numLines: 5
+  stepSize: 1
+  interactDist: 0
+  interactDistColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6410347377985913964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019570292920277286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ac8c34c068f2d42b1725cc2a94dcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 7387701471780502913}
+  maxTime: 2
 --- !u!54 &2047801732
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64,7 +109,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -137,7 +182,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -210,7 +255,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -283,7 +328,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -341,7 +386,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -429,7 +474,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -502,7 +547,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -575,7 +620,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -633,7 +678,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -706,7 +751,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -779,7 +824,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -852,7 +897,7 @@ MonoBehaviour:
   interactRadius: 0.46
   notificationRadColor: {r: 0, g: 0.2905326, b: 1, a: 1}
   interactRadColor: {r: 0.10506439, g: 1, b: 0, a: 1}
-  drawGizmos: 1
+  drawGizmos: 0
   canPickUp: 0
   canCleanUp: 1
   moveToPoint: {fileID: 0}
@@ -981,21 +1026,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
---- !u!1 &678697305234396691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
-  m_PrefabInstance: {fileID: 209228362923697271}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6092237865090914083 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -2995828229661691052, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
-  m_PrefabInstance: {fileID: 209228362923697271}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3214273908521635623 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5873765931867575472, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
-  m_PrefabInstance: {fileID: 209228362923697271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2877438443711880725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6554458113972422046, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
@@ -1006,9 +1036,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8704484798943859418, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1019570292920277286 stripped
+--- !u!1 &6092237865090914083 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_CorrespondingSourceObject: {fileID: -2995828229661691052, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6436416754832772399 stripped
@@ -1016,9 +1046,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6608446386410023256, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2366773687127444611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6755632302942197516, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_PrefabInstance: {fileID: 209228362923697271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &493891365199588680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8917703946959959745, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_PrefabInstance: {fileID: 209228362923697271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &678697305234396691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7252970071502390775 stripped
@@ -1026,19 +1066,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7368150452140007808, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1341017990200990447 stripped
+--- !u!1 &3214273908521635623 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -8035806193671307624, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
-  m_PrefabInstance: {fileID: 209228362923697271}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2366773687127444611 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6755632302942197516, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_CorrespondingSourceObject: {fileID: -5873765931867575472, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865668309668077225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1946535146458512094, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_PrefabInstance: {fileID: 209228362923697271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1341017990200990447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8035806193671307624, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
+  m_PrefabInstance: {fileID: 209228362923697271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1019570292920277286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d716e2c02ef2394584a87a5a6b39c36, type: 3}
   m_PrefabInstance: {fileID: 209228362923697271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3243115659028968626 stripped
