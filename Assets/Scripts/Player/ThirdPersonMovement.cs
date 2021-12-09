@@ -20,7 +20,12 @@ public class ThirdPersonMovement : MonoBehaviour
     bool grounded = true;
 
     private bool isMoving = false;
+    private bool isSneaking = false;
+
     public bool IsMoving => isMoving;
+    public bool IsSneaking => isSneaking;
+
+
 
     void Start()
     {
@@ -48,11 +53,13 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             currentSpeed = sneakSpeed;
+            isSneaking = true;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             currentSpeed = moveSpeed;
+            isSneaking = false;
         }
 
         Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
