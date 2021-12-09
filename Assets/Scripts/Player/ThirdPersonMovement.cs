@@ -6,7 +6,9 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
-    public float moveSpeed = 3f;
+    public float moveSpeed = 3.5f; 
+    public float sneakSpeed = 1.6f; 
+    private float currentSpeed;
     public float gravity = -12f;
     public float jumpHeight = 1f;
     public float turnSmoothTime = 0.2f;
@@ -18,7 +20,12 @@ public class ThirdPersonMovement : MonoBehaviour
     bool grounded = true;
 
     private bool isMoving = false;
+    private bool isSneaking = false;
+
     public bool IsMoving => isMoving;
+    public bool IsSneaking => isSneaking;
+
+
 
     void Start()
     {
@@ -26,7 +33,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         
         anim = GetComponent<Animator>();
-        
+        currentSpeed = moveSpeed;
     }
 
     void Update()
@@ -43,13 +50,25 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            currentSpeed = sneakSpeed;
+            isSneaking = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            currentSpeed = moveSpeed;
+            isSneaking = false;
+        }
+
         Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
         if (inputDir.magnitude >= 0.1f)
         {
             float rotationAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cam.eulerAngles.y; //rotation angle depends on the cameras looking direction
             float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothens rotation of player
             transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
-            moveDir += Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.forward * moveSpeed; //adds x, z direction movement
+            moveDir += Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.forward * currentSpeed; //adds x, z direction movement
 
             isMoving = true;
         }
@@ -72,7 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        anim.SetFloat("Forward", move.magnitude, 0.1f, Time.deltaTime);
+        anim.SetFloat("Forward", move.magnitude * currentSpeed/moveSpeed, 0.1f, Time.deltaTime);
         anim.SetBool("OnGround", grounded);
 
         //determining which leg is in front of the other while jumping
