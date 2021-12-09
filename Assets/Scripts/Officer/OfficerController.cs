@@ -426,6 +426,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool TurnToNotifier()
     {
         // Function for turning towards the notification
+        if(notifierObject == null)
+        {
+            return true;
+        }
         var angle = Vector3.SignedAngle(new Vector3(notifierObject.transform.position.x - transform.position.x, 0, notifierObject.transform.position.z - transform.position.z),
             transform.forward, Vector3.up);
 
