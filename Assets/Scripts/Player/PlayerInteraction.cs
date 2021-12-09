@@ -26,7 +26,10 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DetectInteraction(); //outline when facing an interaction obj
+        if (!transform.GetComponent<ThirdPersonMovement>().isPainting) 
+        {
+            DetectInteraction(); //outline when facing an interaction obj
+        }
 
         InteractWithObject(); //press interact with outlined object
     }
@@ -87,7 +90,11 @@ public class PlayerInteraction : MonoBehaviour
             {
                 if (interactionObj.GetComponent<PaintingBorder>()) //if painting (border)
                 {
-                    interactionObj.GetComponent<PaintingBorder>().ChangeCanvasTexture(); //texture change on canvas
+                    if (!interactionObj.GetComponent<PaintingBorder>().mustached)
+                    {
+                        transform.GetComponent<ThirdPersonMovement>().isPainting = true;
+                        Invoke(nameof(FinishPainting), 3.5f);
+                    }
                 }
                 else
                 {
@@ -101,5 +108,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(hitPosition, collisionRadius);
+    }
+
+    private void FinishPainting()
+    {
+        transform.GetComponent<ThirdPersonMovement>().isPainting = false;
+        interactionObj.GetComponent<PaintingBorder>().ChangeCanvasTexture(); //texture change on canvas
     }
 }

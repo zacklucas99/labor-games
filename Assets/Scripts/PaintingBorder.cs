@@ -8,6 +8,7 @@ public class PaintingBorder : MonoBehaviour
 {
     public Transform canvas;
     public NotifierObject notifier;
+    public bool mustached = false;
 
     public void ChangeCanvasTexture()
     {
@@ -24,6 +25,8 @@ public class PaintingBorder : MonoBehaviour
 
             notifier.turnedOn = true;
         }
+
+        mustached = true;
         
     }
     
