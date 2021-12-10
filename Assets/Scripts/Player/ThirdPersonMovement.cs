@@ -26,6 +26,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool IsMoving => isMoving;
     public bool IsSneaking => isSneaking;
 
+    private float paintingClipLength;
+
 
 
     void Start()
@@ -35,6 +37,15 @@ public class ThirdPersonMovement : MonoBehaviour
         
         anim = GetComponent<Animator>();
         currentSpeed = moveSpeed;
+
+        RuntimeAnimatorController ac = anim.runtimeAnimatorController;
+        for (int i = 0; i < ac.animationClips.Length; i++)
+        {
+            if (ac.animationClips[i].name == "Picking Up Object")
+            {
+                paintingClipLength = ac.animationClips[i].length;
+            }
+        }
     }
 
     void Update()
@@ -42,10 +53,11 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if (!isPainting)
+        if (true)
         {
             if (Input.GetButton("Jump"))
             {
+                isPainting = false;
                 if (controller.isGrounded)
                 {
                     velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
@@ -68,6 +80,7 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
             if (inputDir.magnitude >= 0.1f)
             {
+                isPainting = false;
                 float rotationAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cam.eulerAngles.y; //rotation angle depends on the cameras looking direction
                 float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothens rotation of player
                 transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
@@ -119,5 +132,10 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             anim.SetFloat("JumpLeg", jumpLeg);
         }
+    }
+
+    public float GetPaintingClipLength()
+    {
+        return paintingClipLength;
     }
 }

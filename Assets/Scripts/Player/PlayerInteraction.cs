@@ -28,6 +28,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (!transform.GetComponent<ThirdPersonMovement>().isPainting) 
         {
+            CancelInvoke();
             DetectInteraction(); //outline when facing an interaction obj
         }
 
@@ -93,7 +94,7 @@ public class PlayerInteraction : MonoBehaviour
                     if (!interactionObj.GetComponent<PaintingBorder>().mustached)
                     {
                         transform.GetComponent<ThirdPersonMovement>().isPainting = true;
-                        Invoke(nameof(FinishPainting), 3.5f);
+                        Invoke(nameof(FinishPainting), transform.GetComponent<ThirdPersonMovement>().GetPaintingClipLength());
                     }
                 }
                 else
