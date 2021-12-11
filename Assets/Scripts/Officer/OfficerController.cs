@@ -525,7 +525,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
         // Functionfor  receiving a sound
-        if (IsPickingUp || IsTurningSoundOff)
+        if (IsPickingUp || IsTurningSoundOff ||isFollowingSound)
         {
             return;
         }
