@@ -21,9 +21,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool isMoving = false;
     private bool isSneaking = false;
+    public bool isPainting = false;
 
     public bool IsMoving => isMoving;
     public bool IsSneaking => isSneaking;
+
+    private float paintingClipLength;
 
 
 
@@ -34,6 +37,15 @@ public class ThirdPersonMovement : MonoBehaviour
         
         anim = GetComponent<Animator>();
         currentSpeed = moveSpeed;
+
+        RuntimeAnimatorController ac = anim.runtimeAnimatorController;
+        for (int i = 0; i < ac.animationClips.Length; i++)
+        {
+            if (ac.animationClips[i].name == "Picking Up Object")
+            {
+                paintingClipLength = ac.animationClips[i].length;
+            }
+        }
     }
 
     void Update()
@@ -41,49 +53,58 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if (Input.GetButton("Jump"))
+        if (true)
         {
+            if (Input.GetButton("Jump"))
+            {
+                isPainting = false;
+                if (controller.isGrounded)
+                {
+                    velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
+                    grounded = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                currentSpeed = sneakSpeed;
+                isSneaking = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                currentSpeed = moveSpeed;
+                isSneaking = false;
+            }
+
+            Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
+            if (inputDir.magnitude >= 0.1f)
+            {
+                isPainting = false;
+                float rotationAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cam.eulerAngles.y; //rotation angle depends on the cameras looking direction
+                float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothens rotation of player
+                transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
+                moveDir += Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.forward * currentSpeed; //adds x, z direction movement
+
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+            velocityY += gravity * Time.deltaTime;
+            controller.Move(moveDir * Time.deltaTime); //applies movement
+
             if (controller.isGrounded)
             {
-                velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
-                grounded = false;
+                velocityY = 0;
+                grounded = true;
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            currentSpeed = sneakSpeed;
-            isSneaking = true;
         }
+        
 
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            currentSpeed = moveSpeed;
-            isSneaking = false;
-        }
-
-        Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
-        if (inputDir.magnitude >= 0.1f)
-        {
-            float rotationAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cam.eulerAngles.y; //rotation angle depends on the cameras looking direction
-            float smoothRotationAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothens rotation of player
-            transform.rotation = Quaternion.Euler(0f, smoothRotationAngle, 0f);
-            moveDir += Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.forward * currentSpeed; //adds x, z direction movement
-
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-        velocityY += gravity * Time.deltaTime;
-        controller.Move(moveDir * Time.deltaTime); //applies movement
-
-        if (controller.isGrounded)
-        {
-            velocityY = 0;
-            grounded = true;
-        }
+        
 
         UpdateAnimator(inputDir); //updates player animations
 
@@ -91,8 +112,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        anim.SetFloat("Forward", move.magnitude * currentSpeed/moveSpeed, 0.1f, Time.deltaTime);
+        if (!isPainting)
+        {
+            anim.SetFloat("Forward", move.magnitude * currentSpeed / moveSpeed, 0.1f, Time.deltaTime);
+        } else
+        {
+            anim.SetFloat("Forward", 0, 0.1f, Time.deltaTime);
+        }
+
         anim.SetBool("OnGround", grounded);
+        anim.SetBool("Painting", isPainting);
 
         //determining which leg is in front of the other while jumping
         float runCycle =
@@ -103,5 +132,10 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             anim.SetFloat("JumpLeg", jumpLeg);
         }
+    }
+
+    public float GetPaintingClipLength()
+    {
+        return paintingClipLength;
     }
 }
