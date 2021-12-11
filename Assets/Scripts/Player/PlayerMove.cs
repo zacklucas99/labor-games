@@ -59,6 +59,7 @@ public class PlayerMove : MonoBehaviour
         {
             global_door.doorObject.IsStandingAtFront = false;
             global_door.doorObject.IsStandingAtBack = false;
+            global_door = null;
         }
     }
 }
