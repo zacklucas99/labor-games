@@ -9,7 +9,12 @@ public class SelectorInteractSoundNode: CompositeNode
     private bool cleaninUp;
     protected override State OnUpdate()
     {
-        //Todo: when coin near grammophone, Officer picks up grammophone
+        if(Context.Officer.SoundObj && !Context.Officer.SoundObj.turnedOn)
+        {
+            // Abort action, if sound object already turned off
+            return State.Success;
+        }
+
         if (Context.Officer.CanPickUpObj())
         {
             pickingUp = true;
