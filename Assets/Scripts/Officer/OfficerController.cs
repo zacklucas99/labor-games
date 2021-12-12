@@ -584,12 +584,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         animator.SetBool("PickUp", false);
         animator.SetBool("CleanUp", false);
 
-        if (SoundObj != null && IsPickingUp)
-        {
-            Destroy(SoundObj.gameObject);
-            ResetSoundToHandle();
-        }
-        else if(notifierObject != null && IsPickingUp)
+        if(notifierObject != null && IsPickingUp)
         {
             if (notifierObject.destroyObject != null)
             {
@@ -605,6 +600,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             ResetEnvironmentNotification();
         }
+
+        else if (SoundObj != null && IsPickingUp)
+        {
+            Destroy(SoundObj.gameObject);
+            ResetSoundToHandle();
+        }
+
         IsPickingUp = false;
     }
 
@@ -630,16 +632,17 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         // Setting the coint to a hand, when the officer is picking up an object
         // Called by an event
         Debug.Log("SetCoin To Hand");
-        if (SoundObj != null)
-        {
-            SoundObj.GetComponent<PickableObject>().ResetCollider();//Disable collider to get rid of bugs
-            SoundObj.GetComponent<PickableObject>().parentObject = rightHand;
-        }
-        else if (notifierObject != null)
+        if (notifierObject != null)
         {
             var interact_obj = notifierObject.interactObject == null ? notifierObject.gameObject : notifierObject.interactObject;
             interact_obj.GetComponent<PickableObject>().ResetCollider();
             interact_obj.GetComponent<PickableObject>().parentObject = rightHand;
+        }
+
+        else if (SoundObj != null)
+        {
+            SoundObj.GetComponent<PickableObject>().ResetCollider();//Disable collider to get rid of bugs
+            SoundObj.GetComponent<PickableObject>().parentObject = rightHand;
         }
     }
 

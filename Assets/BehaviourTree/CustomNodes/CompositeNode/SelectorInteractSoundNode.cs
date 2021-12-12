@@ -7,6 +7,14 @@ public class SelectorInteractSoundNode: CompositeNode
     private bool pickingUp;
     private bool turningOff;
     private bool cleaninUp;
+
+    protected override void OnStart()
+    {
+        if (Context.Officer.SoundObj)
+        {
+            Context.Officer.SoundObj.isLocked = true; ;
+        }
+    }
     protected override State OnUpdate()
     {
         if(Context.Officer.SoundObj && !Context.Officer.SoundObj.turnedOn)
@@ -57,6 +65,10 @@ public class SelectorInteractSoundNode: CompositeNode
         pickingUp = false;
         turningOff = false;
         cleaninUp = false;
+        if (Context.Officer.SoundObj)
+        {
+            Context.Officer.SoundObj.isLocked = false; ;
+        }
     }
 
     public override void Reset()
@@ -65,6 +77,10 @@ public class SelectorInteractSoundNode: CompositeNode
         pickingUp = false;
         turningOff = false;
         cleaninUp = false;
+        if (Context.Officer.SoundObj)
+        {
+            Context.Officer.SoundObj.isLocked = false; ;
+        }
     }
 
 }

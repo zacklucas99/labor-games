@@ -33,6 +33,8 @@ public class SoundObject : MonoBehaviour
     public float interactDist;
     public Color interactDistColor;
 
+    public bool isLocked{ get; set; }
+
 
 
     public void Awake()
