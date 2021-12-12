@@ -661,6 +661,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Function for finishing turning the sound off
         soundObjectToHandle.SetTurnedOn(false);
+        soundObjectToHandle.isLocked = false;
         ResetSoundToHandle();
     }
 
