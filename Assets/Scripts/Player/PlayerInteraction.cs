@@ -16,6 +16,8 @@ public class PlayerInteraction : MonoBehaviour
     private Shader shaderNoOutline;
     private Shader shaderOutline;
 
+    private Vector3 oldPos;
+
     void Start()
     {
         interactionObj = null;
@@ -86,6 +88,27 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     Destroy(interactionObj.parent.gameObject);
                 }
+            }
+            else if (interactionObj.gameObject.tag == "HidingPlace")
+            {
+                if (!transform.GetComponent<ThirdPersonMovement>().movementBlocked)
+                {
+                    gameObject.SetActive(false);
+                    transform.position = interactionObj.GetChild(0).transform.position;
+                    transform.rotation = interactionObj.GetChild(0).transform.rotation;
+                    transform.GetComponent<ThirdPersonMovement>().movementBlocked = true;
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                    transform.position = interactionObj.GetChild(1).transform.position;
+                    transform.rotation = interactionObj.GetChild(1).transform.rotation;
+                    transform.GetComponent<ThirdPersonMovement>().movementBlocked = false;
+                    gameObject.SetActive(true);
+                }
+
+
             }
             else
             {
