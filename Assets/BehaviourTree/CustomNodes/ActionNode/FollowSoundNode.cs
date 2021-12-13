@@ -6,6 +6,10 @@ public class FollowSoundNode : ActionNode
 {
     protected override State OnUpdate()
     {
+        if (!Context.Officer.SoundObj)
+        {
+            return State.Success;
+        }
         if (Context.Officer.isFollowingSound &&!Context.Officer.NearSound() && CalculateDistToSoundObj() > Context.Officer.SoundObj.interactDist)
         {
             Context.Officer.FollowSound();

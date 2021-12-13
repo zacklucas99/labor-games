@@ -1,0 +1,2412 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9184030962165752832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06183bb0e4c125468200e2f9731d243, type: 3}
+  m_Name: PlayerCloseByNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 7c912fba19bd5824aa1e5c37e5f3e79f
+  Position: {x: -470.5, y: 465}
+--- !u!114 &-9091092636103281509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: ffd504bd0edf81347b4cc84e665b989b
+  Position: {x: -2059, y: 1114}
+  Child: {fileID: -6773175124774532624}
+--- !u!114 &-9041955855465107923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f6e7afafa7b30c441bcddb1db1275705
+  Position: {x: 2389, y: 592.00006}
+  duration: 4
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &-8825899220355203297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a0a8ea01e6c224bbd22ba0a16b801f, type: 3}
+  m_Name: FollowSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: ea510b1a0607fdc49a51e45433a35e7d
+  Position: {x: -1932, y: 1222}
+--- !u!114 &-8457307331476862250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 233052713e629274584ab827c9ecf3df
+  Position: {x: 461, y: 1060}
+  Child: {fileID: 3743282492422560883}
+--- !u!114 &-8241670876266842032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9d6ea25c51f4ed247ba461fe71bf0709
+  Position: {x: -1401, y: 998}
+  searchState: 0
+  hide: 1
+--- !u!114 &-8220481798367733090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db206d3ff5bce4ab58b5df21b436d9, type: 3}
+  m_Name: PickUpObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: e4023c8310ad6604a892407d62020669
+  Position: {x: -1720, y: 1338}
+  cleanUp: 0
+--- !u!114 &-8061016568728514395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: Copy from sound behavior
+  guid: 991be35527d0f6b4192330357d4f05de
+  Position: {x: -2308, y: 870}
+  Children:
+  - {fileID: 22820672447106486}
+  - {fileID: -6373662675964297698}
+  - {fileID: -7456671894426298810}
+  - {fileID: 4706663914042044135}
+  - {fileID: 7316039636851057522}
+  - {fileID: 2887231862215350508}
+  - {fileID: -7152872273162473565}
+  - {fileID: 7277680841179467175}
+  - {fileID: -8241670876266842032}
+--- !u!114 &-8014984154414017314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a7d0e0c708faa429d7749e673c45ed, type: 3}
+  m_Name: SetWayPointDestinationNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: bb0c24b4ab741ef4aa9d178800a41fb7
+  Position: {x: 862, y: 464}
+--- !u!114 &-7994814856350865879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 902b949813902c64bb4e0205dcfdca7e
+  Position: {x: -2392, y: 1449}
+  Child: {fileID: -3360008445801770958}
+--- !u!114 &-7986872501714607197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Normal moving and following routes
+  guid: 6d6761f0c9590124faef6a64f83f365b
+  Position: {x: 1924, y: 334.00006}
+  Children:
+  - {fileID: 3831728135835813776}
+  - {fileID: -7320166215265438895}
+  - {fileID: -7399639597522099795}
+  - {fileID: -2782138586264980267}
+--- !u!114 &-7620947534341190363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Turning sound off
+  guid: 15cbc2f0dedd2594e95a372cf25a4652
+  Position: {x: 942, y: 570}
+  Children:
+  - {fileID: -6875918298554604703}
+  - {fileID: -3687887367922042454}
+  - {fileID: 7348879521647013396}
+  - {fileID: 4416482076020348316}
+  - {fileID: 434330989296079960}
+--- !u!114 &-7611583244748092699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a7d0e0c708faa429d7749e673c45ed, type: 3}
+  m_Name: SetWayPointDestinationNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 1a825ed6c7d0dbf44a5b047b6c5281f1
+  Position: {x: -98.5, y: 644}
+--- !u!114 &-7541333929689838980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d936cc8cbd8ac6478e453817bc54134, type: 3}
+  m_Name: GotNewSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f7e8d8b5369df254e82e58a9eb13e409
+  Position: {x: 670, y: 694}
+--- !u!114 &-7525318717909550829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 39f0afbadd5db8248acd7c6363c15690
+  Position: {x: -1349, y: 749.99994}
+  duration: 4
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &-7456671894426298810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 5afcba4485309da4a94e83f9e808b673
+  Position: {x: -2342, y: 996}
+  duration: 2
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &-7399639597522099795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: bea0d1e3f70caef4495882b3dd036e86
+  Position: {x: 2182, y: 464.00003}
+  Children:
+  - {fileID: -75374683635758630}
+  - {fileID: 7989072088446084984}
+  - {fileID: -9041955855465107923}
+--- !u!114 &-7383794756575045759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a7d0e0c708faa429d7749e673c45ed, type: 3}
+  m_Name: SetWayPointDestinationNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 59f759420753749459d00bbce21353a4
+  Position: {x: -1000.9998, y: 995.99994}
+--- !u!114 &-7320166215265438895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 017a9e5df8880cb418ae92818dee9d37
+  Position: {x: 1971.0001, y: 464.00003}
+  Children:
+  - {fileID: -883813123005617294}
+  - {fileID: -1604133470649723333}
+--- !u!114 &-7317469612234103036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: Go to last point where player was seen and wait
+  guid: 44f58fb7a88591d47ae2b1a3ae586168
+  Position: {x: -1550.9996, y: 622.99994}
+  Children:
+  - {fileID: -4104877269737027581}
+  - {fileID: 3159174763706248394}
+  - {fileID: 4599050248963171850}
+  - {fileID: 8421434552253474602}
+  - {fileID: 4339769847526790276}
+  - {fileID: -7525318717909550829}
+  - {fileID: 4421486091493283543}
+--- !u!114 &-7152872273162473565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a7d0e0c708faa429d7749e673c45ed, type: 3}
+  m_Name: SetWayPointDestinationNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 45793b076c978ef4aa072a1eb52dfc8c
+  Position: {x: -1756, y: 998}
+--- !u!114 &-7125406454676086588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 0996d658c0b4ad44e820fbbb14b2d926
+  Position: {x: -148.5, y: 464}
+  Child: {fileID: 4741646435653284474}
+--- !u!114 &-6875918298554604703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 4b844232ca86d814c8239eacc1ba9b4a
+  Position: {x: 848, y: 693}
+  Children:
+  - {fileID: 5774972344573713094}
+  - {fileID: 4694498094468054766}
+  - {fileID: 1933025278073201702}
+--- !u!114 &-6847495250642556434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: Assembly-CSharp::ResetSequencerNode
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 1d834d4df0194b9449319a73a43ec73b
+  Position: {x: 382, y: 357}
+  Children:
+  - {fileID: 3831728135835813776}
+  - {fileID: 1414371356051685421}
+  - {fileID: 3631771610803999055}
+  - {fileID: -2782138586264980267}
+--- !u!114 &-6783623329516161085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: d43aea76426a1804abb8885d44d7036d
+  Position: {x: 1228.9999, y: 464}
+  searchState: 0
+  hide: 1
+--- !u!114 &-6773175124774532624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d936cc8cbd8ac6478e453817bc54134, type: 3}
+  m_Name: GotNewSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f7ace8cdf65238d4ab6d6128748525b6
+  Position: {x: -2078, y: 1222}
+--- !u!114 &-6458840431935522913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d860f3ec15732c4abb38ce0e38875e3, type: 3}
+  m_Name: SetNeedsMoveFlag
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: fedba10de2ab6c948bba9ab4ac59ebc9
+  Position: {x: 114.5, y: 644}
+--- !u!114 &-6373662675964297698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 64e7dbb055d7995488748320a43d968e
+  Position: {x: -2547, y: 996}
+  searchState: 0
+  hide: 0
+--- !u!114 &-6314234079149018594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Checking if got new sound note while following sound
+  guid: 8a3f9ccd56e77ef4bb8296e83261c8f1
+  Position: {x: 675.99994, y: 570}
+  Child: {fileID: -7541333929689838980}
+--- !u!114 &-6290360311826993514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9431a2e0fba72489860f2fb36f8916, type: 3}
+  m_Name: PlayerInViewNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 1
+  description: 
+  guid: 0c74b335d8512a04d98de5d0f112c2e3
+  Position: {x: -1571.9998, y: 461.9999}
+--- !u!114 &-5706444209112330236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: b43d1f347c7ab5342898e7e5a6e0b8f3
+  Position: {x: -113.99993, y: 98.89282}
+  Child: {fileID: 3139256336350122394}
+  loopInfinite: 1
+  maxCounter: 0
+--- !u!114 &-5583182876934025652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab018d35fdea4c418c3caaaef9de64e, type: 3}
+  m_Name: ResetAlarmNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 67c43c33922c77e42a12f0f055b651cc
+  Position: {x: -822.5, y: 621}
+--- !u!114 &-5211843963137524129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17121808ebc6a634887ba42bc5d1cf75, type: 3}
+  m_Name: ResetInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: cb4c3f825404ef04d9a964cd2e9e70dd
+  Position: {x: -697, y: 623}
+--- !u!114 &-4825074913803977359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bcec3c2a5625d42aa119feee7417cd, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 323779b84c242974db90c756d682738a
+  Position: {x: -99, y: -9}
+  Child: {fileID: -5706444209112330236}
+--- !u!114 &-4616730138182978550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9431a2e0fba72489860f2fb36f8916, type: 3}
+  m_Name: PlayerInViewNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 71c063c2110164948b676f0eab658778
+  Position: {x: -904.5, y: 1481}
+--- !u!114 &-4583700061727859659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Search in environment for player
+  guid: a3c068c18bf4f07469e62de8ecd1f84e
+  Position: {x: -975.9998, y: 869.99994}
+  Children:
+  - {fileID: 5063762741400333500}
+  - {fileID: -7383794756575045759}
+  - {fileID: -2829500499546411804}
+--- !u!114 &-4104877269737027581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6a2ca3f889936494baf4cb7b442d82d8
+  Position: {x: -2434, y: 754}
+  searchState: 1
+  hide: 0
+--- !u!114 &-4068639226580530529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fa28599eabe4245a384b95e740a5b2, type: 3}
+  m_Name: MoveNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 606e956c3d2ebb8449f40db64f196128
+  Position: {x: -759.5001, y: 1375}
+  message: 
+--- !u!114 &-3687887367922042454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77655d122b5f1704caceb9aa20d9d7c9, type: 3}
+  m_Name: SelectorInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 1a83d6a6d67fca54badacb154ab9b369
+  Position: {x: 1005.99994, y: 693}
+  Children:
+  - {fileID: -757798168462498747}
+  - {fileID: 239035902220699746}
+  - {fileID: 3347079698287414293}
+--- !u!114 &-3637386927457747312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 9dd6be2e211e58144ade5e9c37052fce
+  Position: {x: -2292, y: 1114}
+  Children:
+  - {fileID: -3392724232792656512}
+  - {fileID: 5856037240522589441}
+--- !u!114 &-3392724232792656512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: c18c34c611415ee43b6a8ab9961fee5a
+  Position: {x: -2264, y: 1222}
+  Child: {fileID: 1356467444829694873}
+  loopInfinite: 0
+  maxCounter: 100000
+--- !u!114 &-3360008445801770958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391b6ee7d07a22642b2e1cd8440f53a3, type: 3}
+  m_Name: FacingSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 5335a60e03b87ce4ca7927778faf392c
+  Position: {x: -2411, y: 1579}
+--- !u!114 &-2829500499546411804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d860f3ec15732c4abb38ce0e38875e3, type: 3}
+  m_Name: SetNeedsMoveFlag
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: a073b290ebb5b914fa7b6b39861cb777
+  Position: {x: -759.9998, y: 1004}
+--- !u!114 &-2782138586264980267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afc53d80e5cef741b0b1518c6b7c8c7, type: 3}
+  m_Name: FindNextPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 7dcc59c387f2cc24ea740e44378db9b6
+  Position: {x: 2370, y: 464.00003}
+  message: 
+--- !u!114 &-2460423276903363429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Searching player in current environment
+  guid: d30e12c8c2770834596ede0779c71c93
+  Position: {x: -884.5, y: 1125}
+  Children:
+  - {fileID: 547243548384782650}
+  - {fileID: -1617818228834367289}
+  - {fileID: 7159880942653796007}
+--- !u!114 &-1884599630951209154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 1
+  description: Heard sound
+  guid: 165cbe6e332c6904fb0eec78544828fe
+  Position: {x: 607, y: 334}
+  Children:
+  - {fileID: -964114554837454348}
+  - {fileID: -829729620003336605}
+  - {fileID: 4952695649473612842}
+  - {fileID: 5675356082475758168}
+  - {fileID: -8014984154414017314}
+  - {fileID: 6115978219611413585}
+  - {fileID: -6783623329516161085}
+--- !u!114 &-1640234730611026217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 240260bbe5f43a54f9553ea57eee76fd
+  Position: {x: -1945, y: 1114}
+  Children:
+  - {fileID: -8825899220355203297}
+  - {fileID: 253981534023538654}
+  - {fileID: 5353816085114951598}
+  - {fileID: 172315149195446187}
+  - {fileID: 5844334533380544103}
+--- !u!114 &-1617818228834367289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 06d719d6089c5f24d998f8ea73a30a1d
+  Position: {x: -836.5, y: 1261.9999}
+  Children:
+  - {fileID: 8871051573192788683}
+  - {fileID: -4068639226580530529}
+  canFail: 1
+--- !u!114 &-1604133470649723333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1439778edd5b8ec4184a80f2ff6f7921, type: 3}
+  m_Name: TurnTowardsLastPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 399fc94887c724b479cb6b06ce5ab645
+  Position: {x: 1899, y: 594}
+--- !u!114 &-1383137374752103274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Handle Player approximation when in search mode
+  guid: 1bd374b751f8eea4cb2c0e500784f381
+  Position: {x: -1034.9998, y: 749.99994}
+  Children:
+  - {fileID: -8061016568728514395}
+  - {fileID: -4583700061727859659}
+  canFail: 0
+--- !u!114 &-1166015246323023663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca24bfb68d0483640850003800b7dd34, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 1
+  description: Player in View
+  guid: ec1308faced928141917e2aa471ce72d
+  Position: {x: -916.50415, y: 334.11807}
+  Children:
+  - {fileID: -6290360311826993514}
+  - {fileID: 5933201470549541420}
+--- !u!114 &-964114554837454348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f00465a154e3d4bbdc3a2fc66b283c, type: 3}
+  m_Name: HeardSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 1
+  description: 
+  guid: 590f8636627adc84591d9b9a8d20112a
+  Position: {x: 323, y: 469}
+--- !u!114 &-926898681489291691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f9910e094b9a6a54cab20f739c9dce22
+  Position: {x: -2285, y: 1449}
+  Child: {fileID: 6296521957906270555}
+--- !u!114 &-883813123005617294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 7bc1d3258f141094e93a46233b545ce5
+  Position: {x: 1820.9999, y: 594}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &-829729620003336605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: dd301bebe2421a447b3885f3af98828f
+  Position: {x: 454.99997, y: 464}
+  Children:
+  - {fileID: 1023418212140817035}
+  - {fileID: 6406220448546930818}
+--- !u!114 &-757798168462498747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db206d3ff5bce4ab58b5df21b436d9, type: 3}
+  m_Name: PickUpObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6e232d1c3424d3c40a5e6abc163af4de
+  Position: {x: 1051.9999, y: 807}
+  cleanUp: 0
+--- !u!114 &-501695330994595386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 4f9720d1190c31a4d9f0fb010484b8aa
+  Position: {x: -312.5, y: 464}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &-369385407217984632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06183bb0e4c125468200e2f9731d243, type: 3}
+  m_Name: PlayerCloseByNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 93d9384935710454fba2a7a260b8b7de
+  Position: {x: -289.5, y: 812}
+--- !u!114 &-75374683635758630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: fb25644f9cae15f4eb9afb94157e0758
+  Position: {x: 2104, y: 594}
+  duration: 4
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714b1c42e3626fa46981560b078f7868, type: 3}
+  m_Name: DogBehaviourTree
+  m_EditorClassIdentifier: 
+  RootNode: {fileID: -4825074913803977359}
+  TreeState: 0
+  Nodes:
+  - {fileID: -4825074913803977359}
+  - {fileID: -5706444209112330236}
+  - {fileID: 3831728135835813776}
+  - {fileID: -2782138586264980267}
+  - {fileID: -1166015246323023663}
+  - {fileID: -6290360311826993514}
+  - {fileID: 8421434552253474602}
+  - {fileID: 3139256336350122394}
+  - {fileID: -7383794756575045759}
+  - {fileID: 4339769847526790276}
+  - {fileID: -1604133470649723333}
+  - {fileID: 7989072088446084984}
+  - {fileID: -7525318717909550829}
+  - {fileID: -7986872501714607197}
+  - {fileID: -2829500499546411804}
+  - {fileID: 5063762741400333500}
+  - {fileID: 547243548384782650}
+  - {fileID: -4068639226580530529}
+  - {fileID: -2460423276903363429}
+  - {fileID: -7320166215265438895}
+  - {fileID: -7399639597522099795}
+  - {fileID: -964114554837454348}
+  - {fileID: 5774972344573713094}
+  - {fileID: -7620947534341190363}
+  - {fileID: -8014984154414017314}
+  - {fileID: 6115978219611413585}
+  - {fileID: 239035902220699746}
+  - {fileID: -1884599630951209154}
+  - {fileID: -75374683635758630}
+  - {fileID: -9041955855465107923}
+  - {fileID: 0}
+  - {fileID: -883813123005617294}
+  - {fileID: 7159880942653796007}
+  - {fileID: -1617818228834367289}
+  - {fileID: 8871051573192788683}
+  - {fileID: -4616730138182978550}
+  - {fileID: 2010244203079930190}
+  - {fileID: -9184030962165752832}
+  - {fileID: -501695330994595386}
+  - {fileID: 4092178055622661770}
+  - {fileID: 4813752537738543553}
+  - {fileID: -6458840431935522913}
+  - {fileID: -7611583244748092699}
+  - {fileID: 8529814569718944204}
+  - {fileID: -1383137374752103274}
+  - {fileID: 5933201470549541420}
+  - {fileID: -4583700061727859659}
+  - {fileID: 3159174763706248394}
+  - {fileID: 4741646435653284474}
+  - {fileID: -369385407217984632}
+  - {fileID: 2436984764747924903}
+  - {fileID: -7125406454676086588}
+  - {fileID: 6406220448546930818}
+  - {fileID: 4952695649473612842}
+  - {fileID: 8786196961742484999}
+  - {fileID: 4151507964814361371}
+  - {fileID: -8457307331476862250}
+  - {fileID: 3743282492422560883}
+  - {fileID: 7803838574287979630}
+  - {fileID: 0}
+  - {fileID: 1796421273739867142}
+  - {fileID: 5351175841808056989}
+  - {fileID: 175106520628907754}
+  - {fileID: 1446485526818288082}
+  - {fileID: 5675356082475758168}
+  - {fileID: -6314234079149018594}
+  - {fileID: -7541333929689838980}
+  - {fileID: -757798168462498747}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -3687887367922042454}
+  - {fileID: 7348879521647013396}
+  - {fileID: 4599050248963171850}
+  - {fileID: -7317469612234103036}
+  - {fileID: -5583182876934025652}
+  - {fileID: -5211843963137524129}
+  - {fileID: 4416482076020348316}
+  - {fileID: -8061016568728514395}
+  - {fileID: 22820672447106486}
+  - {fileID: -7456671894426298810}
+  - {fileID: -3392724232792656512}
+  - {fileID: 1356467444829694873}
+  - {fileID: 6431311562043190480}
+  - {fileID: -7994814856350865879}
+  - {fileID: -926898681489291691}
+  - {fileID: -3360008445801770958}
+  - {fileID: 6296521957906270555}
+  - {fileID: 4706663914042044135}
+  - {fileID: -3637386927457747312}
+  - {fileID: 5856037240522589441}
+  - {fileID: 7316039636851057522}
+  - {fileID: -7152872273162473565}
+  - {fileID: 7277680841179467175}
+  - {fileID: -9091092636103281509}
+  - {fileID: -6773175124774532624}
+  - {fileID: -1640234730611026217}
+  - {fileID: -8825899220355203297}
+  - {fileID: 2887231862215350508}
+  - {fileID: 5353816085114951598}
+  - {fileID: -8220481798367733090}
+  - {fileID: 3729830605829293806}
+  - {fileID: 172315149195446187}
+  - {fileID: 5844334533380544103}
+  - {fileID: 4421486091493283543}
+  - {fileID: 4694498094468054766}
+  - {fileID: 253981534023538654}
+  - {fileID: 434330989296079960}
+  - {fileID: 1023418212140817035}
+  - {fileID: -829729620003336605}
+  - {fileID: -4104877269737027581}
+  - {fileID: 7831265845466096597}
+  - {fileID: -6783623329516161085}
+  - {fileID: -6373662675964297698}
+  - {fileID: -8241670876266842032}
+  - {fileID: 3347079698287414293}
+  - {fileID: -6875918298554604703}
+  - {fileID: 1933025278073201702}
+  - {fileID: 3549830759464151360}
+--- !u!114 &22820672447106486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f00465a154e3d4bbdc3a2fc66b283c, type: 3}
+  m_Name: HeardSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6d47d74c659ca5048a00c8d25007f2f9
+  Position: {x: -2685, y: 995}
+--- !u!114 &172315149195446187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6876b76a6d0aa8140bfeca692f67ca7c
+  Position: {x: -1507, y: 1222}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &175106520628907754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391b6ee7d07a22642b2e1cd8440f53a3, type: 3}
+  m_Name: FacingSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 61457cc1263c9ff488ce5bfaae5cec2d
+  Position: {x: 264, y: 1168}
+--- !u!114 &239035902220699746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d233b03cc664a84a81ece7b545ba112, type: 3}
+  m_Name: TurnSoundOffNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 509ffe45d551cd940be8937cdfbb51aa
+  Position: {x: 1169.9999, y: 807}
+--- !u!114 &253981534023538654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 59e5b9ef2c56fdd4f80660fb88f9a838
+  Position: {x: -1795, y: 1222}
+  duration: 0.1
+  failOnFollowingPlayer: 0
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &434330989296079960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d58db36981d694478014a1602398ae0, type: 3}
+  m_Name: ResetFollowingInteractionNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: aafc64519e5c3b043ae13ca0ddee9763
+  Position: {x: 1475, y: 693}
+--- !u!114 &547243548384782650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46435cde43b04a4ca300da1771d3add, type: 3}
+  m_Name: FindRandomPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 20f54efb0ccb8a14b9aa14a45e13b62e
+  Position: {x: -1009.50006, y: 1255}
+  message: 
+--- !u!114 &1023418212140817035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 72fc8bf18ee9a3f4787f4f8ef2da67b1
+  Position: {x: 368.99997, y: 570}
+  searchState: 0
+  hide: 0
+--- !u!114 &1356467444829694873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 6315439bf4937214a931996dcfd786a7
+  Position: {x: -2292, y: 1336}
+  Children:
+  - {fileID: -7994814856350865879}
+  - {fileID: -926898681489291691}
+  - {fileID: 6431311562043190480}
+--- !u!114 &1414371356051685421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: Assembly-CSharp::ResetSequencerNode
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 82b7010c98d70c54482fc08746ebfbe1
+  Position: {x: 354.0001, y: 481.0001}
+  Children:
+  - {fileID: 0}
+  - {fileID: -1604133470649723333}
+  - {fileID: 0}
+--- !u!114 &1446485526818288082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: e7e6c683e9c5fdf44b2921c4efabf972
+  Position: {x: 278.99997, y: 1060}
+  Child: {fileID: 175106520628907754}
+--- !u!114 &1796421273739867142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6f24ec44bc3f36d43abba36a4412bdbc
+  Position: {x: 470.99997, y: 669}
+  Children:
+  - {fileID: 7803838574287979630}
+  - {fileID: 5351175841808056989}
+--- !u!114 &1933025278073201702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0109c8df0b720e84e91570f5713a9010, type: 3}
+  m_Name: SoundObjIsLocked
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: d9c82274d64f40948b3fd092954c0946
+  Position: {x: 911, y: 807}
+  Child: {fileID: 3549830759464151360}
+--- !u!114 &2010244203079930190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Pllayer detected player close by, when normal moving
+  guid: 419af6b6927c0d24b9d0e58039fa96bf
+  Position: {x: -234.5, y: 334}
+  Children:
+  - {fileID: -9184030962165752832}
+  - {fileID: -501695330994595386}
+  - {fileID: -7125406454676086588}
+  - {fileID: 2436984764747924903}
+--- !u!114 &2436984764747924903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9da82d5bec7a04e428006dcd08ad8d30
+  Position: {x: -19.5, y: 464}
+  Children:
+  - {fileID: 8529814569718944204}
+  - {fileID: -7611583244748092699}
+  - {fileID: -6458840431935522913}
+--- !u!114 &2887231862215350508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2da9a6de9943a44589e8fd3738b9bd8, type: 3}
+  m_Name: RunToNextActionPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 58840761979d84c48a3b291cf6f0805c
+  Position: {x: -1959, y: 998}
+--- !u!114 &3139256336350122394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 659a980deeaadf34bb1e70032505ae5d
+  Position: {x: -140.00024, y: 212.67996}
+  Children:
+  - {fileID: -1166015246323023663}
+  - {fileID: 2010244203079930190}
+  - {fileID: -1884599630951209154}
+  - {fileID: -7986872501714607197}
+  canFail: 0
+--- !u!114 &3159174763706248394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d9c0c69064d584f8c5a9cc2ea807db, type: 3}
+  m_Name: ResetTurnNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Temporary fixed, if turning was aborted, it has to be cleaned
+  guid: 2d6c429c20ecb9240a0a50b90917bbb9
+  Position: {x: -2229, y: 754}
+  duration: 1
+--- !u!114 &3347079698287414293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db206d3ff5bce4ab58b5df21b436d9, type: 3}
+  m_Name: PickUpObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6842ef167e5e770469687e7080fd45e1
+  Position: {x: 1316, y: 807}
+  cleanUp: 1
+--- !u!114 &3549830759464151360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: dfc3b8076dfc9a64abfecbcbd27703ba
+  Position: {x: 942, y: 923.00006}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &3631771610803999055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: Assembly-CSharp::ResetSequencerNode
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 7e3f272cad3caba4ea22e4e4a3ef6187
+  Position: {x: 540.0001, y: 481.00003}
+  Children:
+  - {fileID: 7989072088446084984}
+  - {fileID: 0}
+--- !u!114 &3729830605829293806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d233b03cc664a84a81ece7b545ba112, type: 3}
+  m_Name: TurnSoundOffNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f2af8863abcd2a44f909b0d48cc393f1
+  Position: {x: -1602, y: 1338}
+--- !u!114 &3743282492422560883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fadd5794ae6aa74d8f66d3073fa1392, type: 3}
+  m_Name: WallBetweenSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 44f5d13999ce0d04fb22eb33f823d57b
+  Position: {x: 423.99997, y: 1159}
+--- !u!114 &3831728135835813776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fa28599eabe4245a384b95e740a5b2, type: 3}
+  m_Name: MoveNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 6a688788fee69ba439d5e11056cedac1
+  Position: {x: 1840, y: 464.00003}
+  message: 
+--- !u!114 &4092178055622661770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ffa21e41413f645bae53127607886c, type: 3}
+  m_Name: TurnTowardsApproxNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: a2bdc68fb1b9fc34c9bf6d8acc91e44b
+  Position: {x: -480.5, y: 812}
+--- !u!114 &4151507964814361371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b301027f652624b822fb540d0bdba3, type: 3}
+  m_Name: TurnTowardsSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 3fe06faa5f8389b489d3e66cda59a4c0
+  Position: {x: 571, y: 1060}
+--- !u!114 &4339769847526790276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2da9a6de9943a44589e8fd3738b9bd8, type: 3}
+  m_Name: RunToNextActionPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 8c30eee50bee271448aa04a8be8fe177
+  Position: {x: -1567, y: 749.99994}
+--- !u!114 &4416482076020348316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17121808ebc6a634887ba42bc5d1cf75, type: 3}
+  m_Name: ResetInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 457025d80e90cdd4abe710a9cfc9074e
+  Position: {x: 1292, y: 693}
+--- !u!114 &4421486091493283543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17121808ebc6a634887ba42bc5d1cf75, type: 3}
+  m_Name: ResetInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 31d2435ed4c7cbc4b8fc5b36544673fa
+  Position: {x: -1271, y: 749.99994}
+--- !u!114 &4530878700968482733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def574aa5c0bdea4ba4c933474680334, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 3e7e627003058dc4c8f023816f94a82e
+  Position: {x: 460.5845, y: 0.49996948}
+  Children:
+  - {fileID: 0}
+--- !u!114 &4599050248963171850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17121808ebc6a634887ba42bc5d1cf75, type: 3}
+  m_Name: ResetInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 2bd17fc04c8ae3941b1df3910e9c023f
+  Position: {x: -1927, y: 754}
+--- !u!114 &4694498094468054766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Dtop node for stopping
+  guid: cc3524141ce581a4699473f4f4ae8282
+  Position: {x: 792, y: 807}
+  duration: 0.1
+  failOnFollowingPlayer: 0
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &4706663914042044135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31957ae7b792f934eb52e159443068c0, type: 3}
+  m_Name: IgnoreFailNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: e2343d4300cf2a84bb9cace490f05525
+  Position: {x: -2243, y: 996}
+  Child: {fileID: -3637386927457747312}
+--- !u!114 &4741646435653284474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Turning while still noticing player close by
+  guid: 18d92560b21cb7945bca26f773de2113
+  Position: {x: -384.5, y: 575}
+  Child: {fileID: 4813752537738543553}
+  loopInfinite: 0
+  maxCounter: 1000000
+--- !u!114 &4813752537738543553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9cd465e232e57bc4c82e518d1d21be48
+  Position: {x: -385.5, y: 690}
+  Children:
+  - {fileID: 4092178055622661770}
+  - {fileID: -369385407217984632}
+--- !u!114 &4952695649473612842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31957ae7b792f934eb52e159443068c0, type: 3}
+  m_Name: IgnoreFailNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: a263bdce537d9b14cb8b6f79dda4d484
+  Position: {x: 628.00006, y: 464}
+  Child: {fileID: 1796421273739867142}
+--- !u!114 &5063762741400333500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Searching for player
+  guid: 8ac08d4dadf8797419a7054c70548e20
+  Position: {x: -1138.9998, y: 995.99994}
+  Child: {fileID: -2460423276903363429}
+  loopInfinite: 0
+  maxCounter: 5
+--- !u!114 &5351175841808056989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: b4fa51d0e18d94b45a0e40471e5cdcb0
+  Position: {x: 561.00006, y: 786}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &5353816085114951598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77655d122b5f1704caceb9aa20d9d7c9, type: 3}
+  m_Name: SelectorInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 51f51d1d3244bf44da73e39be4dfc07d
+  Position: {x: -1711, y: 1222}
+  Children:
+  - {fileID: -8220481798367733090}
+  - {fileID: 3729830605829293806}
+--- !u!114 &5675356082475758168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: b4cf9344968c8e245816673adf0f3ba7
+  Position: {x: 742.99994, y: 464}
+  Children:
+  - {fileID: -6314234079149018594}
+  - {fileID: -7620947534341190363}
+  canFail: 1
+--- !u!114 &5774972344573713094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a0a8ea01e6c224bbd22ba0a16b801f, type: 3}
+  m_Name: FollowSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: acbc80676526fda4cb61c4f41dc7b549
+  Position: {x: 655, y: 807}
+--- !u!114 &5844334533380544103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17121808ebc6a634887ba42bc5d1cf75, type: 3}
+  m_Name: ResetInteractSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 93b892386598f76489fa7f63f757988c
+  Position: {x: -1429, y: 1222}
+--- !u!114 &5856037240522589441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9adb7db24b3b3224fb8f5874a15b47cf
+  Position: {x: -2167, y: 1222}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &5933201470549541420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Handling following the player
+  guid: 173b0bf07f136d84dbdb8b69e4da8b20
+  Position: {x: -940, y: 486.00003}
+  Children:
+  - {fileID: -7317469612234103036}
+  - {fileID: 7831265845466096597}
+  - {fileID: -1383137374752103274}
+  - {fileID: -5583182876934025652}
+  - {fileID: -5211843963137524129}
+--- !u!114 &6115978219611413585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d860f3ec15732c4abb38ce0e38875e3, type: 3}
+  m_Name: SetNeedsMoveFlag
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9b44acc8acc919941ac993767b06be8f
+  Position: {x: 1075.9999, y: 464}
+--- !u!114 &6296521957906270555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fadd5794ae6aa74d8f66d3073fa1392, type: 3}
+  m_Name: WallBetweenSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 1f0c34c1b56cbf240913eedd02ce8b10
+  Position: {x: -2274, y: 1579}
+--- !u!114 &6406220448546930818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 12e21fa51c9e1ea40bdcf146f5deb5f9
+  Position: {x: 588.99994, y: 570}
+  duration: 2
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &6431311562043190480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b301027f652624b822fb540d0bdba3, type: 3}
+  m_Name: TurnTowardsSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: b83b53e2fa851a44fb17b3c4d8b01060
+  Position: {x: -2185, y: 1449}
+--- !u!114 &7159880942653796007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: df7a3a039afe69a43ab5bba2550a91cc
+  Position: {x: -681.5, y: 1261.9999}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &7277680841179467175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d860f3ec15732c4abb38ce0e38875e3, type: 3}
+  m_Name: SetNeedsMoveFlag
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: f4d16031c6dd4af4bb08033f4d708045
+  Position: {x: -1543, y: 998}
+--- !u!114 &7316039636851057522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: bd6e8465c96da524d91edf3c6b619df9
+  Position: {x: -2078, y: 996}
+  Children:
+  - {fileID: -9091092636103281509}
+  - {fileID: -1640234730611026217}
+  canFail: 0
+--- !u!114 &7348879521647013396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: aca62508c54464a42a1ecdae9266aef2
+  Position: {x: 1214, y: 693}
+  duration: 1
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 1
+  soundObject: {fileID: 0}
+--- !u!114 &7803838574287979630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Turning until finding player
+  guid: 690565e062d0a884397863c12c5022f3
+  Position: {x: 423.99997, y: 786}
+  Child: {fileID: 8786196961742484999}
+  loopInfinite: 0
+  maxCounter: 100000000
+--- !u!114 &7831265845466096597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: bf92195ab202796438a33f48dfe07c8e
+  Position: {x: -1304.5, y: 623}
+  searchState: 1
+  hide: 1
+--- !u!114 &7989072088446084984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5e5a10fda6e9b4f802f4ee50c31360, type: 3}
+  m_Name: TurnTowardsNextPointNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: 7309af46ef0d4534f96494c21736b61a
+  Position: {x: 2182, y: 592.00006}
+--- !u!114 &8421434552253474602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9023a9c4c5fbb994fb58a890947bdced, type: 3}
+  m_Name: FollowPlayerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 4929b0ccb080b38428e7851c95c4778e
+  Position: {x: -1724, y: 749.99994}
+--- !u!114 &8529814569718944204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 44a1a64f67c67ae4c87171be270c187d
+  Position: {x: -176.5, y: 644}
+  duration: 2
+  failOnFollowingPlayer: 1
+  failOnHeardSound: 1
+  failOnPlayerCloseBy: 0
+  soundObject: {fileID: 0}
+--- !u!114 &8786196961742484999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: Checking whether player behind wall
+  guid: 9f0daa941ccc98d458efe0fa44aa31b6
+  Position: {x: 384.99997, y: 923.00006}
+  Children:
+  - {fileID: 1446485526818288082}
+  - {fileID: -8457307331476862250}
+  - {fileID: 4151507964814361371}
+--- !u!114 &8871051573192788683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: fc1cd6d8463786a4bb879d10c2681179
+  Position: {x: -886.5001, y: 1375}
+  Child: {fileID: -4616730138182978550}
