@@ -57,6 +57,8 @@ public class PlayerInteraction : MonoBehaviour
 
                 interactionObj = hitColliders[0].transform;
                 interactionObj.GetComponent<Renderer>().material.shader = shaderOutline; //outline on object that you are currently facing
+                interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f);
+                interactionObj.GetComponent<Renderer>().material.SetColor("_OutlineColor", new Color(1f, 172f/255f, 0));
             }
             else
             {
@@ -91,12 +93,12 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (interactionObj.gameObject.tag == "HidingPlace")
             {
-                if (!transform.GetComponent<ThirdPersonMovement>().movementBlocked)
+                if (!transform.GetComponent<ThirdPersonMovement>().isHiding)
                 {
                     gameObject.SetActive(false);
                     transform.position = interactionObj.GetChild(0).transform.position;
                     transform.rotation = interactionObj.GetChild(0).transform.rotation;
-                    transform.GetComponent<ThirdPersonMovement>().movementBlocked = true;
+                    transform.GetComponent<ThirdPersonMovement>().isHiding = true;
                     gameObject.SetActive(true);
                 }
                 else
@@ -104,7 +106,7 @@ public class PlayerInteraction : MonoBehaviour
                     gameObject.SetActive(false);
                     transform.position = interactionObj.GetChild(1).transform.position;
                     transform.rotation = interactionObj.GetChild(1).transform.rotation;
-                    transform.GetComponent<ThirdPersonMovement>().movementBlocked = false;
+                    transform.GetComponent<ThirdPersonMovement>().isHiding = false;
                     gameObject.SetActive(true);
                 }
 
