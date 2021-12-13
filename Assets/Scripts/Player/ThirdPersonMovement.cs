@@ -113,7 +113,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        if (!isPainting)
+        if (!isPainting && !isHiding)
         {
             anim.SetFloat("Forward", move.magnitude * currentSpeed / moveSpeed, 0.1f, Time.deltaTime);
         } else
