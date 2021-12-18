@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     public DoorTrigger global_door;
     void Update()
     {
-        if (player.IsMoving && !player.IsSneaking)
+        if (player.IsMoving && !player.IsSneaking && !player.isHiding)
         {
             if (!obj.turnedOn)
             {
