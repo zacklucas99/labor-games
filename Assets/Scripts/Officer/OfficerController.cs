@@ -216,7 +216,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         agent.SetDestination(notifyPosition);
         character.Move(agent.desiredVelocity.normalized , false, false);
         bool arrived = ArrivedAtAlarm();
-        isMovingToAlarm = true;
         return arrived;
     }
 
@@ -728,7 +727,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool ArrivedAtAlarm()
     {
         // Function for checking whether officer arrived at alarm point
-        return isMovingToAlarm && agent.remainingDistance < agent.stoppingDistance;
+        Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
+        return isMovingToAlarm && distVector.magnitude >= agent.stoppingDistance;
     }
 
     public void ResetNotification()
@@ -737,6 +737,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         Notified = false;
         isMovingToAlarm = false;
         notifyPosition = Vector3.zero;
+    }
+
+    public void SetNotification()
+    {
+        isMovingToAlarm = true;
     }
 
 
