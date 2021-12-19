@@ -221,7 +221,8 @@ public class FieldOfView : MonoBehaviour
                 }
                 GameObject gameObject = collider.gameObject;
 
-                if (gameObject.GetComponent<ThirdPersonMovement>())
+                ThirdPersonMovement player = gameObject.GetComponent<ThirdPersonMovement>();
+                if (player && !player.isHiding)
                 {
                     PlayerFoundEvent.Invoke(gameObject);
                 }

@@ -22,6 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isMoving = false;
     private bool isSneaking = false;
     public bool isPainting = false;
+    public bool isHiding = false;
 
     public bool IsMoving => isMoving;
     public bool IsSneaking => isSneaking;
@@ -53,7 +54,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if (true)
+        if (!isHiding)
         {
             if (Input.GetButton("Jump"))
             {
@@ -112,7 +113,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        if (!isPainting)
+        if (!isPainting && !isHiding)
         {
             anim.SetFloat("Forward", move.magnitude * currentSpeed / moveSpeed, 0.1f, Time.deltaTime);
         } else
