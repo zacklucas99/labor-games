@@ -17,10 +17,14 @@ public class SelectorInteractSoundNode: CompositeNode
     }
     protected override State OnUpdate()
     {
+        Debug.Log("SoundObj:"+Context.Officer.SoundObj);
         if(Context.Officer.SoundObj && !Context.Officer.SoundObj.turnedOn)
         {
-            // Abort action, if sound object already turned off
-            return State.Success;
+            if (!(Context.Officer.CanCleanUpObj() || Context.Officer.CanPickUpObj()))
+            {
+                // Abort action, if sound object already turned off
+                return State.Success;
+            }
         }
 
         if (Context.Officer.CanPickUpObj())
