@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 public class OfficerController : MonoBehaviour, SoundReceiver
@@ -752,7 +753,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void ReceiveNotifcation(NotifierObject notifierObject)
     {
         // Function for player getting notification by event, by a notification object
-        if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject)) {
+        if (notifierObject &&!this.notifierObject && !notificatedObjects.Contains(notifierObject) && SoundObj == null) {
             GotEnvironmentNotification = true;
             notificatedObjects.Add(notifierObject);
             this.notifierObject = notifierObject;
@@ -794,6 +795,15 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(moveToPosition, 0.5f);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("arrivedPlayer");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
     }
 
 }
