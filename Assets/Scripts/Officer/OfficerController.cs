@@ -108,6 +108,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public float MoveSpeed=>PlayerAlarmState == PlayerAlarmState.IDLE ? walkingSpeed : alarmedWalkingSpeed;
 
     public Vector3 moveToPosition;
+
+    public bool RestartOnCollision = true;
     
 
     public bool ArrivedAtWayPoint{
@@ -525,8 +527,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void ReceiveSound(SoundObject obj, float receiveVolume)
     {
         // Functionfor  receiving a sound
-        if (IsPickingUp || IsTurningSoundOff)
+        if (IsPickingUp || IsTurningSoundOff && obj.gameObject != this.gameObject)
         {
+            // As the dog can make a sound, we have to create a special case for the dog not detecting its own sound
             return;
         }
         if (receiveVolume > hearableVolume)
@@ -799,7 +802,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && RestartOnCollision)
         {
             Debug.Log("arrivedPlayer");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);

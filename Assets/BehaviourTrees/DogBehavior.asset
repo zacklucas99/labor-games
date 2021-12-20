@@ -190,23 +190,6 @@ MonoBehaviour:
   Children:
   - {fileID: 3831728135835813776}
   - {fileID: -2782138586264980267}
---- !u!114 &-7908640479911818254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06183bb0e4c125468200e2f9731d243, type: 3}
-  m_Name: PlayerCloseByNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 02c064fb1ac4bb048b5c108943d42bae
-  Position: {x: 73.00006, y: 1054}
 --- !u!114 &-7818531708856855557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,28 +327,6 @@ MonoBehaviour:
   description: 
   guid: 59f759420753749459d00bbce21353a4
   Position: {x: -1000.9998, y: 995.99994}
---- !u!114 &-7320557196221089318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
-  m_Name: ResetSequencerNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: Turn, when player close by
-  guid: 48f97a7ee44b9724b8d2e10cff6a3fb7
-  Position: {x: -280, y: 573}
-  Children:
-  - {fileID: 7549193511768789726}
-  - {fileID: 5399548179003163349}
-  - {fileID: -2620689339234076136}
-  - {fileID: -1265963214539156971}
 --- !u!114 &-7317469612234103036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,10 +346,12 @@ MonoBehaviour:
   Position: {x: -1550.9996, y: 622.99994}
   Children:
   - {fileID: -4104877269737027581}
+  - {fileID: -4467658631849566339}
   - {fileID: 3159174763706248394}
   - {fileID: 4599050248963171850}
   - {fileID: 8421434552253474602}
   - {fileID: 4339769847526790276}
+  - {fileID: 8126971692545379892}
   - {fileID: -7525318717909550829}
   - {fileID: 4421486091493283543}
 --- !u!114 &-7231884467190595926
@@ -465,7 +428,6 @@ MonoBehaviour:
   Children:
   - {fileID: 5774972344573713094}
   - {fileID: 4694498094468054766}
-  - {fileID: 1933025278073201702}
 --- !u!114 &-6847495250642556434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +684,24 @@ MonoBehaviour:
   - {fileID: 5063762741400333500}
   - {fileID: -7383794756575045759}
   - {fileID: -2829500499546411804}
+--- !u!114 &-4467658631849566339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a91c624caddaf843a2b90b8fb203100, type: 3}
+  m_Name: SetSoundNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 846d19bdc6304e84986b75faf8e7f319
+  Position: {x: -2405.5, y: 754.00006}
+  soundState: 0
 --- !u!114 &-4104877269737027581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +718,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6a2ca3f889936494baf4cb7b442d82d8
-  Position: {x: -2434, y: 754}
+  Position: {x: -2610.5, y: 754.00006}
   searchState: 1
   hide: 0
 --- !u!114 &-4088338928724853060
@@ -779,23 +759,6 @@ MonoBehaviour:
   guid: 606e956c3d2ebb8449f40db64f196128
   Position: {x: -759.5001, y: 1375}
   message: 
---- !u!114 &-4044810613282693452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ffa21e41413f645bae53127607886c, type: 3}
-  m_Name: TurnTowardsApproxNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 3de93313caeef8b45b55585c703a17fc
-  Position: {x: -117.99997, y: 1054}
 --- !u!114 &-3637386927457747312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,27 +868,6 @@ MonoBehaviour:
   guid: 7dcc59c387f2cc24ea740e44378db9b6
   Position: {x: 2640, y: 459}
   message: 
---- !u!114 &-2620689339234076136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
-  m_Name: ExecuteAllNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: d2b6e3c8e1ddb7f4f8ace54a569030b9
-  Position: {x: -141.99997, y: 700.00006}
-  Children:
-  - {fileID: 3608810252333210692}
-  - {fileID: 3957430859628831141}
-  canFail: 1
 --- !u!114 &-2560146314961535845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,28 +1052,6 @@ MonoBehaviour:
   - {fileID: -8061016568728514395}
   - {fileID: -4583700061727859659}
   canFail: 0
---- !u!114 &-1265963214539156971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
-  m_Name: StopNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: c69881d3a9aa5b044939952eeed47125
-  Position: {x: -23, y: 700.00006}
-  duration: 2
-  failOnFollowingPlayer: 1
-  failOnHeardSound: 1
-  failOnPlayerCloseBy: 1
-  soundObject: {fileID: 0}
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1111,6 @@ MonoBehaviour:
   - {fileID: 3289436237639634736}
   - {fileID: 7129870830575028245}
   - {fileID: 9065232710843313704}
-  - {fileID: 5061421511726755156}
   - {fileID: -5729055720665386611}
   - {fileID: -2560146314961535845}
   - {fileID: -8754512183307031545}
@@ -1249,7 +1168,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 8991b66492b4e9e4e934a7f34afe06db
-  Position: {x: -787, y: 462}
+  Position: {x: -658, y: 462}
 --- !u!114 &-501695330994595386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,21 +1287,6 @@ MonoBehaviour:
   - {fileID: 9065232710843313704}
   - {fileID: -5729055720665386611}
   - {fileID: -2560146314961535845}
-  - {fileID: 5061421511726755156}
-  - {fileID: -7320557196221089318}
-  - {fileID: 7549193511768789726}
-  - {fileID: 1097089358751254785}
-  - {fileID: 6789409026016976985}
-  - {fileID: 4975514323065721886}
-  - {fileID: 5399548179003163349}
-  - {fileID: -2620689339234076136}
-  - {fileID: 217667217089078761}
-  - {fileID: 3608810252333210692}
-  - {fileID: 3957430859628831141}
-  - {fileID: 8344061525102519452}
-  - {fileID: -4044810613282693452}
-  - {fileID: -7908640479911818254}
-  - {fileID: -1265963214539156971}
   - {fileID: 6406220448546930818}
   - {fileID: 4952695649473612842}
   - {fileID: 8786196961742484999}
@@ -1444,8 +1348,8 @@ MonoBehaviour:
   - {fileID: -6373662675964297698}
   - {fileID: -8241670876266842032}
   - {fileID: -6875918298554604703}
-  - {fileID: 1933025278073201702}
-  - {fileID: 3549830759464151360}
+  - {fileID: -4467658631849566339}
+  - {fileID: 8126971692545379892}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,23 +1401,6 @@ MonoBehaviour:
   description: 
   guid: 61457cc1263c9ff488ce5bfaae5cec2d
   Position: {x: 1270.8513, y: 1161.0001}
---- !u!114 &217667217089078761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9431a2e0fba72489860f2fb36f8916, type: 3}
-  m_Name: PlayerInViewNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 772c96a2d74f9ed49863645c53077183
-  Position: {x: -151, y: 937.00006}
 --- !u!114 &253981534023538654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,23 +1477,6 @@ MonoBehaviour:
   Position: {x: 1246.0504, y: 575}
   searchState: 0
   hide: 0
---- !u!114 &1097089358751254785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06183bb0e4c125468200e2f9731d243, type: 3}
-  m_Name: PlayerCloseByNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 4bdad1a585198f4419cf177786625b2c
-  Position: {x: -456.00003, y: 817.00006}
 --- !u!114 &1356467444829694873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,24 +1557,6 @@ MonoBehaviour:
   Children:
   - {fileID: 7803838574287979630}
   - {fileID: 5351175841808056989}
---- !u!114 &1933025278073201702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0109c8df0b720e84e91570f5713a9010, type: 3}
-  m_Name: SoundObjIsLocked
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: d9c82274d64f40948b3fd092954c0946
-  Position: {x: 1918, y: 824}
-  Child: {fileID: 3549830759464151360}
 --- !u!114 &1941945357663319361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,7 +1702,7 @@ MonoBehaviour:
   NodeState: 0
   description: Temporary fixed, if turning was aborted, it has to be cleaned
   guid: 2d6c429c20ecb9240a0a50b90917bbb9
-  Position: {x: -2229, y: 754}
+  Position: {x: -2292.5, y: 754.00006}
   duration: 1
 --- !u!114 &3289436237639634736
 MonoBehaviour:
@@ -1868,7 +1720,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: da17db78e6799ac499ccb03992f05cf2
-  Position: {x: -675, y: 462}
+  Position: {x: -546, y: 462}
   searchState: 1
   hide: 0
 --- !u!114 &3306447299731516838
@@ -1891,46 +1743,6 @@ MonoBehaviour:
   Child: {fileID: -4088338928724853060}
   loopInfinite: 0
   maxCounter: 1000000
---- !u!114 &3549830759464151360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
-  m_Name: StopNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: dfc3b8076dfc9a64abfecbcbd27703ba
-  Position: {x: 1947.2509, y: 929}
-  duration: 1
-  failOnFollowingPlayer: 1
-  failOnHeardSound: 1
-  failOnPlayerCloseBy: 1
-  soundObject: {fileID: 0}
---- !u!114 &3608810252333210692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
-  m_Name: InverterNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 7486211e2f0437546bdd37f551c126f3
-  Position: {x: -132.99997, y: 817.00006}
-  Child: {fileID: 217667217089078761}
 --- !u!114 &3615999884048490756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,26 +1817,6 @@ MonoBehaviour:
   guid: 6a688788fee69ba439d5e11056cedac1
   Position: {x: 2511, y: 459}
   message: 
---- !u!114 &3957430859628831141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28a11f456256764784249828124430c, type: 3}
-  m_Name: RepeatNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: Turning while player close by
-  guid: e668793a721dc0b4892c71e70d77d0fa
-  Position: {x: -23, y: 817.00006}
-  Child: {fileID: 8344061525102519452}
-  loopInfinite: 1
-  maxCounter: 0
 --- !u!114 &4092178055622661770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2075,7 +1867,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 8c30eee50bee271448aa04a8be8fe177
-  Position: {x: -1567, y: 749.99994}
+  Position: {x: -1673.5, y: 750}
 --- !u!114 &4416482076020348316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,7 +1937,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 2bd17fc04c8ae3941b1df3910e9c023f
-  Position: {x: -1927, y: 754}
+  Position: {x: -1990.5, y: 754.00006}
 --- !u!114 &4694498094468054766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,7 +1954,7 @@ MonoBehaviour:
   NodeState: 0
   description: Dtop node for stopping
   guid: cc3524141ce581a4699473f4f4ae8282
-  Position: {x: 1797, y: 824}
+  Position: {x: 1943, y: 826}
   duration: 0.1
   failOnFollowingPlayer: 0
   failOnHeardSound: 0
@@ -2244,43 +2036,6 @@ MonoBehaviour:
   guid: a263bdce537d9b14cb8b6f79dda4d484
   Position: {x: 1634.8511, y: 456.99997}
   Child: {fileID: 1796421273739867142}
---- !u!114 &4975514323065721886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9431a2e0fba72489860f2fb36f8916, type: 3}
-  m_Name: PlayerInViewNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: af3593d28e6e1ff478a1f38bed9c0719
-  Position: {x: -327, y: 937.00006}
---- !u!114 &5061421511726755156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
-  m_Name: ExecuteAllNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 54c0f8464ce46bf4c946fa93f0d9d552
-  Position: {x: -248.99988, y: 460.99994}
-  Children:
-  - {fileID: -7320557196221089318}
-  canFail: 0
 --- !u!114 &5063762741400333500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2323,28 +2078,6 @@ MonoBehaviour:
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
   soundObject: {fileID: 0}
---- !u!114 &5399548179003163349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
-  m_Name: StopNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 8ee1851da5fb9e6499d475f72d9c79e6
-  Position: {x: -219.99997, y: 700.00006}
-  duration: 1
-  failOnFollowingPlayer: 1
-  failOnHeardSound: 1
-  failOnPlayerCloseBy: 1
-  soundObject: {fileID: 0}
 --- !u!114 &5675356082475758168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,7 +2115,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: acbc80676526fda4cb61c4f41dc7b549
-  Position: {x: 1660, y: 826}
+  Position: {x: 1785.5, y: 829}
 --- !u!114 &5844334533380544103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2540,24 +2273,6 @@ MonoBehaviour:
   description: 
   guid: b83b53e2fa851a44fb17b3c4d8b01060
   Position: {x: -2168.255, y: 1457.0454}
---- !u!114 &6789409026016976985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
-  m_Name: InverterNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 96aaf3a2b1fb6d2428be5978f6341e8b
-  Position: {x: -310.99997, y: 817.00006}
-  Child: {fileID: 4975514323065721886}
 --- !u!114 &7129870830575028245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2574,7 +2289,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 700a0a3edaf26fa4a980887d5e0e69c4
-  Position: {x: -469.99988, y: 460.99994}
+  Position: {x: -341, y: 461}
 --- !u!114 &7159880942653796007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,27 +2367,6 @@ MonoBehaviour:
   - {fileID: -9091092636103281509}
   - {fileID: -1640234730611026217}
   canFail: 0
---- !u!114 &7549193511768789726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
-  m_Name: ExecuteAllNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: cd796849d793c904ba37705d06e80f5f
-  Position: {x: -339, y: 700.00006}
-  Children:
-  - {fileID: 1097089358751254785}
-  - {fileID: 6789409026016976985}
-  canFail: 1
 --- !u!114 &7803838574287979630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,7 +2424,7 @@ MonoBehaviour:
   guid: 4b6cc18d544210e4f9e2f6817518a930
   Position: {x: -3308.255, y: 1126.0453}
   Child: {fileID: -2328216686037163676}
---- !u!114 &8344061525102519452
+--- !u!114 &8126971692545379892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2739,17 +2433,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
-  m_Name: ResetSequencerNode
+  m_Script: {fileID: 11500000, guid: 4a91c624caddaf843a2b90b8fb203100, type: 3}
+  m_Name: SetSoundNode
   m_EditorClassIdentifier: 
   stopDebugging: 0
   NodeState: 0
   description: 
-  guid: 1662d4906dce64e4d9bd18064c010859
-  Position: {x: -15.0000305, y: 938}
-  Children:
-  - {fileID: -4044810613282693452}
-  - {fileID: -7908640479911818254}
+  guid: e17e9076e46818d4a939620c11bdd66f
+  Position: {x: -1461.9999, y: 750}
+  soundState: 1
 --- !u!114 &8421434552253474602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2766,7 +2458,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 4929b0ccb080b38428e7851c95c4778e
-  Position: {x: -1724, y: 749.99994}
+  Position: {x: -1808.4999, y: 754.00006}
 --- !u!114 &8529814569718944204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2861,7 +2553,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6a128bfcdf58fb14497ab72fcec6574e
-  Position: {x: -326.99988, y: 460.99994}
+  Position: {x: -198, y: 461}
   duration: 4
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
