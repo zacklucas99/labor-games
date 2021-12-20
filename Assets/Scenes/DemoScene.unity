@@ -16275,7 +16275,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5696522759262749859, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
   m_PrefabInstance: {fileID: 1020560286}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1364443566
+--- !u!114 &1364443569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16319,7 +16319,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 150591337}
         m_TargetAssemblyTypeName: DogAlarmScript, Assembly-CSharp
-        m_MethodName: Alarm
+        m_MethodName: Bark
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

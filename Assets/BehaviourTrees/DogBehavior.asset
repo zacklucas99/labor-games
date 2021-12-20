@@ -282,7 +282,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 39f0afbadd5db8248acd7c6363c15690
-  Position: {x: -1349, y: 749.99994}
+  Position: {x: -1470, y: 750}
   duration: 4
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
@@ -346,12 +346,10 @@ MonoBehaviour:
   Position: {x: -1550.9996, y: 622.99994}
   Children:
   - {fileID: -4104877269737027581}
-  - {fileID: -4467658631849566339}
   - {fileID: 3159174763706248394}
   - {fileID: 4599050248963171850}
   - {fileID: 8421434552253474602}
   - {fileID: 4339769847526790276}
-  - {fileID: 8126971692545379892}
   - {fileID: -7525318717909550829}
   - {fileID: 4421486091493283543}
 --- !u!114 &-7231884467190595926
@@ -684,24 +682,6 @@ MonoBehaviour:
   - {fileID: 5063762741400333500}
   - {fileID: -7383794756575045759}
   - {fileID: -2829500499546411804}
---- !u!114 &-4467658631849566339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a91c624caddaf843a2b90b8fb203100, type: 3}
-  m_Name: SetSoundNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 846d19bdc6304e84986b75faf8e7f319
-  Position: {x: -2405.5, y: 754.00006}
-  soundState: 0
 --- !u!114 &-4104877269737027581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +698,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6a2ca3f889936494baf4cb7b442d82d8
-  Position: {x: -2610.5, y: 754.00006}
+  Position: {x: -2496, y: 754}
   searchState: 1
   hide: 0
 --- !u!114 &-4088338928724853060
@@ -1348,8 +1328,6 @@ MonoBehaviour:
   - {fileID: -6373662675964297698}
   - {fileID: -8241670876266842032}
   - {fileID: -6875918298554604703}
-  - {fileID: -4467658631849566339}
-  - {fileID: 8126971692545379892}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,7 +1879,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 31d2435ed4c7cbc4b8fc5b36544673fa
-  Position: {x: -1271, y: 749.99994}
+  Position: {x: -1392, y: 750}
 --- !u!114 &4530878700968482733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2424,24 +2402,6 @@ MonoBehaviour:
   guid: 4b6cc18d544210e4f9e2f6817518a930
   Position: {x: -3308.255, y: 1126.0453}
   Child: {fileID: -2328216686037163676}
---- !u!114 &8126971692545379892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a91c624caddaf843a2b90b8fb203100, type: 3}
-  m_Name: SetSoundNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: e17e9076e46818d4a939620c11bdd66f
-  Position: {x: -1461.9999, y: 750}
-  soundState: 1
 --- !u!114 &8421434552253474602
 MonoBehaviour:
   m_ObjectHideFlags: 0
