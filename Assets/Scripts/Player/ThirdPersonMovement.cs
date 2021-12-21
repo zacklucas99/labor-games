@@ -41,6 +41,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public float camOffsetTarget = -0.7f;
     private float camOffsetTargetInit;
 
+    private bool shiftTriggered = false;
+
 
     void Start()
     {
@@ -73,18 +75,26 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (!isHiding)
         {
+            SplatoonMovement();
+
             if (Input.GetButton("Jump"))
             {
                 if (isSplatooning)
                 {
-                    ResetSplatooning();
+                    camOffsetTarget = camOffsetInit;
+                    currentSpeed = moveSpeed;
+                    sphereRender.SetActive(false);
+                    thiefRender.SetActive(true);
+                    isSplatooning = false;
                 }
                 isPainting = false;
                 if (controller.isGrounded)
                 {
                     velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
                     grounded = false;
+                    
                 }
+                
             }
 
             if (!isSplatooning)
@@ -104,7 +114,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
             }
 
-            SplatoonMovement();
+            
 
             Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
             if (inputDir.magnitude >= 0.1f)
@@ -123,6 +133,8 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             velocityY += gravity * Time.deltaTime;
             controller.Move(moveDir * Time.deltaTime); //applies movement
+
+           
 
             if (controller.isGrounded)
             {
@@ -179,6 +191,12 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            shiftTriggered = true;
+        }
+
+        if (shiftTriggered && Input.GetKey(KeyCode.LeftShift) && isMoving)
+        {
+            shiftTriggered = false;
             camOffsetTarget = camOffsetTargetInit;
             currentSpeed = splatoonSpeed;
             thiefRender.SetActive(false);
@@ -186,7 +204,7 @@ public class ThirdPersonMovement : MonoBehaviour
             isSplatooning = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift) || !isMoving)
         {
             ResetSplatooning();
         }
@@ -194,11 +212,20 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void ResetSplatooning()
     {
-        camOffsetTarget = camOffsetInit;
-        currentSpeed = moveSpeed;
-        sphereRender.SetActive(false);
-        thiefRender.SetActive(true);
-        isSplatooning = false;
+        if (isSplatooning)
+        {
+            camOffsetTarget = camOffsetInit;
+            currentSpeed = moveSpeed;
+            sphereRender.SetActive(false);
+            thiefRender.SetActive(true);
+            isSplatooning = false;
+            if (grounded)
+            {
+                velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
+                grounded = false;
+            }
+        }
+        
     }
 
     private void UpdateCamMovement()
