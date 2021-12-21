@@ -7,7 +7,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
     public float moveSpeed = 3.5f; 
-    public float sneakSpeed = 1.6f; 
+    public float sneakSpeed = 1.6f;
+    public float splatoonSpeed = 6.5f;
     private float currentSpeed;
     public float gravity = -12f;
     public float jumpHeight = 1f;
@@ -23,19 +24,33 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isSneaking = false;
     public bool isPainting = false;
     public bool isHiding = false;
+    public bool isSplatooning = false;
 
     public bool IsMoving => isMoving;
     public bool IsSneaking => isSneaking;
 
     private float paintingClipLength;
 
+    public GameObject thiefRender;
+    public GameObject sphereRender;
+
+
+    public Transform camPos;
+    public float camOffset = 0f;
+    private float camOffsetInit;
+    public float camOffsetTarget = -0.7f;
+    private float camOffsetTargetInit;
 
 
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
+
+        camOffsetInit = camOffset;
+        camOffsetTargetInit = camOffsetTarget;
+        camOffsetTarget = camOffset;
+
         anim = GetComponent<Animator>();
         currentSpeed = moveSpeed;
 
@@ -54,10 +69,16 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
+        
+
         if (!isHiding)
         {
             if (Input.GetButton("Jump"))
             {
+                if (isSplatooning)
+                {
+                    ResetSplatooning();
+                }
                 isPainting = false;
                 if (controller.isGrounded)
                 {
@@ -66,17 +87,24 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (!isSplatooning)
             {
-                currentSpeed = sneakSpeed;
-                isSneaking = true;
+               
+
+                if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    currentSpeed = sneakSpeed;
+                    isSneaking = true;
+                }
+
+                if (Input.GetKeyUp(KeyCode.LeftControl))
+                {
+                    currentSpeed = moveSpeed;
+                    isSneaking = false;
+                }
             }
 
-            if (Input.GetKeyUp(KeyCode.LeftControl))
-            {
-                currentSpeed = moveSpeed;
-                isSneaking = false;
-            }
+            SplatoonMovement();
 
             Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
             if (inputDir.magnitude >= 0.1f)
@@ -102,10 +130,17 @@ public class ThirdPersonMovement : MonoBehaviour
                 grounded = true;
             }
 
+        } else
+        {
+            if (isSplatooning)
+            {
+                ResetSplatooning();
+            }
         }
-        
 
-        
+        UpdateCamMovement();
+
+
 
         UpdateAnimator(inputDir); //updates player animations
 
@@ -139,4 +174,40 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         return paintingClipLength;
     }
+
+    public void SplatoonMovement()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            camOffsetTarget = camOffsetTargetInit;
+            currentSpeed = splatoonSpeed;
+            thiefRender.SetActive(false);
+            sphereRender.SetActive(true);
+            isSplatooning = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            ResetSplatooning();
+        }
+    }
+
+    public void ResetSplatooning()
+    {
+        camOffsetTarget = camOffsetInit;
+        currentSpeed = moveSpeed;
+        sphereRender.SetActive(false);
+        thiefRender.SetActive(true);
+        isSplatooning = false;
+    }
+
+    private void UpdateCamMovement()
+    {
+
+        float camOffsetDelta = camOffsetTarget - camOffset;
+        camOffsetDelta *= Time.deltaTime * 2;
+        camOffset += camOffsetDelta;
+        camPos.localPosition = new Vector3(0, camOffset, 0);
+    }
+
 }

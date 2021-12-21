@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!transform.GetComponent<ThirdPersonMovement>().isPainting) 
+        if (!transform.GetComponent<ThirdPersonMovement>().isPainting && !transform.GetComponent<ThirdPersonMovement>().isSplatooning) 
         {
             CancelInvoke();
             DetectInteraction(); //outline when facing an interaction obj
