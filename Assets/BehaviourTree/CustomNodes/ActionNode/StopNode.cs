@@ -9,6 +9,7 @@ public class StopNode : ActionNode
     public bool failOnFollowingPlayer = true;
     public bool failOnHeardSound = true;
     public bool failOnPlayerCloseBy = true;
+    public bool failOnReceivealarm = true;
     public SoundObject soundObject;
     protected override void OnStart()
     {
@@ -30,6 +31,10 @@ public class StopNode : ActionNode
         }
 
         if(Context.Officer.PlayerCloseBy && failOnPlayerCloseBy)
+        {
+            return State.Failure;
+        }
+        if (Context.Officer.Notified)
         {
             return State.Failure;
         }

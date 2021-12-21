@@ -21,6 +21,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 0
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-9184030962165752832
 MonoBehaviour:
@@ -78,7 +79,29 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
+--- !u!114 &-8916045125951547016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d56887e2a68ad4b9f36e6a12c57041, type: 3}
+  m_Name: ExecuteAllNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 82e44e29eb43220488cb0fb419bced08
+  Position: {x: 112.99995, y: 700}
+  Children:
+  - {fileID: 4583732530718853279}
+  - {fileID: 8388693397881303561}
+  canFail: 1
 --- !u!114 &-8825899220355203297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +159,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-8602584803808137657
 MonoBehaviour:
@@ -330,7 +354,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 02c064fb1ac4bb048b5c108943d42bae
-  Position: {x: -85.99997, y: 1054}
+  Position: {x: -86.00001, y: 1054}
 --- !u!114 &-7818531708856855557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +376,23 @@ MonoBehaviour:
   - {fileID: 18485077360177830}
   - {fileID: 8112960210901873348}
   canFail: 1
+--- !u!114 &-7736994892016308871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38eb926e23eb0374da63301474288ce3, type: 3}
+  m_Name: IsNotifiedNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 2fb840eae335f3647bbf89ccfc9d6796
+  Position: {x: 46.999973, y: 938}
 --- !u!114 &-7631333712420516956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +488,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-7457786344806331071
 MonoBehaviour:
@@ -465,7 +507,7 @@ MonoBehaviour:
   description: Searching for player at current location
   guid: 51fc2bb3874cf9a4795ec9cf2565a326
   Position: {x: 47.000008, y: 573}
-  Child: {fileID: 8388693397881303561}
+  Child: {fileID: -8916045125951547016}
   loopInfinite: 0
   maxCounter: 5
 --- !u!114 &-7456671894426298810
@@ -489,6 +531,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-7399639597522099795
 MonoBehaviour:
@@ -686,7 +729,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 4969313f10e10cc4c9cc568a83c3f801
-  Position: {x: 272.00003, y: 817}
+  Position: {x: 377.99997, y: 934}
   Children:
   - {fileID: -2273876560338385453}
   - {fileID: 4558080014541305491}
@@ -925,6 +968,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 0
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-6044131199814798396
 MonoBehaviour:
@@ -1458,11 +1502,12 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 651d2629acee3c846bd5d22a8714808e
-  Position: {x: 391.99997, y: 817}
+  Position: {x: 498.00003, y: 934}
   duration: 1
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-2829500499546411804
 MonoBehaviour:
@@ -1598,6 +1643,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-2328216686037163676
 MonoBehaviour:
@@ -1632,7 +1678,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: ddf3853e449a18e42b52e0371aa2aa71
-  Position: {x: 222.99998, y: 930}
+  Position: {x: 328.99994, y: 1047}
   Child: {fileID: 1082985855395407782}
 --- !u!114 &-1884599630951209154
 MonoBehaviour:
@@ -1799,6 +1845,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
@@ -1936,6 +1983,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-829729620003336605
 MonoBehaviour:
@@ -2034,6 +2082,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &-369385407217984632
 MonoBehaviour:
@@ -2091,6 +2140,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -2317,6 +2367,9 @@ MonoBehaviour:
   - {fileID: -6875918298554604703}
   - {fileID: 1933025278073201702}
   - {fileID: 3549830759464151360}
+  - {fileID: -8916045125951547016}
+  - {fileID: 4583732530718853279}
+  - {fileID: -7736994892016308871}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,6 +2425,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &175106520628907754
 MonoBehaviour:
@@ -2445,6 +2499,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 0
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &434330989296079960
 MonoBehaviour:
@@ -2516,7 +2571,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: b24f517c0e32c4d4781293b211d3222a
-  Position: {x: 204, y: 1026}
+  Position: {x: 309.99994, y: 1143}
 --- !u!114 &1097089358751254785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2533,7 +2588,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 4bdad1a585198f4419cf177786625b2c
-  Position: {x: -615.49994, y: 816.9999}
+  Position: {x: -697, y: 817}
 --- !u!114 &1356467444829694873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2718,6 +2773,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &2436984764747924903
 MonoBehaviour:
@@ -2756,7 +2812,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 92e39b8e60826f04b9ac69acdc733489
-  Position: {x: 103.00003, y: 817}
+  Position: {x: 208.99998, y: 934}
   message: 
 --- !u!114 &2487840267581525829
 MonoBehaviour:
@@ -2882,6 +2938,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &3306447299731516838
 MonoBehaviour:
@@ -2942,6 +2999,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &3608810252333210692
 MonoBehaviour:
@@ -3227,7 +3285,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6eb8a2e586b7b02488f179bc6939faeb
-  Position: {x: 340.99997, y: 930}
+  Position: {x: 447.00003, y: 1047}
   message: 
 --- !u!114 &4564574881982143148
 MonoBehaviour:
@@ -3249,6 +3307,24 @@ MonoBehaviour:
   Children:
   - {fileID: -4717833276724293017}
   - {fileID: -9193368854296662430}
+--- !u!114 &4583732530718853279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2260e98cb7d66b4449ee79de7f9a212f, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 7e5f916fde66fe340850108e8386a580
+  Position: {x: 46.99997, y: 818}
+  Child: {fileID: -7736994892016308871}
 --- !u!114 &4599050248963171850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3304,6 +3380,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 0
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &4706663914042044135
 MonoBehaviour:
@@ -3414,7 +3491,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: af3593d28e6e1ff478a1f38bed9c0719
-  Position: {x: -486.3002, y: 937.00006}
+  Position: {x: -583, y: 946}
 --- !u!114 &5061421511726755156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3477,6 +3554,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &5353816085114951598
 MonoBehaviour:
@@ -3519,6 +3597,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &5675356082475758168
 MonoBehaviour:
@@ -3596,6 +3675,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &5924962448365320559
 MonoBehaviour:
@@ -3618,6 +3698,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &5933201470549541420
 MonoBehaviour:
@@ -3741,6 +3822,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &6431311562043190480
 MonoBehaviour:
@@ -3801,6 +3883,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &6789409026016976985
 MonoBehaviour:
@@ -3818,7 +3901,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 96aaf3a2b1fb6d2428be5978f6341e8b
-  Position: {x: -470.4999, y: 816.9999}
+  Position: {x: -539, y: 817}
   Child: {fileID: 4975514323065721886}
 --- !u!114 &7129870830575028245
 MonoBehaviour:
@@ -3858,6 +3941,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 0
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &7277680841179467175
 MonoBehaviour:
@@ -3935,6 +4019,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &7402706770864270482
 MonoBehaviour:
@@ -4145,7 +4230,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: b5cd7aa2e2e697e4da9e446d18077261
-  Position: {x: 90.272354, y: 700}
+  Position: {x: 195.99995, y: 817}
   Children:
   - {fileID: 2474274829171145444}
   - {fileID: -6909236171435530087}
@@ -4188,6 +4273,7 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 0
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
 --- !u!114 &8786196961742484999
 MonoBehaviour:
@@ -4266,4 +4352,5 @@ MonoBehaviour:
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
   failOnPlayerCloseBy: 1
+  failOnReceivealarm: 1
   soundObject: {fileID: 0}
