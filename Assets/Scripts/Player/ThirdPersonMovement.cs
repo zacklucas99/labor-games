@@ -43,6 +43,11 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool shiftTriggered = false;
 
+    public float splatoonCooldown = 5;
+    private float splatoonCooldownInit;
+
+    public RectTransform cooldownBar;
+
 
     void Start()
     {
@@ -52,6 +57,7 @@ public class ThirdPersonMovement : MonoBehaviour
         camOffsetInit = camOffset;
         camOffsetTargetInit = camOffsetTarget;
         camOffsetTarget = camOffset;
+        splatoonCooldownInit = splatoonCooldown;
 
         anim = GetComponent<Animator>();
         currentSpeed = moveSpeed;
@@ -71,7 +77,17 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
+        if (isSplatooning && splatoonCooldown > 0)
+        {
+            splatoonCooldown -= Time.deltaTime;
+        }
         
+        if (!isSplatooning && splatoonCooldown < splatoonCooldownInit)
+        {
+            splatoonCooldown += Time.deltaTime;
+        }
+
+        cooldownBar.localScale = new Vector3(splatoonCooldown / splatoonCooldownInit, 1, 1);
 
         if (!isHiding)
         {
@@ -194,17 +210,18 @@ public class ThirdPersonMovement : MonoBehaviour
             shiftTriggered = true;
         }
 
-        if (shiftTriggered && Input.GetKey(KeyCode.LeftShift) && isMoving)
+        if (shiftTriggered && Input.GetKey(KeyCode.LeftShift) && isMoving && splatoonCooldown > 0)
         {
             shiftTriggered = false;
+            isSplatooning = true;
             camOffsetTarget = camOffsetTargetInit;
             currentSpeed = splatoonSpeed;
             thiefRender.SetActive(false);
             sphereRender.SetActive(true);
-            isSplatooning = true;
+            
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift) || !isMoving)
+        if (Input.GetKeyUp(KeyCode.LeftShift) || !isMoving || splatoonCooldown <= 0)
         {
             ResetSplatooning();
         }
