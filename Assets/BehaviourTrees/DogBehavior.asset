@@ -592,6 +592,25 @@ MonoBehaviour:
   description: 
   guid: 8991b66492b4e9e4e934a7f34afe06db
   Position: {x: -658, y: 462}
+--- !u!114 &-534298293704885183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 597c544311c67be4cbf95bd2c1f87660
+  Position: {x: -1027, y: 623}
+  searchState: 1
+  hide: 1
 --- !u!114 &-501695330994595386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,6 +791,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: -6875918298554604703}
+  - {fileID: -534298293704885183}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,6 +1346,7 @@ MonoBehaviour:
   Children:
   - {fileID: -7317469612234103036}
   - {fileID: 7831265845466096597}
+  - {fileID: -534298293704885183}
   - {fileID: -5583182876934025652}
   - {fileID: -5211843963137524129}
 --- !u!114 &6115978219611413585
