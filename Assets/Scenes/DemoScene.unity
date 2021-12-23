@@ -23322,6 +23322,10 @@ PrefabInstance:
       propertyPath: camOffsetTarget
       value: -0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 2581324361551093573, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
+      propertyPath: splatoonCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2581324361551093574, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_Name
       value: Player
