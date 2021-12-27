@@ -396,6 +396,7 @@ MonoBehaviour:
   description: 
   guid: cb4c3f825404ef04d9a964cd2e9e70dd
   Position: {x: -697, y: 623}
+  storeInMemory: 0
 --- !u!114 &-4825074913803977359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,6 +1132,7 @@ MonoBehaviour:
   description: 
   guid: 457025d80e90cdd4abe710a9cfc9074e
   Position: {x: 2025, y: 707}
+  storeInMemory: 1
 --- !u!114 &4421486091493283543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,6 +1150,7 @@ MonoBehaviour:
   description: 
   guid: 31d2435ed4c7cbc4b8fc5b36544673fa
   Position: {x: -1392, y: 750}
+  storeInMemory: 0
 --- !u!114 &4530878700968482733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1187,7 @@ MonoBehaviour:
   description: 
   guid: 2bd17fc04c8ae3941b1df3910e9c023f
   Position: {x: -1990.5, y: 754.00006}
+  storeInMemory: 0
 --- !u!114 &4694498094468054766
 MonoBehaviour:
   m_ObjectHideFlags: 0

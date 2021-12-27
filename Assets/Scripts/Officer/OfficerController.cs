@@ -95,6 +95,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public GameObject rightHand;
 
     private List<SoundObject> soundObjects = new List<SoundObject>();
+    private HashSet<SoundObject> soundObjectsMemory = new HashSet<SoundObject>();//Storing the sound objects that were already handled
 
     public bool GotEnvironmentNotification { get; private set; }
     private NotifierObject notifierObject;
@@ -532,6 +533,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             // As the dog can make a sound, we have to create a special case for the dog not detecting its own sound
             return;
         }
+        if (soundObjectsMemory.Contains(obj))
+        {
+            return;
+        }
         if (receiveVolume > hearableVolume)
         {
             if(soundObjects.Contains(obj)) {
@@ -784,6 +789,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
 
             GotoNextPoint(false);
+        }
+    }
+
+    public void AddToMemory(SoundObject obj)
+    {
+        if (obj != null) {
+            soundObjectsMemory.Add(obj);
         }
     }
 

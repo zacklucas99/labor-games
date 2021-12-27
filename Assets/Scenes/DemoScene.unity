@@ -10984,7 +10984,7 @@ MonoBehaviour:
   topOffset: {x: 0, y: 1, z: 0}
   numLines: 5
   stepSize: 1
-  interactDist: 0
+  interactDist: 0.68
   interactDistColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &774664747
 GameObject:
@@ -12377,7 +12377,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: 0.000000022278845, z: -0.0000000019502324, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: -0.000000022278854, z: 0.000000001950234, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -22921,11 +22921,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016970741
+      value: -0.00000001697075
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002837846
+      value: 0.0000000028378477
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22961,11 +22961,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018870892
+      value: -0.000000018870892
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037368117
+      value: 0.0000000037368117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
