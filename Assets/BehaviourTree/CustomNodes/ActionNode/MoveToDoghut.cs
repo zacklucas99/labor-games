@@ -7,7 +7,6 @@ public class MoveToDoghut : ActionNode
     protected override State OnUpdate()
     {
         var erg = Context.Officer.MoveToDogHut();
-        Debug.Log("erg:" + erg);
         if (!erg)
         {
             return State.Running;

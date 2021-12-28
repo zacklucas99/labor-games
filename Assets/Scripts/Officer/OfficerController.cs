@@ -114,7 +114,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public Transform dogHut;
 
-    private bool isSleeping;
+    public bool isSleeping;
     
 
     public bool ArrivedAtWayPoint{
