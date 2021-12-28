@@ -70,7 +70,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: bb0c24b4ab741ef4aa9d178800a41fb7
-  Position: {x: 1868.8513, y: 456.99997}
+  Position: {x: 2031.0001, y: 458.99994}
 --- !u!114 &-7986872501714607197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   NodeState: 0
   description: Normal moving and following routes
   guid: 6d6761f0c9590124faef6a64f83f365b
-  Position: {x: 2536, y: 327}
+  Position: {x: 2859.8286, y: 327}
   Children:
   - {fileID: 3831728135835813776}
   - {fileID: -2782138586264980267}
@@ -270,7 +270,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: d43aea76426a1804abb8885d44d7036d
-  Position: {x: 2235.8513, y: 456.99997}
+  Position: {x: 2386.4543, y: 458.99994}
   searchState: 0
   hide: 1
 --- !u!114 &-6458840431935522913
@@ -450,7 +450,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 7dcc59c387f2cc24ea740e44378db9b6
-  Position: {x: 2640, y: 459}
+  Position: {x: 2963.8286, y: 458.99997}
   message: 
 --- !u!114 &-2560146314961535845
 MonoBehaviour:
@@ -494,6 +494,7 @@ MonoBehaviour:
   - {fileID: -8014984154414017314}
   - {fileID: 6115978219611413585}
   - {fileID: -6783623329516161085}
+  - {fileID: 2780705591857361772}
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,6 +794,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: -6875918298554604703}
   - {fileID: -534298293704885183}
+  - {fileID: 2780705591857361772}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,7 +828,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: aafc64519e5c3b043ae13ca0ddee9763
-  Position: {x: 2207, y: 707}
+  Position: {x: 2198, y: 705}
 --- !u!114 &1023418212140817035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,6 +950,23 @@ MonoBehaviour:
   - {fileID: 8529814569718944204}
   - {fileID: -7611583244748092699}
   - {fileID: -6458840431935522913}
+--- !u!114 &2780705591857361772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab402548e5520d049b630ca876bb3ab5, type: 3}
+  m_Name: MoveToDoghut
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 8b5980da36e6a934081c5e20c969b443
+  Position: {x: 1898.9999, y: 458.99994}
 --- !u!114 &3139256336350122394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,7 +1081,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 6a688788fee69ba439d5e11056cedac1
-  Position: {x: 2511, y: 459}
+  Position: {x: 2834.8284, y: 458.99997}
   message: 
 --- !u!114 &4092178055622661770
 MonoBehaviour:
@@ -1131,7 +1150,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 457025d80e90cdd4abe710a9cfc9074e
-  Position: {x: 2025, y: 707}
+  Position: {x: 2016.0001, y: 705}
   storeInMemory: 1
 --- !u!114 &4421486091493283543
 MonoBehaviour:
@@ -1369,7 +1388,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 9b44acc8acc919941ac993767b06be8f
-  Position: {x: 2082.8513, y: 456.99997}
+  Position: {x: 2244, y: 456.99994}
 --- !u!114 &6406220448546930818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,7 +1504,7 @@ MonoBehaviour:
   Position: {x: 789.10376, y: 637.00006}
   duration: 2
   failOnFollowingPlayer: 1
-  failOnHeardSound: 1
+  failOnHeardSound: 0
   failOnPlayerCloseBy: 0
   failOnReceivealarm: 1
   soundObject: {fileID: 0}

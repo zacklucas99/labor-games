@@ -5132,6 +5132,36 @@ Transform:
   m_Father: {fileID: 1782457674}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &620182728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620182729}
+  m_Layer: 0
+  m_Name: DogHutPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &620182729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620182728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.76, y: -0.24, z: -7.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &635338387
 Mesh:
   m_ObjectHideFlags: 0
@@ -11430,6 +11460,7 @@ MonoBehaviour:
   questionMark: {fileID: 0}
   moveToPosition: {x: 0, y: 0, z: 0}
   RestartOnCollision: 1
+  dogHut: {fileID: 0}
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12377,7 +12408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: -0.000000022278854, z: 0.000000001950234, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: 0.000000022278845, z: -0.0000000019502324, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13178,6 +13209,14 @@ PrefabInstance:
       propertyPath: route
       value: 
       objectReference: {fileID: 2056429405}
+    - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
+      propertyPath: DogHut
+      value: 
+      objectReference: {fileID: 620182729}
+    - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
+      propertyPath: dogHut
+      value: 
+      objectReference: {fileID: 620182729}
     - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
       propertyPath: rigidbody
       value: 
@@ -22921,11 +22960,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001697075
+      value: 0.000000016970741
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000028378477
+      value: -0.000000002837846
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22945,11 +22984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016746089
+      value: -0.000000016746096
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000039532155
+      value: 0.0000000039532173
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22961,11 +23000,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018870892
+      value: 0.000000018870892
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037368117
+      value: -0.0000000037368117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}

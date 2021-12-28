@@ -111,6 +111,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public Vector3 moveToPosition;
 
     public bool RestartOnCollision = true;
+
+    public Transform dogHut;
+
+    private bool isSleeping;
     
 
     public bool ArrivedAtWayPoint{
@@ -210,8 +214,17 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void FollowPlayer()
     {
         // Function for moving the officer towards a destination, where a player was noticed
-        agent.SetDestination(playerDestination);
+        agent.SetDestination(dogHut.position);
         character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
+    }
+    public bool MoveToDogHut()
+    {
+        // Function for moving the officer towards a destination, where a player was noticed
+        agent.SetDestination(dogHut.position);
+        character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
+        Vector2 distVector = new Vector2(agent.transform.position.x - dogHut.position.x, 
+            agent.transform.position.z - dogHut.position.z);
+        return distVector.magnitude < agent.stoppingDistance;
     }
 
     public bool RunToAlarm()
