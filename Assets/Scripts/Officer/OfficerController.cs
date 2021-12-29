@@ -117,6 +117,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public Transform dogHutRotPoint;
 
     public bool isSleeping;
+    public FieldOfView fieldOfView;
     
 
     public bool ArrivedAtWayPoint{
@@ -843,6 +844,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         if (obj != null) {
             soundObjectsMemory.Add(obj);
         }
+    }
+
+    public void SetViewDist(float viewDist)
+    {
+        fieldOfView.viewDist = viewDist;
     }
 
     private void OnDrawGizmos()

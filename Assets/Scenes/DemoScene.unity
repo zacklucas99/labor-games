@@ -11463,6 +11463,7 @@ MonoBehaviour:
   dogHut: {fileID: 0}
   dogHutRotPoint: {fileID: 0}
   isSleeping: 0
+  fieldOfView: {fileID: 0}
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12410,7 +12411,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: 0.000000022278808, z: -0.000000001950057, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: -0.000000022278819, z: 0.0000000019500594, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13227,6 +13228,10 @@ PrefabInstance:
       propertyPath: alarmRoute
       value: 
       objectReference: {fileID: 521952555}
+    - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
+      propertyPath: fieldOfView
+      value: 
+      objectReference: {fileID: 1364443569}
     - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
       propertyPath: dogHutRotPoint
       value: 
@@ -22996,11 +23001,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016970741
+      value: -0.00000001697075
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002837846
+      value: 0.0000000028378477
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23036,11 +23041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018870892
+      value: 0.000000018870892
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037368117
+      value: -0.0000000037368117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}

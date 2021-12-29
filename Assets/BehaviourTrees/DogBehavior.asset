@@ -450,7 +450,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 573f0e458abf1fd44af2823c9d0defc2
-  Position: {x: 2357.9998, y: 456.99994}
+  Position: {x: 2486.9998, y: 455.99994}
   sleepingVal: 1
 --- !u!114 &-2782138586264980267
 MonoBehaviour:
@@ -509,6 +509,7 @@ MonoBehaviour:
   - {fileID: -829729620003336605}
   - {fileID: 4952695649473612842}
   - {fileID: 5675356082475758168}
+  - {fileID: 6053415676735106270}
   - {fileID: 2780705591857361772}
   - {fileID: 2812540557998850214}
   - {fileID: 7919510298693198015}
@@ -819,6 +820,7 @@ MonoBehaviour:
   - {fileID: 7919510298693198015}
   - {fileID: -3467739767955743278}
   - {fileID: 2812540557998850214}
+  - {fileID: 6053415676735106270}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1015,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 8b5980da36e6a934081c5e20c969b443
-  Position: {x: 1869, y: 457}
+  Position: {x: 1997.9998, y: 455.99994}
 --- !u!114 &2812540557998850214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,7 +1032,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 228fced9b8eb7a744ac04f33da8a1a36
-  Position: {x: 1989.3916, y: 457}
+  Position: {x: 2117.9998, y: 455.99994}
 --- !u!114 &2913132449491202357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,6 +1477,24 @@ MonoBehaviour:
   - {fileID: -534298293704885183}
   - {fileID: -5583182876934025652}
   - {fileID: -5211843963137524129}
+--- !u!114 &6053415676735106270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b340ed280b0ca46954b01dca3dc3f0, type: 3}
+  m_Name: SetViewDistNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 782a2b4c3404b7549a6c5425e916270b
+  Position: {x: 1868.9999, y: 457}
+  viewDist: 1
 --- !u!114 &6115978219611413585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,7 +1607,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 9cdb05f819e6837409b53c29063cdc20
-  Position: {x: 2175.9998, y: 456.9999}
+  Position: {x: 2304.9998, y: 455.99994}
   Children:
   - {fileID: -8014984154414017314}
   - {fileID: 6115978219611413585}
