@@ -114,6 +114,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public Transform dogHut;
 
+    public Transform dogHutRotPoint;
+
     public bool isSleeping;
     
 
@@ -468,6 +470,37 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             currentRotationSpeed = 0;
             isTurning = false;
             OverTurning = false;
+            return false;
+        }
+        character.SetRotation(-currentRotationSpeed);
+
+        return true;
+    }
+
+    public bool TurnTowardsDogHutPoint()
+    {
+        // Functio nfor turning towards the next route point
+        var angle = Vector3.SignedAngle(new Vector3(dogHutRotPoint.position.x - transform.position.x, 0, dogHutRotPoint.position.z - transform.position.z),
+            transform.forward, Vector3.up);
+        Debug.Log($"angle:{angle}");
+
+        if (!isTurning)
+        {
+            if (Math.Abs(angle) < rotationThreshold)
+            {
+                return false;
+            }
+            isTurning = true;
+            turningFinished = false;
+            currentRotationSpeed = angle / 180f;
+            character.SetRotation(-currentRotationSpeed);
+
+        }
+        if (turningFinished && Math.Abs(angle) < rotationThreshold)
+        {
+            character.SetRotation(0);
+            currentRotationSpeed = 0;
+            isTurning = false;
             return false;
         }
         character.SetRotation(-currentRotationSpeed);
