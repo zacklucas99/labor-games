@@ -47,7 +47,15 @@ public class BehaviourTreeView : GraphView
 
     NodeView FindNodeView(Node node)
     {
-        return GetNodeByGuid(node.guid) as NodeView;
+        try
+        {
+            return GetNodeByGuid(node.guid) as NodeView;
+        }
+        catch (Exception)
+        {
+            Debug.LogError("Node couldn't be found");
+            return null;
+        }
     }
 
 
@@ -79,6 +87,11 @@ public class BehaviourTreeView : GraphView
             {
                 NodeView nodeView = FindNodeView(n);
                 NodeView childView = FindNodeView(child);
+
+                if(nodeView == null || childView == null)
+                {
+                    continue;
+                }
 
                 Edge edge = nodeView.output.ConnectTo(childView.input);
                 AddElement(edge);

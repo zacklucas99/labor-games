@@ -270,7 +270,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: d43aea76426a1804abb8885d44d7036d
-  Position: {x: 2461.9998, y: 575}
+  Position: {x: 2464, y: 575}
   searchState: 0
   hide: 1
 --- !u!114 &-6458840431935522913
@@ -290,6 +290,24 @@ MonoBehaviour:
   description: 
   guid: fedba10de2ab6c948bba9ab4ac59ebc9
   Position: {x: 1080.1038, y: 637.00006}
+--- !u!114 &-6412307762331039033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b340ed280b0ca46954b01dca3dc3f0, type: 3}
+  m_Name: SetViewDistNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 1dbabeb7c2a63974786f64f8f59e1d89
+  Position: {x: 2174.0002, y: 459.00006}
+  viewDist: 0.1
 --- !u!114 &-6314234079149018594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +468,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 573f0e458abf1fd44af2823c9d0defc2
-  Position: {x: 2486.9998, y: 455.99994}
+  Position: {x: 2568.0005, y: 459.00006}
   sleepingVal: 1
 --- !u!114 &-2782138586264980267
 MonoBehaviour:
@@ -509,10 +527,11 @@ MonoBehaviour:
   - {fileID: -829729620003336605}
   - {fileID: 4952695649473612842}
   - {fileID: 5675356082475758168}
-  - {fileID: 6053415676735106270}
   - {fileID: 2780705591857361772}
-  - {fileID: 2812540557998850214}
   - {fileID: 7919510298693198015}
+  - {fileID: -6412307762331039033}
+  - {fileID: 8974066243042939192}
+  - {fileID: 2749286748596587475}
   - {fileID: -3467739767955743278}
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
@@ -819,8 +838,9 @@ MonoBehaviour:
   - {fileID: 2449544694140845928}
   - {fileID: 7919510298693198015}
   - {fileID: -3467739767955743278}
-  - {fileID: 2812540557998850214}
-  - {fileID: 6053415676735106270}
+  - {fileID: -6412307762331039033}
+  - {fileID: 2749286748596587475}
+  - {fileID: 8974066243042939192}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +1019,29 @@ MonoBehaviour:
   failOnPlayerCloseBy: 0
   failOnReceivealarm: 0
   soundObject: {fileID: 0}
+--- !u!114 &2749286748596587475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 9d4a9e7a21ac3564a89b3566655bc3de
+  Position: {x: 2490.0002, y: 459.00006}
+  duration: 1
+  failOnFollowingPlayer: 0
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  failOnReceivealarm: 0
+  soundObject: {fileID: 0}
 --- !u!114 &2780705591857361772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,24 +1058,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 8b5980da36e6a934081c5e20c969b443
-  Position: {x: 1997.9998, y: 455.99994}
---- !u!114 &2812540557998850214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: TurnTowardsDogHutRots
-  m_EditorClassIdentifier: Assembly-CSharp::TurnTowardsDogHutRots
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 228fced9b8eb7a744ac04f33da8a1a36
-  Position: {x: 2117.9998, y: 455.99994}
+  Position: {x: 1898.9999, y: 458.99994}
 --- !u!114 &2913132449491202357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,7 +1473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopDebugging: 0
   NodeState: 0
-  description: 
+  description: Sleeping
   guid: 557a63af6bb4bae46b352f8b2f896b75
   Position: {x: 2906.1865, y: 324}
   Children:
@@ -1477,24 +1503,6 @@ MonoBehaviour:
   - {fileID: -534298293704885183}
   - {fileID: -5583182876934025652}
   - {fileID: -5211843963137524129}
---- !u!114 &6053415676735106270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b340ed280b0ca46954b01dca3dc3f0, type: 3}
-  m_Name: SetViewDistNode
-  m_EditorClassIdentifier: 
-  stopDebugging: 0
-  NodeState: 0
-  description: 
-  guid: 782a2b4c3404b7549a6c5425e916270b
-  Position: {x: 1868.9999, y: 457}
-  viewDist: 1
 --- !u!114 &6115978219611413585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,7 +1519,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 9b44acc8acc919941ac993767b06be8f
-  Position: {x: 2319.9998, y: 575}
+  Position: {x: 2322, y: 575}
 --- !u!114 &6406220448546930818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,7 +1615,7 @@ MonoBehaviour:
   NodeState: 2
   description: 
   guid: 9cdb05f819e6837409b53c29063cdc20
-  Position: {x: 2304.9998, y: 455.99994}
+  Position: {x: 2016, y: 457}
   Children:
   - {fileID: -8014984154414017314}
   - {fileID: 6115978219611413585}
@@ -1673,6 +1681,23 @@ MonoBehaviour:
   - {fileID: 1446485526818288082}
   - {fileID: -8457307331476862250}
   - {fileID: 4151507964814361371}
+--- !u!114 &8974066243042939192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: TurnTowardsDogHutRots
+  m_EditorClassIdentifier: Assembly-CSharp::TurnTowardsDogHutRots
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 61110a8eb2a132149bc43cadb8b8dbde
+  Position: {x: 2303.0005, y: 457.00006}
 --- !u!114 &9065232710843313704
 MonoBehaviour:
   m_ObjectHideFlags: 0
