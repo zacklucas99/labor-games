@@ -43,10 +43,15 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool shiftTriggered = false;
 
-    public float splatoonCooldown = 5;
+    public float splatoonCooldown = 5f;
     private float splatoonCooldownInit;
+    private float cooldownCount = 0;
+    public float cooldownWaitTime = 3f;
+    public float slowerCooldown = 3f; // e.g. if set to 3, bar increases 3 times slower as it would decrease
 
     public RectTransform cooldownBar;
+
+    
 
 
     void Start()
@@ -79,12 +84,22 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (isSplatooning && splatoonCooldown > 0)
         {
+            cooldownCount = 0;
             splatoonCooldown -= Time.deltaTime;
         }
         
         if (!isSplatooning && splatoonCooldown < splatoonCooldownInit)
         {
-            splatoonCooldown += Time.deltaTime;
+            if (cooldownCount > cooldownWaitTime)
+            {
+                splatoonCooldown += Time.deltaTime / slowerCooldown;
+
+            }
+            else
+            {
+                cooldownCount += Time.deltaTime;
+            }
+            
         }
 
         cooldownBar.localScale = new Vector3(splatoonCooldown / splatoonCooldownInit, 1, 1);
