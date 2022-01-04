@@ -25,6 +25,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool isPainting = false;
     public bool isHiding = false;
     public bool isSplatooning = false;
+    public bool blockedMovement = false;
 
     public bool IsMoving => isMoving;
     public bool IsSneaking => isSneaking;
@@ -101,7 +102,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         cooldownBar.localScale = new Vector3(splatoonCooldown / splatoonCooldownInit, 1, 1);
 
-        if (!isHiding)
+        if (!blockedMovement)
         {
             SplatoonMovement();
 
@@ -114,6 +115,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     shadowRender.SetActive(false);
                     thiefRender.SetActive(true);
                     isSplatooning = false;
+                    isHiding = false;
                 }
                 isPainting = false;
                 if (controller.isGrounded)
@@ -188,7 +190,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        if (!isPainting && !isHiding)
+        if (!isPainting && !blockedMovement)
         {
             anim.SetFloat("Forward", move.magnitude * currentSpeed / moveSpeed, 0.1f, Time.deltaTime);
         } else
@@ -226,6 +228,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             shiftTriggered = false;
             isSplatooning = true;
+            isHiding = true;
             camOffsetTarget = camOffsetTargetInit;
             currentSpeed = splatoonSpeed;
             thiefRender.SetActive(false);
@@ -248,6 +251,7 @@ public class ThirdPersonMovement : MonoBehaviour
             shadowRender.SetActive(false);
             thiefRender.SetActive(true);
             isSplatooning = false;
+            isHiding = false;
             if (grounded)
             {
                 velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);

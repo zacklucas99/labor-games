@@ -93,12 +93,13 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (interactionObj.gameObject.tag == "HidingPlace")
             {
-                if (!transform.GetComponent<ThirdPersonMovement>().isHiding)
+                if (!transform.GetComponent<ThirdPersonMovement>().blockedMovement)
                 {
                     gameObject.SetActive(false);
                     transform.position = interactionObj.GetChild(0).transform.position;
                     transform.rotation = interactionObj.GetChild(0).transform.rotation;
                     transform.GetComponent<ThirdPersonMovement>().isHiding = true;
+                    transform.GetComponent<ThirdPersonMovement>().blockedMovement = true;
                     gameObject.SetActive(true);
                 }
                 else
@@ -107,6 +108,7 @@ public class PlayerInteraction : MonoBehaviour
                     transform.position = interactionObj.GetChild(1).transform.position;
                     transform.rotation = interactionObj.GetChild(1).transform.rotation;
                     transform.GetComponent<ThirdPersonMovement>().isHiding = false;
+                    transform.GetComponent<ThirdPersonMovement>().blockedMovement = false;
                     gameObject.SetActive(true);
                 }
 
