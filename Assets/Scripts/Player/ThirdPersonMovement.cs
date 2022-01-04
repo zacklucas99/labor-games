@@ -32,7 +32,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private float paintingClipLength;
 
     public GameObject thiefRender;
-    public GameObject sphereRender;
+    public GameObject shadowRender;
 
 
     public Transform camPos;
@@ -43,11 +43,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool shiftTriggered = false;
 
-    public float splatoonCooldown = 5;
+    public float splatoonCooldown = 5f;
     private float splatoonCooldownInit;
+    private float cooldownCount = 0;
+    public float cooldownWaitTime = 3f;
+    public float slowerCooldown = 3f; // e.g. if set to 3, bar increases 3 times slower as it would decrease
 
     public RectTransform cooldownBar;
-
 
     void Start()
     {
@@ -79,12 +81,22 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (isSplatooning && splatoonCooldown > 0)
         {
+            cooldownCount = 0;
             splatoonCooldown -= Time.deltaTime;
         }
         
         if (!isSplatooning && splatoonCooldown < splatoonCooldownInit)
         {
-            splatoonCooldown += Time.deltaTime;
+            if (cooldownCount > cooldownWaitTime)
+            {
+                splatoonCooldown += Time.deltaTime / slowerCooldown;
+
+            }
+            else
+            {
+                cooldownCount += Time.deltaTime;
+            }
+            
         }
 
         cooldownBar.localScale = new Vector3(splatoonCooldown / splatoonCooldownInit, 1, 1);
@@ -99,7 +111,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
                     camOffsetTarget = camOffsetInit;
                     currentSpeed = moveSpeed;
-                    sphereRender.SetActive(false);
+                    shadowRender.SetActive(false);
                     thiefRender.SetActive(true);
                     isSplatooning = false;
                 }
@@ -217,7 +229,7 @@ public class ThirdPersonMovement : MonoBehaviour
             camOffsetTarget = camOffsetTargetInit;
             currentSpeed = splatoonSpeed;
             thiefRender.SetActive(false);
-            sphereRender.SetActive(true);
+            shadowRender.SetActive(true);
             
         }
 
@@ -233,7 +245,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             camOffsetTarget = camOffsetInit;
             currentSpeed = moveSpeed;
-            sphereRender.SetActive(false);
+            shadowRender.SetActive(false);
             thiefRender.SetActive(true);
             isSplatooning = false;
             if (grounded)
