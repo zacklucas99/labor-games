@@ -32,7 +32,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private float paintingClipLength;
 
     public GameObject thiefRender;
-    public GameObject sphereRender;
+    public GameObject shadowRender;
 
 
     public Transform camPos;
@@ -50,9 +50,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public float slowerCooldown = 3f; // e.g. if set to 3, bar increases 3 times slower as it would decrease
 
     public RectTransform cooldownBar;
-
-    
-
 
     void Start()
     {
@@ -114,7 +111,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
                     camOffsetTarget = camOffsetInit;
                     currentSpeed = moveSpeed;
-                    sphereRender.SetActive(false);
+                    shadowRender.SetActive(false);
                     thiefRender.SetActive(true);
                     isSplatooning = false;
                 }
@@ -232,7 +229,7 @@ public class ThirdPersonMovement : MonoBehaviour
             camOffsetTarget = camOffsetTargetInit;
             currentSpeed = splatoonSpeed;
             thiefRender.SetActive(false);
-            sphereRender.SetActive(true);
+            shadowRender.SetActive(true);
             
         }
 
@@ -248,7 +245,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             camOffsetTarget = camOffsetInit;
             currentSpeed = moveSpeed;
-            sphereRender.SetActive(false);
+            shadowRender.SetActive(false);
             thiefRender.SetActive(true);
             isSplatooning = false;
             if (grounded)
