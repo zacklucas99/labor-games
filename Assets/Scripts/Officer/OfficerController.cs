@@ -497,7 +497,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             character.SetRotation(-currentRotationSpeed);
 
         }
-        if (turningFinished && Math.Abs(angle) < rotationThreshold)
+        if (turningFinished || Math.Abs(angle) < rotationThreshold)
         {
             character.SetRotation(0);
             currentRotationSpeed = 0;
