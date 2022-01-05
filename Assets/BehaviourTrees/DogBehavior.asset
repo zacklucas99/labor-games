@@ -17,6 +17,24 @@ MonoBehaviour:
   description: 
   guid: 7c912fba19bd5824aa1e5c37e5f3e79f
   Position: {x: 495.10376, y: 457.99997}
+--- !u!114 &-8960415648060303584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c41b8b2555b3c241a75a7927edfdca5, type: 3}
+  m_Name: LayDownObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 15645a03f4b40624da38ce473c09ad97
+  Position: {x: 2532, y: 575}
+  cleanUp: 0
 --- !u!114 &-8754512183307031545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +289,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: d43aea76426a1804abb8885d44d7036d
-  Position: {x: 2532, y: 575}
+  Position: {x: 2666, y: 575}
   searchState: 0
   hide: 1
 --- !u!114 &-6458840431935522913
@@ -416,6 +434,24 @@ MonoBehaviour:
   guid: 323779b84c242974db90c756d682738a
   Position: {x: -99, y: -9}
   Child: {fileID: -5706444209112330236}
+--- !u!114 &-4385869394463454397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ad50a241648b4f9cea5951580cb3b, type: 3}
+  m_Name: StartSleeping
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: b4cecf207e256ad4abac0210f9c9a59e
+  Position: {x: 2629, y: 456}
+  cleanUp: 0
 --- !u!114 &-4104877269737027581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +551,7 @@ MonoBehaviour:
   - {fileID: -8014984154414017314}
   - {fileID: 6115978219611413585}
   - {fileID: -3467739767955743278}
+  - {fileID: -4385869394463454397}
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,6 +878,8 @@ MonoBehaviour:
   - {fileID: 1292263922158077805}
   - {fileID: -836512233568015548}
   - {fileID: 8132573260030121323}
+  - {fileID: -8960415648060303584}
+  - {fileID: -4385869394463454397}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,6 +1671,7 @@ MonoBehaviour:
   - {fileID: 1292263922158077805}
   - {fileID: 3423702363691527993}
   - {fileID: -836512233568015548}
+  - {fileID: -8960415648060303584}
   - {fileID: -6783623329516161085}
 --- !u!114 &8132573260030121323
 MonoBehaviour:

@@ -118,6 +118,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
     public bool isSleeping;
     public FieldOfView fieldOfView;
+
+    public ParticleSystem sleepingParticleSystem;
     
 
     public bool ArrivedAtWayPoint{
@@ -852,6 +854,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void SetViewDist(float viewDist)
     {
         fieldOfView.viewDist = viewDist;
+    }
+    public void StartSleeping()
+    {
+        sleepingParticleSystem.Play();
     }
 
     private void OnDrawGizmos()
