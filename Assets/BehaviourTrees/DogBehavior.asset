@@ -110,6 +110,7 @@ MonoBehaviour:
   Position: {x: 1949, y: 575}
   Children:
   - {fileID: -6875918298554604703}
+  - {fileID: 8132573260030121323}
   - {fileID: 4416482076020348316}
   - {fileID: 434330989296079960}
 --- !u!114 &-7611583244748092699
@@ -839,6 +840,7 @@ MonoBehaviour:
   - {fileID: 3423702363691527993}
   - {fileID: 1292263922158077805}
   - {fileID: -836512233568015548}
+  - {fileID: 8132573260030121323}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,7 +874,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: aafc64519e5c3b043ae13ca0ddee9763
-  Position: {x: 2198, y: 705}
+  Position: {x: 2352, y: 705}
 --- !u!114 &1023418212140817035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1272,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 457025d80e90cdd4abe710a9cfc9074e
-  Position: {x: 2016.0001, y: 705}
+  Position: {x: 2165, y: 705}
   storeInMemory: 1
 --- !u!114 &4421486091493283543
 MonoBehaviour:
@@ -1631,6 +1633,24 @@ MonoBehaviour:
   - {fileID: 3423702363691527993}
   - {fileID: -836512233568015548}
   - {fileID: -6783623329516161085}
+--- !u!114 &8132573260030121323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db206d3ff5bce4ab58b5df21b436d9, type: 3}
+  m_Name: PickUpObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 24b2d73bdc8e83c4aa7189394b1c601f
+  Position: {x: 2047, y: 705}
+  cleanUp: 0
 --- !u!114 &8421434552253474602
 MonoBehaviour:
   m_ObjectHideFlags: 0

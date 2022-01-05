@@ -658,7 +658,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
 
         else if (SoundObj != null && IsPickingUp)
         {
-            Destroy(SoundObj.gameObject);
+            if (SoundObj.canDestroy)
+            {
+                Destroy(SoundObj.gameObject);
+            }
             ResetSoundToHandle();
         }
 
