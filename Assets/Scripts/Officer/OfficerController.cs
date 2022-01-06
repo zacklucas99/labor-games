@@ -115,9 +115,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public Transform dogHut;
 
     public Transform dogHutRotPoint;
+    public GameObject dogHutPutDownPoint;
 
     public bool isSleeping;
     public FieldOfView fieldOfView;
+    public bool isLayingDown;
 
     public ParticleSystem sleepingParticleSystem;
     
@@ -219,7 +221,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void FollowPlayer()
     {
         // Function for moving the officer towards a destination, where a player was noticed
-        agent.SetDestination(dogHut.position);
+        agent.SetDestination(playerDestination);
         character.Move(agent.desiredVelocity.normalized * (playerFollowingSpeed), false, false);
     }
     public bool MoveToDogHut()
@@ -731,8 +733,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         IsTurningSoundOff = false;
         isFollowingSound = false;
         soundDestination = Vector3.zero;
-        soundObjectToHandle = null;
-        soundObjects.Clear();
+        if (SoundObj != null && SoundObj.canDestroy)
+        {
+            soundObjectToHandle = null;
+            soundObjects.Clear();
+        }
     }
 
     public void ResetSoundInteractionAnimation()
@@ -858,6 +863,32 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public void StartSleeping()
     {
         sleepingParticleSystem.Play();
+    }
+
+    public void PutDownObj()
+    {
+        animator.SetBool("IsLayingDown", true);
+        isLayingDown = true;
+    }
+
+    public void LayDown()
+    {
+        if (SoundObj)
+        {
+            SoundObj.GetComponent<PickableObject>().parentObject = dogHutPutDownPoint;
+        }
+    }
+
+    public void FinishLayDown()
+    {
+        animator.SetBool("IsLayingDown", false);
+        soundObjectToHandle = null;
+        isLayingDown = false;
+    }
+
+    public void SetSleeping()
+    {
+        animator.SetBool("IsMunching", isSleeping);
     }
 
     private void OnDrawGizmos()

@@ -4,6 +4,7 @@ public class SetIsSleeping : ActionNode
     protected override State OnUpdate()
     {
         Context.Officer.isSleeping = sleepingVal;
+        Context.Officer.SetSleeping();
         return State.Success;
     }
 }
