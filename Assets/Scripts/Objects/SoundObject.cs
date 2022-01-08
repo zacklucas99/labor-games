@@ -13,6 +13,7 @@ public class SoundObject : MonoBehaviour
     public bool canPickUp;
     public bool canCleanUp;
     public bool canDestroy = true;
+    public bool isBone;
     public LayerMask enemyLayer;
 
     public Color radColor;
