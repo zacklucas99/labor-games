@@ -4077,7 +4077,7 @@ MonoBehaviour:
   canDestroy: 0
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8320
   radColor: {r: 1, g: 0.8433224, b: 0, a: 1}
   turnedOffRadColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   drawGizmos: 1
@@ -12485,7 +12485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.16492991, y: 0.000000022278845, z: -0.0000000019502324, w: 0.98630536}
+  m_LocalRotation: {x: 0.16492991, y: -0.000000022278819, z: 0.0000000019500594, w: 0.98630536}
   m_LocalPosition: {x: 11.8, y: 2.609, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13459,6 +13459,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1364443569}
     - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
+      propertyPath: walkingSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317117507648292621, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
       propertyPath: dogHutRotPoint
       value: 
       objectReference: {fileID: 1815828740}
@@ -13474,6 +13478,10 @@ PrefabInstance:
       propertyPath: sleepingParticleSystem
       value: 
       objectReference: {fileID: 1173862118}
+    - target: {fileID: 6317117507648292622, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6317117507648292659, guid: c5eefdad214fb7a41aa6ec9cdb14983e, type: 3}
       propertyPath: m_Name
       value: doggo
@@ -28213,11 +28221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016970741
+      value: -0.00000001697075
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362088261636, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002837846
+      value: 0.0000000028378477
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28237,11 +28245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016746096
+      value: 0.000000016746089
       objectReference: {fileID: 0}
     - target: {fileID: 2581324362778228558, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000039532173
+      value: -0.0000000039532155
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.w

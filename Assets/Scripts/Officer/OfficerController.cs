@@ -122,6 +122,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public bool isLayingDown;
 
     public ParticleSystem sleepingParticleSystem;
+
+    public bool IsHoldingBone { get; set; } = false;
     
 
     public bool ArrivedAtWayPoint{
@@ -588,6 +590,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
             return;
         }
+        if (IsHoldingBone)
+        {
+            return;
+        }
         if (receiveVolume > hearableVolume)
         {
             if(soundObjects.Contains(obj)) {
@@ -666,6 +672,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             {
                 Destroy(SoundObj.gameObject);
             }
+            else
+            {
+                IsHoldingBone = true;
+            }
+
             ResetSoundToHandle();
         }
 
@@ -876,6 +887,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         if (SoundObj)
         {
             SoundObj.GetComponent<PickableObject>().parentObject = dogHutPutDownPoint;
+            IsHoldingBone = false;
         }
     }
 
