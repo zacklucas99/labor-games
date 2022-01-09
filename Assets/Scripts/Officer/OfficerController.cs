@@ -489,7 +489,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         // Functio nfor turning towards the next route point
         var angle = Vector3.SignedAngle(new Vector3(dogHutRotPoint.position.x - transform.position.x, 0, dogHutRotPoint.position.z - transform.position.z),
             transform.forward, Vector3.up);
-        Debug.Log($"angle:{angle}");
 
         if (!isTurning)
         {
@@ -653,15 +652,24 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
             if (notifierObject.destroyObject != null)
             {
-                Destroy(notifierObject.destroyObject);
+                if (!notifierObject.isBone)
+                {
+                    Destroy(notifierObject.destroyObject);
+                }
             }
             else if (notifierObject.interactObject == null)
             {
-                Destroy(notifierObject.gameObject);
+                if (!notifierObject.isBone)
+                {
+                    Destroy(notifierObject.gameObject);
+                }
             }
             else
             {
-                Destroy(notifierObject.interactObject);
+                if (!notifierObject.isBone)
+                {
+                    Destroy(notifierObject.interactObject);
+                }
             }
             ResetEnvironmentNotification();
         }
@@ -840,7 +848,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Resetting officer getting notification
         GotEnvironmentNotification = false;
-        notifierObject = null;
+        if (!notifierObject.isBone)
+        {
+            notifierObject = null;
+        }
     }
 
     public void Alarm()
@@ -888,6 +899,12 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
             SoundObj.GetComponent<PickableObject>().parentObject = dogHutPutDownPoint;
             IsHoldingBone = false;
+        }
+        if (notifierObject)
+        {
+            notifierObject.GetComponent<PickableObject>().parentObject = dogHutPutDownPoint;
+            IsHoldingBone = false;
+            notifierObject = null;
         }
     }
 

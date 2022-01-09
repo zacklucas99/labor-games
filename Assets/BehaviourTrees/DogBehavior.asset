@@ -89,6 +89,32 @@ MonoBehaviour:
   guid: 233052713e629274584ab827c9ecf3df
   Position: {x: 1467.8512, y: 1053}
   Child: {fileID: 3743282492422560883}
+--- !u!114 &-8431010148304052510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733069d86884c1747bcf26111474a3db, type: 3}
+  m_Name: ResetSequencerNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 2
+  description: 
+  guid: e651c1e40e7491e4a9019aaeb2ac764f
+  Position: {x: 3419, y: 555}
+  Children:
+  - {fileID: -1995318100028261726}
+  - {fileID: -1349317791770706514}
+  - {fileID: 6550893017938580818}
+  - {fileID: -7893808766832613257}
+  - {fileID: -1216204194688879064}
+  - {fileID: -4244954547304224582}
+  - {fileID: -7790098361070470078}
+  - {fileID: -5836466928690383085}
 --- !u!114 &-8014984154414017314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +152,47 @@ MonoBehaviour:
   Children:
   - {fileID: 3831728135835813776}
   - {fileID: -2782138586264980267}
+--- !u!114 &-7893808766832613257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f754022c8c533214f9a06374af15b91b, type: 3}
+  m_Name: StopNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: d874a7195043d134b96c24392f249e42
+  Position: {x: 3190.08, y: 671}
+  duration: 1
+  failOnFollowingPlayer: 0
+  failOnHeardSound: 0
+  failOnPlayerCloseBy: 0
+  failOnReceivealarm: 0
+  soundObject: {fileID: 0}
+--- !u!114 &-7790098361070470078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbedbe5c4cfa0c4284f44fd36f5ea63, type: 3}
+  m_Name: SetIsSleeping
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: addfe5adf39e6bc45ab3eaab7f65b4e6
+  Position: {x: 3607, y: 671}
+  sleepingVal: 1
 --- !u!114 &-7620947534341190363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +428,24 @@ MonoBehaviour:
   description: 
   guid: 0c74b335d8512a04d98de5d0f112c2e3
   Position: {x: -1571.9998, y: 461.9999}
+--- !u!114 &-5836466928690383085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ad50a241648b4f9cea5951580cb3b, type: 3}
+  m_Name: StartSleeping
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 11d525133e94c6e48aea051aa0548680
+  Position: {x: 3711, y: 671}
+  cleanUp: 0
 --- !u!114 &-5729055720665386611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +483,24 @@ MonoBehaviour:
   Child: {fileID: 3139256336350122394}
   loopInfinite: 1
   maxCounter: 0
+--- !u!114 &-5589993614030939105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31957ae7b792f934eb52e159443068c0, type: 3}
+  m_Name: IgnoreFailNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 3e2ee3b0b5a82e24789428d9c56a06a1
+  Position: {x: 3440, y: 457}
+  Child: {fileID: -8431010148304052510}
 --- !u!114 &-5583182876934025652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +625,25 @@ MonoBehaviour:
   guid: b4cecf207e256ad4abac0210f9c9a59e
   Position: {x: 2849.9995, y: 949.01117}
   cleanUp: 0
+--- !u!114 &-4244954547304224582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f2656aa0b462e4d83d86d1b82d2894, type: 3}
+  m_Name: ShowExclamationMarkNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: ffee64170d8c88141bb3aa8781e9d78c
+  Position: {x: 3402, y: 671}
+  searchState: 0
+  hide: 1
 --- !u!114 &-4104877269737027581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +737,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 3361ec18b8ea87d4a9aea376217dfd64
-  Position: {x: 2963, y: 457}
+  Position: {x: 2885, y: 457}
   searchState: 0
   hide: 0
 --- !u!114 &-2782138586264980267
@@ -688,6 +810,24 @@ MonoBehaviour:
   description: 
   guid: 8a321e2c281edd14095d8d87b2d29145
   Position: {x: 1854, y: 949}
+--- !u!114 &-1995318100028261726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db206d3ff5bce4ab58b5df21b436d9, type: 3}
+  m_Name: PickUpObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 005182219adc8b348b9b70bf0a498aa8
+  Position: {x: 2776.08, y: 671}
+  cleanUp: 0
 --- !u!114 &-1884599630951209154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +853,41 @@ MonoBehaviour:
   - {fileID: -6783623329516161085}
   - {fileID: -8014984154414017314}
   - {fileID: 6115978219611413585}
+--- !u!114 &-1349317791770706514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab402548e5520d049b630ca876bb3ab5, type: 3}
+  m_Name: MoveToDoghut
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 26577901474192440802a90bb0b7c095
+  Position: {x: 2894.08, y: 671}
+--- !u!114 &-1216204194688879064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c41b8b2555b3c241a75a7927edfdca5, type: 3}
+  m_Name: LayDownObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 2990102fc4665d64590d8732a7f255c3
+  Position: {x: 3268.08, y: 671}
+  cleanUp: 0
 --- !u!114 &-1166015246323023663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,10 +969,11 @@ MonoBehaviour:
   Position: {x: 3030.4585, y: 326.99997}
   Children:
   - {fileID: 1132878902671231863}
-  - {fileID: 5419332142057478150}
   - {fileID: -3063540134850691333}
+  - {fileID: 5419332142057478150}
   - {fileID: -4016505988254783973}
   - {fileID: 4738723737228973864}
+  - {fileID: -5589993614030939105}
 --- !u!114 &-836512233568015548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1103,6 +1279,16 @@ MonoBehaviour:
   - {fileID: -4016505988254783973}
   - {fileID: 4738723737228973864}
   - {fileID: 5419332142057478150}
+  - {fileID: -5589993614030939105}
+  - {fileID: -8431010148304052510}
+  - {fileID: -1995318100028261726}
+  - {fileID: -1349317791770706514}
+  - {fileID: 6550893017938580818}
+  - {fileID: -7893808766832613257}
+  - {fileID: -1216204194688879064}
+  - {fileID: -7790098361070470078}
+  - {fileID: -5836466928690383085}
+  - {fileID: -4244954547304224582}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +2017,7 @@ MonoBehaviour:
   NodeState: 0
   description: 
   guid: 003adac36c525054f8760308db5da82a
-  Position: {x: 2885, y: 457}
+  Position: {x: 3090, y: 457}
   duration: 1
   failOnFollowingPlayer: 1
   failOnHeardSound: 1
@@ -2026,6 +2212,23 @@ MonoBehaviour:
   failOnPlayerCloseBy: 1
   failOnReceivealarm: 1
   soundObject: {fileID: 0}
+--- !u!114 &6550893017938580818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb147d0e42c9384998a0ca2f6b3b2f2, type: 3}
+  m_Name: TurnTowardsDogHutRot
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: db7892b3711b9ea41b8ba0867d4e0a10
+  Position: {x: 3011.08, y: 671}
 --- !u!114 &7129870830575028245
 MonoBehaviour:
   m_ObjectHideFlags: 0

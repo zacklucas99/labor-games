@@ -26,6 +26,7 @@ public class NotifierObject : MonoBehaviour
     public GameObject destroyObject;
 
     public bool notifyInView = true;
+    public bool isBone = false;
 
     private void OnDrawGizmos()
     {
