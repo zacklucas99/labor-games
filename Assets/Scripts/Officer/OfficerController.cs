@@ -755,8 +755,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         if (SoundObj != null && SoundObj.canDestroy)
         {
             soundObjectToHandle = null;
-            soundObjects.Clear();
         }
+        soundObjects.Clear();
     }
 
     public void ResetSoundInteractionAnimation()
@@ -848,7 +848,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Resetting officer getting notification
         GotEnvironmentNotification = false;
-        if (!notifierObject.isBone)
+        if (notifierObject && !notifierObject.isBone)
         {
             notifierObject = null;
         }
