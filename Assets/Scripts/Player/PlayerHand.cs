@@ -56,7 +56,7 @@ public class PlayerHand : MonoBehaviour
         hitCircle.positionCount = circleSegment+1;
 
         throwPrefab = coinPrefab;
-}
+    }
 
     void Update()
     {

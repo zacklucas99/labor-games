@@ -7,7 +7,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
     public float moveSpeed = 3.5f; 
-    public float sneakSpeed = 1.6f; 
+    public float sneakSpeed = 1.6f;
+    public float splatoonSpeed = 6.5f;
     private float currentSpeed;
     public float gravity = -12f;
     public float jumpHeight = 1f;
@@ -23,19 +24,44 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isSneaking = false;
     public bool isPainting = false;
     public bool isHiding = false;
+    public bool isSplatooning = false;
+    public bool blockedMovement = false;
 
     public bool IsMoving => isMoving;
     public bool IsSneaking => isSneaking;
 
     private float paintingClipLength;
 
+    public GameObject thiefRender;
+    public GameObject shadowRender;
 
+
+    public Transform camPos;
+    public float camOffset = 0f;
+    private float camOffsetInit;
+    public float camOffsetTarget = -0.7f;
+    private float camOffsetTargetInit;
+
+    private bool shiftTriggered = false;
+
+    public float splatoonCooldown = 5f;
+    private float splatoonCooldownInit;
+    private float cooldownCount = 0;
+    public float cooldownWaitTime = 3f;
+    public float slowerCooldown = 3f; // e.g. if set to 3, bar increases 3 times slower as it would decrease
+
+    public RectTransform cooldownBar;
 
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
+
+        camOffsetInit = camOffset;
+        camOffsetTargetInit = camOffsetTarget;
+        camOffsetTarget = camOffset;
+        splatoonCooldownInit = splatoonCooldown;
+
         anim = GetComponent<Animator>();
         currentSpeed = moveSpeed;
 
@@ -54,29 +80,71 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if (!isHiding)
+        if (isSplatooning && splatoonCooldown > 0)
         {
+            cooldownCount = 0;
+            splatoonCooldown -= Time.deltaTime;
+        }
+        
+        if (!isSplatooning && splatoonCooldown < splatoonCooldownInit)
+        {
+            if (cooldownCount > cooldownWaitTime)
+            {
+                splatoonCooldown += Time.deltaTime / slowerCooldown;
+
+            }
+            else
+            {
+                cooldownCount += Time.deltaTime;
+            }
+            
+        }
+
+        cooldownBar.localScale = new Vector3(splatoonCooldown / splatoonCooldownInit, 1, 1);
+
+        if (!blockedMovement)
+        {
+            SplatoonMovement();
+
             if (Input.GetButton("Jump"))
             {
+                if (isSplatooning)
+                {
+                    camOffsetTarget = camOffsetInit;
+                    currentSpeed = moveSpeed;
+                    shadowRender.SetActive(false);
+                    thiefRender.SetActive(true);
+                    isSplatooning = false;
+                    isHiding = false;
+                }
                 isPainting = false;
                 if (controller.isGrounded)
                 {
                     velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
                     grounded = false;
+                    
+                }
+                
+            }
+
+            if (!isSplatooning)
+            {
+               
+
+                if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    currentSpeed = sneakSpeed;
+                    isSneaking = true;
+                }
+
+                if (Input.GetKeyUp(KeyCode.LeftControl))
+                {
+                    currentSpeed = moveSpeed;
+                    isSneaking = false;
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                currentSpeed = sneakSpeed;
-                isSneaking = true;
-            }
-
-            if (Input.GetKeyUp(KeyCode.LeftControl))
-            {
-                currentSpeed = moveSpeed;
-                isSneaking = false;
-            }
+            
 
             Vector3 moveDir = velocityY * Vector3.up; //adds y direction movement (jumping/falling)
             if (inputDir.magnitude >= 0.1f)
@@ -96,16 +164,25 @@ public class ThirdPersonMovement : MonoBehaviour
             velocityY += gravity * Time.deltaTime;
             controller.Move(moveDir * Time.deltaTime); //applies movement
 
+           
+
             if (controller.isGrounded)
             {
                 velocityY = 0;
                 grounded = true;
             }
 
+        } else
+        {
+            if (isSplatooning)
+            {
+                ResetSplatooning();
+            }
         }
-        
 
-        
+        UpdateCamMovement();
+
+
 
         UpdateAnimator(inputDir); //updates player animations
 
@@ -113,7 +190,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateAnimator(Vector3 move)
     {
-        if (!isPainting && !isHiding)
+        if (!isPainting && !blockedMovement)
         {
             anim.SetFloat("Forward", move.magnitude * currentSpeed / moveSpeed, 0.1f, Time.deltaTime);
         } else
@@ -139,4 +216,58 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         return paintingClipLength;
     }
+
+    public void SplatoonMovement()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            shiftTriggered = true;
+        }
+
+        if (shiftTriggered && Input.GetKey(KeyCode.LeftShift) && isMoving && splatoonCooldown > 0)
+        {
+            shiftTriggered = false;
+            isSplatooning = true;
+            isHiding = true;
+            camOffsetTarget = camOffsetTargetInit;
+            currentSpeed = splatoonSpeed;
+            thiefRender.SetActive(false);
+            shadowRender.SetActive(true);
+            
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift) || !isMoving || splatoonCooldown <= 0)
+        {
+            ResetSplatooning();
+        }
+    }
+
+    public void ResetSplatooning()
+    {
+        if (isSplatooning)
+        {
+            camOffsetTarget = camOffsetInit;
+            currentSpeed = moveSpeed;
+            shadowRender.SetActive(false);
+            thiefRender.SetActive(true);
+            isSplatooning = false;
+            isHiding = false;
+            if (grounded)
+            {
+                velocityY = Mathf.Sqrt(-2 * gravity * jumpHeight);
+                grounded = false;
+            }
+        }
+        
+    }
+
+    private void UpdateCamMovement()
+    {
+
+        float camOffsetDelta = camOffsetTarget - camOffset;
+        camOffsetDelta *= Time.deltaTime * 2;
+        camOffset += camOffsetDelta;
+        camPos.localPosition = new Vector3(0, camOffset, 0);
+    }
+
 }
