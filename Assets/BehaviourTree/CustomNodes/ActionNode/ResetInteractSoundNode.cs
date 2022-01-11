@@ -8,10 +8,6 @@ public class ResetInteractSoundNode: ActionNode
 
     protected override State OnUpdate()
     {
-        if (storeInMemory)
-        {
-            Context.Officer.AddToMemory(Context.Officer.SoundObj);
-        }
         Context.Officer.ResetSoundInteractionAnimation();
         Context.Officer.ResetSoundToHandle();
         return State.Success;

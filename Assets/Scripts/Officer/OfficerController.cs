@@ -412,6 +412,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             }
             isTurning = true;
             turningFinished = false;
+            if (!SoundObj)
+            {
+                return false;
+            }
             if (Math.Abs(angle) < 90 && SoundObj.GetComponent<ThirdPersonMovement>() != null)
             {
                 // Make officer turning faster for smaller angles to make it easier to discover player
@@ -606,10 +610,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             {
                 GotNewSound = true;
             }
-            isFollowingSound = true;
             soundDestination = obj.transform.position;
             goBackDestination = lastPoint.transform;
             soundObjectToHandle = obj;
+            isFollowingSound = true;
             soundTurnedOff = false;
             soundObjects.Add(obj);
         }
@@ -752,11 +756,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         IsTurningSoundOff = false;
         isFollowingSound = false;
         soundDestination = Vector3.zero;
+        soundObjects.Clear();
         if (SoundObj != null && SoundObj.canDestroy)
         {
             soundObjectToHandle = null;
         }
-        soundObjects.Clear();
     }
 
     public void ResetSoundInteractionAnimation()
@@ -826,6 +830,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         Notified = false;
         isMovingToAlarm = false;
         notifyPosition = Vector3.zero;
+        notificatedObjects.Clear();
     }
 
     public void SetNotification()
@@ -852,6 +857,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
             notifierObject = null;
         }
+        ResetNotification();
     }
 
     public void Alarm()
@@ -868,13 +874,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
 
             GotoNextPoint(false);
-        }
-    }
-
-    public void AddToMemory(SoundObject obj)
-    {
-        if (obj != null) {
-            soundObjectsMemory.Add(obj);
         }
     }
 
