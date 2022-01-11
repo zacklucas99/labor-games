@@ -58,11 +58,6 @@ public class SelectorInteractSoundNode: CompositeNode
         {
             return Children[2].Update();
         }
-        else
-        {
-            Children[3].Update();
-            return State.Success;
-        }
 
         //Finished
         return State.Success;
