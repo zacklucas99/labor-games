@@ -28,6 +28,7 @@ public class Door : MonoBehaviour
     private bool isOpen;
     private bool openedFront;
     private bool openedBack;
+    public bool isLocked = false;
     // Start is called before the first frame update
     void Start()
     {
