@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     //Script to make player only emit sound, if he is moving
     public ThirdPersonMovement player;
+    public PlayerInteraction interaction;
     public SoundObject obj;
     public DoorTrigger global_door;
     void Update()
@@ -29,6 +30,10 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && global_door)
         {
             Debug.Log("Got E");
+            if (global_door.doorObject.isLocked && !interaction.hasKey)
+            {
+                return;
+            }
             global_door.doorObject.Open();
         }
     }
