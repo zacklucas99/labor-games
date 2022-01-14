@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     public PlayerInteraction interaction;
     public SoundObject obj;
     public DoorTrigger global_door;
+    public SoundObject grammophone;
     void Update()
     {
         if (player.IsMoving && !player.IsSneaking && !player.isHiding)
@@ -26,6 +27,11 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.E) && grammophone)
+        {
+            Debug.Log("Turing on grammphone");
+            grammophone.SetTurnedOn(!grammophone.turnedOn);
+        }
 
         if (Input.GetKeyDown(KeyCode.E) && global_door)
         {
@@ -40,6 +46,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        grammophone = other.gameObject.GetComponent<SoundObject>();
         var door = other.gameObject.GetComponent<DoorTrigger>();
         if (!door)
         {
@@ -60,11 +67,16 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (global_door)
+        if (global_door && other.gameObject.GetComponent<DoorTrigger>())
         {
             global_door.doorObject.IsStandingAtFront = false;
             global_door.doorObject.IsStandingAtBack = false;
             global_door = null;
+        }
+        else if(grammophone && other.gameObject.GetComponent<SoundObject>())
+        {
+            grammophone = null;
+
         }
     }
 }
