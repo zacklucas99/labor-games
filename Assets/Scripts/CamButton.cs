@@ -9,8 +9,6 @@ public class CamButton : MonoBehaviour
 
     public void press()
     {
-        Debug.Log("cam button logic");
-
         notPressed.SetActive(false);
         pressed.SetActive(true);
 

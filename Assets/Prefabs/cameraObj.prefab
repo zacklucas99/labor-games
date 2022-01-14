@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 3657337310984002647}
   m_Layer: 0
   m_Name: cameraObj
-  m_TagString: Untagged
+  m_TagString: SecurityCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   meshRenderer: {fileID: 3657337311667224678}
+  disablePoint: {fileID: 0}
+  TurnedOff: 0
+  disableEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3657337310984002647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +245,7 @@ MonoBehaviour:
   offset: 0
   gizmosColor: {r: 0, g: 0, b: 0, a: 0}
   drawGizmos: 1
+  officer: {fileID: 0}
   PlayerFoundEvent:
     m_PersistentCalls:
       m_Calls:
@@ -270,6 +276,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  logging: 0
 --- !u!1 &7943821735192333691
 GameObject:
   m_ObjectHideFlags: 0

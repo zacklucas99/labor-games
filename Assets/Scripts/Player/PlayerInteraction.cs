@@ -18,6 +18,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private Vector3 oldPos;
 
+    public bool hasKey = false;
+
     void Start()
     {
         interactionObj = null;
@@ -116,8 +118,13 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (interactionObj.gameObject.tag == "CamButton")
             {
-                Debug.Log("cam button interaction");
                 interactionObj.GetComponentInParent<CamButton>().press();
+            }
+            else if (interactionObj.gameObject.tag == "Key")
+            {
+                Destroy(interactionObj.gameObject);
+                hasKey = true;
+                Debug.Log("Player has key");
             }
             else
             {
