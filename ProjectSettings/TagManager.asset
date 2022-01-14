@@ -8,6 +8,8 @@ TagManager:
   - Coin
   - Pot
   - HidingPlace
+  - SecurityCam
+  - CamButton
   layers:
   - Default
   - TransparentFX

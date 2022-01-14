@@ -136,7 +136,7 @@ public class CameraController : MonoBehaviour
 
     public void TurnOff()
     {
-        TurnedOff = false;
+        TurnedOff = true;
     }
 
     public void InvokeDisableEvent()

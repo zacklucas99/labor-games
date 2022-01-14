@@ -114,6 +114,11 @@ public class PlayerInteraction : MonoBehaviour
 
 
             }
+            else if (interactionObj.gameObject.tag == "CamButton")
+            {
+                Debug.Log("cam button interaction");
+                interactionObj.GetComponentInParent<CamButton>().press();
+            }
             else
             {
                 if (interactionObj.GetComponent<PaintingBorder>()) //if painting (border)
