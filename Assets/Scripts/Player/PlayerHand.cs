@@ -10,6 +10,7 @@ public class PlayerHand : MonoBehaviour
 
     public GameObject coinPrefab;
     public GameObject potPrefab;
+    public GameObject bonePrefab;
     private GameObject throwPrefab;
 
     public float throwForce = 1f;
@@ -80,6 +81,12 @@ public class PlayerHand : MonoBehaviour
         {
             Debug.Log("Changed to pot");
             throwPrefab = potPrefab;
+        }
+
+        if (tag == "Bone")
+        {
+            Debug.Log("Changed to bone");
+            throwPrefab = bonePrefab;
         }
     }
 

@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public long maxStack = 10;
     private long coinStack = 0;
     private long potStack = 0;
+    private long boneStack = 0;
 
     public GameObject uiCoinPrefab;
     public GameObject uiPotPrefab;
@@ -19,6 +20,7 @@ public class PlayerInventory : MonoBehaviour
 
     private Vector3 coinPos = new Vector3(0f, 12f, -27f);
     private Vector3 potPos = new Vector3(0f, -6f, -27f);
+    private Vector3 bonePos = new Vector3(0f, 1f, 0f);
     private float posOffset = 90f;
 
     private int activeSlot = 0;
@@ -123,6 +125,26 @@ public class PlayerInventory : MonoBehaviour
                 return false;
             }
         }
+        else if(obj.tag == "Bone")
+        {
+            if (boneStack == 0)
+            {
+                invList.Add(uiBonePrefab);
+                UpdateInv();
+            }
+            if (boneStack < maxStack)
+            {
+                boneStack++;
+                UpdateAmounts();
+                Debug.Log("Bones: " + boneStack);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Bones: " + boneStack);
+                return false;
+            }
+        }
         else
         {
             Debug.Log("No matching tag");
@@ -181,6 +203,31 @@ public class PlayerInventory : MonoBehaviour
                 return false;
             }
         }
+
+        else if (obj.tag == "Bone")
+        {
+            if (boneStack == 1)
+            {
+                if (activeSlot > 0)
+                {
+                    activeSlot--;
+                }
+                invList.Remove(uiBonePrefab);
+                UpdateInv();
+            }
+            if (boneStack > 0)
+            {
+                boneStack--;
+                UpdateAmounts();
+                Debug.Log("Bones: " + boneStack);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Pots: " + boneStack);
+                return false;
+            }
+        }
         else
         {
             Debug.Log("No matching tag");
@@ -194,6 +241,10 @@ public class PlayerInventory : MonoBehaviour
         {
             return potPos;
         } 
+        else if(obj == uiBonePrefab)
+        {
+            return bonePos;
+        }
         else
         {
             return coinPos;
