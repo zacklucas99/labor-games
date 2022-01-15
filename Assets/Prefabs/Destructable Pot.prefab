@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PotFracture: {fileID: 1019570292920277286, guid: 3d810add6043fc441a64c17c45f8824b, type: 3}
-  breakVelocity: 3
+  breakVelocity: 0.5
 --- !u!1001 &7773078944785914552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94,9 +94,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 573278c6f7300404e95a310f4f3918df, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 573278c6f7300404e95a310f4f3918df, type: 3}
       propertyPath: m_Name
       value: Destructable Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 573278c6f7300404e95a310f4f3918df, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 573278c6f7300404e95a310f4f3918df, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: 573278c6f7300404e95a310f4f3918df, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573278c6f7300404e95a310f4f3918df, type: 3}

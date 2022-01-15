@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
 
     private Vector3 coinPos = new Vector3(0f, 12f, -27f);
     private Vector3 potPos = new Vector3(0f, -6f, -27f);
-    private Vector3 bonePos = new Vector3(0f, 1f, 0f);
+    private Vector3 bonePos = new Vector3(0f, 10f, 0f);
     private float posOffset = 90f;
 
     private int activeSlot = 0;
@@ -324,6 +324,7 @@ public class PlayerInventory : MonoBehaviour
         textRight.text = "";
         SetAmountText(uiCoinPrefab, coinStack);
         SetAmountText(uiPotPrefab, potStack);
+        SetAmountText(uiBonePrefab, boneStack);
     }
 
     public bool ItemsActive()
