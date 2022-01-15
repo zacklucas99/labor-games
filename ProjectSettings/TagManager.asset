@@ -11,6 +11,7 @@ TagManager:
   - SecurityCam
   - CamButton
   - Key
+  - Bone
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class PlayerInventory : MonoBehaviour
 
     public GameObject uiCoinPrefab;
     public GameObject uiPotPrefab;
+    public GameObject uiBonePrefab;
 
     public Transform uiPanel;
 
