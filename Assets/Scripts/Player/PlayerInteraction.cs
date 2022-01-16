@@ -98,9 +98,9 @@ public class PlayerInteraction : MonoBehaviour
                 if (!transform.GetComponent<ThirdPersonMovement>().blockedMovement)
                 {
                     gameObject.SetActive(false);
+                    transform.GetComponent<ThirdPersonMovement>().isHiding = true;
                     transform.position = interactionObj.GetChild(0).transform.position;
                     transform.rotation = interactionObj.GetChild(0).transform.rotation;
-                    transform.GetComponent<ThirdPersonMovement>().isHiding = true;
                     transform.GetComponent<ThirdPersonMovement>().blockedMovement = true;
                     gameObject.SetActive(true);
                 }
