@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8102371643982130772}
   - component: {fileID: 9138151710225606207}
   - component: {fileID: 318295522968370368}
-  - component: {fileID: 856522207848670453}
   - component: {fileID: 2825226100065207921}
+  - component: {fileID: 2087528584690578986}
+  - component: {fileID: 8744902991187567584}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Bone
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 5128108224741530725}
-  boxCollider: {fileID: 856522207848670453}
+  boxCollider: {fileID: 2087528584690578986}
   this_rigidbody: {fileID: 2825226100065207921}
 --- !u!114 &9138151710225606207
 MonoBehaviour:
@@ -113,19 +114,6 @@ MonoBehaviour:
   stepSize: 1
   interactDist: 0.68
   interactDistColor: {r: 0, g: 0, b: 0, a: 1}
---- !u!65 &856522207848670453
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128108224741530725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.013911247, y: 0.05159621, z: 0.053303003}
-  m_Center: {x: -0.015617847, y: 0.0111229345, z: 0.0007714033}
 --- !u!54 &2825226100065207921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +129,34 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!65 &2087528584690578986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128108224741530725}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3910389, y: 0.10683164, z: 0.14269757}
+  m_Center: {x: 0.015029907, y: 0.0124322325, z: 0.007720351}
+--- !u!114 &8744902991187567584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128108224741530725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d799806f76f65498ba70be7ac77417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 2087528584690578986}
+  timeDelta: 0.5
 --- !u!65 &1501192195
 BoxCollider:
   m_ObjectHideFlags: 0
