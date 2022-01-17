@@ -10,8 +10,9 @@ public class DogAlarmScript : MonoBehaviour
     public Color gizmoColor;
     public LayerMask officerLayer;
 
-    public void Bark(GameObject playerObj) { 
-    var officersInRange = Physics.OverlapSphere(transform.position, cameraNotifyRad, officerLayer);
+    public void Bark(GameObject playerObj) {
+        //GetComponent<AudioSource>().Play();
+        var officersInRange = Physics.OverlapSphere(transform.position, cameraNotifyRad, officerLayer);
 
         foreach (var officer in officersInRange)
         {
