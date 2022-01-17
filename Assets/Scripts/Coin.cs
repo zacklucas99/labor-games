@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        GetComponent<AudioSource>().Play();
         soundObject.turnedOn = true;
         timer = maxTime;
     }
