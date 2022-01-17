@@ -54,13 +54,19 @@ public class PlayerInteraction : MonoBehaviour
             {
                 if (interactionObj != null && interactionObj != hitColliders[0].transform) //if facing new interaction obj
                 {
-                    interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline; //no outline on old object
+                    if (interactionObj.GetComponent<Renderer>() != null)
+                    {
+                        interactionObj.GetComponent<Renderer>().material.shader = shaderNoOutline; //no outline on old object
+                    }
                 }
 
                 interactionObj = hitColliders[0].transform;
-                interactionObj.GetComponent<Renderer>().material.shader = shaderOutline; //outline on object that you are currently facing
-                interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f);
-                interactionObj.GetComponent<Renderer>().material.SetColor("_OutlineColor", new Color(1f, 172f/255f, 0));
+                if (interactionObj != null && interactionObj.GetComponent<Renderer>() != null)
+                {
+                    interactionObj.GetComponent<Renderer>().material.shader = shaderOutline; //outline on object that you are currently facing
+                    interactionObj.GetComponent<Renderer>().material.SetFloat("_OutlineWidth", 1.03f);
+                    interactionObj.GetComponent<Renderer>().material.SetColor("_OutlineColor", new Color(1f, 172f / 255f, 0));
+                }
             }
             else
             {

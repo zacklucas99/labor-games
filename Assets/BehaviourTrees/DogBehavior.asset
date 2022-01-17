@@ -115,6 +115,7 @@ MonoBehaviour:
   - {fileID: -4244954547304224582}
   - {fileID: -7790098361070470078}
   - {fileID: -5836466928690383085}
+  - {fileID: -6156678670011836078}
 --- !u!114 &-8014984154414017314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +429,23 @@ MonoBehaviour:
   description: 
   guid: 0c74b335d8512a04d98de5d0f112c2e3
   Position: {x: -1571.9998, y: 461.9999}
+--- !u!114 &-6156678670011836078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0253dc715a241c04698270e86214ec9c, type: 3}
+  m_Name: IsNotifierObjBone
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 81d6c22a1a4c9a342b4b38fed616b982
+  Position: {x: 2644.0005, y: 671}
 --- !u!114 &-5836466928690383085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1289,6 +1307,7 @@ MonoBehaviour:
   - {fileID: -7790098361070470078}
   - {fileID: -5836466928690383085}
   - {fileID: -4244954547304224582}
+  - {fileID: -6156678670011836078}
 --- !u!114 &175106520628907754
 MonoBehaviour:
   m_ObjectHideFlags: 0

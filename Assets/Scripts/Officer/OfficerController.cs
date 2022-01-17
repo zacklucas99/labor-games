@@ -98,6 +98,7 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     private HashSet<SoundObject> soundObjectsMemory = new HashSet<SoundObject>();//Storing the sound objects that were already handled
 
     public bool GotEnvironmentNotification { get; private set; }
+    public NotifierObject NotifierObject { get => notifierObject; }
     private NotifierObject notifierObject;
     HashSet<NotifierObject> notificatedObjects = new HashSet<NotifierObject>();
 

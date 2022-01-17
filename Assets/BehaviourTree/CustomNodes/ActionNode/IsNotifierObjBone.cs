@@ -1,8 +1,8 @@
-public class IsNotifierObjBone : ActionNode
+public class IsSoundObjBone : ActionNode
 {
     protected override State OnUpdate()
     {
-        if (Context.Officer.NotifierObject && Context.Officer.NotifierObject.isBone)
+        if (Context.Officer.SoundObj && Context.Officer.SoundObj.isBone)
         {
             return State.Success;
         }
