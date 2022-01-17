@@ -39,6 +39,8 @@ public class CameraController : MonoBehaviour
 
     public UnityEvent disableEvent;
 
+    private AudioSource audio;
+
     void Start()
     {
         currentIndex = rotPoints.Count - 1;
@@ -55,6 +57,8 @@ public class CameraController : MonoBehaviour
 
         // Calculate a rotation a step closer to the target and applies rotation to this object
         bone.transform.rotation = Quaternion.LookRotation(newDirection);
+
+        audio = GetComponent<AudioSource>();
     }
 
     public void IncrementIndex()
@@ -112,6 +116,10 @@ public class CameraController : MonoBehaviour
 
     public void PlayerFound(GameObject playerObj)
     {
+        if (!audio.isPlaying)
+        {
+            GetComponent<AudioSource>().Play();
+        }
         meshRenderer.material.color = playerFoundColor;
         playerPosition = playerObj.transform.position;
         FoundPlayer = true;
@@ -129,6 +137,10 @@ public class CameraController : MonoBehaviour
 
     public void LostPlayer()
     {
+        if (audio.isPlaying)
+        {
+            GetComponent<AudioSource>().Stop();
+        }
         meshRenderer.material.color = playerLostColor;
         playerPosition = Vector3.zero;
         FoundPlayer = false;
