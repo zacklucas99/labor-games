@@ -10586,6 +10586,11 @@ MonoBehaviour:
   fieldOfView: {fileID: 0}
   isLayingDown: 0
   sleepingParticleSystem: {fileID: 0}
+  abortDistanceTheshold: 1
+  officerContactCount: 0
+  officerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!33 &841598810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11018,7 +11023,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871363162}
-  m_LocalRotation: {x: 0.17475249, y: 0.00000001696965, z: -0.0000000030018792, w: 0.98461246}
+  m_LocalRotation: {x: 0.17475249, y: 0.000000016945453, z: -0.0000000030062288, w: 0.98461246}
   m_LocalPosition: {x: 11.8, y: 1.0431327, z: -0.48626518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11549,6 +11554,10 @@ PrefabInstance:
       value: 0.61864847
       objectReference: {fileID: 0}
     - target: {fileID: 5446420436059562324, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446420436059562324, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
       propertyPath: m_BaseOffset
       value: -0.1
       objectReference: {fileID: 0}
@@ -11568,6 +11577,14 @@ PrefabInstance:
       propertyPath: questionMark
       value: 
       objectReference: {fileID: 134956655}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: officerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: abortDistanceTheshold
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5446420436059562345, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
       propertyPath: m_Name
       value: officerFemaleObj (2)
@@ -20983,6 +21000,14 @@ PrefabInstance:
       propertyPath: questionMark
       value: 
       objectReference: {fileID: 1404991404}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: officerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: abortDistanceTheshold
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5446420436059562345, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
       propertyPath: m_Name
       value: officerFemaleObj (1)
@@ -22039,6 +22064,14 @@ PrefabInstance:
       propertyPath: questionMark
       value: 
       objectReference: {fileID: 230194424}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: officerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446420436059562327, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
+      propertyPath: abortDistanceTheshold
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5446420436059562345, guid: 75d04eda7b7909142924b3a5a9ac8bd6, type: 3}
       propertyPath: m_Name
       value: officerFemaleObj
@@ -25063,15 +25096,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20401588
+      value: 0.2040159
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018832717
+      value: -0.000000018832703
       objectReference: {fileID: 0}
     - target: {fileID: 2581324363104211838, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000003924721
+      value: 0.0000000039247166
       objectReference: {fileID: 0}
     - target: {fileID: 8122907680341663350, guid: 901dfee7212fa92438ffae980cfbb679, type: 3}
       propertyPath: m_IsActive

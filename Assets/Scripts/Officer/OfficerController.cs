@@ -125,6 +125,9 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     public ParticleSystem sleepingParticleSystem;
 
     public bool IsHoldingBone { get; set; } = false;
+
+    public float abortDistanceTheshold = 1;
+    public LayerMask officerLayer;
     
 
     public bool ArrivedAtWayPoint{
@@ -265,7 +268,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         character.Move(agent.desiredVelocity.normalized * MoveSpeed, false, false);
         Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
         // Returning boolean for determining, whether player has arrived
-        return !ArrivedAtWayPoint && (distVector.magnitude > notifierObject.interactRadius);
+        return !ArrivedAtWayPoint && (distVector.magnitude > notifierObject.interactRadius) &&
+            !(CollidesWithOfficersInAbortDistance() && distVector.magnitude <= abortDistanceTheshold);
     }
 
 
@@ -827,7 +831,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
     {
         // Function for checking whether officer arrived at alarm point
         Vector2 distVector = new Vector2(agent.transform.position.x - agent.destination.x, agent.transform.position.z - agent.destination.z);
-        return isMovingToAlarm && distVector.magnitude >= agent.stoppingDistance;
+        return isMovingToAlarm && distVector.magnitude >= agent.stoppingDistance &&
+            !(CollidesWithOfficersInAbortDistance() && distVector.magnitude <= abortDistanceTheshold);
     }
 
     public void ResetNotification()
@@ -945,6 +950,12 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             Debug.Log("arrivedPlayer");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
+
+    }
+
+    public bool CollidesWithOfficersInAbortDistance()
+    {
+        return Physics.OverlapSphere(transform.position, abortDistanceTheshold, officerLayer).Length > 0;
     }
 }
 
