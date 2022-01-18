@@ -14,10 +14,6 @@ public class FollowSoundNode : ActionNode
         if (Context.Officer.isFollowingSound &&!Context.Officer.NearSound() && CalculateDistToSoundObj() > Context.Officer.SoundObj.interactDist)
         {
             Context.Officer.FollowSound();
-            if (Context.Officer.transform.position == lastPos)
-            {
-                return State.Success;
-            }
             lastPos = Context.Officer.transform.position;
             return State.Running;
         }
