@@ -16,7 +16,6 @@ public class Pot : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        Debug.Log("Collide:"+rb.velocity.magnitude);
         if(rb.velocity.magnitude < breakVelocity)
         {
             return;

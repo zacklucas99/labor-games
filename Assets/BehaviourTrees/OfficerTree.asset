@@ -359,6 +359,24 @@ MonoBehaviour:
   - {fileID: -7320166215265438895}
   - {fileID: -7399639597522099795}
   - {fileID: -2782138586264980267}
+--- !u!114 &-7930779376091376241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db206d3ff5bce4ab58b5df21b436d9, type: 3}
+  m_Name: PickUpObjNode
+  m_EditorClassIdentifier: 
+  stopDebugging: 0
+  NodeState: 0
+  description: 
+  guid: 72fca33bc9944694da8c4d24c49719cd
+  Position: {x: -2989, y: 1338}
+  cleanUp: 1
 --- !u!114 &-7908640479911818254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,6 +2412,7 @@ MonoBehaviour:
   - {fileID: -9114899885781686652}
   - {fileID: 4400354253250424244}
   - {fileID: -5424554240027761282}
+  - {fileID: -7930779376091376241}
 --- !u!114 &18485077360177830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3620,6 +3639,7 @@ MonoBehaviour:
   Children:
   - {fileID: -8220481798367733090}
   - {fileID: 3729830605829293806}
+  - {fileID: -7930779376091376241}
 --- !u!114 &5399548179003163349
 MonoBehaviour:
   m_ObjectHideFlags: 0
