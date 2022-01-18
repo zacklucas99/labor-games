@@ -11,7 +11,12 @@ public class DogAlarmScript : MonoBehaviour
     public LayerMask officerLayer;
 
     public void Bark(GameObject playerObj) {
-        //GetComponent<AudioSource>().Play();
+        if (!GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().loop = true;
+            GetComponent<AudioSource>().Play();
+        }
+        
         var officersInRange = Physics.OverlapSphere(transform.position, cameraNotifyRad, officerLayer);
 
         foreach (var officer in officersInRange)

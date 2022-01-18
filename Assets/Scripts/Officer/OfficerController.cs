@@ -286,6 +286,11 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         destinationSet = false;
 
         isFollowingPlayer = false;
+
+        if(GetComponent<AudioSource>() != null && GetComponent<AudioSource>().isPlaying) //to stop barking of dog
+        {
+            GetComponent<AudioSource>().loop = false;
+        }
     }
     public bool RunToLastActionPoint()
     {
