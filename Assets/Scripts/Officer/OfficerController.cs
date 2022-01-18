@@ -946,7 +946,6 @@ public class OfficerController : MonoBehaviour, SoundReceiver
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
     }
-
 }
 
 public enum PlayerAlarmState

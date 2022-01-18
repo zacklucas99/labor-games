@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5756978962799192582}
   - component: {fileID: 4465917809018049988}
   - component: {fileID: 4465917807691861613}
+  - component: {fileID: -6549490619873817454}
   m_Layer: 7
   m_Name: officerObj (1)
   m_TagString: Untagged
@@ -156,6 +157,16 @@ MonoBehaviour:
   hearableVolume: 0
   rightHand: {fileID: 0}
   exclamationMark: {fileID: 3547509689123747654}
+  questionMark: {fileID: 0}
+  moveToPosition: {x: 0, y: 0, z: 0}
+  RestartOnCollision: 1
+  dogHut: {fileID: 0}
+  dogHutRotPoint: {fileID: 0}
+  dogHutPutDownPoint: {fileID: 0}
+  isSleeping: 0
+  fieldOfView: {fileID: 0}
+  isLayingDown: 0
+  sleepingParticleSystem: {fileID: 0}
 --- !u!114 &2198602921291496923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +302,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &-6549490619873817454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446420436059562345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f05363819f6d64dbdbb9eb8db505be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips: []
 --- !u!1 &5994685984595108601
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +406,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  logging: 0
 --- !u!23 &2128813248098870631
 MeshRenderer:
   m_ObjectHideFlags: 0

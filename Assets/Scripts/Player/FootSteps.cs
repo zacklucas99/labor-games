@@ -16,7 +16,7 @@ public class FootSteps : MonoBehaviour
 
     private void Step()
     {
-        if (!GetComponent<ThirdPersonMovement>().isHiding)
+        if (GetComponent<ThirdPersonMovement>() != null && !GetComponent<ThirdPersonMovement>().isHiding)
         {
             AudioClip clip = clips[Random.Range(0, clips.Length)];
             audioSource.PlayOneShot(clip);
