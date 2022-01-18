@@ -607,6 +607,10 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         {
             return;
         }
+        if (isSleeping)
+        {
+            return;
+        }
         if (receiveVolume > hearableVolume)
         {
             if(soundObjects.Contains(obj)) {
@@ -841,7 +845,13 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         Notified = false;
         isMovingToAlarm = false;
         notifyPosition = Vector3.zero;
-        notificatedObjects.Clear();
+        foreach(NotifierObject obj in notificatedObjects)
+        {
+            if (!obj.persistent)
+            {
+                notificatedObjects.Remove(obj);
+            }
+        }
     }
 
     public void SetNotification()

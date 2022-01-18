@@ -28,6 +28,8 @@ public class NotifierObject : MonoBehaviour
     public bool notifyInView = true;
     public bool isBone = false;
 
+    public bool persistent = false;
+
     private void OnDrawGizmos()
     {
         if (!drawGizmos)
