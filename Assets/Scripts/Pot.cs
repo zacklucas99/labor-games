@@ -8,6 +8,7 @@ public class Pot : MonoBehaviour
     public GameObject PotFracture;
     private Rigidbody rb;
     public float breakVelocity;
+    bool collided = false;
 
     private void Start()
     {
@@ -20,6 +21,11 @@ public class Pot : MonoBehaviour
         {
             return;
         }
+        if (collided)
+        {
+            return;
+        }
+        collided = true;
         var potFractureInstantiate = Instantiate(PotFracture);
         potFractureInstantiate.transform.position = transform.position;
         
