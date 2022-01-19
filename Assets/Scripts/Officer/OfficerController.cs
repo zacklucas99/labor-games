@@ -281,6 +281,8 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         moveToPosition = playerDestination;
         isFollowingPlayer = true;
 
+        ResetAlarm(); //player should ignore alarm while following player;
+
     }
 
     public void LostPlayer()
@@ -831,6 +833,12 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         Notified = true;
     }
 
+    public void ResetAlarm()
+    {
+        notifyPosition = Vector3.zero;
+        Notified = false;
+    }
+
     public bool ArrivedAtAlarm()
     {
         // Function for checking whether officer arrived at alarm point
@@ -845,13 +853,16 @@ public class OfficerController : MonoBehaviour, SoundReceiver
         Notified = false;
         isMovingToAlarm = false;
         notifyPosition = Vector3.zero;
+        HashSet<NotifierObject> newNotifierObjects = new HashSet<NotifierObject>();
         foreach(NotifierObject obj in notificatedObjects)
         {
-            if (!obj.persistent)
+            if (obj.persistent)
             {
-                notificatedObjects.Remove(obj);
+                newNotifierObjects.Add(obj);
             }
         }
+        notificatedObjects.Clear();
+        notificatedObjects = newNotifierObjects;
     }
 
     public void SetNotification()
