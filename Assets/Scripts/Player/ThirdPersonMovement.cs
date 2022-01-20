@@ -35,13 +35,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject thiefRender;
     public GameObject shadowRender;
 
-
-    public Transform camPos;
-    public float camOffset = 0f;
-    private float camOffsetInit;
-    public float camOffsetTarget = -0.7f;
-    private float camOffsetTargetInit;
-
     private bool shiftTriggered = false;
 
     public float splatoonCooldown = 5f;
@@ -57,9 +50,6 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        camOffsetInit = camOffset;
-        camOffsetTargetInit = camOffsetTarget;
-        camOffsetTarget = camOffset;
         splatoonCooldownInit = splatoonCooldown;
 
         anim = GetComponent<Animator>();
@@ -110,7 +100,6 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 if (isSplatooning)
                 {
-                    camOffsetTarget = camOffsetInit;
                     currentSpeed = moveSpeed;
                     shadowRender.SetActive(false);
                     thiefRender.SetActive(true);
@@ -180,8 +169,6 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
-        UpdateCamMovement();
-
 
 
         UpdateAnimator(inputDir); //updates player animations
@@ -229,7 +216,6 @@ public class ThirdPersonMovement : MonoBehaviour
             shiftTriggered = false;
             isSplatooning = true;
             isHiding = true;
-            camOffsetTarget = camOffsetTargetInit;
             currentSpeed = splatoonSpeed;
             thiefRender.SetActive(false);
             shadowRender.SetActive(true);
@@ -246,7 +232,6 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (isSplatooning)
         {
-            camOffsetTarget = camOffsetInit;
             currentSpeed = moveSpeed;
             shadowRender.SetActive(false);
             thiefRender.SetActive(true);
@@ -259,15 +244,6 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
         
-    }
-
-    private void UpdateCamMovement()
-    {
-
-        float camOffsetDelta = camOffsetTarget - camOffset;
-        camOffsetDelta *= Time.deltaTime * 2;
-        camOffset += camOffsetDelta;
-        camPos.localPosition = new Vector3(0, camOffset, 0);
     }
 
 }
