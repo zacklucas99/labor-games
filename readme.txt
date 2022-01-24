@@ -61,6 +61,7 @@ Quellen:
 * Wurflinie der Münze: https://www.youtube.com/watch?v=6mJMmF5sLxk 
 * Animations-Events für den Schritt-Sound: https://www.youtube.com/watch?v=Bnm8mzxnwP8
 * Zerstörung der Töpfe: https://www.youtube.com/watch?v=p3mYcyxyBlw
+*Türen: https://www.youtube.com/watch?v=tJiO4cvsHAo
 
 
 
